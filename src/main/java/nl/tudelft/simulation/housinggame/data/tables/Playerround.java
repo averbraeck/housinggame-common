@@ -62,9 +62,14 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, UInteger> SATISFACTION = createField(DSL.name("satisfaction"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.playerround.saving</code>.
+     * The column <code>housinggame.playerround.savings</code>.
      */
-    public final TableField<PlayerroundRecord, UInteger> SAVING = createField(DSL.name("saving"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, UInteger> SAVINGS = createField(DSL.name("savings"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.maximum_mortgage</code>.
+     */
+    public final TableField<PlayerroundRecord, UInteger> MAXIMUM_MORTGAGE = createField(DSL.name("maximum_mortgage"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.playerround.mortgage</code>.
@@ -158,6 +163,11 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
      * The column <code>housinggame.playerround.moving_reason</code>.
      */
     public final TableField<PlayerroundRecord, String> MOVING_REASON = createField(DSL.name("moving_reason"), SQLDataType.CLOB.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.CLOB)), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.player_state</code>.
+     */
+    public final TableField<PlayerroundRecord, String> PLAYER_STATE = createField(DSL.name("player_state"), SQLDataType.VARCHAR(16).nullable(false).defaultValue(DSL.field(DSL.raw("'INIT'"), SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>housinggame.playerround.house_id</code>.

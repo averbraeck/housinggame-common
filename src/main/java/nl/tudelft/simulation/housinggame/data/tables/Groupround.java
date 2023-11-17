@@ -16,13 +16,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.GrouproundRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function6;
+import org.jooq.Function7;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row6;
+import org.jooq.Row7;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -75,6 +75,11 @@ public class Groupround extends TableImpl<GrouproundRecord> {
      * The column <code>housinggame.groupround.start_time</code>.
      */
     public final TableField<GrouproundRecord, LocalDateTime> START_TIME = createField(DSL.name("start_time"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.LOCALDATETIME)), this, "");
+
+    /**
+     * The column <code>housinggame.groupround.round_state</code>.
+     */
+    public final TableField<GrouproundRecord, String> ROUND_STATE = createField(DSL.name("round_state"), SQLDataType.VARCHAR(16).defaultValue(DSL.field(DSL.raw("'INIT'"), SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>housinggame.groupround.group_id</code>.
@@ -212,18 +217,18 @@ public class Groupround extends TableImpl<GrouproundRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row6 type methods
+    // Row7 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<UInteger, Integer, Integer, LocalDateTime, UInteger, UInteger> fieldsRow() {
-        return (Row6) super.fieldsRow();
+    public Row7<UInteger, Integer, Integer, LocalDateTime, String, UInteger, UInteger> fieldsRow() {
+        return (Row7) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function6<? super UInteger, ? super Integer, ? super Integer, ? super LocalDateTime, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function7<? super UInteger, ? super Integer, ? super Integer, ? super LocalDateTime, ? super String, ? super UInteger, ? super UInteger, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -231,7 +236,7 @@ public class Groupround extends TableImpl<GrouproundRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super UInteger, ? super Integer, ? super Integer, ? super LocalDateTime, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super UInteger, ? super Integer, ? super Integer, ? super LocalDateTime, ? super String, ? super UInteger, ? super UInteger, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

@@ -50,101 +50,115 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
-     * Setter for <code>housinggame.playerround.saving</code>.
+     * Setter for <code>housinggame.playerround.savings</code>.
      */
-    public void setSaving(UInteger value) {
+    public void setSavings(UInteger value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.saving</code>.
+     * Getter for <code>housinggame.playerround.savings</code>.
      */
-    public UInteger getSaving() {
+    public UInteger getSavings() {
         return (UInteger) get(2);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.maximum_mortgage</code>.
+     */
+    public void setMaximumMortgage(UInteger value) {
+        set(3, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.maximum_mortgage</code>.
+     */
+    public UInteger getMaximumMortgage() {
+        return (UInteger) get(3);
     }
 
     /**
      * Setter for <code>housinggame.playerround.mortgage</code>.
      */
     public void setMortgage(UInteger value) {
-        set(3, value);
+        set(4, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.mortgage</code>.
      */
     public UInteger getMortgage() {
-        return (UInteger) get(3);
+        return (UInteger) get(4);
     }
 
     /**
      * Setter for <code>housinggame.playerround.living_costs</code>.
      */
     public void setLivingCosts(UInteger value) {
-        set(4, value);
+        set(5, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.living_costs</code>.
      */
     public UInteger getLivingCosts() {
-        return (UInteger) get(4);
+        return (UInteger) get(5);
     }
 
     /**
      * Setter for <code>housinggame.playerround.income</code>.
      */
     public void setIncome(UInteger value) {
-        set(5, value);
+        set(6, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.income</code>.
      */
     public UInteger getIncome() {
-        return (UInteger) get(5);
+        return (UInteger) get(6);
     }
 
     /**
      * Setter for <code>housinggame.playerround.debt</code>.
      */
     public void setDebt(UInteger value) {
-        set(6, value);
+        set(7, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.debt</code>.
      */
     public UInteger getDebt() {
-        return (UInteger) get(6);
+        return (UInteger) get(7);
     }
 
     /**
      * Setter for <code>housinggame.playerround.current_wealth</code>.
      */
     public void setCurrentWealth(Integer value) {
-        set(7, value);
+        set(8, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.current_wealth</code>.
      */
     public Integer getCurrentWealth() {
-        return (Integer) get(7);
+        return (Integer) get(8);
     }
 
     /**
      * Setter for <code>housinggame.playerround.preferred_house_rating</code>.
      */
     public void setPreferredHouseRating(UInteger value) {
-        set(8, value);
+        set(9, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.preferred_house_rating</code>.
      */
     public UInteger getPreferredHouseRating() {
-        return (UInteger) get(8);
+        return (UInteger) get(9);
     }
 
     /**
@@ -152,7 +166,7 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
      * <code>housinggame.playerround.satisfaction_cost_per_point</code>.
      */
     public void setSatisfactionCostPerPoint(UInteger value) {
-        set(9, value);
+        set(10, value);
     }
 
     /**
@@ -160,35 +174,35 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
      * <code>housinggame.playerround.satisfaction_cost_per_point</code>.
      */
     public UInteger getSatisfactionCostPerPoint() {
-        return (UInteger) get(9);
+        return (UInteger) get(10);
     }
 
     /**
      * Setter for <code>housinggame.playerround.house_price_sold</code>.
      */
     public void setHousePriceSold(UInteger value) {
-        set(10, value);
+        set(11, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.house_price_sold</code>.
      */
     public UInteger getHousePriceSold() {
-        return (UInteger) get(10);
+        return (UInteger) get(11);
     }
 
     /**
      * Setter for <code>housinggame.playerround.house_price_bought</code>.
      */
     public void setHousePriceBought(UInteger value) {
-        set(11, value);
+        set(12, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.house_price_bought</code>.
      */
     public UInteger getHousePriceBought() {
-        return (UInteger) get(11);
+        return (UInteger) get(12);
     }
 
     /**
@@ -196,7 +210,7 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
      * <code>housinggame.playerround.spent_savings_for_buying_house</code>.
      */
     public void setSpentSavingsForBuyingHouse(UInteger value) {
-        set(12, value);
+        set(13, value);
     }
 
     /**
@@ -204,77 +218,77 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
      * <code>housinggame.playerround.spent_savings_for_buying_house</code>.
      */
     public UInteger getSpentSavingsForBuyingHouse() {
-        return (UInteger) get(12);
+        return (UInteger) get(13);
     }
 
     /**
      * Setter for <code>housinggame.playerround.paid_off_debt</code>.
      */
     public void setPaidOffDebt(UInteger value) {
-        set(13, value);
+        set(14, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.paid_off_debt</code>.
      */
     public UInteger getPaidOffDebt() {
-        return (UInteger) get(13);
+        return (UInteger) get(14);
     }
 
     /**
      * Setter for <code>housinggame.playerround.measure_bought</code>.
      */
     public void setMeasureBought(UInteger value) {
-        set(14, value);
+        set(15, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.measure_bought</code>.
      */
     public UInteger getMeasureBought() {
-        return (UInteger) get(14);
+        return (UInteger) get(15);
     }
 
     /**
      * Setter for <code>housinggame.playerround.pluvial_damage</code>.
      */
     public void setPluvialDamage(UInteger value) {
-        set(15, value);
+        set(16, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.pluvial_damage</code>.
      */
     public UInteger getPluvialDamage() {
-        return (UInteger) get(15);
+        return (UInteger) get(16);
     }
 
     /**
      * Setter for <code>housinggame.playerround.fluvial_damage</code>.
      */
     public void setFluvialDamage(UInteger value) {
-        set(16, value);
+        set(17, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.fluvial_damage</code>.
      */
     public UInteger getFluvialDamage() {
-        return (UInteger) get(16);
+        return (UInteger) get(17);
     }
 
     /**
      * Setter for <code>housinggame.playerround.repaired_damage</code>.
      */
     public void setRepairedDamage(UInteger value) {
-        set(17, value);
+        set(18, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.repaired_damage</code>.
      */
     public UInteger getRepairedDamage() {
-        return (UInteger) get(17);
+        return (UInteger) get(18);
     }
 
     /**
@@ -282,7 +296,7 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
      * <code>housinggame.playerround.satisfaction_point_bought</code>.
      */
     public void setSatisfactionPointBought(UInteger value) {
-        set(18, value);
+        set(19, value);
     }
 
     /**
@@ -290,77 +304,91 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
      * <code>housinggame.playerround.satisfaction_point_bought</code>.
      */
     public UInteger getSatisfactionPointBought() {
-        return (UInteger) get(18);
+        return (UInteger) get(19);
     }
 
     /**
      * Setter for <code>housinggame.playerround.create_time</code>.
      */
     public void setCreateTime(LocalDateTime value) {
-        set(19, value);
+        set(20, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.create_time</code>.
      */
     public LocalDateTime getCreateTime() {
-        return (LocalDateTime) get(19);
+        return (LocalDateTime) get(20);
     }
 
     /**
      * Setter for <code>housinggame.playerround.moving_reason</code>.
      */
     public void setMovingReason(String value) {
-        set(20, value);
+        set(21, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.moving_reason</code>.
      */
     public String getMovingReason() {
-        return (String) get(20);
+        return (String) get(21);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.player_state</code>.
+     */
+    public void setPlayerState(String value) {
+        set(22, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.player_state</code>.
+     */
+    public String getPlayerState() {
+        return (String) get(22);
     }
 
     /**
      * Setter for <code>housinggame.playerround.house_id</code>.
      */
     public void setHouseId(UInteger value) {
-        set(21, value);
+        set(23, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.house_id</code>.
      */
     public UInteger getHouseId() {
-        return (UInteger) get(21);
+        return (UInteger) get(23);
     }
 
     /**
      * Setter for <code>housinggame.playerround.player_id</code>.
      */
     public void setPlayerId(UInteger value) {
-        set(22, value);
+        set(24, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.player_id</code>.
      */
     public UInteger getPlayerId() {
-        return (UInteger) get(22);
+        return (UInteger) get(24);
     }
 
     /**
      * Setter for <code>housinggame.playerround.groupround_id</code>.
      */
     public void setGrouproundId(UInteger value) {
-        set(23, value);
+        set(25, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.groupround_id</code>.
      */
     public UInteger getGrouproundId() {
-        return (UInteger) get(23);
+        return (UInteger) get(25);
     }
 
     // -------------------------------------------------------------------------
@@ -386,12 +414,13 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     /**
      * Create a detached, initialised PlayerroundRecord
      */
-    public PlayerroundRecord(UInteger id, UInteger satisfaction, UInteger saving, UInteger mortgage, UInteger livingCosts, UInteger income, UInteger debt, Integer currentWealth, UInteger preferredHouseRating, UInteger satisfactionCostPerPoint, UInteger housePriceSold, UInteger housePriceBought, UInteger spentSavingsForBuyingHouse, UInteger paidOffDebt, UInteger measureBought, UInteger pluvialDamage, UInteger fluvialDamage, UInteger repairedDamage, UInteger satisfactionPointBought, LocalDateTime createTime, String movingReason, UInteger houseId, UInteger playerId, UInteger grouproundId) {
+    public PlayerroundRecord(UInteger id, UInteger satisfaction, UInteger savings, UInteger maximumMortgage, UInteger mortgage, UInteger livingCosts, UInteger income, UInteger debt, Integer currentWealth, UInteger preferredHouseRating, UInteger satisfactionCostPerPoint, UInteger housePriceSold, UInteger housePriceBought, UInteger spentSavingsForBuyingHouse, UInteger paidOffDebt, UInteger measureBought, UInteger pluvialDamage, UInteger fluvialDamage, UInteger repairedDamage, UInteger satisfactionPointBought, LocalDateTime createTime, String movingReason, String playerState, UInteger houseId, UInteger playerId, UInteger grouproundId) {
         super(Playerround.PLAYERROUND);
 
         setId(id);
         setSatisfaction(satisfaction);
-        setSaving(saving);
+        setSavings(savings);
+        setMaximumMortgage(maximumMortgage);
         setMortgage(mortgage);
         setLivingCosts(livingCosts);
         setIncome(income);
@@ -410,6 +439,7 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
         setSatisfactionPointBought(satisfactionPointBought);
         setCreateTime(createTime);
         setMovingReason(movingReason);
+        setPlayerState(playerState);
         setHouseId(houseId);
         setPlayerId(playerId);
         setGrouproundId(grouproundId);
