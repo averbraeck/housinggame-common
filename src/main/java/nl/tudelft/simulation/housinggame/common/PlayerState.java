@@ -8,6 +8,22 @@ package nl.tudelft.simulation.housinggame.common;
  * </p>
  * @author <a href="https://www.tudelft.nl/averbraeck">Alexander Verbraeck</a>
  */
-public enum PlayerState {
+public enum PlayerState
+{
+    INIT(1),
+    READ_NEWS(2),
+    CHECK_HOUSE(3),
+    HOUSE(4),
+    BOUGHT_HOUSE(5),
+    MOVED_IN(6),
+    BOUGHT_MEASURES(7),
+    SURVEY(8),
+    DAMAGE(9);
 
+    public final int nr;
+
+    private PlayerState(final int nr)
+    {
+        this.nr = nr;
+    }
 }
