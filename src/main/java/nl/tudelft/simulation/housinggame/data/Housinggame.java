@@ -9,7 +9,6 @@ import java.util.List;
 
 import nl.tudelft.simulation.housinggame.data.tables.Bid;
 import nl.tudelft.simulation.housinggame.data.tables.Community;
-import nl.tudelft.simulation.housinggame.data.tables.Facilitator;
 import nl.tudelft.simulation.housinggame.data.tables.Gamesession;
 import nl.tudelft.simulation.housinggame.data.tables.Gameversion;
 import nl.tudelft.simulation.housinggame.data.tables.Group;
@@ -61,11 +60,6 @@ public class Housinggame extends SchemaImpl {
      * The table <code>housinggame.community</code>.
      */
     public final Community COMMUNITY = Community.COMMUNITY;
-
-    /**
-     * The table <code>housinggame.facilitator</code>.
-     */
-    public final Facilitator FACILITATOR = Facilitator.FACILITATOR;
 
     /**
      * The table <code>housinggame.gamesession</code>.
@@ -200,7 +194,6 @@ public class Housinggame extends SchemaImpl {
         return Arrays.asList(
             Bid.BID,
             Community.COMMUNITY,
-            Facilitator.FACILITATOR,
             Gamesession.GAMESESSION,
             Gameversion.GAMEVERSION,
             Group.GROUP,

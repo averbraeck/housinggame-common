@@ -6,7 +6,6 @@ package nl.tudelft.simulation.housinggame.data;
 
 import nl.tudelft.simulation.housinggame.data.tables.Bid;
 import nl.tudelft.simulation.housinggame.data.tables.Community;
-import nl.tudelft.simulation.housinggame.data.tables.Facilitator;
 import nl.tudelft.simulation.housinggame.data.tables.Gamesession;
 import nl.tudelft.simulation.housinggame.data.tables.Gameversion;
 import nl.tudelft.simulation.housinggame.data.tables.Group;
@@ -47,11 +46,6 @@ public class Tables {
      * The table <code>housinggame.community</code>.
      */
     public static final Community COMMUNITY = Community.COMMUNITY;
-
-    /**
-     * The table <code>housinggame.facilitator</code>.
-     */
-    public static final Facilitator FACILITATOR = Facilitator.FACILITATOR;
 
     /**
      * The table <code>housinggame.gamesession</code>.

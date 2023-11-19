@@ -125,7 +125,7 @@ public class Group extends TableImpl<GroupRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.GROUP_FK_GROUP_FACILITATOR1_IDX, Indexes.GROUP_FK_GROUP_GAMESESSION1_IDX, Indexes.GROUP_FK_GROUP_SCENARIO1_IDX);
+        return Arrays.asList(Indexes.GROUP_FK_GROUP_GAMESESSION1_IDX, Indexes.GROUP_FK_GROUP_SCENARIO1_IDX, Indexes.GROUP_FK_GROUP_USER1_IDX);
     }
 
     @Override
@@ -145,12 +145,12 @@ public class Group extends TableImpl<GroupRecord> {
 
     @Override
     public List<ForeignKey<GroupRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_GROUP_GAMESESSION1, Keys.FK_GROUP_SCENARIO1, Keys.FK_GROUP_FACILITATOR1);
+        return Arrays.asList(Keys.FK_GROUP_GAMESESSION1, Keys.FK_GROUP_SCENARIO1, Keys.FK_GROUP_USER1);
     }
 
     private transient Gamesession _gamesession;
     private transient Scenario _scenario;
-    private transient Facilitator _facilitator;
+    private transient User _user;
 
     /**
      * Get the implicit join path to the <code>housinggame.gamesession</code>
@@ -175,14 +175,13 @@ public class Group extends TableImpl<GroupRecord> {
     }
 
     /**
-     * Get the implicit join path to the <code>housinggame.facilitator</code>
-     * table.
+     * Get the implicit join path to the <code>housinggame.user</code> table.
      */
-    public Facilitator facilitator() {
-        if (_facilitator == null)
-            _facilitator = new Facilitator(this, Keys.FK_GROUP_FACILITATOR1);
+    public User user() {
+        if (_user == null)
+            _user = new User(this, Keys.FK_GROUP_USER1);
 
-        return _facilitator;
+        return _user;
     }
 
     @Override
