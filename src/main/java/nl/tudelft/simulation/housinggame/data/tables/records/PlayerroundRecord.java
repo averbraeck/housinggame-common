@@ -106,16 +106,16 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
-     * Setter for <code>housinggame.playerround.income</code>.
+     * Setter for <code>housinggame.playerround.income_per_round</code>.
      */
-    public void setIncome(UInteger value) {
+    public void setIncomePerRound(UInteger value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.income</code>.
+     * Getter for <code>housinggame.playerround.income_per_round</code>.
      */
-    public UInteger getIncome() {
+    public UInteger getIncomePerRound() {
         return (UInteger) get(6);
     }
 
@@ -134,16 +134,16 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
-     * Setter for <code>housinggame.playerround.current_wealth</code>.
+     * Setter for <code>housinggame.playerround.spendable_income</code>.
      */
-    public void setCurrentWealth(Integer value) {
+    public void setSpendableIncome(Integer value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.current_wealth</code>.
+     * Getter for <code>housinggame.playerround.spendable_income</code>.
      */
-    public Integer getCurrentWealth() {
+    public Integer getSpendableIncome() {
         return (Integer) get(8);
     }
 
@@ -236,16 +236,16 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
-     * Setter for <code>housinggame.playerround.measure_bought</code>.
+     * Setter for <code>housinggame.playerround.cost_measure_bought</code>.
      */
-    public void setMeasureBought(UInteger value) {
+    public void setCostMeasureBought(UInteger value) {
         set(15, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.measure_bought</code>.
+     * Getter for <code>housinggame.playerround.cost_measure_bought</code>.
      */
-    public UInteger getMeasureBought() {
+    public UInteger getCostMeasureBought() {
         return (UInteger) get(15);
     }
 
@@ -414,7 +414,7 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     /**
      * Create a detached, initialised PlayerroundRecord
      */
-    public PlayerroundRecord(UInteger id, UInteger satisfaction, UInteger savings, UInteger maximumMortgage, UInteger mortgage, UInteger livingCosts, UInteger income, UInteger debt, Integer currentWealth, UInteger preferredHouseRating, UInteger satisfactionCostPerPoint, UInteger housePriceSold, UInteger housePriceBought, UInteger spentSavingsForBuyingHouse, UInteger paidOffDebt, UInteger measureBought, UInteger pluvialDamage, UInteger fluvialDamage, UInteger repairedDamage, UInteger satisfactionPointBought, LocalDateTime createTime, String movingReason, String playerState, UInteger houseId, UInteger playerId, UInteger grouproundId) {
+    public PlayerroundRecord(UInteger id, UInteger satisfaction, UInteger savings, UInteger maximumMortgage, UInteger mortgage, UInteger livingCosts, UInteger incomePerRound, UInteger debt, Integer spendableIncome, UInteger preferredHouseRating, UInteger satisfactionCostPerPoint, UInteger housePriceSold, UInteger housePriceBought, UInteger spentSavingsForBuyingHouse, UInteger paidOffDebt, UInteger costMeasureBought, UInteger pluvialDamage, UInteger fluvialDamage, UInteger repairedDamage, UInteger satisfactionPointBought, LocalDateTime createTime, String movingReason, String playerState, UInteger houseId, UInteger playerId, UInteger grouproundId) {
         super(Playerround.PLAYERROUND);
 
         setId(id);
@@ -423,16 +423,16 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
         setMaximumMortgage(maximumMortgage);
         setMortgage(mortgage);
         setLivingCosts(livingCosts);
-        setIncome(income);
+        setIncomePerRound(incomePerRound);
         setDebt(debt);
-        setCurrentWealth(currentWealth);
+        setSpendableIncome(spendableIncome);
         setPreferredHouseRating(preferredHouseRating);
         setSatisfactionCostPerPoint(satisfactionCostPerPoint);
         setHousePriceSold(housePriceSold);
         setHousePriceBought(housePriceBought);
         setSpentSavingsForBuyingHouse(spentSavingsForBuyingHouse);
         setPaidOffDebt(paidOffDebt);
-        setMeasureBought(measureBought);
+        setCostMeasureBought(costMeasureBought);
         setPluvialDamage(pluvialDamage);
         setFluvialDamage(fluvialDamage);
         setRepairedDamage(repairedDamage);

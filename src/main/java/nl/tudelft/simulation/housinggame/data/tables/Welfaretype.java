@@ -86,9 +86,9 @@ public class Welfaretype extends TableImpl<WelfaretypeRecord> {
     public final TableField<WelfaretypeRecord, UInteger> LIVING_COSTS = createField(DSL.name("living_costs"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.welfaretype.income</code>.
+     * The column <code>housinggame.welfaretype.income_per_round</code>.
      */
-    public final TableField<WelfaretypeRecord, UInteger> INCOME = createField(DSL.name("income"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, UInteger> INCOME_PER_ROUND = createField(DSL.name("income_per_round"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     /**
      * The column

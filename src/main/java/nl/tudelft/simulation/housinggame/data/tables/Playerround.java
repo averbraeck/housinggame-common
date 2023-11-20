@@ -82,9 +82,9 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, UInteger> LIVING_COSTS = createField(DSL.name("living_costs"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.playerround.income</code>.
+     * The column <code>housinggame.playerround.income_per_round</code>.
      */
-    public final TableField<PlayerroundRecord, UInteger> INCOME = createField(DSL.name("income"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, UInteger> INCOME_PER_ROUND = createField(DSL.name("income_per_round"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.playerround.debt</code>.
@@ -92,9 +92,9 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, UInteger> DEBT = createField(DSL.name("debt"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.playerround.current_wealth</code>.
+     * The column <code>housinggame.playerround.spendable_income</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> CURRENT_WEALTH = createField(DSL.name("current_wealth"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, Integer> SPENDABLE_INCOME = createField(DSL.name("spendable_income"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.playerround.preferred_house_rating</code>.
@@ -129,9 +129,9 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, UInteger> PAID_OFF_DEBT = createField(DSL.name("paid_off_debt"), SQLDataType.INTEGERUNSIGNED.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
-     * The column <code>housinggame.playerround.measure_bought</code>.
+     * The column <code>housinggame.playerround.cost_measure_bought</code>.
      */
-    public final TableField<PlayerroundRecord, UInteger> MEASURE_BOUGHT = createField(DSL.name("measure_bought"), SQLDataType.INTEGERUNSIGNED.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<PlayerroundRecord, UInteger> COST_MEASURE_BOUGHT = createField(DSL.name("cost_measure_bought"), SQLDataType.INTEGERUNSIGNED.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
      * The column <code>housinggame.playerround.pluvial_damage</code>.

@@ -140,7 +140,7 @@ public class Group extends TableImpl<GroupRecord> {
 
     @Override
     public List<UniqueKey<GroupRecord>> getUniqueKeys() {
-        return Arrays.asList(Keys.KEY_GROUP_ID_UNIQUE);
+        return Arrays.asList(Keys.KEY_GROUP_ID_UNIQUE, Keys.KEY_GROUP_NAME_UNIQUE, Keys.KEY_GROUP_FACILITATOR_UNIQUE);
     }
 
     @Override

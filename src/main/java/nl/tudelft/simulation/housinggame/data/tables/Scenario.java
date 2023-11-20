@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.ScenarioRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function5;
+import org.jooq.Function7;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row5;
+import org.jooq.Row7;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -69,6 +69,16 @@ public class Scenario extends TableImpl<ScenarioRecord> {
      * The column <code>housinggame.scenario.information_amount</code>.
      */
     public final TableField<ScenarioRecord, Integer> INFORMATION_AMOUNT = createField(DSL.name("information_amount"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.scenario.minimum_players</code>.
+     */
+    public final TableField<ScenarioRecord, UInteger> MINIMUM_PLAYERS = createField(DSL.name("minimum_players"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("6"), SQLDataType.INTEGERUNSIGNED)), this, "");
+
+    /**
+     * The column <code>housinggame.scenario.maximum_players</code>.
+     */
+    public final TableField<ScenarioRecord, UInteger> MAXIMUM_PLAYERS = createField(DSL.name("maximum_players"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("8"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
      * The column <code>housinggame.scenario.scenarioparameters_id</code>.
@@ -208,18 +218,18 @@ public class Scenario extends TableImpl<ScenarioRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row7 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<UInteger, String, Integer, UInteger, UInteger> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row7<UInteger, String, Integer, UInteger, UInteger, UInteger, UInteger> fieldsRow() {
+        return (Row7) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function5<? super UInteger, ? super String, ? super Integer, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function7<? super UInteger, ? super String, ? super Integer, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -227,7 +237,7 @@ public class Scenario extends TableImpl<ScenarioRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super UInteger, ? super String, ? super Integer, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super UInteger, ? super String, ? super Integer, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

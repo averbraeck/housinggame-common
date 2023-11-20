@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.ScenarioparametersR
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function13;
+import org.jooq.Function18;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row13;
+import org.jooq.Row18;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -67,62 +67,93 @@ public class Scenarioparameters extends TableImpl<ScenarioparametersRecord> {
 
     /**
      * The column
-     * <code>housinggame.scenarioparameters.pluvial_repair_costs</code>.
+     * <code>housinggame.scenarioparameters.pluvial_repair_costs_per_damage_point</code>.
      */
-    public final TableField<ScenarioparametersRecord, Double> PLUVIAL_REPAIR_COSTS = createField(DSL.name("pluvial_repair_costs"), SQLDataType.FLOAT.nullable(false), this, "");
+    public final TableField<ScenarioparametersRecord, UInteger> PLUVIAL_REPAIR_COSTS_PER_DAMAGE_POINT = createField(DSL.name("pluvial_repair_costs_per_damage_point"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
      * The column
-     * <code>housinggame.scenarioparameters.pluvial_satisfaction_penalty</code>.
+     * <code>housinggame.scenarioparameters.fluvial_repair_costs_per_damage_point</code>.
      */
-    public final TableField<ScenarioparametersRecord, Double> PLUVIAL_SATISFACTION_PENALTY = createField(DSL.name("pluvial_satisfaction_penalty"), SQLDataType.FLOAT.nullable(false), this, "");
+    public final TableField<ScenarioparametersRecord, UInteger> FLUVIAL_REPAIR_COSTS_PER_DAMAGE_POINT = createField(DSL.name("fluvial_repair_costs_per_damage_point"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
      * The column
-     * <code>housinggame.scenarioparameters.fluvial_repair_costs</code>.
+     * <code>housinggame.scenarioparameters.pluvial_satisfaction_penalty_if_area_flooded</code>.
      */
-    public final TableField<ScenarioparametersRecord, Double> FLUVIAL_REPAIR_COSTS = createField(DSL.name("fluvial_repair_costs"), SQLDataType.FLOAT.nullable(false), this, "");
+    public final TableField<ScenarioparametersRecord, UInteger> PLUVIAL_SATISFACTION_PENALTY_IF_AREA_FLOODED = createField(DSL.name("pluvial_satisfaction_penalty_if_area_flooded"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
      * The column
-     * <code>housinggame.scenarioparameters.fluvial_satisfaction_penalty</code>.
+     * <code>housinggame.scenarioparameters.pluvial_repair_costs_fixed</code>.
      */
-    public final TableField<ScenarioparametersRecord, Double> FLUVIAL_SATISFACTION_PENALTY = createField(DSL.name("fluvial_satisfaction_penalty"), SQLDataType.FLOAT.nullable(false), this, "");
+    public final TableField<ScenarioparametersRecord, UInteger> PLUVIAL_REPAIR_COSTS_FIXED = createField(DSL.name("pluvial_repair_costs_fixed"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.scenarioparameters.fluvial_repair_costs_fixed</code>.
+     */
+    public final TableField<ScenarioparametersRecord, UInteger> FLUVIAL_REPAIR_COSTS_FIXED = createField(DSL.name("fluvial_repair_costs_fixed"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.scenarioparameters.fluvial_satisfaction_penalty_if_area_flooded</code>.
+     */
+    public final TableField<ScenarioparametersRecord, UInteger> FLUVIAL_SATISFACTION_PENALTY_IF_AREA_FLOODED = createField(DSL.name("fluvial_satisfaction_penalty_if_area_flooded"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.scenarioparameters.pluvial_satisfaction_penalty_house_flooded_fixed</code>.
+     */
+    public final TableField<ScenarioparametersRecord, UInteger> PLUVIAL_SATISFACTION_PENALTY_HOUSE_FLOODED_FIXED = createField(DSL.name("pluvial_satisfaction_penalty_house_flooded_fixed"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.scenarioparameters.fluvial_satisfaction_penalty_house_flooded_fixed</code>.
+     */
+    public final TableField<ScenarioparametersRecord, UInteger> FLUVIAL_SATISFACTION_PENALTY_HOUSE_FLOODED_FIXED = createField(DSL.name("fluvial_satisfaction_penalty_house_flooded_fixed"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.scenarioparameters.pluvial_satisfaction_penalty_per_damage_point</code>.
+     */
+    public final TableField<ScenarioparametersRecord, UInteger> PLUVIAL_SATISFACTION_PENALTY_PER_DAMAGE_POINT = createField(DSL.name("pluvial_satisfaction_penalty_per_damage_point"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.scenarioparameters.fluvial_satisfaction_penalty_per_damage_point</code>.
+     */
+    public final TableField<ScenarioparametersRecord, UInteger> FLUVIAL_SATISFACTION_PENALTY_PER_DAMAGE_POINT = createField(DSL.name("fluvial_satisfaction_penalty_per_damage_point"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
      * The column
      * <code>housinggame.scenarioparameters.satisfaction_debt_penalty</code>.
      */
-    public final TableField<ScenarioparametersRecord, Double> SATISFACTION_DEBT_PENALTY = createField(DSL.name("satisfaction_debt_penalty"), SQLDataType.FLOAT.nullable(false), this, "");
+    public final TableField<ScenarioparametersRecord, UInteger> SATISFACTION_DEBT_PENALTY = createField(DSL.name("satisfaction_debt_penalty"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
      * The column
-     * <code>housinggame.scenarioparameters.satisfaction_house_rating_change</code>.
+     * <code>housinggame.scenarioparameters.satisfaction_house_rating_change_fixed</code>.
      */
-    public final TableField<ScenarioparametersRecord, Double> SATISFACTION_HOUSE_RATING_CHANGE = createField(DSL.name("satisfaction_house_rating_change"), SQLDataType.FLOAT.nullable(false), this, "");
+    public final TableField<ScenarioparametersRecord, UInteger> SATISFACTION_HOUSE_RATING_CHANGE_FIXED = createField(DSL.name("satisfaction_house_rating_change_fixed"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.scenarioparameters.satisfaction_house_rating_change_per_delta</code>.
+     */
+    public final TableField<ScenarioparametersRecord, UInteger> SATISFACTION_HOUSE_RATING_CHANGE_PER_DELTA = createField(DSL.name("satisfaction_house_rating_change_per_delta"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
      * The column
      * <code>housinggame.scenarioparameters.satisfaction_move_penalty</code>.
      */
-    public final TableField<ScenarioparametersRecord, Double> SATISFACTION_MOVE_PENALTY = createField(DSL.name("satisfaction_move_penalty"), SQLDataType.FLOAT.nullable(false), this, "");
-
-    /**
-     * The column <code>housinggame.scenarioparameters.flood_repair_cost</code>.
-     */
-    public final TableField<ScenarioparametersRecord, Double> FLOOD_REPAIR_COST = createField(DSL.name("flood_repair_cost"), SQLDataType.FLOAT.nullable(false), this, "");
-
-    /**
-     * The column
-     * <code>housinggame.scenarioparameters.flood_satisfaction_penalty</code>.
-     */
-    public final TableField<ScenarioparametersRecord, Double> FLOOD_SATISFACTION_PENALTY = createField(DSL.name("flood_satisfaction_penalty"), SQLDataType.FLOAT.nullable(false), this, "");
+    public final TableField<ScenarioparametersRecord, UInteger> SATISFACTION_MOVE_PENALTY = createField(DSL.name("satisfaction_move_penalty"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
      * The column
      * <code>housinggame.scenarioparameters.mortgage_percentage</code>.
      */
-    public final TableField<ScenarioparametersRecord, Double> MORTGAGE_PERCENTAGE = createField(DSL.name("mortgage_percentage"), SQLDataType.FLOAT.nullable(false), this, "");
+    public final TableField<ScenarioparametersRecord, Double> MORTGAGE_PERCENTAGE = createField(DSL.name("mortgage_percentage"), SQLDataType.FLOAT.nullable(false).defaultValue(DSL.field(DSL.raw("10"), SQLDataType.FLOAT)), this, "");
 
     /**
      * The column
@@ -248,18 +279,18 @@ public class Scenarioparameters extends TableImpl<ScenarioparametersRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row13 type methods
+    // Row18 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row13<UInteger, String, Double, Double, Double, Double, Double, Double, Double, Double, Double, Double, UInteger> fieldsRow() {
-        return (Row13) super.fieldsRow();
+    public Row18<UInteger, String, UInteger, UInteger, UInteger, UInteger, UInteger, UInteger, UInteger, UInteger, UInteger, UInteger, UInteger, UInteger, UInteger, UInteger, Double, UInteger> fieldsRow() {
+        return (Row18) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function13<? super UInteger, ? super String, ? super Double, ? super Double, ? super Double, ? super Double, ? super Double, ? super Double, ? super Double, ? super Double, ? super Double, ? super Double, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function18<? super UInteger, ? super String, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super Double, ? super UInteger, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -267,7 +298,7 @@ public class Scenarioparameters extends TableImpl<ScenarioparametersRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function13<? super UInteger, ? super String, ? super Double, ? super Double, ? super Double, ? super Double, ? super Double, ? super Double, ? super Double, ? super Double, ? super Double, ? super Double, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function18<? super UInteger, ? super String, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super Double, ? super UInteger, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
