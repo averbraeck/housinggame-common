@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.MeasuretypeRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function8;
+import org.jooq.Function9;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row8;
+import org.jooq.Row9;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -31,6 +31,7 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
+import org.jooq.types.UByte;
 import org.jooq.types.UInteger;
 
 
@@ -89,6 +90,11 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
      * The column <code>housinggame.measuretype.fluvial_protection_level</code>.
      */
     public final TableField<MeasuretypeRecord, Integer> FLUVIAL_PROTECTION_LEVEL = createField(DSL.name("fluvial_protection_level"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.measuretype.valid_till_usage</code>.
+     */
+    public final TableField<MeasuretypeRecord, UByte> VALID_TILL_USAGE = createField(DSL.name("valid_till_usage"), SQLDataType.TINYINTUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINTUNSIGNED)), this, "");
 
     /**
      * The column <code>housinggame.measuretype.gameversion_id</code>.
@@ -211,18 +217,18 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row8 type methods
+    // Row9 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<UInteger, String, String, UInteger, Integer, Integer, Integer, UInteger> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row9<UInteger, String, String, UInteger, Integer, Integer, Integer, UByte, UInteger> fieldsRow() {
+        return (Row9) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function8<? super UInteger, ? super String, ? super String, ? super UInteger, ? super Integer, ? super Integer, ? super Integer, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function9<? super UInteger, ? super String, ? super String, ? super UInteger, ? super Integer, ? super Integer, ? super Integer, ? super UByte, ? super UInteger, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -230,7 +236,7 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function8<? super UInteger, ? super String, ? super String, ? super UInteger, ? super Integer, ? super Integer, ? super Integer, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super UInteger, ? super String, ? super String, ? super UInteger, ? super Integer, ? super Integer, ? super Integer, ? super UByte, ? super UInteger, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
