@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UByte;
 import org.jooq.types.UInteger;
 
 
@@ -94,7 +93,7 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     /**
      * The column <code>housinggame.measuretype.valid_till_usage</code>.
      */
-    public final TableField<MeasuretypeRecord, UByte> VALID_TILL_USAGE = createField(DSL.name("valid_till_usage"), SQLDataType.TINYINTUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINTUNSIGNED)), this, "");
+    public final TableField<MeasuretypeRecord, Byte> VALID_TILL_USAGE = createField(DSL.name("valid_till_usage"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINT)), this, "");
 
     /**
      * The column <code>housinggame.measuretype.gameversion_id</code>.
@@ -221,14 +220,14 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<UInteger, String, String, UInteger, Integer, Integer, Integer, UByte, UInteger> fieldsRow() {
+    public Row9<UInteger, String, String, UInteger, Integer, Integer, Integer, Byte, UInteger> fieldsRow() {
         return (Row9) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function9<? super UInteger, ? super String, ? super String, ? super UInteger, ? super Integer, ? super Integer, ? super Integer, ? super UByte, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function9<? super UInteger, ? super String, ? super String, ? super UInteger, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super UInteger, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -236,7 +235,7 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super UInteger, ? super String, ? super String, ? super UInteger, ? super Integer, ? super Integer, ? super Integer, ? super UByte, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super UInteger, ? super String, ? super String, ? super UInteger, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super UInteger, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
