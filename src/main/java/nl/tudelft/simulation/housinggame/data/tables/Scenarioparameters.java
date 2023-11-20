@@ -133,15 +133,15 @@ public class Scenarioparameters extends TableImpl<ScenarioparametersRecord> {
 
     /**
      * The column
-     * <code>housinggame.scenarioparameters.satisfaction_house_rating_change_fixed</code>.
+     * <code>housinggame.scenarioparameters.satisfaction_house_rating_too_low_fixed</code>.
      */
-    public final TableField<ScenarioparametersRecord, UInteger> SATISFACTION_HOUSE_RATING_CHANGE_FIXED = createField(DSL.name("satisfaction_house_rating_change_fixed"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<ScenarioparametersRecord, UInteger> SATISFACTION_HOUSE_RATING_TOO_LOW_FIXED = createField(DSL.name("satisfaction_house_rating_too_low_fixed"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
      * The column
-     * <code>housinggame.scenarioparameters.satisfaction_house_rating_change_per_delta</code>.
+     * <code>housinggame.scenarioparameters.satisfaction_house_rating_too_low_per_delta</code>.
      */
-    public final TableField<ScenarioparametersRecord, UInteger> SATISFACTION_HOUSE_RATING_CHANGE_PER_DELTA = createField(DSL.name("satisfaction_house_rating_change_per_delta"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<ScenarioparametersRecord, UInteger> SATISFACTION_HOUSE_RATING_TOO_LOW_PER_DELTA = createField(DSL.name("satisfaction_house_rating_too_low_per_delta"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
      * The column

@@ -228,33 +228,33 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
 
     /**
      * Setter for
-     * <code>housinggame.scenarioparameters.satisfaction_house_rating_change_fixed</code>.
+     * <code>housinggame.scenarioparameters.satisfaction_house_rating_too_low_fixed</code>.
      */
-    public void setSatisfactionHouseRatingChangeFixed(UInteger value) {
+    public void setSatisfactionHouseRatingTooLowFixed(UInteger value) {
         set(13, value);
     }
 
     /**
      * Getter for
-     * <code>housinggame.scenarioparameters.satisfaction_house_rating_change_fixed</code>.
+     * <code>housinggame.scenarioparameters.satisfaction_house_rating_too_low_fixed</code>.
      */
-    public UInteger getSatisfactionHouseRatingChangeFixed() {
+    public UInteger getSatisfactionHouseRatingTooLowFixed() {
         return (UInteger) get(13);
     }
 
     /**
      * Setter for
-     * <code>housinggame.scenarioparameters.satisfaction_house_rating_change_per_delta</code>.
+     * <code>housinggame.scenarioparameters.satisfaction_house_rating_too_low_per_delta</code>.
      */
-    public void setSatisfactionHouseRatingChangePerDelta(UInteger value) {
+    public void setSatisfactionHouseRatingTooLowPerDelta(UInteger value) {
         set(14, value);
     }
 
     /**
      * Getter for
-     * <code>housinggame.scenarioparameters.satisfaction_house_rating_change_per_delta</code>.
+     * <code>housinggame.scenarioparameters.satisfaction_house_rating_too_low_per_delta</code>.
      */
-    public UInteger getSatisfactionHouseRatingChangePerDelta() {
+    public UInteger getSatisfactionHouseRatingTooLowPerDelta() {
         return (UInteger) get(14);
     }
 
@@ -396,12 +396,12 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
 
     @Override
     public Field<UInteger> field14() {
-        return Scenarioparameters.SCENARIOPARAMETERS.SATISFACTION_HOUSE_RATING_CHANGE_FIXED;
+        return Scenarioparameters.SCENARIOPARAMETERS.SATISFACTION_HOUSE_RATING_TOO_LOW_FIXED;
     }
 
     @Override
     public Field<UInteger> field15() {
-        return Scenarioparameters.SCENARIOPARAMETERS.SATISFACTION_HOUSE_RATING_CHANGE_PER_DELTA;
+        return Scenarioparameters.SCENARIOPARAMETERS.SATISFACTION_HOUSE_RATING_TOO_LOW_PER_DELTA;
     }
 
     @Override
@@ -486,12 +486,12 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
 
     @Override
     public UInteger component14() {
-        return getSatisfactionHouseRatingChangeFixed();
+        return getSatisfactionHouseRatingTooLowFixed();
     }
 
     @Override
     public UInteger component15() {
-        return getSatisfactionHouseRatingChangePerDelta();
+        return getSatisfactionHouseRatingTooLowPerDelta();
     }
 
     @Override
@@ -576,12 +576,12 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
 
     @Override
     public UInteger value14() {
-        return getSatisfactionHouseRatingChangeFixed();
+        return getSatisfactionHouseRatingTooLowFixed();
     }
 
     @Override
     public UInteger value15() {
-        return getSatisfactionHouseRatingChangePerDelta();
+        return getSatisfactionHouseRatingTooLowPerDelta();
     }
 
     @Override
@@ -679,13 +679,13 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
 
     @Override
     public ScenarioparametersRecord value14(UInteger value) {
-        setSatisfactionHouseRatingChangeFixed(value);
+        setSatisfactionHouseRatingTooLowFixed(value);
         return this;
     }
 
     @Override
     public ScenarioparametersRecord value15(UInteger value) {
-        setSatisfactionHouseRatingChangePerDelta(value);
+        setSatisfactionHouseRatingTooLowPerDelta(value);
         return this;
     }
 
@@ -744,7 +744,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
     /**
      * Create a detached, initialised ScenarioparametersRecord
      */
-    public ScenarioparametersRecord(UInteger id, String name, UInteger pluvialRepairCostsPerDamagePoint, UInteger fluvialRepairCostsPerDamagePoint, UInteger pluvialSatisfactionPenaltyIfAreaFlooded, UInteger pluvialRepairCostsFixed, UInteger fluvialRepairCostsFixed, UInteger fluvialSatisfactionPenaltyIfAreaFlooded, UInteger pluvialSatisfactionPenaltyHouseFloodedFixed, UInteger fluvialSatisfactionPenaltyHouseFloodedFixed, UInteger pluvialSatisfactionPenaltyPerDamagePoint, UInteger fluvialSatisfactionPenaltyPerDamagePoint, UInteger satisfactionDebtPenalty, UInteger satisfactionHouseRatingChangeFixed, UInteger satisfactionHouseRatingChangePerDelta, UInteger satisfactionMovePenalty, Double mortgagePercentage, UInteger defaultLanguageId) {
+    public ScenarioparametersRecord(UInteger id, String name, UInteger pluvialRepairCostsPerDamagePoint, UInteger fluvialRepairCostsPerDamagePoint, UInteger pluvialSatisfactionPenaltyIfAreaFlooded, UInteger pluvialRepairCostsFixed, UInteger fluvialRepairCostsFixed, UInteger fluvialSatisfactionPenaltyIfAreaFlooded, UInteger pluvialSatisfactionPenaltyHouseFloodedFixed, UInteger fluvialSatisfactionPenaltyHouseFloodedFixed, UInteger pluvialSatisfactionPenaltyPerDamagePoint, UInteger fluvialSatisfactionPenaltyPerDamagePoint, UInteger satisfactionDebtPenalty, UInteger satisfactionHouseRatingTooLowFixed, UInteger satisfactionHouseRatingTooLowPerDelta, UInteger satisfactionMovePenalty, Double mortgagePercentage, UInteger defaultLanguageId) {
         super(Scenarioparameters.SCENARIOPARAMETERS);
 
         setId(id);
@@ -760,8 +760,8 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
         setPluvialSatisfactionPenaltyPerDamagePoint(pluvialSatisfactionPenaltyPerDamagePoint);
         setFluvialSatisfactionPenaltyPerDamagePoint(fluvialSatisfactionPenaltyPerDamagePoint);
         setSatisfactionDebtPenalty(satisfactionDebtPenalty);
-        setSatisfactionHouseRatingChangeFixed(satisfactionHouseRatingChangeFixed);
-        setSatisfactionHouseRatingChangePerDelta(satisfactionHouseRatingChangePerDelta);
+        setSatisfactionHouseRatingTooLowFixed(satisfactionHouseRatingTooLowFixed);
+        setSatisfactionHouseRatingTooLowPerDelta(satisfactionHouseRatingTooLowPerDelta);
         setSatisfactionMovePenalty(satisfactionMovePenalty);
         setMortgagePercentage(mortgagePercentage);
         setDefaultLanguageId(defaultLanguageId);
