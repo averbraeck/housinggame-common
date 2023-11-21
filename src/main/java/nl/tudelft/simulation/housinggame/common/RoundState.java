@@ -8,7 +8,7 @@ package nl.tudelft.simulation.housinggame.common;
  * </p>
  * @author <a href="https://www.tudelft.nl/averbraeck">Alexander Verbraeck</a>
  */
-public enum GroupState
+public enum RoundState
 {
     /** GroupRound record is created with state INIT as the default. */
     INIT(0),
@@ -43,73 +43,73 @@ public enum GroupState
     /** Open the view for the player where they are allowed to see damage results as a result of the dice rolls. */
     SHOW_DAMAGE(100);
 
-    /** After this, next round (if avalable) can be clicked, which moves the state to LOGIN of SHOW_BUDGET. */
+    /** After this, next round (if available) can be clicked, which moves the state to SHOW_BUDGET. */
 
     public final int nr;
 
-    private GroupState(final int nr)
+    private RoundState(final int nr)
     {
         this.nr = nr;
     }
 
-    public boolean lt(final GroupState state)
+    public boolean lt(final RoundState state)
     {
         return this.nr < state.nr;
     }
 
-    public boolean le(final GroupState state)
+    public boolean le(final RoundState state)
     {
         return this.nr <= state.nr;
     }
 
-    public boolean eq(final GroupState state)
+    public boolean eq(final RoundState state)
     {
         return this.nr == state.nr;
     }
 
-    public boolean ne(final GroupState state)
+    public boolean ne(final RoundState state)
     {
         return this.nr != state.nr;
     }
 
-    public boolean ge(final GroupState state)
+    public boolean ge(final RoundState state)
     {
         return this.nr >= state.nr;
     }
 
-    public boolean gt(final GroupState state)
+    public boolean gt(final RoundState state)
     {
         return this.nr > state.nr;
     }
 
     public static boolean lt(final String state1, final String state2)
     {
-        return GroupState.valueOf(state1).lt(GroupState.valueOf(state2));
+        return RoundState.valueOf(state1).lt(RoundState.valueOf(state2));
     }
 
     public static boolean le(final String state1, final String state2)
     {
-        return GroupState.valueOf(state1).le(GroupState.valueOf(state2));
+        return RoundState.valueOf(state1).le(RoundState.valueOf(state2));
     }
 
     public static boolean eq(final String state1, final String state2)
     {
-        return GroupState.valueOf(state1).eq(GroupState.valueOf(state2));
+        return RoundState.valueOf(state1).eq(RoundState.valueOf(state2));
     }
 
     public static boolean ne(final String state1, final String state2)
     {
-        return GroupState.valueOf(state1).ne(GroupState.valueOf(state2));
+        return RoundState.valueOf(state1).ne(RoundState.valueOf(state2));
     }
 
     public static boolean ge(final String state1, final String state2)
     {
-        return GroupState.valueOf(state1).ge(GroupState.valueOf(state2));
+        return RoundState.valueOf(state1).ge(RoundState.valueOf(state2));
     }
 
     public static boolean gt(final String state1, final String state2)
     {
-        return GroupState.valueOf(state1).gt(GroupState.valueOf(state2));
+        return RoundState.valueOf(state1).gt(RoundState.valueOf(state2));
     }
 
 }
