@@ -1,7 +1,8 @@
 package nl.tudelft.simulation.housinggame.common;
 
 /**
- * PlayerState.java.
+ * PlayerState. The first time the player logs in, the state will be LOGIN (round 0). As soon as the player moves to the state
+ * READ_BUDGET, the round is also advanced to 1.
  * <p>
  * Copyright (c) 2020-2020 Delft University of Technology, PO Box 5, 2600 AA, Delft, the Netherlands. All rights reserved. <br>
  * BSD-style license. See <a href="https://opentrafficsim.org/docs/current/license.html">OpenTrafficSim License</a>.
@@ -10,15 +11,38 @@ package nl.tudelft.simulation.housinggame.common;
  */
 public enum PlayerState
 {
-    INIT(1),
-    READ_NEWS(2),
-    CHECK_HOUSE(3),
-    HOUSE(4),
-    BOUGHT_HOUSE(5),
-    MOVED_IN(6),
-    BOUGHT_MEASURES(7),
-    SURVEY(8),
-    DAMAGE(9);
+    /** Record is created with INIT as the initial state. This has no meaning. */
+    INIT(0),
+
+    /** Logged in. PlayerRound record has NOT yet been created for the round, waiting for permission to proceed. */
+    LOGIN(10),
+
+    /** PlayerRound record for the new round has been created. Player can read their budget. */
+    READ_BUDGET(20),
+
+    /** View the news screen, with additional financial information. */
+    READ_NEWS(30),
+
+    /** View the houses (available in round and owned by other players). */
+    CHECK_HOUSES(40),
+
+    /** View the result of the houses selling and bying after the facilitator has finalized this. */
+    BOUGHT_HOUSE(50),
+
+    /** View the rsult of tax calculation on the spendable income. */
+    VIEW_TAXES(60),
+
+    /** Allow buying and selling of improvements (after taxes have been paid). */
+    IMPROVEMENTS(76),
+
+    /** Answer the questions of the survey. */
+    ANSWER_SURVEY(80),
+
+    /** View the damage and effect on spendable income after the dice rolls. */
+    VIEW_DAMAGE(90),
+
+    /** View the summary screen and wait for the facilitator to proceed to the next round (if available). */
+    SUMMARY(100);
 
     public final int nr;
 
@@ -26,4 +50,65 @@ public enum PlayerState
     {
         this.nr = nr;
     }
+
+    public boolean lt(final PlayerState state)
+    {
+        return this.nr < state.nr;
+    }
+
+    public boolean le(final PlayerState state)
+    {
+        return this.nr <= state.nr;
+    }
+
+    public boolean eq(final PlayerState state)
+    {
+        return this.nr == state.nr;
+    }
+
+    public boolean ne(final PlayerState state)
+    {
+        return this.nr != state.nr;
+    }
+
+    public boolean ge(final PlayerState state)
+    {
+        return this.nr >= state.nr;
+    }
+
+    public boolean gt(final PlayerState state)
+    {
+        return this.nr > state.nr;
+    }
+
+    public static boolean lt(final String state1, final String state2)
+    {
+        return PlayerState.valueOf(state1).lt(PlayerState.valueOf(state2));
+    }
+
+    public static boolean le(final String state1, final String state2)
+    {
+        return PlayerState.valueOf(state1).le(PlayerState.valueOf(state2));
+    }
+
+    public static boolean eq(final String state1, final String state2)
+    {
+        return PlayerState.valueOf(state1).eq(PlayerState.valueOf(state2));
+    }
+
+    public static boolean ne(final String state1, final String state2)
+    {
+        return PlayerState.valueOf(state1).ne(PlayerState.valueOf(state2));
+    }
+
+    public static boolean ge(final String state1, final String state2)
+    {
+        return PlayerState.valueOf(state1).ge(PlayerState.valueOf(state2));
+    }
+
+    public static boolean gt(final String state1, final String state2)
+    {
+        return PlayerState.valueOf(state1).gt(PlayerState.valueOf(state2));
+    }
+
 }
