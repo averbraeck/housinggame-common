@@ -124,6 +124,7 @@ public class Keys {
     public static final UniqueKey<QuestionscoreRecord> KEY_QUESTIONSCORE_PRIMARY = Internal.createUniqueKey(Questionscore.QUESTIONSCORE, DSL.name("KEY_questionscore_PRIMARY"), new TableField[] { Questionscore.QUESTIONSCORE.ID }, true);
     public static final UniqueKey<RoundRecord> KEY_ROUND_ID_UNIQUE = Internal.createUniqueKey(Round.ROUND, DSL.name("KEY_round_id_UNIQUE"), new TableField[] { Round.ROUND.ID }, true);
     public static final UniqueKey<RoundRecord> KEY_ROUND_PRIMARY = Internal.createUniqueKey(Round.ROUND, DSL.name("KEY_round_PRIMARY"), new TableField[] { Round.ROUND.ID }, true);
+    public static final UniqueKey<RoundRecord> KEY_ROUND_ROUNDNR_UNIQUE = Internal.createUniqueKey(Round.ROUND, DSL.name("KEY_round_roundnr_UNIQUE"), new TableField[] { Round.ROUND.SCENARIO_ID, Round.ROUND.ROUND_NUMBER }, true);
     public static final UniqueKey<ScenarioRecord> KEY_SCENARIO_ID_UNIQUE = Internal.createUniqueKey(Scenario.SCENARIO, DSL.name("KEY_scenario_id_UNIQUE"), new TableField[] { Scenario.SCENARIO.ID }, true);
     public static final UniqueKey<ScenarioRecord> KEY_SCENARIO_PRIMARY = Internal.createUniqueKey(Scenario.SCENARIO, DSL.name("KEY_scenario_PRIMARY"), new TableField[] { Scenario.SCENARIO.ID }, true);
     public static final UniqueKey<ScenarioparametersRecord> KEY_SCENARIOPARAMETERS_ID_UNIQUE = Internal.createUniqueKey(Scenarioparameters.SCENARIOPARAMETERS, DSL.name("KEY_scenarioparameters_Id_UNIQUE"), new TableField[] { Scenarioparameters.SCENARIOPARAMETERS.ID }, true);

@@ -81,9 +81,9 @@ public class Scenario extends TableImpl<ScenarioRecord> {
     public final TableField<ScenarioRecord, UInteger> MAXIMUM_PLAYERS = createField(DSL.name("maximum_players"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("8"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
-     * The column <code>housinggame.scenario.nr_of_rounds</code>.
+     * The column <code>housinggame.scenario.highest_round_number</code>.
      */
-    public final TableField<ScenarioRecord, UInteger> NR_OF_ROUNDS = createField(DSL.name("nr_of_rounds"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("5"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<ScenarioRecord, UInteger> HIGHEST_ROUND_NUMBER = createField(DSL.name("highest_round_number"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("5"), SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
      * The column <code>housinggame.scenario.scenarioparameters_id</code>.

@@ -93,16 +93,16 @@ public class ScenarioRecord extends UpdatableRecordImpl<ScenarioRecord> implemen
     }
 
     /**
-     * Setter for <code>housinggame.scenario.nr_of_rounds</code>.
+     * Setter for <code>housinggame.scenario.highest_round_number</code>.
      */
-    public void setNrOfRounds(UInteger value) {
+    public void setHighestRoundNumber(UInteger value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>housinggame.scenario.nr_of_rounds</code>.
+     * Getter for <code>housinggame.scenario.highest_round_number</code>.
      */
-    public UInteger getNrOfRounds() {
+    public UInteger getHighestRoundNumber() {
         return (UInteger) get(5);
     }
 
@@ -184,7 +184,7 @@ public class ScenarioRecord extends UpdatableRecordImpl<ScenarioRecord> implemen
 
     @Override
     public Field<UInteger> field6() {
-        return Scenario.SCENARIO.NR_OF_ROUNDS;
+        return Scenario.SCENARIO.HIGHEST_ROUND_NUMBER;
     }
 
     @Override
@@ -224,7 +224,7 @@ public class ScenarioRecord extends UpdatableRecordImpl<ScenarioRecord> implemen
 
     @Override
     public UInteger component6() {
-        return getNrOfRounds();
+        return getHighestRoundNumber();
     }
 
     @Override
@@ -264,7 +264,7 @@ public class ScenarioRecord extends UpdatableRecordImpl<ScenarioRecord> implemen
 
     @Override
     public UInteger value6() {
-        return getNrOfRounds();
+        return getHighestRoundNumber();
     }
 
     @Override
@@ -309,7 +309,7 @@ public class ScenarioRecord extends UpdatableRecordImpl<ScenarioRecord> implemen
 
     @Override
     public ScenarioRecord value6(UInteger value) {
-        setNrOfRounds(value);
+        setHighestRoundNumber(value);
         return this;
     }
 
@@ -352,7 +352,7 @@ public class ScenarioRecord extends UpdatableRecordImpl<ScenarioRecord> implemen
     /**
      * Create a detached, initialised ScenarioRecord
      */
-    public ScenarioRecord(UInteger id, String name, Integer informationAmount, UInteger minimumPlayers, UInteger maximumPlayers, UInteger nrOfRounds, UInteger scenarioparametersId, UInteger gameversionId) {
+    public ScenarioRecord(UInteger id, String name, Integer informationAmount, UInteger minimumPlayers, UInteger maximumPlayers, UInteger highestRoundNumber, UInteger scenarioparametersId, UInteger gameversionId) {
         super(Scenario.SCENARIO);
 
         setId(id);
@@ -360,7 +360,7 @@ public class ScenarioRecord extends UpdatableRecordImpl<ScenarioRecord> implemen
         setInformationAmount(informationAmount);
         setMinimumPlayers(minimumPlayers);
         setMaximumPlayers(maximumPlayers);
-        setNrOfRounds(nrOfRounds);
+        setHighestRoundNumber(highestRoundNumber);
         setScenarioparametersId(scenarioparametersId);
         setGameversionId(gameversionId);
         resetChangedOnNotNull();

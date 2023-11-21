@@ -125,7 +125,7 @@ public class Round extends TableImpl<RoundRecord> {
 
     @Override
     public List<UniqueKey<RoundRecord>> getUniqueKeys() {
-        return Arrays.asList(Keys.KEY_ROUND_ID_UNIQUE);
+        return Arrays.asList(Keys.KEY_ROUND_ID_UNIQUE, Keys.KEY_ROUND_ROUNDNR_UNIQUE);
     }
 
     @Override
