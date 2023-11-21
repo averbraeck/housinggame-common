@@ -79,7 +79,7 @@ public class Groupround extends TableImpl<GrouproundRecord> {
     /**
      * The column <code>housinggame.groupround.round_state</code>.
      */
-    public final TableField<GrouproundRecord, String> ROUND_STATE = createField(DSL.name("round_state"), SQLDataType.VARCHAR(16).defaultValue(DSL.field(DSL.raw("'INIT'"), SQLDataType.VARCHAR)), this, "");
+    public final TableField<GrouproundRecord, String> ROUND_STATE = createField(DSL.name("round_state"), SQLDataType.VARCHAR(24).defaultValue(DSL.field(DSL.raw("'INIT'"), SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>housinggame.groupround.group_id</code>.

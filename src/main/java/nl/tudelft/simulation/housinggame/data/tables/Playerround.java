@@ -167,7 +167,7 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     /**
      * The column <code>housinggame.playerround.player_state</code>.
      */
-    public final TableField<PlayerroundRecord, String> PLAYER_STATE = createField(DSL.name("player_state"), SQLDataType.VARCHAR(16).nullable(false).defaultValue(DSL.field(DSL.raw("'INIT'"), SQLDataType.VARCHAR)), this, "");
+    public final TableField<PlayerroundRecord, String> PLAYER_STATE = createField(DSL.name("player_state"), SQLDataType.VARCHAR(24).nullable(false).defaultValue(DSL.field(DSL.raw("'INIT'"), SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>housinggame.playerround.house_id</code>.
