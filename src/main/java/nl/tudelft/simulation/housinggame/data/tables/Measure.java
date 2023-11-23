@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.MeasureRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function4;
+import org.jooq.Function5;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row4;
+import org.jooq.Row5;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -75,6 +75,11 @@ public class Measure extends TableImpl<MeasureRecord> {
      */
     public final TableField<MeasureRecord, UInteger> MEASURETYPE_ID = createField(DSL.name("measuretype_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
+    /**
+     * The column <code>housinggame.measure.house_id</code>.
+     */
+    public final TableField<MeasureRecord, UInteger> HOUSE_ID = createField(DSL.name("house_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+
     private Measure(Name alias, Table<MeasureRecord> aliased) {
         this(alias, aliased, null);
     }
@@ -115,7 +120,7 @@ public class Measure extends TableImpl<MeasureRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.MEASURE_FK_MEASURE_MEASURETYPE1_IDX, Indexes.MEASURE_FK_MEASURE_PLAYERROUND1_IDX);
+        return Arrays.asList(Indexes.MEASURE_FK_MEASURE_HOUSE1_IDX, Indexes.MEASURE_FK_MEASURE_MEASURETYPE1_IDX, Indexes.MEASURE_FK_MEASURE_PLAYERROUND1_IDX);
     }
 
     @Override
@@ -135,11 +140,12 @@ public class Measure extends TableImpl<MeasureRecord> {
 
     @Override
     public List<ForeignKey<MeasureRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_MEASURE_PLAYERROUND1, Keys.FK_MEASURE_MEASURETYPE1);
+        return Arrays.asList(Keys.FK_MEASURE_PLAYERROUND1, Keys.FK_MEASURE_MEASURETYPE1, Keys.FK_MEASURE_HOUSE1);
     }
 
     private transient Playerround _playerround;
     private transient Measuretype _measuretype;
+    private transient House _house;
 
     /**
      * Get the implicit join path to the <code>housinggame.playerround</code>
@@ -161,6 +167,16 @@ public class Measure extends TableImpl<MeasureRecord> {
             _measuretype = new Measuretype(this, Keys.FK_MEASURE_MEASURETYPE1);
 
         return _measuretype;
+    }
+
+    /**
+     * Get the implicit join path to the <code>housinggame.house</code> table.
+     */
+    public House house() {
+        if (_house == null)
+            _house = new House(this, Keys.FK_MEASURE_HOUSE1);
+
+        return _house;
     }
 
     @Override
@@ -203,18 +219,18 @@ public class Measure extends TableImpl<MeasureRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row4 type methods
+    // Row5 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row4<UInteger, Double, UInteger, UInteger> fieldsRow() {
-        return (Row4) super.fieldsRow();
+    public Row5<UInteger, Double, UInteger, UInteger, UInteger> fieldsRow() {
+        return (Row5) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function4<? super UInteger, ? super Double, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function5<? super UInteger, ? super Double, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -222,7 +238,7 @@ public class Measure extends TableImpl<MeasureRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function4<? super UInteger, ? super Double, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super UInteger, ? super Double, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

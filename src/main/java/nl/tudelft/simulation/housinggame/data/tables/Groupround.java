@@ -74,12 +74,12 @@ public class Groupround extends TableImpl<GrouproundRecord> {
     /**
      * The column <code>housinggame.groupround.start_time</code>.
      */
-    public final TableField<GrouproundRecord, LocalDateTime> START_TIME = createField(DSL.name("start_time"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.LOCALDATETIME)), this, "");
+    public final TableField<GrouproundRecord, LocalDateTime> START_TIME = createField(DSL.name("start_time"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.field(DSL.raw("current_timestamp()"), SQLDataType.LOCALDATETIME)), this, "");
 
     /**
      * The column <code>housinggame.groupround.round_state</code>.
      */
-    public final TableField<GrouproundRecord, String> ROUND_STATE = createField(DSL.name("round_state"), SQLDataType.VARCHAR(24).defaultValue(DSL.field(DSL.raw("'INIT'"), SQLDataType.VARCHAR)), this, "");
+    public final TableField<GrouproundRecord, String> ROUND_STATE = createField(DSL.name("round_state"), SQLDataType.VARCHAR(24).defaultValue(DSL.field(DSL.raw("'LOGIN'"), SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>housinggame.groupround.group_id</code>.

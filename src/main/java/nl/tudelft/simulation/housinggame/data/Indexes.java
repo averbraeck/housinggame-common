@@ -62,6 +62,7 @@ public class Indexes {
     public static final Index LANGUAGEGROUP_FK_LANGUAGES_LANGUAGE2_IDX = Internal.createIndex(DSL.name("fk_languages_language2_idx"), Languagegroup.LANGUAGEGROUP, new OrderField[] { Languagegroup.LANGUAGEGROUP.LANGUAGE_ID2 }, false);
     public static final Index LANGUAGEGROUP_FK_LANGUAGES_LANGUAGE3_IDX = Internal.createIndex(DSL.name("fk_languages_language3_idx"), Languagegroup.LANGUAGEGROUP, new OrderField[] { Languagegroup.LANGUAGEGROUP.LANGUAGE_ID3 }, false);
     public static final Index LANGUAGEGROUP_FK_LANGUAGES_LANGUAGE4_IDX = Internal.createIndex(DSL.name("fk_languages_language4_idx"), Languagegroup.LANGUAGEGROUP, new OrderField[] { Languagegroup.LANGUAGEGROUP.LANGUAGE_ID4 }, false);
+    public static final Index MEASURE_FK_MEASURE_HOUSE1_IDX = Internal.createIndex(DSL.name("fk_measure_house1_idx"), Measure.MEASURE, new OrderField[] { Measure.MEASURE.HOUSE_ID }, false);
     public static final Index MEASURE_FK_MEASURE_MEASURETYPE1_IDX = Internal.createIndex(DSL.name("fk_measure_measuretype1_idx"), Measure.MEASURE, new OrderField[] { Measure.MEASURE.MEASURETYPE_ID }, false);
     public static final Index MEASURE_FK_MEASURE_PLAYERROUND1_IDX = Internal.createIndex(DSL.name("fk_measure_playerround1_idx"), Measure.MEASURE, new OrderField[] { Measure.MEASURE.PLAYERROUND_ID }, false);
     public static final Index MEASURETYPE_FK_MEASURETYPE_GAMEVERSION1_IDX = Internal.createIndex(DSL.name("fk_measuretype_gameversion1_idx"), Measuretype.MEASURETYPE, new OrderField[] { Measuretype.MEASURETYPE.GAMEVERSION_ID }, false);
