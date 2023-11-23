@@ -34,11 +34,11 @@ public enum RoundState
     /** Open the survey questions. */
     ASK_PERCEPTIONS(80),
 
-    /** When all players have completed the survey, the dice roll results can be entered. */
+    /** When all players have completed the survey, the dice roll results can be entered; players can view damage. */
     ROLL_DICE(90),
 
-    /** Open the view for the player where they are allowed to see damage results as a result of the dice rolls. */
-    SHOW_DAMAGE(100);
+    /** Open the summary view for the players. */
+    SHOW_SUMMARY(100);
 
     /** After this, next round (if available) can be clicked, which moves the state to SHOW_BUDGET. */
 
