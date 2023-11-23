@@ -5,15 +5,12 @@ package nl.tudelft.simulation.housinggame.common;
  * READ_BUDGET, the round is also advanced to 1.
  * <p>
  * Copyright (c) 2020-2020 Delft University of Technology, PO Box 5, 2600 AA, Delft, the Netherlands. All rights reserved. <br>
- * BSD-style license. See <a href="https://opentrafficsim.org/docs/current/license.html">OpenTrafficSim License</a>.
+ * BSD-style license.
  * </p>
  * @author <a href="https://www.tudelft.nl/averbraeck">Alexander Verbraeck</a>
  */
 public enum PlayerState
 {
-    /** Record is created with INIT as the initial state. This has no meaning. */
-    INIT(0),
-
     /** Logged in. PlayerRound record has NOT yet been created for the round, waiting for permission to proceed. */
     LOGIN(10),
 
