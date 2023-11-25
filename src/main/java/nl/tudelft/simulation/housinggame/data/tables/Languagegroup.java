@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Languagegroup extends TableImpl<LanguagegroupRecord> {
     /**
      * The column <code>housinggame.languagegroup.id</code>.
      */
-    public final TableField<LanguagegroupRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<LanguagegroupRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.languagegroup.name</code>.
@@ -68,22 +67,22 @@ public class Languagegroup extends TableImpl<LanguagegroupRecord> {
     /**
      * The column <code>housinggame.languagegroup.language_id1</code>.
      */
-    public final TableField<LanguagegroupRecord, UInteger> LANGUAGE_ID1 = createField(DSL.name("language_id1"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<LanguagegroupRecord, Integer> LANGUAGE_ID1 = createField(DSL.name("language_id1"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.languagegroup.language_id2</code>.
      */
-    public final TableField<LanguagegroupRecord, UInteger> LANGUAGE_ID2 = createField(DSL.name("language_id2"), SQLDataType.INTEGERUNSIGNED.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<LanguagegroupRecord, Integer> LANGUAGE_ID2 = createField(DSL.name("language_id2"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.languagegroup.language_id3</code>.
      */
-    public final TableField<LanguagegroupRecord, UInteger> LANGUAGE_ID3 = createField(DSL.name("language_id3"), SQLDataType.INTEGERUNSIGNED.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<LanguagegroupRecord, Integer> LANGUAGE_ID3 = createField(DSL.name("language_id3"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.languagegroup.language_id4</code>.
      */
-    public final TableField<LanguagegroupRecord, UInteger> LANGUAGE_ID4 = createField(DSL.name("language_id4"), SQLDataType.INTEGERUNSIGNED.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<LanguagegroupRecord, Integer> LANGUAGE_ID4 = createField(DSL.name("language_id4"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     private Languagegroup(Name alias, Table<LanguagegroupRecord> aliased) {
         this(alias, aliased, null);
@@ -129,8 +128,8 @@ public class Languagegroup extends TableImpl<LanguagegroupRecord> {
     }
 
     @Override
-    public Identity<LanguagegroupRecord, UInteger> getIdentity() {
-        return (Identity<LanguagegroupRecord, UInteger>) super.getIdentity();
+    public Identity<LanguagegroupRecord, Integer> getIdentity() {
+        return (Identity<LanguagegroupRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -241,14 +240,14 @@ public class Languagegroup extends TableImpl<LanguagegroupRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<UInteger, String, UInteger, UInteger, UInteger, UInteger> fieldsRow() {
+    public Row6<Integer, String, Integer, Integer, Integer, Integer> fieldsRow() {
         return (Row6) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function6<? super UInteger, ? super String, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function6<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -256,7 +255,7 @@ public class Languagegroup extends TableImpl<LanguagegroupRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super UInteger, ? super String, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Welfaretype extends TableImpl<WelfaretypeRecord> {
     /**
      * The column <code>housinggame.welfaretype.id</code>.
      */
-    public final TableField<WelfaretypeRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<WelfaretypeRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.name</code>.
@@ -68,43 +67,43 @@ public class Welfaretype extends TableImpl<WelfaretypeRecord> {
     /**
      * The column <code>housinggame.welfaretype.initial_satisfaction</code>.
      */
-    public final TableField<WelfaretypeRecord, UInteger> INITIAL_SATISFACTION = createField(DSL.name("initial_satisfaction"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> INITIAL_SATISFACTION = createField(DSL.name("initial_satisfaction"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.initial_money</code>.
      */
-    public final TableField<WelfaretypeRecord, UInteger> INITIAL_MONEY = createField(DSL.name("initial_money"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> INITIAL_MONEY = createField(DSL.name("initial_money"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.maximum_mortgage</code>.
      */
-    public final TableField<WelfaretypeRecord, UInteger> MAXIMUM_MORTGAGE = createField(DSL.name("maximum_mortgage"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> MAXIMUM_MORTGAGE = createField(DSL.name("maximum_mortgage"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.living_costs</code>.
      */
-    public final TableField<WelfaretypeRecord, UInteger> LIVING_COSTS = createField(DSL.name("living_costs"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> LIVING_COSTS = createField(DSL.name("living_costs"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.income_per_round</code>.
      */
-    public final TableField<WelfaretypeRecord, UInteger> INCOME_PER_ROUND = createField(DSL.name("income_per_round"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> INCOME_PER_ROUND = createField(DSL.name("income_per_round"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column
      * <code>housinggame.welfaretype.satisfaction_cost_per_point</code>.
      */
-    public final TableField<WelfaretypeRecord, UInteger> SATISFACTION_COST_PER_POINT = createField(DSL.name("satisfaction_cost_per_point"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> SATISFACTION_COST_PER_POINT = createField(DSL.name("satisfaction_cost_per_point"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.preferred_house_rating</code>.
      */
-    public final TableField<WelfaretypeRecord, UInteger> PREFERRED_HOUSE_RATING = createField(DSL.name("preferred_house_rating"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> PREFERRED_HOUSE_RATING = createField(DSL.name("preferred_house_rating"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.scenario_id</code>.
      */
-    public final TableField<WelfaretypeRecord, UInteger> SCENARIO_ID = createField(DSL.name("scenario_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> SCENARIO_ID = createField(DSL.name("scenario_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Welfaretype(Name alias, Table<WelfaretypeRecord> aliased) {
         this(alias, aliased, null);
@@ -150,8 +149,8 @@ public class Welfaretype extends TableImpl<WelfaretypeRecord> {
     }
 
     @Override
-    public Identity<WelfaretypeRecord, UInteger> getIdentity() {
-        return (Identity<WelfaretypeRecord, UInteger>) super.getIdentity();
+    public Identity<WelfaretypeRecord, Integer> getIdentity() {
+        return (Identity<WelfaretypeRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -226,14 +225,14 @@ public class Welfaretype extends TableImpl<WelfaretypeRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<UInteger, String, UInteger, UInteger, UInteger, UInteger, UInteger, UInteger, UInteger, UInteger> fieldsRow() {
+    public Row10<Integer, String, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fieldsRow() {
         return (Row10) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function10<? super UInteger, ? super String, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function10<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -241,7 +240,7 @@ public class Welfaretype extends TableImpl<WelfaretypeRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function10<? super UInteger, ? super String, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function10<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

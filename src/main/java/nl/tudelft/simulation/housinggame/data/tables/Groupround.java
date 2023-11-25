@@ -32,7 +32,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -59,7 +58,7 @@ public class Groupround extends TableImpl<GrouproundRecord> {
     /**
      * The column <code>housinggame.groupround.id</code>.
      */
-    public final TableField<GrouproundRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<GrouproundRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.groupround.pluvial_flood_intensity</code>.
@@ -84,12 +83,12 @@ public class Groupround extends TableImpl<GrouproundRecord> {
     /**
      * The column <code>housinggame.groupround.group_id</code>.
      */
-    public final TableField<GrouproundRecord, UInteger> GROUP_ID = createField(DSL.name("group_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<GrouproundRecord, Integer> GROUP_ID = createField(DSL.name("group_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.groupround.round_id</code>.
      */
-    public final TableField<GrouproundRecord, UInteger> ROUND_ID = createField(DSL.name("round_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<GrouproundRecord, Integer> ROUND_ID = createField(DSL.name("round_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Groupround(Name alias, Table<GrouproundRecord> aliased) {
         this(alias, aliased, null);
@@ -135,8 +134,8 @@ public class Groupround extends TableImpl<GrouproundRecord> {
     }
 
     @Override
-    public Identity<GrouproundRecord, UInteger> getIdentity() {
-        return (Identity<GrouproundRecord, UInteger>) super.getIdentity();
+    public Identity<GrouproundRecord, Integer> getIdentity() {
+        return (Identity<GrouproundRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -221,14 +220,14 @@ public class Groupround extends TableImpl<GrouproundRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<UInteger, Integer, Integer, LocalDateTime, String, UInteger, UInteger> fieldsRow() {
+    public Row7<Integer, Integer, Integer, LocalDateTime, String, Integer, Integer> fieldsRow() {
         return (Row7) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function7<? super UInteger, ? super Integer, ? super Integer, ? super LocalDateTime, ? super String, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function7<? super Integer, ? super Integer, ? super Integer, ? super LocalDateTime, ? super String, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -236,7 +235,7 @@ public class Groupround extends TableImpl<GrouproundRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super UInteger, ? super Integer, ? super Integer, ? super LocalDateTime, ? super String, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super Integer, ? super Integer, ? super Integer, ? super LocalDateTime, ? super String, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Scenario extends TableImpl<ScenarioRecord> {
     /**
      * The column <code>housinggame.scenario.id</code>.
      */
-    public final TableField<ScenarioRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<ScenarioRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.scenario.name</code>.
@@ -73,27 +72,27 @@ public class Scenario extends TableImpl<ScenarioRecord> {
     /**
      * The column <code>housinggame.scenario.minimum_players</code>.
      */
-    public final TableField<ScenarioRecord, UInteger> MINIMUM_PLAYERS = createField(DSL.name("minimum_players"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("6"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<ScenarioRecord, Integer> MINIMUM_PLAYERS = createField(DSL.name("minimum_players"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("6"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.scenario.maximum_players</code>.
      */
-    public final TableField<ScenarioRecord, UInteger> MAXIMUM_PLAYERS = createField(DSL.name("maximum_players"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("8"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<ScenarioRecord, Integer> MAXIMUM_PLAYERS = createField(DSL.name("maximum_players"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("8"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.scenario.highest_round_number</code>.
      */
-    public final TableField<ScenarioRecord, UInteger> HIGHEST_ROUND_NUMBER = createField(DSL.name("highest_round_number"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("5"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<ScenarioRecord, Integer> HIGHEST_ROUND_NUMBER = createField(DSL.name("highest_round_number"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("5"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.scenario.scenarioparameters_id</code>.
      */
-    public final TableField<ScenarioRecord, UInteger> SCENARIOPARAMETERS_ID = createField(DSL.name("scenarioparameters_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<ScenarioRecord, Integer> SCENARIOPARAMETERS_ID = createField(DSL.name("scenarioparameters_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.scenario.gameversion_id</code>.
      */
-    public final TableField<ScenarioRecord, UInteger> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<ScenarioRecord, Integer> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Scenario(Name alias, Table<ScenarioRecord> aliased) {
         this(alias, aliased, null);
@@ -139,8 +138,8 @@ public class Scenario extends TableImpl<ScenarioRecord> {
     }
 
     @Override
-    public Identity<ScenarioRecord, UInteger> getIdentity() {
-        return (Identity<ScenarioRecord, UInteger>) super.getIdentity();
+    public Identity<ScenarioRecord, Integer> getIdentity() {
+        return (Identity<ScenarioRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -227,14 +226,14 @@ public class Scenario extends TableImpl<ScenarioRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<UInteger, String, Integer, UInteger, UInteger, UInteger, UInteger, UInteger> fieldsRow() {
+    public Row8<Integer, String, Integer, Integer, Integer, Integer, Integer, Integer> fieldsRow() {
         return (Row8) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function8<? super UInteger, ? super String, ? super Integer, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function8<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -242,7 +241,7 @@ public class Scenario extends TableImpl<ScenarioRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function8<? super UInteger, ? super String, ? super Integer, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function8<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

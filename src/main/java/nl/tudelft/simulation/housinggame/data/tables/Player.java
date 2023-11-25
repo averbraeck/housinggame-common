@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Player extends TableImpl<PlayerRecord> {
     /**
      * The column <code>housinggame.player.id</code>.
      */
-    public final TableField<PlayerRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<PlayerRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.player.code</code>.
@@ -68,17 +67,17 @@ public class Player extends TableImpl<PlayerRecord> {
     /**
      * The column <code>housinggame.player.user_id</code>.
      */
-    public final TableField<PlayerRecord, UInteger> USER_ID = createField(DSL.name("user_id"), SQLDataType.INTEGERUNSIGNED.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<PlayerRecord, Integer> USER_ID = createField(DSL.name("user_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.player.group_id</code>.
      */
-    public final TableField<PlayerRecord, UInteger> GROUP_ID = createField(DSL.name("group_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<PlayerRecord, Integer> GROUP_ID = createField(DSL.name("group_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.player.welfaretype_id</code>.
      */
-    public final TableField<PlayerRecord, UInteger> WELFARETYPE_ID = createField(DSL.name("welfaretype_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<PlayerRecord, Integer> WELFARETYPE_ID = createField(DSL.name("welfaretype_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Player(Name alias, Table<PlayerRecord> aliased) {
         this(alias, aliased, null);
@@ -124,8 +123,8 @@ public class Player extends TableImpl<PlayerRecord> {
     }
 
     @Override
-    public Identity<PlayerRecord, UInteger> getIdentity() {
-        return (Identity<PlayerRecord, UInteger>) super.getIdentity();
+    public Identity<PlayerRecord, Integer> getIdentity() {
+        return (Identity<PlayerRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -222,14 +221,14 @@ public class Player extends TableImpl<PlayerRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<UInteger, String, UInteger, UInteger, UInteger> fieldsRow() {
+    public Row5<Integer, String, Integer, Integer, Integer> fieldsRow() {
         return (Row5) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function5<? super UInteger, ? super String, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function5<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -237,7 +236,7 @@ public class Player extends TableImpl<PlayerRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super UInteger, ? super String, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Bid extends TableImpl<BidRecord> {
     /**
      * The column <code>housinggame.bid.id</code>.
      */
-    public final TableField<BidRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<BidRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.bid.price</code>.
@@ -68,12 +67,12 @@ public class Bid extends TableImpl<BidRecord> {
     /**
      * The column <code>housinggame.bid.groupround_id</code>.
      */
-    public final TableField<BidRecord, UInteger> GROUPROUND_ID = createField(DSL.name("groupround_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<BidRecord, Integer> GROUPROUND_ID = createField(DSL.name("groupround_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.bid.house_id</code>.
      */
-    public final TableField<BidRecord, UInteger> HOUSE_ID = createField(DSL.name("house_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<BidRecord, Integer> HOUSE_ID = createField(DSL.name("house_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Bid(Name alias, Table<BidRecord> aliased) {
         this(alias, aliased, null);
@@ -119,8 +118,8 @@ public class Bid extends TableImpl<BidRecord> {
     }
 
     @Override
-    public Identity<BidRecord, UInteger> getIdentity() {
-        return (Identity<BidRecord, UInteger>) super.getIdentity();
+    public Identity<BidRecord, Integer> getIdentity() {
+        return (Identity<BidRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -206,14 +205,14 @@ public class Bid extends TableImpl<BidRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row4<UInteger, Integer, UInteger, UInteger> fieldsRow() {
+    public Row4<Integer, Integer, Integer, Integer> fieldsRow() {
         return (Row4) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function4<? super UInteger, ? super Integer, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function4<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -221,7 +220,7 @@ public class Bid extends TableImpl<BidRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function4<? super UInteger, ? super Integer, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function4<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

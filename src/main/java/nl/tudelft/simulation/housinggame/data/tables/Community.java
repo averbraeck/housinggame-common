@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Community extends TableImpl<CommunityRecord> {
     /**
      * The column <code>housinggame.community.id</code>.
      */
-    public final TableField<CommunityRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<CommunityRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.community.name</code>.
@@ -83,7 +82,7 @@ public class Community extends TableImpl<CommunityRecord> {
     /**
      * The column <code>housinggame.community.gameversion_id</code>.
      */
-    public final TableField<CommunityRecord, UInteger> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<CommunityRecord, Integer> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Community(Name alias, Table<CommunityRecord> aliased) {
         this(alias, aliased, null);
@@ -129,8 +128,8 @@ public class Community extends TableImpl<CommunityRecord> {
     }
 
     @Override
-    public Identity<CommunityRecord, UInteger> getIdentity() {
-        return (Identity<CommunityRecord, UInteger>) super.getIdentity();
+    public Identity<CommunityRecord, Integer> getIdentity() {
+        return (Identity<CommunityRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -205,14 +204,14 @@ public class Community extends TableImpl<CommunityRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<UInteger, String, Integer, Integer, Integer, UInteger> fieldsRow() {
+    public Row6<Integer, String, Integer, Integer, Integer, Integer> fieldsRow() {
         return (Row6) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function6<? super UInteger, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function6<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -220,7 +219,7 @@ public class Community extends TableImpl<CommunityRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super UInteger, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

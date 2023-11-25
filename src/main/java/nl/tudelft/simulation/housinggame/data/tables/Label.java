@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Label extends TableImpl<LabelRecord> {
     /**
      * The column <code>housinggame.label.id</code>.
      */
-    public final TableField<LabelRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<LabelRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.label.key</code>.
@@ -88,7 +87,7 @@ public class Label extends TableImpl<LabelRecord> {
     /**
      * The column <code>housinggame.label.languagegroup_id</code>.
      */
-    public final TableField<LabelRecord, UInteger> LANGUAGEGROUP_ID = createField(DSL.name("languagegroup_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<LabelRecord, Integer> LANGUAGEGROUP_ID = createField(DSL.name("languagegroup_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Label(Name alias, Table<LabelRecord> aliased) {
         this(alias, aliased, null);
@@ -134,8 +133,8 @@ public class Label extends TableImpl<LabelRecord> {
     }
 
     @Override
-    public Identity<LabelRecord, UInteger> getIdentity() {
-        return (Identity<LabelRecord, UInteger>) super.getIdentity();
+    public Identity<LabelRecord, Integer> getIdentity() {
+        return (Identity<LabelRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -210,14 +209,14 @@ public class Label extends TableImpl<LabelRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<UInteger, String, String, String, String, String, UInteger> fieldsRow() {
+    public Row7<Integer, String, String, String, String, String, Integer> fieldsRow() {
         return (Row7) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function7<? super UInteger, ? super String, ? super String, ? super String, ? super String, ? super String, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function7<? super Integer, ? super String, ? super String, ? super String, ? super String, ? super String, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -225,7 +224,7 @@ public class Label extends TableImpl<LabelRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super UInteger, ? super String, ? super String, ? super String, ? super String, ? super String, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super Integer, ? super String, ? super String, ? super String, ? super String, ? super String, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

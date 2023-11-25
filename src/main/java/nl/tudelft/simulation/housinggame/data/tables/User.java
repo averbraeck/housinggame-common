@@ -30,7 +30,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -57,7 +56,7 @@ public class User extends TableImpl<UserRecord> {
     /**
      * The column <code>housinggame.user.id</code>.
      */
-    public final TableField<UserRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<UserRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.user.username</code>.
@@ -123,8 +122,8 @@ public class User extends TableImpl<UserRecord> {
     }
 
     @Override
-    public Identity<UserRecord, UInteger> getIdentity() {
-        return (Identity<UserRecord, UInteger>) super.getIdentity();
+    public Identity<UserRecord, Integer> getIdentity() {
+        return (Identity<UserRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -181,14 +180,14 @@ public class User extends TableImpl<UserRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<UInteger, String, String, String, LocalDateTime, Byte> fieldsRow() {
+    public Row6<Integer, String, String, String, LocalDateTime, Byte> fieldsRow() {
         return (Row6) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function6<? super UInteger, ? super String, ? super String, ? super String, ? super LocalDateTime, ? super Byte, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function6<? super Integer, ? super String, ? super String, ? super String, ? super LocalDateTime, ? super Byte, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -196,7 +195,7 @@ public class User extends TableImpl<UserRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super UInteger, ? super String, ? super String, ? super String, ? super LocalDateTime, ? super Byte, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super Integer, ? super String, ? super String, ? super String, ? super LocalDateTime, ? super Byte, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

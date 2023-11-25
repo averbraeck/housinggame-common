@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Round extends TableImpl<RoundRecord> {
     /**
      * The column <code>housinggame.round.id</code>.
      */
-    public final TableField<RoundRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<RoundRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.round.round_number</code>.
@@ -68,7 +67,7 @@ public class Round extends TableImpl<RoundRecord> {
     /**
      * The column <code>housinggame.round.scenario_id</code>.
      */
-    public final TableField<RoundRecord, UInteger> SCENARIO_ID = createField(DSL.name("scenario_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<RoundRecord, Integer> SCENARIO_ID = createField(DSL.name("scenario_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Round(Name alias, Table<RoundRecord> aliased) {
         this(alias, aliased, null);
@@ -114,8 +113,8 @@ public class Round extends TableImpl<RoundRecord> {
     }
 
     @Override
-    public Identity<RoundRecord, UInteger> getIdentity() {
-        return (Identity<RoundRecord, UInteger>) super.getIdentity();
+    public Identity<RoundRecord, Integer> getIdentity() {
+        return (Identity<RoundRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -190,14 +189,14 @@ public class Round extends TableImpl<RoundRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row3<UInteger, Integer, UInteger> fieldsRow() {
+    public Row3<Integer, Integer, Integer> fieldsRow() {
         return (Row3) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function3<? super UInteger, ? super Integer, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function3<? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -205,7 +204,7 @@ public class Round extends TableImpl<RoundRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function3<? super UInteger, ? super Integer, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function3<? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

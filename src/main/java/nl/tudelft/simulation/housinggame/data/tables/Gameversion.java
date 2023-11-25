@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Gameversion extends TableImpl<GameversionRecord> {
     /**
      * The column <code>housinggame.gameversion.id</code>.
      */
-    public final TableField<GameversionRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<GameversionRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.gameversion.name</code>.
@@ -68,7 +67,7 @@ public class Gameversion extends TableImpl<GameversionRecord> {
     /**
      * The column <code>housinggame.gameversion.languagegroup_id</code>.
      */
-    public final TableField<GameversionRecord, UInteger> LANGUAGEGROUP_ID = createField(DSL.name("languagegroup_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<GameversionRecord, Integer> LANGUAGEGROUP_ID = createField(DSL.name("languagegroup_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Gameversion(Name alias, Table<GameversionRecord> aliased) {
         this(alias, aliased, null);
@@ -114,8 +113,8 @@ public class Gameversion extends TableImpl<GameversionRecord> {
     }
 
     @Override
-    public Identity<GameversionRecord, UInteger> getIdentity() {
-        return (Identity<GameversionRecord, UInteger>) super.getIdentity();
+    public Identity<GameversionRecord, Integer> getIdentity() {
+        return (Identity<GameversionRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -190,14 +189,14 @@ public class Gameversion extends TableImpl<GameversionRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row3<UInteger, String, UInteger> fieldsRow() {
+    public Row3<Integer, String, Integer> fieldsRow() {
         return (Row3) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function3<? super UInteger, ? super String, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function3<? super Integer, ? super String, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -205,7 +204,7 @@ public class Gameversion extends TableImpl<GameversionRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function3<? super UInteger, ? super String, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function3<? super Integer, ? super String, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

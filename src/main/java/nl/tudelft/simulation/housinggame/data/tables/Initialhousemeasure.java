@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Initialhousemeasure extends TableImpl<InitialhousemeasureRecord> {
     /**
      * The column <code>housinggame.initialhousemeasure.id</code>.
      */
-    public final TableField<InitialhousemeasureRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<InitialhousemeasureRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.initialhousemeasure.name</code>.
@@ -68,17 +67,17 @@ public class Initialhousemeasure extends TableImpl<InitialhousemeasureRecord> {
     /**
      * The column <code>housinggame.initialhousemeasure.round</code>.
      */
-    public final TableField<InitialhousemeasureRecord, UInteger> ROUND = createField(DSL.name("round"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<InitialhousemeasureRecord, Integer> ROUND = createField(DSL.name("round"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.initialhousemeasure.measuretype_id</code>.
      */
-    public final TableField<InitialhousemeasureRecord, UInteger> MEASURETYPE_ID = createField(DSL.name("measuretype_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<InitialhousemeasureRecord, Integer> MEASURETYPE_ID = createField(DSL.name("measuretype_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.initialhousemeasure.house_id</code>.
      */
-    public final TableField<InitialhousemeasureRecord, UInteger> HOUSE_ID = createField(DSL.name("house_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<InitialhousemeasureRecord, Integer> HOUSE_ID = createField(DSL.name("house_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Initialhousemeasure(Name alias, Table<InitialhousemeasureRecord> aliased) {
         this(alias, aliased, null);
@@ -126,8 +125,8 @@ public class Initialhousemeasure extends TableImpl<InitialhousemeasureRecord> {
     }
 
     @Override
-    public Identity<InitialhousemeasureRecord, UInteger> getIdentity() {
-        return (Identity<InitialhousemeasureRecord, UInteger>) super.getIdentity();
+    public Identity<InitialhousemeasureRecord, Integer> getIdentity() {
+        return (Identity<InitialhousemeasureRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -213,14 +212,14 @@ public class Initialhousemeasure extends TableImpl<InitialhousemeasureRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<UInteger, String, UInteger, UInteger, UInteger> fieldsRow() {
+    public Row5<Integer, String, Integer, Integer, Integer> fieldsRow() {
         return (Row5) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function5<? super UInteger, ? super String, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function5<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -228,7 +227,7 @@ public class Initialhousemeasure extends TableImpl<InitialhousemeasureRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super UInteger, ? super String, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

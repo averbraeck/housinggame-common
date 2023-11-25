@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Group extends TableImpl<GroupRecord> {
     /**
      * The column <code>housinggame.group.id</code>.
      */
-    public final TableField<GroupRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<GroupRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.group.name</code>.
@@ -73,17 +72,17 @@ public class Group extends TableImpl<GroupRecord> {
     /**
      * The column <code>housinggame.group.gamesession_id</code>.
      */
-    public final TableField<GroupRecord, UInteger> GAMESESSION_ID = createField(DSL.name("gamesession_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<GroupRecord, Integer> GAMESESSION_ID = createField(DSL.name("gamesession_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.group.scenario_id</code>.
      */
-    public final TableField<GroupRecord, UInteger> SCENARIO_ID = createField(DSL.name("scenario_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<GroupRecord, Integer> SCENARIO_ID = createField(DSL.name("scenario_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.group.facilitator_id</code>.
      */
-    public final TableField<GroupRecord, UInteger> FACILITATOR_ID = createField(DSL.name("facilitator_id"), SQLDataType.INTEGERUNSIGNED.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<GroupRecord, Integer> FACILITATOR_ID = createField(DSL.name("facilitator_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     private Group(Name alias, Table<GroupRecord> aliased) {
         this(alias, aliased, null);
@@ -129,8 +128,8 @@ public class Group extends TableImpl<GroupRecord> {
     }
 
     @Override
-    public Identity<GroupRecord, UInteger> getIdentity() {
-        return (Identity<GroupRecord, UInteger>) super.getIdentity();
+    public Identity<GroupRecord, Integer> getIdentity() {
+        return (Identity<GroupRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -228,14 +227,14 @@ public class Group extends TableImpl<GroupRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<UInteger, String, String, UInteger, UInteger, UInteger> fieldsRow() {
+    public Row6<Integer, String, String, Integer, Integer, Integer> fieldsRow() {
         return (Row6) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function6<? super UInteger, ? super String, ? super String, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function6<? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -243,7 +242,7 @@ public class Group extends TableImpl<GroupRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super UInteger, ? super String, ? super String, ? super UInteger, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

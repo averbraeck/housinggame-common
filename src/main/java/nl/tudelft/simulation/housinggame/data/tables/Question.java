@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,12 +57,12 @@ public class Question extends TableImpl<QuestionRecord> {
     /**
      * The column <code>housinggame.question.id</code>.
      */
-    public final TableField<QuestionRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<QuestionRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.question.question_number</code>.
      */
-    public final TableField<QuestionRecord, UInteger> QUESTION_NUMBER = createField(DSL.name("question_number"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<QuestionRecord, Integer> QUESTION_NUMBER = createField(DSL.name("question_number"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.question.description</code>.
@@ -78,7 +77,7 @@ public class Question extends TableImpl<QuestionRecord> {
     /**
      * The column <code>housinggame.question.scenario_id</code>.
      */
-    public final TableField<QuestionRecord, UInteger> SCENARIO_ID = createField(DSL.name("scenario_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<QuestionRecord, Integer> SCENARIO_ID = createField(DSL.name("scenario_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Question(Name alias, Table<QuestionRecord> aliased) {
         this(alias, aliased, null);
@@ -124,8 +123,8 @@ public class Question extends TableImpl<QuestionRecord> {
     }
 
     @Override
-    public Identity<QuestionRecord, UInteger> getIdentity() {
-        return (Identity<QuestionRecord, UInteger>) super.getIdentity();
+    public Identity<QuestionRecord, Integer> getIdentity() {
+        return (Identity<QuestionRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -200,14 +199,14 @@ public class Question extends TableImpl<QuestionRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<UInteger, UInteger, String, String, UInteger> fieldsRow() {
+    public Row5<Integer, Integer, String, String, Integer> fieldsRow() {
         return (Row5) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function5<? super UInteger, ? super UInteger, ? super String, ? super String, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function5<? super Integer, ? super Integer, ? super String, ? super String, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -215,7 +214,7 @@ public class Question extends TableImpl<QuestionRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super UInteger, ? super UInteger, ? super String, ? super String, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super Integer, ? super Integer, ? super String, ? super String, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

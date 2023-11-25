@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
     /**
      * The column <code>housinggame.newseffects.id</code>.
      */
-    public final TableField<NewseffectsRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<NewseffectsRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.newseffects.name</code>.
@@ -79,19 +78,19 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
      * The column <code>housinggame.newseffects.house_discount_year1</code>.
      * House discount year 1 after flooding, in Euros or as a percentage
      */
-    public final TableField<NewseffectsRecord, UInteger> HOUSE_DISCOUNT_YEAR1 = createField(DSL.name("house_discount_year1"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "House discount year 1 after flooding, in Euros or as a percentage");
+    public final TableField<NewseffectsRecord, Integer> HOUSE_DISCOUNT_YEAR1 = createField(DSL.name("house_discount_year1"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "House discount year 1 after flooding, in Euros or as a percentage");
 
     /**
      * The column <code>housinggame.newseffects.house_discount_year2</code>.
      * House discount year 2 after flooding, in Euros or as a percentage
      */
-    public final TableField<NewseffectsRecord, UInteger> HOUSE_DISCOUNT_YEAR2 = createField(DSL.name("house_discount_year2"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "House discount year 2 after flooding, in Euros or as a percentage");
+    public final TableField<NewseffectsRecord, Integer> HOUSE_DISCOUNT_YEAR2 = createField(DSL.name("house_discount_year2"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "House discount year 2 after flooding, in Euros or as a percentage");
 
     /**
      * The column <code>housinggame.newseffects.house_discount_year3</code>.
      * House discount year 3 after flooding, in Euros or as a percentage
      */
-    public final TableField<NewseffectsRecord, UInteger> HOUSE_DISCOUNT_YEAR3 = createField(DSL.name("house_discount_year3"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGERUNSIGNED)), this, "House discount year 3 after flooding, in Euros or as a percentage");
+    public final TableField<NewseffectsRecord, Integer> HOUSE_DISCOUNT_YEAR3 = createField(DSL.name("house_discount_year3"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "House discount year 3 after flooding, in Euros or as a percentage");
 
     /**
      * The column
@@ -124,13 +123,13 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
     /**
      * The column <code>housinggame.newseffects.newsitem_id</code>.
      */
-    public final TableField<NewseffectsRecord, UInteger> NEWSITEM_ID = createField(DSL.name("newsitem_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<NewseffectsRecord, Integer> NEWSITEM_ID = createField(DSL.name("newsitem_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.newseffects.community_id</code>. When
      * community_id is NOT filled, all communities are affected equally.
      */
-    public final TableField<NewseffectsRecord, UInteger> COMMUNITY_ID = createField(DSL.name("community_id"), SQLDataType.INTEGERUNSIGNED.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGERUNSIGNED)), this, "When community_id is NOT filled, all communities are affected equally.");
+    public final TableField<NewseffectsRecord, Integer> COMMUNITY_ID = createField(DSL.name("community_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "When community_id is NOT filled, all communities are affected equally.");
 
     private Newseffects(Name alias, Table<NewseffectsRecord> aliased) {
         this(alias, aliased, null);
@@ -176,8 +175,8 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
     }
 
     @Override
-    public Identity<NewseffectsRecord, UInteger> getIdentity() {
-        return (Identity<NewseffectsRecord, UInteger>) super.getIdentity();
+    public Identity<NewseffectsRecord, Integer> getIdentity() {
+        return (Identity<NewseffectsRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -264,14 +263,14 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row14<UInteger, String, Byte, Byte, UInteger, UInteger, UInteger, Integer, Integer, Double, Integer, Integer, UInteger, UInteger> fieldsRow() {
+    public Row14<Integer, String, Byte, Byte, Integer, Integer, Integer, Integer, Integer, Double, Integer, Integer, Integer, Integer> fieldsRow() {
         return (Row14) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function14<? super UInteger, ? super String, ? super Byte, ? super Byte, ? super UInteger, ? super UInteger, ? super UInteger, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? super Integer, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function14<? super Integer, ? super String, ? super Byte, ? super Byte, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -279,7 +278,7 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function14<? super UInteger, ? super String, ? super Byte, ? super Byte, ? super UInteger, ? super UInteger, ? super UInteger, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? super Integer, ? super UInteger, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function14<? super Integer, ? super String, ? super Byte, ? super Byte, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

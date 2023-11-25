@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Tax extends TableImpl<TaxRecord> {
     /**
      * The column <code>housinggame.tax.id</code>.
      */
-    public final TableField<TaxRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<TaxRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.tax.name</code>.
@@ -68,12 +67,12 @@ public class Tax extends TableImpl<TaxRecord> {
     /**
      * The column <code>housinggame.tax.minimum_inhabitants</code>.
      */
-    public final TableField<TaxRecord, UInteger> MINIMUM_INHABITANTS = createField(DSL.name("minimum_inhabitants"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<TaxRecord, Integer> MINIMUM_INHABITANTS = createField(DSL.name("minimum_inhabitants"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.tax.maximum_inhabitants</code>.
      */
-    public final TableField<TaxRecord, UInteger> MAXIMUM_INHABITANTS = createField(DSL.name("maximum_inhabitants"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<TaxRecord, Integer> MAXIMUM_INHABITANTS = createField(DSL.name("maximum_inhabitants"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.tax.tax_cost</code>.
@@ -83,7 +82,7 @@ public class Tax extends TableImpl<TaxRecord> {
     /**
      * The column <code>housinggame.tax.community_id</code>.
      */
-    public final TableField<TaxRecord, UInteger> COMMUNITY_ID = createField(DSL.name("community_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<TaxRecord, Integer> COMMUNITY_ID = createField(DSL.name("community_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Tax(Name alias, Table<TaxRecord> aliased) {
         this(alias, aliased, null);
@@ -129,8 +128,8 @@ public class Tax extends TableImpl<TaxRecord> {
     }
 
     @Override
-    public Identity<TaxRecord, UInteger> getIdentity() {
-        return (Identity<TaxRecord, UInteger>) super.getIdentity();
+    public Identity<TaxRecord, Integer> getIdentity() {
+        return (Identity<TaxRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -205,14 +204,14 @@ public class Tax extends TableImpl<TaxRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<UInteger, String, UInteger, UInteger, Double, UInteger> fieldsRow() {
+    public Row6<Integer, String, Integer, Integer, Double, Integer> fieldsRow() {
         return (Row6) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function6<? super UInteger, ? super String, ? super UInteger, ? super UInteger, ? super Double, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function6<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -220,7 +219,7 @@ public class Tax extends TableImpl<TaxRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super UInteger, ? super String, ? super UInteger, ? super UInteger, ? super Double, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

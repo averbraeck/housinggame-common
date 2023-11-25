@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     /**
      * The column <code>housinggame.measuretype.id</code>.
      */
-    public final TableField<MeasuretypeRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<MeasuretypeRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.measuretype.name</code>.
@@ -73,7 +72,7 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     /**
      * The column <code>housinggame.measuretype.price</code>.
      */
-    public final TableField<MeasuretypeRecord, UInteger> PRICE = createField(DSL.name("price"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<MeasuretypeRecord, Integer> PRICE = createField(DSL.name("price"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.measuretype.satisfaction</code>.
@@ -98,7 +97,7 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     /**
      * The column <code>housinggame.measuretype.gameversion_id</code>.
      */
-    public final TableField<MeasuretypeRecord, UInteger> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<MeasuretypeRecord, Integer> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Measuretype(Name alias, Table<MeasuretypeRecord> aliased) {
         this(alias, aliased, null);
@@ -144,8 +143,8 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     }
 
     @Override
-    public Identity<MeasuretypeRecord, UInteger> getIdentity() {
-        return (Identity<MeasuretypeRecord, UInteger>) super.getIdentity();
+    public Identity<MeasuretypeRecord, Integer> getIdentity() {
+        return (Identity<MeasuretypeRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -220,14 +219,14 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<UInteger, String, String, UInteger, Integer, Integer, Integer, Byte, UInteger> fieldsRow() {
+    public Row9<Integer, String, String, Integer, Integer, Integer, Integer, Byte, Integer> fieldsRow() {
         return (Row9) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function9<? super UInteger, ? super String, ? super String, ? super UInteger, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function9<? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -235,7 +234,7 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super UInteger, ? super String, ? super String, ? super UInteger, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

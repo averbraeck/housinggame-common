@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,7 +57,7 @@ public class Newsitem extends TableImpl<NewsitemRecord> {
     /**
      * The column <code>housinggame.newsitem.id</code>.
      */
-    public final TableField<NewsitemRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<NewsitemRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.newsitem.name</code>.
@@ -78,7 +77,7 @@ public class Newsitem extends TableImpl<NewsitemRecord> {
     /**
      * The column <code>housinggame.newsitem.round_id</code>.
      */
-    public final TableField<NewsitemRecord, UInteger> ROUND_ID = createField(DSL.name("round_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<NewsitemRecord, Integer> ROUND_ID = createField(DSL.name("round_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Newsitem(Name alias, Table<NewsitemRecord> aliased) {
         this(alias, aliased, null);
@@ -124,8 +123,8 @@ public class Newsitem extends TableImpl<NewsitemRecord> {
     }
 
     @Override
-    public Identity<NewsitemRecord, UInteger> getIdentity() {
-        return (Identity<NewsitemRecord, UInteger>) super.getIdentity();
+    public Identity<NewsitemRecord, Integer> getIdentity() {
+        return (Identity<NewsitemRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -199,14 +198,14 @@ public class Newsitem extends TableImpl<NewsitemRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<UInteger, String, String, String, UInteger> fieldsRow() {
+    public Row5<Integer, String, String, String, Integer> fieldsRow() {
         return (Row5) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function5<? super UInteger, ? super String, ? super String, ? super String, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function5<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -214,7 +213,7 @@ public class Newsitem extends TableImpl<NewsitemRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super UInteger, ? super String, ? super String, ? super String, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

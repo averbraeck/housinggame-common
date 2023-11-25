@@ -29,7 +29,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -56,7 +55,7 @@ public class Language extends TableImpl<LanguageRecord> {
     /**
      * The column <code>housinggame.language.id</code>.
      */
-    public final TableField<LanguageRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<LanguageRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.language.code</code>.
@@ -107,8 +106,8 @@ public class Language extends TableImpl<LanguageRecord> {
     }
 
     @Override
-    public Identity<LanguageRecord, UInteger> getIdentity() {
-        return (Identity<LanguageRecord, UInteger>) super.getIdentity();
+    public Identity<LanguageRecord, Integer> getIdentity() {
+        return (Identity<LanguageRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -165,14 +164,14 @@ public class Language extends TableImpl<LanguageRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row3<UInteger, String, String> fieldsRow() {
+    public Row3<Integer, String, String> fieldsRow() {
         return (Row3) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function3<? super UInteger, ? super String, ? super String, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function3<? super Integer, ? super String, ? super String, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -180,7 +179,7 @@ public class Language extends TableImpl<LanguageRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function3<? super UInteger, ? super String, ? super String, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function3<? super Integer, ? super String, ? super String, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

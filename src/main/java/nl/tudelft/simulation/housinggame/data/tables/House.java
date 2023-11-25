@@ -31,7 +31,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -58,12 +57,12 @@ public class House extends TableImpl<HouseRecord> {
     /**
      * The column <code>housinggame.house.id</code>.
      */
-    public final TableField<HouseRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<HouseRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.house.price</code>.
      */
-    public final TableField<HouseRecord, UInteger> PRICE = createField(DSL.name("price"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<HouseRecord, Integer> PRICE = createField(DSL.name("price"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.house.address</code>.
@@ -73,7 +72,7 @@ public class House extends TableImpl<HouseRecord> {
     /**
      * The column <code>housinggame.house.available_round</code>.
      */
-    public final TableField<HouseRecord, UInteger> AVAILABLE_ROUND = createField(DSL.name("available_round"), SQLDataType.INTEGERUNSIGNED.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.INTEGERUNSIGNED)), this, "");
+    public final TableField<HouseRecord, Integer> AVAILABLE_ROUND = createField(DSL.name("available_round"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.house.description</code>.
@@ -83,7 +82,7 @@ public class House extends TableImpl<HouseRecord> {
     /**
      * The column <code>housinggame.house.rating</code>.
      */
-    public final TableField<HouseRecord, UInteger> RATING = createField(DSL.name("rating"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<HouseRecord, Integer> RATING = createField(DSL.name("rating"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.house.initial_pluvial_protection</code>.
@@ -98,7 +97,7 @@ public class House extends TableImpl<HouseRecord> {
     /**
      * The column <code>housinggame.house.community_id</code>.
      */
-    public final TableField<HouseRecord, UInteger> COMMUNITY_ID = createField(DSL.name("community_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<HouseRecord, Integer> COMMUNITY_ID = createField(DSL.name("community_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private House(Name alias, Table<HouseRecord> aliased) {
         this(alias, aliased, null);
@@ -144,8 +143,8 @@ public class House extends TableImpl<HouseRecord> {
     }
 
     @Override
-    public Identity<HouseRecord, UInteger> getIdentity() {
-        return (Identity<HouseRecord, UInteger>) super.getIdentity();
+    public Identity<HouseRecord, Integer> getIdentity() {
+        return (Identity<HouseRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -220,14 +219,14 @@ public class House extends TableImpl<HouseRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<UInteger, UInteger, String, UInteger, String, UInteger, Integer, Integer, UInteger> fieldsRow() {
+    public Row9<Integer, Integer, String, Integer, String, Integer, Integer, Integer, Integer> fieldsRow() {
         return (Row9) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function9<? super UInteger, ? super UInteger, ? super String, ? super UInteger, ? super String, ? super UInteger, ? super Integer, ? super Integer, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function9<? super Integer, ? super Integer, ? super String, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -235,7 +234,7 @@ public class House extends TableImpl<HouseRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super UInteger, ? super UInteger, ? super String, ? super UInteger, ? super String, ? super UInteger, ? super Integer, ? super Integer, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super Integer, ? super Integer, ? super String, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

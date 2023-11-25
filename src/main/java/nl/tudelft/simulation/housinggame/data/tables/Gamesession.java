@@ -33,7 +33,6 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
-import org.jooq.types.UInteger;
 
 
 /**
@@ -60,7 +59,7 @@ public class Gamesession extends TableImpl<GamesessionRecord> {
     /**
      * The column <code>housinggame.gamesession.id</code>.
      */
-    public final TableField<GamesessionRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
+    public final TableField<GamesessionRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
      * The column <code>housinggame.gamesession.name</code>.
@@ -100,7 +99,7 @@ public class Gamesession extends TableImpl<GamesessionRecord> {
     /**
      * The column <code>housinggame.gamesession.gameversion_id</code>.
      */
-    public final TableField<GamesessionRecord, UInteger> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
+    public final TableField<GamesessionRecord, Integer> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Gamesession(Name alias, Table<GamesessionRecord> aliased) {
         this(alias, aliased, null);
@@ -146,8 +145,8 @@ public class Gamesession extends TableImpl<GamesessionRecord> {
     }
 
     @Override
-    public Identity<GamesessionRecord, UInteger> getIdentity() {
-        return (Identity<GamesessionRecord, UInteger>) super.getIdentity();
+    public Identity<GamesessionRecord, Integer> getIdentity() {
+        return (Identity<GamesessionRecord, Integer>) super.getIdentity();
     }
 
     @Override
@@ -222,14 +221,14 @@ public class Gamesession extends TableImpl<GamesessionRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<UInteger, String, String, String, LocalDateTime, LocalDate, LocalDateTime, LocalDateTime, UInteger> fieldsRow() {
+    public Row9<Integer, String, String, String, LocalDateTime, LocalDate, LocalDateTime, LocalDateTime, Integer> fieldsRow() {
         return (Row9) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function9<? super UInteger, ? super String, ? super String, ? super String, ? super LocalDateTime, ? super LocalDate, ? super LocalDateTime, ? super LocalDateTime, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function9<? super Integer, ? super String, ? super String, ? super String, ? super LocalDateTime, ? super LocalDate, ? super LocalDateTime, ? super LocalDateTime, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -237,7 +236,7 @@ public class Gamesession extends TableImpl<GamesessionRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super UInteger, ? super String, ? super String, ? super String, ? super LocalDateTime, ? super LocalDate, ? super LocalDateTime, ? super LocalDateTime, ? super UInteger, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super Integer, ? super String, ? super String, ? super String, ? super LocalDateTime, ? super LocalDate, ? super LocalDateTime, ? super LocalDateTime, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
