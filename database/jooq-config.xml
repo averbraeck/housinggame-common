@@ -99,6 +99,8 @@
            If left empty, jOOQ will generate all available schemata. See the
            manual's next section to learn how to generate several schemata -->
       <inputSchema>housinggame</inputSchema>
+      
+      <unsignedTypes>false</unsignedTypes>
     </database>
 
     <!-- Generation flags: See advanced configuration properties -->
