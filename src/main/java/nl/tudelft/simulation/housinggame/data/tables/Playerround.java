@@ -86,15 +86,20 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> PAID_DEBT = createField(DSL.name("paid_debt"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
+     * The column <code>housinggame.playerround.paid_mortgage</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> PAID_MORTGAGE = createField(DSL.name("paid_mortgage"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.profit_sold_house</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> PROFIT_SOLD_HOUSE = createField(DSL.name("profit_sold_house"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
      * The column
      * <code>housinggame.playerround.spent_savings_for_buying_house</code>.
      */
     public final TableField<PlayerroundRecord, Integer> SPENT_SAVINGS_FOR_BUYING_HOUSE = createField(DSL.name("spent_savings_for_buying_house"), SQLDataType.INTEGER.nullable(false), this, "");
-
-    /**
-     * The column <code>housinggame.playerround.paid_mortgage</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> PAID_MORTGAGE = createField(DSL.name("paid_mortgage"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.playerround.cost_taxes</code>.
