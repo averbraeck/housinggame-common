@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.MeasureRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function5;
+import org.jooq.Function6;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row5;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -65,6 +65,11 @@ public class Measure extends TableImpl<MeasureRecord> {
     public final TableField<MeasureRecord, Double> VALUE = createField(DSL.name("value"), SQLDataType.FLOAT.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.FLOAT)), this, "");
 
     /**
+     * The column <code>housinggame.measure.used_in_round</code>.
+     */
+    public final TableField<MeasureRecord, Integer> USED_IN_ROUND = createField(DSL.name("used_in_round"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+
+    /**
      * The column <code>housinggame.measure.playerround_id</code>.
      */
     public final TableField<MeasureRecord, Integer> PLAYERROUND_ID = createField(DSL.name("playerround_id"), SQLDataType.INTEGER.nullable(false), this, "");
@@ -75,9 +80,9 @@ public class Measure extends TableImpl<MeasureRecord> {
     public final TableField<MeasureRecord, Integer> MEASURETYPE_ID = createField(DSL.name("measuretype_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.measure.house_id</code>.
+     * The column <code>housinggame.measure.houseround_id</code>.
      */
-    public final TableField<MeasureRecord, Integer> HOUSE_ID = createField(DSL.name("house_id"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MeasureRecord, Integer> HOUSEROUND_ID = createField(DSL.name("houseround_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Measure(Name alias, Table<MeasureRecord> aliased) {
         this(alias, aliased, null);
@@ -119,7 +124,7 @@ public class Measure extends TableImpl<MeasureRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.MEASURE_FK_MEASURE_HOUSE1_IDX, Indexes.MEASURE_FK_MEASURE_MEASURETYPE1_IDX, Indexes.MEASURE_FK_MEASURE_PLAYERROUND1_IDX);
+        return Arrays.asList(Indexes.MEASURE_FK_MEASURE_HOUSEROUND1_IDX, Indexes.MEASURE_FK_MEASURE_MEASURETYPE1_IDX, Indexes.MEASURE_FK_MEASURE_PLAYERROUND1_IDX);
     }
 
     @Override
@@ -139,7 +144,7 @@ public class Measure extends TableImpl<MeasureRecord> {
 
     @Override
     public List<ForeignKey<MeasureRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_MEASURE_PLAYERROUND1, Keys.FK_MEASURE_MEASURETYPE1, Keys.FK_MEASURE_HOUSE1);
+        return Arrays.asList(Keys.FK_MEASURE_PLAYERROUND1, Keys.FK_MEASURE_MEASURETYPE1, Keys.FK_MEASURE_HOUSEROUND1);
     }
 
     private transient Playerround _playerround;
@@ -173,7 +178,7 @@ public class Measure extends TableImpl<MeasureRecord> {
      */
     public House house() {
         if (_house == null)
-            _house = new House(this, Keys.FK_MEASURE_HOUSE1);
+            _house = new House(this, Keys.FK_MEASURE_HOUSEROUND1);
 
         return _house;
     }
@@ -218,18 +223,18 @@ public class Measure extends TableImpl<MeasureRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Integer, Double, Integer, Integer, Integer> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row6<Integer, Double, Integer, Integer, Integer, Integer> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function5<? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function6<? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -237,7 +242,7 @@ public class Measure extends TableImpl<MeasureRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

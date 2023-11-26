@@ -4,13 +4,13 @@
 package nl.tudelft.simulation.housinggame.data;
 
 
-import nl.tudelft.simulation.housinggame.data.tables.Bid;
 import nl.tudelft.simulation.housinggame.data.tables.Community;
 import nl.tudelft.simulation.housinggame.data.tables.Gamesession;
 import nl.tudelft.simulation.housinggame.data.tables.Gameversion;
 import nl.tudelft.simulation.housinggame.data.tables.Group;
 import nl.tudelft.simulation.housinggame.data.tables.Groupround;
 import nl.tudelft.simulation.housinggame.data.tables.House;
+import nl.tudelft.simulation.housinggame.data.tables.Houseround;
 import nl.tudelft.simulation.housinggame.data.tables.Initialhousemeasure;
 import nl.tudelft.simulation.housinggame.data.tables.Label;
 import nl.tudelft.simulation.housinggame.data.tables.Language;
@@ -23,19 +23,18 @@ import nl.tudelft.simulation.housinggame.data.tables.Player;
 import nl.tudelft.simulation.housinggame.data.tables.Playerround;
 import nl.tudelft.simulation.housinggame.data.tables.Question;
 import nl.tudelft.simulation.housinggame.data.tables.Questionscore;
-import nl.tudelft.simulation.housinggame.data.tables.Round;
 import nl.tudelft.simulation.housinggame.data.tables.Scenario;
 import nl.tudelft.simulation.housinggame.data.tables.Scenarioparameters;
 import nl.tudelft.simulation.housinggame.data.tables.Tax;
 import nl.tudelft.simulation.housinggame.data.tables.User;
 import nl.tudelft.simulation.housinggame.data.tables.Welfaretype;
-import nl.tudelft.simulation.housinggame.data.tables.records.BidRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.CommunityRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.GamesessionRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.GameversionRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.GroupRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.GrouproundRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.HouseRecord;
+import nl.tudelft.simulation.housinggame.data.tables.records.HouseroundRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.InitialhousemeasureRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.LabelRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.LanguageRecord;
@@ -48,7 +47,6 @@ import nl.tudelft.simulation.housinggame.data.tables.records.PlayerRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.PlayerroundRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.QuestionRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.QuestionscoreRecord;
-import nl.tudelft.simulation.housinggame.data.tables.records.RoundRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.ScenarioRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.ScenarioparametersRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.TaxRecord;
@@ -73,8 +71,6 @@ public class Keys {
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final UniqueKey<BidRecord> KEY_BID_ID_UNIQUE = Internal.createUniqueKey(Bid.BID, DSL.name("KEY_bid_id_UNIQUE"), new TableField[] { Bid.BID.ID }, true);
-    public static final UniqueKey<BidRecord> KEY_BID_PRIMARY = Internal.createUniqueKey(Bid.BID, DSL.name("KEY_bid_PRIMARY"), new TableField[] { Bid.BID.ID }, true);
     public static final UniqueKey<CommunityRecord> KEY_COMMUNITY_ID_UNIQUE = Internal.createUniqueKey(Community.COMMUNITY, DSL.name("KEY_community_id_UNIQUE"), new TableField[] { Community.COMMUNITY.ID }, true);
     public static final UniqueKey<CommunityRecord> KEY_COMMUNITY_PRIMARY = Internal.createUniqueKey(Community.COMMUNITY, DSL.name("KEY_community_PRIMARY"), new TableField[] { Community.COMMUNITY.ID }, true);
     public static final UniqueKey<GamesessionRecord> KEY_GAMESESSION_ID_UNIQUE = Internal.createUniqueKey(Gamesession.GAMESESSION, DSL.name("KEY_gamesession_Id_UNIQUE"), new TableField[] { Gamesession.GAMESESSION.ID }, true);
@@ -87,11 +83,13 @@ public class Keys {
     public static final UniqueKey<GroupRecord> KEY_GROUP_ID_UNIQUE = Internal.createUniqueKey(Group.GROUP, DSL.name("KEY_group_Id_UNIQUE"), new TableField[] { Group.GROUP.ID }, true);
     public static final UniqueKey<GroupRecord> KEY_GROUP_NAME_UNIQUE = Internal.createUniqueKey(Group.GROUP, DSL.name("KEY_group_name_UNIQUE"), new TableField[] { Group.GROUP.GAMESESSION_ID, Group.GROUP.NAME }, true);
     public static final UniqueKey<GroupRecord> KEY_GROUP_PRIMARY = Internal.createUniqueKey(Group.GROUP, DSL.name("KEY_group_PRIMARY"), new TableField[] { Group.GROUP.ID }, true);
-    public static final UniqueKey<GrouproundRecord> KEY_GROUPROUND_ID_GROUP_ROUND = Internal.createUniqueKey(Groupround.GROUPROUND, DSL.name("KEY_groupround_id_group_round"), new TableField[] { Groupround.GROUPROUND.GROUP_ID, Groupround.GROUPROUND.ROUND_ID }, true);
     public static final UniqueKey<GrouproundRecord> KEY_GROUPROUND_ID_UNIQUE = Internal.createUniqueKey(Groupround.GROUPROUND, DSL.name("KEY_groupround_id_UNIQUE"), new TableField[] { Groupround.GROUPROUND.ID }, true);
     public static final UniqueKey<GrouproundRecord> KEY_GROUPROUND_PRIMARY = Internal.createUniqueKey(Groupround.GROUPROUND, DSL.name("KEY_groupround_PRIMARY"), new TableField[] { Groupround.GROUPROUND.ID }, true);
+    public static final UniqueKey<GrouproundRecord> KEY_GROUPROUND_ROUND_UNIQUE = Internal.createUniqueKey(Groupround.GROUPROUND, DSL.name("KEY_groupround_round_UNIQUE"), new TableField[] { Groupround.GROUPROUND.GROUP_ID, Groupround.GROUPROUND.ROUND_NUMBER }, true);
     public static final UniqueKey<HouseRecord> KEY_HOUSE_ID_UNIQUE = Internal.createUniqueKey(House.HOUSE, DSL.name("KEY_house_id_UNIQUE"), new TableField[] { House.HOUSE.ID }, true);
     public static final UniqueKey<HouseRecord> KEY_HOUSE_PRIMARY = Internal.createUniqueKey(House.HOUSE, DSL.name("KEY_house_PRIMARY"), new TableField[] { House.HOUSE.ID }, true);
+    public static final UniqueKey<HouseroundRecord> KEY_HOUSEROUND_ID_UNIQUE = Internal.createUniqueKey(Houseround.HOUSEROUND, DSL.name("KEY_houseround_id_UNIQUE"), new TableField[] { Houseround.HOUSEROUND.ID }, true);
+    public static final UniqueKey<HouseroundRecord> KEY_HOUSEROUND_PRIMARY = Internal.createUniqueKey(Houseround.HOUSEROUND, DSL.name("KEY_houseround_PRIMARY"), new TableField[] { Houseround.HOUSEROUND.ID }, true);
     public static final UniqueKey<InitialhousemeasureRecord> KEY_INITIALHOUSEMEASURE_ID_UNIQUE = Internal.createUniqueKey(Initialhousemeasure.INITIALHOUSEMEASURE, DSL.name("KEY_initialhousemeasure_id_UNIQUE"), new TableField[] { Initialhousemeasure.INITIALHOUSEMEASURE.ID }, true);
     public static final UniqueKey<InitialhousemeasureRecord> KEY_INITIALHOUSEMEASURE_PRIMARY = Internal.createUniqueKey(Initialhousemeasure.INITIALHOUSEMEASURE, DSL.name("KEY_initialhousemeasure_PRIMARY"), new TableField[] { Initialhousemeasure.INITIALHOUSEMEASURE.ID }, true);
     public static final UniqueKey<LabelRecord> KEY_LABEL_ID_UNIQUE = Internal.createUniqueKey(Label.LABEL, DSL.name("KEY_label_id_UNIQUE"), new TableField[] { Label.LABEL.ID }, true);
@@ -122,9 +120,6 @@ public class Keys {
     public static final UniqueKey<QuestionscoreRecord> KEY_QUESTIONSCORE_ID_PLAYERROUND_QUESTION = Internal.createUniqueKey(Questionscore.QUESTIONSCORE, DSL.name("KEY_questionscore_id_playerround_question"), new TableField[] { Questionscore.QUESTIONSCORE.PLAYERROUND_ID, Questionscore.QUESTIONSCORE.QUESTION_ID }, true);
     public static final UniqueKey<QuestionscoreRecord> KEY_QUESTIONSCORE_ID_UNIQUE = Internal.createUniqueKey(Questionscore.QUESTIONSCORE, DSL.name("KEY_questionscore_id_UNIQUE"), new TableField[] { Questionscore.QUESTIONSCORE.ID }, true);
     public static final UniqueKey<QuestionscoreRecord> KEY_QUESTIONSCORE_PRIMARY = Internal.createUniqueKey(Questionscore.QUESTIONSCORE, DSL.name("KEY_questionscore_PRIMARY"), new TableField[] { Questionscore.QUESTIONSCORE.ID }, true);
-    public static final UniqueKey<RoundRecord> KEY_ROUND_ID_UNIQUE = Internal.createUniqueKey(Round.ROUND, DSL.name("KEY_round_id_UNIQUE"), new TableField[] { Round.ROUND.ID }, true);
-    public static final UniqueKey<RoundRecord> KEY_ROUND_PRIMARY = Internal.createUniqueKey(Round.ROUND, DSL.name("KEY_round_PRIMARY"), new TableField[] { Round.ROUND.ID }, true);
-    public static final UniqueKey<RoundRecord> KEY_ROUND_ROUNDNR_UNIQUE = Internal.createUniqueKey(Round.ROUND, DSL.name("KEY_round_roundnr_UNIQUE"), new TableField[] { Round.ROUND.SCENARIO_ID, Round.ROUND.ROUND_NUMBER }, true);
     public static final UniqueKey<ScenarioRecord> KEY_SCENARIO_ID_UNIQUE = Internal.createUniqueKey(Scenario.SCENARIO, DSL.name("KEY_scenario_id_UNIQUE"), new TableField[] { Scenario.SCENARIO.ID }, true);
     public static final UniqueKey<ScenarioRecord> KEY_SCENARIO_PRIMARY = Internal.createUniqueKey(Scenario.SCENARIO, DSL.name("KEY_scenario_PRIMARY"), new TableField[] { Scenario.SCENARIO.ID }, true);
     public static final UniqueKey<ScenarioparametersRecord> KEY_SCENARIOPARAMETERS_ID_UNIQUE = Internal.createUniqueKey(Scenarioparameters.SCENARIOPARAMETERS, DSL.name("KEY_scenarioparameters_Id_UNIQUE"), new TableField[] { Scenarioparameters.SCENARIOPARAMETERS.ID }, true);
@@ -142,8 +137,6 @@ public class Keys {
     // FOREIGN KEY definitions
     // -------------------------------------------------------------------------
 
-    public static final ForeignKey<BidRecord, GrouproundRecord> FK_BID_GROUPROUND1 = Internal.createForeignKey(Bid.BID, DSL.name("fk_bid_groupround1"), new TableField[] { Bid.BID.GROUPROUND_ID }, Keys.KEY_GROUPROUND_PRIMARY, new TableField[] { Groupround.GROUPROUND.ID }, true);
-    public static final ForeignKey<BidRecord, HouseRecord> FK_BID_HOUSE1 = Internal.createForeignKey(Bid.BID, DSL.name("fk_bid_house1"), new TableField[] { Bid.BID.HOUSE_ID }, Keys.KEY_HOUSE_PRIMARY, new TableField[] { House.HOUSE.ID }, true);
     public static final ForeignKey<CommunityRecord, GameversionRecord> FK_COMMUNITY_GAMEVERSION1 = Internal.createForeignKey(Community.COMMUNITY, DSL.name("fk_community_gameversion1"), new TableField[] { Community.COMMUNITY.GAMEVERSION_ID }, Keys.KEY_GAMEVERSION_PRIMARY, new TableField[] { Gameversion.GAMEVERSION.ID }, true);
     public static final ForeignKey<GamesessionRecord, GameversionRecord> FK_GAMESESSION_GAMEVERSION1 = Internal.createForeignKey(Gamesession.GAMESESSION, DSL.name("fk_gamesession_gameversion1"), new TableField[] { Gamesession.GAMESESSION.GAMEVERSION_ID }, Keys.KEY_GAMEVERSION_PRIMARY, new TableField[] { Gameversion.GAMEVERSION.ID }, true);
     public static final ForeignKey<GameversionRecord, LanguagegroupRecord> FK_GAMEVERSION_LANGUAGEGROUP1 = Internal.createForeignKey(Gameversion.GAMEVERSION, DSL.name("fk_gameversion_languagegroup1"), new TableField[] { Gameversion.GAMEVERSION.LANGUAGEGROUP_ID }, Keys.KEY_LANGUAGEGROUP_PRIMARY, new TableField[] { Languagegroup.LANGUAGEGROUP.ID }, true);
@@ -151,7 +144,6 @@ public class Keys {
     public static final ForeignKey<GroupRecord, ScenarioRecord> FK_GROUP_SCENARIO1 = Internal.createForeignKey(Group.GROUP, DSL.name("fk_group_scenario1"), new TableField[] { Group.GROUP.SCENARIO_ID }, Keys.KEY_SCENARIO_PRIMARY, new TableField[] { Scenario.SCENARIO.ID }, true);
     public static final ForeignKey<GroupRecord, UserRecord> FK_GROUP_USER1 = Internal.createForeignKey(Group.GROUP, DSL.name("fk_group_user1"), new TableField[] { Group.GROUP.FACILITATOR_ID }, Keys.KEY_USER_PRIMARY, new TableField[] { User.USER.ID }, true);
     public static final ForeignKey<GrouproundRecord, GroupRecord> FK_GROUPROUND_GROUP1 = Internal.createForeignKey(Groupround.GROUPROUND, DSL.name("fk_groupround_group1"), new TableField[] { Groupround.GROUPROUND.GROUP_ID }, Keys.KEY_GROUP_PRIMARY, new TableField[] { Group.GROUP.ID }, true);
-    public static final ForeignKey<GrouproundRecord, RoundRecord> FK_GROUPROUND_ROUND1 = Internal.createForeignKey(Groupround.GROUPROUND, DSL.name("fk_groupround_round1"), new TableField[] { Groupround.GROUPROUND.ROUND_ID }, Keys.KEY_ROUND_PRIMARY, new TableField[] { Round.ROUND.ID }, true);
     public static final ForeignKey<HouseRecord, CommunityRecord> FK_HOUSE_COMMUNITY1 = Internal.createForeignKey(House.HOUSE, DSL.name("fk_house_community1"), new TableField[] { House.HOUSE.COMMUNITY_ID }, Keys.KEY_COMMUNITY_PRIMARY, new TableField[] { Community.COMMUNITY.ID }, true);
     public static final ForeignKey<InitialhousemeasureRecord, HouseRecord> FK_INITIALHOUSEMEASURE_HOUSE1 = Internal.createForeignKey(Initialhousemeasure.INITIALHOUSEMEASURE, DSL.name("fk_initialhousemeasure_house1"), new TableField[] { Initialhousemeasure.INITIALHOUSEMEASURE.HOUSE_ID }, Keys.KEY_HOUSE_PRIMARY, new TableField[] { House.HOUSE.ID }, true);
     public static final ForeignKey<InitialhousemeasureRecord, MeasuretypeRecord> FK_INITIALHOUSEMEASURE_MEASURETYPE1 = Internal.createForeignKey(Initialhousemeasure.INITIALHOUSEMEASURE, DSL.name("fk_initialhousemeasure_measuretype1"), new TableField[] { Initialhousemeasure.INITIALHOUSEMEASURE.MEASURETYPE_ID }, Keys.KEY_MEASURETYPE_PRIMARY, new TableField[] { Measuretype.MEASURETYPE.ID }, true);
@@ -160,23 +152,23 @@ public class Keys {
     public static final ForeignKey<LanguagegroupRecord, LanguageRecord> FK_LANGUAGES_LANGUAGE2 = Internal.createForeignKey(Languagegroup.LANGUAGEGROUP, DSL.name("fk_languages_language2"), new TableField[] { Languagegroup.LANGUAGEGROUP.LANGUAGE_ID2 }, Keys.KEY_LANGUAGE_PRIMARY, new TableField[] { Language.LANGUAGE.ID }, true);
     public static final ForeignKey<LanguagegroupRecord, LanguageRecord> FK_LANGUAGES_LANGUAGE3 = Internal.createForeignKey(Languagegroup.LANGUAGEGROUP, DSL.name("fk_languages_language3"), new TableField[] { Languagegroup.LANGUAGEGROUP.LANGUAGE_ID3 }, Keys.KEY_LANGUAGE_PRIMARY, new TableField[] { Language.LANGUAGE.ID }, true);
     public static final ForeignKey<LanguagegroupRecord, LanguageRecord> FK_LANGUAGES_LANGUAGE4 = Internal.createForeignKey(Languagegroup.LANGUAGEGROUP, DSL.name("fk_languages_language4"), new TableField[] { Languagegroup.LANGUAGEGROUP.LANGUAGE_ID4 }, Keys.KEY_LANGUAGE_PRIMARY, new TableField[] { Language.LANGUAGE.ID }, true);
-    public static final ForeignKey<MeasureRecord, HouseRecord> FK_MEASURE_HOUSE1 = Internal.createForeignKey(Measure.MEASURE, DSL.name("fk_measure_house1"), new TableField[] { Measure.MEASURE.HOUSE_ID }, Keys.KEY_HOUSE_PRIMARY, new TableField[] { House.HOUSE.ID }, true);
+    public static final ForeignKey<MeasureRecord, HouseRecord> FK_MEASURE_HOUSEROUND1 = Internal.createForeignKey(Measure.MEASURE, DSL.name("fk_measure_houseround1"), new TableField[] { Measure.MEASURE.HOUSEROUND_ID }, Keys.KEY_HOUSE_PRIMARY, new TableField[] { House.HOUSE.ID }, true);
     public static final ForeignKey<MeasureRecord, MeasuretypeRecord> FK_MEASURE_MEASURETYPE1 = Internal.createForeignKey(Measure.MEASURE, DSL.name("fk_measure_measuretype1"), new TableField[] { Measure.MEASURE.MEASURETYPE_ID }, Keys.KEY_MEASURETYPE_PRIMARY, new TableField[] { Measuretype.MEASURETYPE.ID }, true);
     public static final ForeignKey<MeasureRecord, PlayerroundRecord> FK_MEASURE_PLAYERROUND1 = Internal.createForeignKey(Measure.MEASURE, DSL.name("fk_measure_playerround1"), new TableField[] { Measure.MEASURE.PLAYERROUND_ID }, Keys.KEY_PLAYERROUND_PRIMARY, new TableField[] { Playerround.PLAYERROUND.ID }, true);
     public static final ForeignKey<MeasuretypeRecord, GameversionRecord> FK_MEASURETYPE_GAMEVERSION1 = Internal.createForeignKey(Measuretype.MEASURETYPE, DSL.name("fk_measuretype_gameversion1"), new TableField[] { Measuretype.MEASURETYPE.GAMEVERSION_ID }, Keys.KEY_GAMEVERSION_PRIMARY, new TableField[] { Gameversion.GAMEVERSION.ID }, true);
     public static final ForeignKey<NewseffectsRecord, CommunityRecord> FK_NEWSEFFECTS_COMMUNITY1 = Internal.createForeignKey(Newseffects.NEWSEFFECTS, DSL.name("fk_newseffects_community1"), new TableField[] { Newseffects.NEWSEFFECTS.COMMUNITY_ID }, Keys.KEY_COMMUNITY_PRIMARY, new TableField[] { Community.COMMUNITY.ID }, true);
     public static final ForeignKey<NewseffectsRecord, NewsitemRecord> FK_NEWSEFFECTS_NEWSITEM1 = Internal.createForeignKey(Newseffects.NEWSEFFECTS, DSL.name("fk_newseffects_newsitem1"), new TableField[] { Newseffects.NEWSEFFECTS.NEWSITEM_ID }, Keys.KEY_NEWSITEM_PRIMARY, new TableField[] { Newsitem.NEWSITEM.ID }, true);
-    public static final ForeignKey<NewsitemRecord, RoundRecord> FK_NEWSITEM_ROUND1 = Internal.createForeignKey(Newsitem.NEWSITEM, DSL.name("fk_newsitem_round1"), new TableField[] { Newsitem.NEWSITEM.ROUND_ID }, Keys.KEY_ROUND_PRIMARY, new TableField[] { Round.ROUND.ID }, true);
+    public static final ForeignKey<NewsitemRecord, ScenarioRecord> FK_NEWSITEM_SCENARIO1 = Internal.createForeignKey(Newsitem.NEWSITEM, DSL.name("fk_newsitem_scenario1"), new TableField[] { Newsitem.NEWSITEM.SCENARIO_ID }, Keys.KEY_SCENARIO_PRIMARY, new TableField[] { Scenario.SCENARIO.ID }, true);
     public static final ForeignKey<PlayerRecord, GroupRecord> FK_PLAYER_GROUP1 = Internal.createForeignKey(Player.PLAYER, DSL.name("fk_player_group1"), new TableField[] { Player.PLAYER.GROUP_ID }, Keys.KEY_GROUP_PRIMARY, new TableField[] { Group.GROUP.ID }, true);
     public static final ForeignKey<PlayerRecord, UserRecord> FK_PLAYER_USER1 = Internal.createForeignKey(Player.PLAYER, DSL.name("fk_player_user1"), new TableField[] { Player.PLAYER.USER_ID }, Keys.KEY_USER_PRIMARY, new TableField[] { User.USER.ID }, true);
     public static final ForeignKey<PlayerRecord, WelfaretypeRecord> FK_PLAYER_WELFARETYPE1 = Internal.createForeignKey(Player.PLAYER, DSL.name("fk_player_welfaretype1"), new TableField[] { Player.PLAYER.WELFARETYPE_ID }, Keys.KEY_WELFARETYPE_PRIMARY, new TableField[] { Welfaretype.WELFARETYPE.ID }, true);
     public static final ForeignKey<PlayerroundRecord, GrouproundRecord> FK_PLAYERROUND_GROUPROUND1 = Internal.createForeignKey(Playerround.PLAYERROUND, DSL.name("fk_playerround_groupround1"), new TableField[] { Playerround.PLAYERROUND.GROUPROUND_ID }, Keys.KEY_GROUPROUND_PRIMARY, new TableField[] { Groupround.GROUPROUND.ID }, true);
-    public static final ForeignKey<PlayerroundRecord, HouseRecord> FK_PLAYERROUND_HOUSE1 = Internal.createForeignKey(Playerround.PLAYERROUND, DSL.name("fk_playerround_house1"), new TableField[] { Playerround.PLAYERROUND.HOUSE_ID }, Keys.KEY_HOUSE_PRIMARY, new TableField[] { House.HOUSE.ID }, true);
+    public static final ForeignKey<PlayerroundRecord, HouseroundRecord> FK_PLAYERROUND_HOUSEROUND1 = Internal.createForeignKey(Playerround.PLAYERROUND, DSL.name("fk_playerround_houseround1"), new TableField[] { Playerround.PLAYERROUND.START_HOUSEROUND_ID }, Keys.KEY_HOUSEROUND_PRIMARY, new TableField[] { Houseround.HOUSEROUND.ID }, true);
+    public static final ForeignKey<PlayerroundRecord, HouseroundRecord> FK_PLAYERROUND_HOUSEROUND2 = Internal.createForeignKey(Playerround.PLAYERROUND, DSL.name("fk_playerround_houseround2"), new TableField[] { Playerround.PLAYERROUND.FINAL_HOUSEROUND_ID }, Keys.KEY_HOUSEROUND_PRIMARY, new TableField[] { Houseround.HOUSEROUND.ID }, true);
     public static final ForeignKey<PlayerroundRecord, PlayerRecord> FK_PLAYERROUND_PLAYER1 = Internal.createForeignKey(Playerround.PLAYERROUND, DSL.name("fk_playerround_player1"), new TableField[] { Playerround.PLAYERROUND.PLAYER_ID }, Keys.KEY_PLAYER_PRIMARY, new TableField[] { Player.PLAYER.ID }, true);
     public static final ForeignKey<QuestionRecord, ScenarioRecord> FK_QUESTION_SCENARIO1 = Internal.createForeignKey(Question.QUESTION, DSL.name("fk_question_scenario1"), new TableField[] { Question.QUESTION.SCENARIO_ID }, Keys.KEY_SCENARIO_PRIMARY, new TableField[] { Scenario.SCENARIO.ID }, true);
     public static final ForeignKey<QuestionscoreRecord, PlayerroundRecord> FK_QUESTIONSCORE_PLAYERROUND1 = Internal.createForeignKey(Questionscore.QUESTIONSCORE, DSL.name("fk_questionscore_playerround1"), new TableField[] { Questionscore.QUESTIONSCORE.PLAYERROUND_ID }, Keys.KEY_PLAYERROUND_PRIMARY, new TableField[] { Playerround.PLAYERROUND.ID }, true);
     public static final ForeignKey<QuestionscoreRecord, QuestionRecord> FK_QUESTIONSCORE_QUESTION1 = Internal.createForeignKey(Questionscore.QUESTIONSCORE, DSL.name("fk_questionscore_question1"), new TableField[] { Questionscore.QUESTIONSCORE.QUESTION_ID }, Keys.KEY_QUESTION_PRIMARY, new TableField[] { Question.QUESTION.ID }, true);
-    public static final ForeignKey<RoundRecord, ScenarioRecord> FK_ROUND_SCENARIO1 = Internal.createForeignKey(Round.ROUND, DSL.name("fk_round_scenario1"), new TableField[] { Round.ROUND.SCENARIO_ID }, Keys.KEY_SCENARIO_PRIMARY, new TableField[] { Scenario.SCENARIO.ID }, true);
     public static final ForeignKey<ScenarioRecord, GameversionRecord> FK_SCENARIO_GAMEVERSION1 = Internal.createForeignKey(Scenario.SCENARIO, DSL.name("fk_scenario_gameversion1"), new TableField[] { Scenario.SCENARIO.GAMEVERSION_ID }, Keys.KEY_GAMEVERSION_PRIMARY, new TableField[] { Gameversion.GAMEVERSION.ID }, true);
     public static final ForeignKey<ScenarioRecord, ScenarioparametersRecord> FK_SCENARIO_SCENARIOPARAMETERS1 = Internal.createForeignKey(Scenario.SCENARIO, DSL.name("fk_scenario_scenarioparameters1"), new TableField[] { Scenario.SCENARIO.SCENARIOPARAMETERS_ID }, Keys.KEY_SCENARIOPARAMETERS_PRIMARY, new TableField[] { Scenarioparameters.SCENARIOPARAMETERS.ID }, true);
     public static final ForeignKey<ScenarioparametersRecord, LanguageRecord> FK_SCENARIOPARAMETERS_LANGUAGE1 = Internal.createForeignKey(Scenarioparameters.SCENARIOPARAMETERS, DSL.name("fk_scenarioparameters_language1"), new TableField[] { Scenarioparameters.SCENARIOPARAMETERS.DEFAULT_LANGUAGE_ID }, Keys.KEY_LANGUAGE_PRIMARY, new TableField[] { Language.LANGUAGE.ID }, true);

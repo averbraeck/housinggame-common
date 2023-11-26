@@ -94,30 +94,30 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
     }
 
     /**
+     * Setter for <code>housinggame.groupround.round_number</code>.
+     */
+    public void setRoundNumber(Integer value) {
+        set(5, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.groupround.round_number</code>.
+     */
+    public Integer getRoundNumber() {
+        return (Integer) get(5);
+    }
+
+    /**
      * Setter for <code>housinggame.groupround.group_id</code>.
      */
     public void setGroupId(Integer value) {
-        set(5, value);
+        set(6, value);
     }
 
     /**
      * Getter for <code>housinggame.groupround.group_id</code>.
      */
     public Integer getGroupId() {
-        return (Integer) get(5);
-    }
-
-    /**
-     * Setter for <code>housinggame.groupround.round_id</code>.
-     */
-    public void setRoundId(Integer value) {
-        set(6, value);
-    }
-
-    /**
-     * Getter for <code>housinggame.groupround.round_id</code>.
-     */
-    public Integer getRoundId() {
         return (Integer) get(6);
     }
 
@@ -171,12 +171,12 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
 
     @Override
     public Field<Integer> field6() {
-        return Groupround.GROUPROUND.GROUP_ID;
+        return Groupround.GROUPROUND.ROUND_NUMBER;
     }
 
     @Override
     public Field<Integer> field7() {
-        return Groupround.GROUPROUND.ROUND_ID;
+        return Groupround.GROUPROUND.GROUP_ID;
     }
 
     @Override
@@ -206,12 +206,12 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
 
     @Override
     public Integer component6() {
-        return getGroupId();
+        return getRoundNumber();
     }
 
     @Override
     public Integer component7() {
-        return getRoundId();
+        return getGroupId();
     }
 
     @Override
@@ -241,12 +241,12 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
 
     @Override
     public Integer value6() {
-        return getGroupId();
+        return getRoundNumber();
     }
 
     @Override
     public Integer value7() {
-        return getRoundId();
+        return getGroupId();
     }
 
     @Override
@@ -281,13 +281,13 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
 
     @Override
     public GrouproundRecord value6(Integer value) {
-        setGroupId(value);
+        setRoundNumber(value);
         return this;
     }
 
     @Override
     public GrouproundRecord value7(Integer value) {
-        setRoundId(value);
+        setGroupId(value);
         return this;
     }
 
@@ -317,7 +317,7 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
     /**
      * Create a detached, initialised GrouproundRecord
      */
-    public GrouproundRecord(Integer id, Integer pluvialFloodIntensity, Integer fluvialFloodIntensity, LocalDateTime startTime, String roundState, Integer groupId, Integer roundId) {
+    public GrouproundRecord(Integer id, Integer pluvialFloodIntensity, Integer fluvialFloodIntensity, LocalDateTime startTime, String roundState, Integer roundNumber, Integer groupId) {
         super(Groupround.GROUPROUND);
 
         setId(id);
@@ -325,8 +325,8 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
         setFluvialFloodIntensity(fluvialFloodIntensity);
         setStartTime(startTime);
         setRoundState(roundState);
+        setRoundNumber(roundNumber);
         setGroupId(groupId);
-        setRoundId(roundId);
         resetChangedOnNotNull();
     }
 }

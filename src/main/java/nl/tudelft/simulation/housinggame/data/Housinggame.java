@@ -7,13 +7,13 @@ package nl.tudelft.simulation.housinggame.data;
 import java.util.Arrays;
 import java.util.List;
 
-import nl.tudelft.simulation.housinggame.data.tables.Bid;
 import nl.tudelft.simulation.housinggame.data.tables.Community;
 import nl.tudelft.simulation.housinggame.data.tables.Gamesession;
 import nl.tudelft.simulation.housinggame.data.tables.Gameversion;
 import nl.tudelft.simulation.housinggame.data.tables.Group;
 import nl.tudelft.simulation.housinggame.data.tables.Groupround;
 import nl.tudelft.simulation.housinggame.data.tables.House;
+import nl.tudelft.simulation.housinggame.data.tables.Houseround;
 import nl.tudelft.simulation.housinggame.data.tables.Initialhousemeasure;
 import nl.tudelft.simulation.housinggame.data.tables.Label;
 import nl.tudelft.simulation.housinggame.data.tables.Language;
@@ -26,7 +26,6 @@ import nl.tudelft.simulation.housinggame.data.tables.Player;
 import nl.tudelft.simulation.housinggame.data.tables.Playerround;
 import nl.tudelft.simulation.housinggame.data.tables.Question;
 import nl.tudelft.simulation.housinggame.data.tables.Questionscore;
-import nl.tudelft.simulation.housinggame.data.tables.Round;
 import nl.tudelft.simulation.housinggame.data.tables.Scenario;
 import nl.tudelft.simulation.housinggame.data.tables.Scenarioparameters;
 import nl.tudelft.simulation.housinggame.data.tables.Tax;
@@ -50,11 +49,6 @@ public class Housinggame extends SchemaImpl {
      * The reference instance of <code>housinggame</code>
      */
     public static final Housinggame HOUSINGGAME = new Housinggame();
-
-    /**
-     * The table <code>housinggame.bid</code>.
-     */
-    public final Bid BID = Bid.BID;
 
     /**
      * The table <code>housinggame.community</code>.
@@ -85,6 +79,11 @@ public class Housinggame extends SchemaImpl {
      * The table <code>housinggame.house</code>.
      */
     public final House HOUSE = House.HOUSE;
+
+    /**
+     * The table <code>housinggame.houseround</code>.
+     */
+    public final Houseround HOUSEROUND = Houseround.HOUSEROUND;
 
     /**
      * The table <code>housinggame.initialhousemeasure</code>.
@@ -147,11 +146,6 @@ public class Housinggame extends SchemaImpl {
     public final Questionscore QUESTIONSCORE = Questionscore.QUESTIONSCORE;
 
     /**
-     * The table <code>housinggame.round</code>.
-     */
-    public final Round ROUND = Round.ROUND;
-
-    /**
      * The table <code>housinggame.scenario</code>.
      */
     public final Scenario SCENARIO = Scenario.SCENARIO;
@@ -192,13 +186,13 @@ public class Housinggame extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.asList(
-            Bid.BID,
             Community.COMMUNITY,
             Gamesession.GAMESESSION,
             Gameversion.GAMEVERSION,
             Group.GROUP,
             Groupround.GROUPROUND,
             House.HOUSE,
+            Houseround.HOUSEROUND,
             Initialhousemeasure.INITIALHOUSEMEASURE,
             Label.LABEL,
             Language.LANGUAGE,
@@ -211,7 +205,6 @@ public class Housinggame extends SchemaImpl {
             Playerround.PLAYERROUND,
             Question.QUESTION,
             Questionscore.QUESTIONSCORE,
-            Round.ROUND,
             Scenario.SCENARIO,
             Scenarioparameters.SCENARIOPARAMETERS,
             Tax.TAX,

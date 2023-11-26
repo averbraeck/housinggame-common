@@ -35,58 +35,58 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
-     * Setter for <code>housinggame.playerround.satisfaction</code>.
+     * Setter for <code>housinggame.playerround.create_time</code>.
      */
-    public void setSatisfaction(Integer value) {
+    public void setCreateTime(LocalDateTime value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.satisfaction</code>.
+     * Getter for <code>housinggame.playerround.create_time</code>.
      */
-    public Integer getSatisfaction() {
-        return (Integer) get(1);
+    public LocalDateTime getCreateTime() {
+        return (LocalDateTime) get(1);
     }
 
     /**
-     * Setter for <code>housinggame.playerround.savings</code>.
+     * Setter for <code>housinggame.playerround.start_savings</code>.
      */
-    public void setSavings(Integer value) {
+    public void setStartSavings(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.savings</code>.
+     * Getter for <code>housinggame.playerround.start_savings</code>.
      */
-    public Integer getSavings() {
+    public Integer getStartSavings() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>housinggame.playerround.maximum_mortgage</code>.
+     * Setter for <code>housinggame.playerround.start_debt</code>.
      */
-    public void setMaximumMortgage(Integer value) {
+    public void setStartDebt(Integer value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.maximum_mortgage</code>.
+     * Getter for <code>housinggame.playerround.start_debt</code>.
      */
-    public Integer getMaximumMortgage() {
+    public Integer getStartDebt() {
         return (Integer) get(3);
     }
 
     /**
-     * Setter for <code>housinggame.playerround.mortgage</code>.
+     * Setter for <code>housinggame.playerround.round_income</code>.
      */
-    public void setMortgage(Integer value) {
+    public void setRoundIncome(Integer value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.mortgage</code>.
+     * Getter for <code>housinggame.playerround.round_income</code>.
      */
-    public Integer getMortgage() {
+    public Integer getRoundIncome() {
         return (Integer) get(4);
     }
 
@@ -105,103 +105,17 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
-     * Setter for <code>housinggame.playerround.income_per_round</code>.
+     * Setter for <code>housinggame.playerround.paid_debt</code>.
      */
-    public void setIncomePerRound(Integer value) {
+    public void setPaidDebt(Integer value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.income_per_round</code>.
+     * Getter for <code>housinggame.playerround.paid_debt</code>.
      */
-    public Integer getIncomePerRound() {
+    public Integer getPaidDebt() {
         return (Integer) get(6);
-    }
-
-    /**
-     * Setter for <code>housinggame.playerround.debt</code>.
-     */
-    public void setDebt(Integer value) {
-        set(7, value);
-    }
-
-    /**
-     * Getter for <code>housinggame.playerround.debt</code>.
-     */
-    public Integer getDebt() {
-        return (Integer) get(7);
-    }
-
-    /**
-     * Setter for <code>housinggame.playerround.spendable_income</code>.
-     */
-    public void setSpendableIncome(Integer value) {
-        set(8, value);
-    }
-
-    /**
-     * Getter for <code>housinggame.playerround.spendable_income</code>.
-     */
-    public Integer getSpendableIncome() {
-        return (Integer) get(8);
-    }
-
-    /**
-     * Setter for <code>housinggame.playerround.preferred_house_rating</code>.
-     */
-    public void setPreferredHouseRating(Integer value) {
-        set(9, value);
-    }
-
-    /**
-     * Getter for <code>housinggame.playerround.preferred_house_rating</code>.
-     */
-    public Integer getPreferredHouseRating() {
-        return (Integer) get(9);
-    }
-
-    /**
-     * Setter for
-     * <code>housinggame.playerround.satisfaction_cost_per_point</code>.
-     */
-    public void setSatisfactionCostPerPoint(Integer value) {
-        set(10, value);
-    }
-
-    /**
-     * Getter for
-     * <code>housinggame.playerround.satisfaction_cost_per_point</code>.
-     */
-    public Integer getSatisfactionCostPerPoint() {
-        return (Integer) get(10);
-    }
-
-    /**
-     * Setter for <code>housinggame.playerround.house_price_sold</code>.
-     */
-    public void setHousePriceSold(Integer value) {
-        set(11, value);
-    }
-
-    /**
-     * Getter for <code>housinggame.playerround.house_price_sold</code>.
-     */
-    public Integer getHousePriceSold() {
-        return (Integer) get(11);
-    }
-
-    /**
-     * Setter for <code>housinggame.playerround.house_price_bought</code>.
-     */
-    public void setHousePriceBought(Integer value) {
-        set(12, value);
-    }
-
-    /**
-     * Getter for <code>housinggame.playerround.house_price_bought</code>.
-     */
-    public Integer getHousePriceBought() {
-        return (Integer) get(12);
     }
 
     /**
@@ -209,7 +123,7 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
      * <code>housinggame.playerround.spent_savings_for_buying_house</code>.
      */
     public void setSpentSavingsForBuyingHouse(Integer value) {
-        set(13, value);
+        set(7, value);
     }
 
     /**
@@ -217,177 +131,485 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
      * <code>housinggame.playerround.spent_savings_for_buying_house</code>.
      */
     public Integer getSpentSavingsForBuyingHouse() {
+        return (Integer) get(7);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.paid_mortgage</code>.
+     */
+    public void setPaidMortgage(Integer value) {
+        set(8, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.paid_mortgage</code>.
+     */
+    public Integer getPaidMortgage() {
+        return (Integer) get(8);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.cost_taxes</code>.
+     */
+    public void setCostTaxes(Integer value) {
+        set(9, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.cost_taxes</code>.
+     */
+    public Integer getCostTaxes() {
+        return (Integer) get(9);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.cost_measures_bought</code>.
+     */
+    public void setCostMeasuresBought(Integer value) {
+        set(10, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.cost_measures_bought</code>.
+     */
+    public Integer getCostMeasuresBought() {
+        return (Integer) get(10);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.cost_satisfaction_bought</code>.
+     */
+    public void setCostSatisfactionBought(Integer value) {
+        set(11, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.cost_satisfaction_bought</code>.
+     */
+    public Integer getCostSatisfactionBought() {
+        return (Integer) get(11);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.cost_fluvial_damage</code>.
+     */
+    public void setCostFluvialDamage(Integer value) {
+        set(12, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.cost_fluvial_damage</code>.
+     */
+    public Integer getCostFluvialDamage() {
+        return (Integer) get(12);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.cost_pluvial_damage</code>.
+     */
+    public void setCostPluvialDamage(Integer value) {
+        set(13, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.cost_pluvial_damage</code>.
+     */
+    public Integer getCostPluvialDamage() {
         return (Integer) get(13);
     }
 
     /**
-     * Setter for <code>housinggame.playerround.paid_off_debt</code>.
+     * Setter for <code>housinggame.playerround.final_spendable_income</code>.
      */
-    public void setPaidOffDebt(Integer value) {
+    public void setFinalSpendableIncome(Integer value) {
         set(14, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.paid_off_debt</code>.
+     * Getter for <code>housinggame.playerround.final_spendable_income</code>.
      */
-    public Integer getPaidOffDebt() {
+    public Integer getFinalSpendableIncome() {
         return (Integer) get(14);
     }
 
     /**
-     * Setter for <code>housinggame.playerround.cost_measure_bought</code>.
+     * Setter for
+     * <code>housinggame.playerround.start_personal_satisfaction</code>.
      */
-    public void setCostMeasureBought(Integer value) {
+    public void setStartPersonalSatisfaction(Integer value) {
         set(15, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.cost_measure_bought</code>.
+     * Getter for
+     * <code>housinggame.playerround.start_personal_satisfaction</code>.
      */
-    public Integer getCostMeasureBought() {
+    public Integer getStartPersonalSatisfaction() {
         return (Integer) get(15);
     }
 
     /**
-     * Setter for <code>housinggame.playerround.pluvial_damage</code>.
+     * Setter for <code>housinggame.playerround.start_house_satisfaction</code>.
      */
-    public void setPluvialDamage(Integer value) {
+    public void setStartHouseSatisfaction(Integer value) {
         set(16, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.pluvial_damage</code>.
+     * Getter for <code>housinggame.playerround.start_house_satisfaction</code>.
      */
-    public Integer getPluvialDamage() {
+    public Integer getStartHouseSatisfaction() {
         return (Integer) get(16);
     }
 
     /**
-     * Setter for <code>housinggame.playerround.fluvial_damage</code>.
+     * Setter for
+     * <code>housinggame.playerround.satisfacction_move_penalty</code>.
      */
-    public void setFluvialDamage(Integer value) {
+    public void setSatisfacctionMovePenalty(Integer value) {
         set(17, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.fluvial_damage</code>.
+     * Getter for
+     * <code>housinggame.playerround.satisfacction_move_penalty</code>.
      */
-    public Integer getFluvialDamage() {
+    public Integer getSatisfacctionMovePenalty() {
         return (Integer) get(17);
     }
 
     /**
-     * Setter for <code>housinggame.playerround.repaired_damage</code>.
+     * Setter for
+     * <code>housinggame.playerround.satisfaction_house_rating_delta</code>.
      */
-    public void setRepairedDamage(Integer value) {
+    public void setSatisfactionHouseRatingDelta(Integer value) {
         set(18, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.repaired_damage</code>.
+     * Getter for
+     * <code>housinggame.playerround.satisfaction_house_rating_delta</code>.
      */
-    public Integer getRepairedDamage() {
+    public Integer getSatisfactionHouseRatingDelta() {
         return (Integer) get(18);
     }
 
     /**
      * Setter for
-     * <code>housinggame.playerround.satisfaction_point_bought</code>.
+     * <code>housinggame.playerround.satisfaction_house_measures</code>.
      */
-    public void setSatisfactionPointBought(Integer value) {
+    public void setSatisfactionHouseMeasures(Integer value) {
         set(19, value);
     }
 
     /**
      * Getter for
-     * <code>housinggame.playerround.satisfaction_point_bought</code>.
+     * <code>housinggame.playerround.satisfaction_house_measures</code>.
      */
-    public Integer getSatisfactionPointBought() {
+    public Integer getSatisfactionHouseMeasures() {
         return (Integer) get(19);
     }
 
     /**
-     * Setter for <code>housinggame.playerround.create_time</code>.
+     * Setter for <code>housinggame.playerround.satisfaction_bought</code>.
      */
-    public void setCreateTime(LocalDateTime value) {
+    public void setSatisfactionBought(Integer value) {
         set(20, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.create_time</code>.
+     * Getter for <code>housinggame.playerround.satisfaction_bought</code>.
      */
-    public LocalDateTime getCreateTime() {
-        return (LocalDateTime) get(20);
+    public Integer getSatisfactionBought() {
+        return (Integer) get(20);
+    }
+
+    /**
+     * Setter for
+     * <code>housinggame.playerround.satisfaction_fluvial_damage</code>.
+     */
+    public void setSatisfactionFluvialDamage(Integer value) {
+        set(21, value);
+    }
+
+    /**
+     * Getter for
+     * <code>housinggame.playerround.satisfaction_fluvial_damage</code>.
+     */
+    public Integer getSatisfactionFluvialDamage() {
+        return (Integer) get(21);
+    }
+
+    /**
+     * Setter for
+     * <code>housinggame.playerround.satisfaction_pluvial_damage</code>.
+     */
+    public void setSatisfactionPluvialDamage(Integer value) {
+        set(22, value);
+    }
+
+    /**
+     * Getter for
+     * <code>housinggame.playerround.satisfaction_pluvial_damage</code>.
+     */
+    public Integer getSatisfactionPluvialDamage() {
+        return (Integer) get(22);
+    }
+
+    /**
+     * Setter for
+     * <code>housinggame.playerround.satisfaction_debt_penalty</code>.
+     */
+    public void setSatisfactionDebtPenalty(Integer value) {
+        set(23, value);
+    }
+
+    /**
+     * Getter for
+     * <code>housinggame.playerround.satisfaction_debt_penalty</code>.
+     */
+    public Integer getSatisfactionDebtPenalty() {
+        return (Integer) get(23);
+    }
+
+    /**
+     * Setter for
+     * <code>housinggame.playerround.final_personal_satisfaction</code>.
+     */
+    public void setFinalPersonalSatisfaction(Integer value) {
+        set(24, value);
+    }
+
+    /**
+     * Getter for
+     * <code>housinggame.playerround.final_personal_satisfaction</code>.
+     */
+    public Integer getFinalPersonalSatisfaction() {
+        return (Integer) get(24);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.final_house_satisfaction</code>.
+     */
+    public void setFinalHouseSatisfaction(Integer value) {
+        set(25, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.final_house_satisfaction</code>.
+     */
+    public Integer getFinalHouseSatisfaction() {
+        return (Integer) get(25);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.start_houseround_id</code>.
+     */
+    public void setStartHouseroundId(Integer value) {
+        set(26, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.start_houseround_id</code>.
+     */
+    public Integer getStartHouseroundId() {
+        return (Integer) get(26);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.start_mortgage</code>.
+     */
+    public void setStartMortgage(Integer value) {
+        set(27, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.start_mortgage</code>.
+     */
+    public Integer getStartMortgage() {
+        return (Integer) get(27);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.maximum_mortgage</code>.
+     */
+    public void setMaximumMortgage(Integer value) {
+        set(28, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.maximum_mortgage</code>.
+     */
+    public Integer getMaximumMortgage() {
+        return (Integer) get(28);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.preferred_house_rating</code>.
+     */
+    public void setPreferredHouseRating(Integer value) {
+        set(29, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.preferred_house_rating</code>.
+     */
+    public Integer getPreferredHouseRating() {
+        return (Integer) get(29);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.mortgage_left</code>.
+     */
+    public void setMortgageLeft(Integer value) {
+        set(30, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.mortgage_left</code>.
+     */
+    public Integer getMortgageLeft() {
+        return (Integer) get(30);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.house_price_sold</code>.
+     */
+    public void setHousePriceSold(Integer value) {
+        set(31, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.house_price_sold</code>.
+     */
+    public Integer getHousePriceSold() {
+        return (Integer) get(31);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.house_price_bought</code>.
+     */
+    public void setHousePriceBought(Integer value) {
+        set(32, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.house_price_bought</code>.
+     */
+    public Integer getHousePriceBought() {
+        return (Integer) get(32);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.final_houseround_id</code>.
+     */
+    public void setFinalHouseroundId(Integer value) {
+        set(33, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.final_houseround_id</code>.
+     */
+    public Integer getFinalHouseroundId() {
+        return (Integer) get(33);
     }
 
     /**
      * Setter for <code>housinggame.playerround.moving_reason</code>.
      */
     public void setMovingReason(String value) {
-        set(21, value);
+        set(34, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.moving_reason</code>.
      */
     public String getMovingReason() {
-        return (String) get(21);
+        return (String) get(34);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.pluvial_damage</code>.
+     */
+    public void setPluvialDamage(Integer value) {
+        set(35, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.pluvial_damage</code>.
+     */
+    public Integer getPluvialDamage() {
+        return (Integer) get(35);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.new_mortgage</code>.
+     */
+    public void setNewMortgage(Integer value) {
+        set(36, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.new_mortgage</code>.
+     */
+    public Integer getNewMortgage() {
+        return (Integer) get(36);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.fluvial_damage</code>.
+     */
+    public void setFluvialDamage(Integer value) {
+        set(37, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.fluvial_damage</code>.
+     */
+    public Integer getFluvialDamage() {
+        return (Integer) get(37);
     }
 
     /**
      * Setter for <code>housinggame.playerround.player_state</code>.
      */
     public void setPlayerState(String value) {
-        set(22, value);
+        set(38, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.player_state</code>.
      */
     public String getPlayerState() {
-        return (String) get(22);
-    }
-
-    /**
-     * Setter for <code>housinggame.playerround.house_id</code>.
-     */
-    public void setHouseId(Integer value) {
-        set(23, value);
-    }
-
-    /**
-     * Getter for <code>housinggame.playerround.house_id</code>.
-     */
-    public Integer getHouseId() {
-        return (Integer) get(23);
+        return (String) get(38);
     }
 
     /**
      * Setter for <code>housinggame.playerround.player_id</code>.
      */
     public void setPlayerId(Integer value) {
-        set(24, value);
+        set(39, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.player_id</code>.
      */
     public Integer getPlayerId() {
-        return (Integer) get(24);
+        return (Integer) get(39);
     }
 
     /**
      * Setter for <code>housinggame.playerround.groupround_id</code>.
      */
     public void setGrouproundId(Integer value) {
-        set(25, value);
+        set(40, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.groupround_id</code>.
      */
     public Integer getGrouproundId() {
-        return (Integer) get(25);
+        return (Integer) get(40);
     }
 
     // -------------------------------------------------------------------------
@@ -413,33 +635,48 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     /**
      * Create a detached, initialised PlayerroundRecord
      */
-    public PlayerroundRecord(Integer id, Integer satisfaction, Integer savings, Integer maximumMortgage, Integer mortgage, Integer livingCosts, Integer incomePerRound, Integer debt, Integer spendableIncome, Integer preferredHouseRating, Integer satisfactionCostPerPoint, Integer housePriceSold, Integer housePriceBought, Integer spentSavingsForBuyingHouse, Integer paidOffDebt, Integer costMeasureBought, Integer pluvialDamage, Integer fluvialDamage, Integer repairedDamage, Integer satisfactionPointBought, LocalDateTime createTime, String movingReason, String playerState, Integer houseId, Integer playerId, Integer grouproundId) {
+    public PlayerroundRecord(Integer id, LocalDateTime createTime, Integer startSavings, Integer startDebt, Integer roundIncome, Integer livingCosts, Integer paidDebt, Integer spentSavingsForBuyingHouse, Integer paidMortgage, Integer costTaxes, Integer costMeasuresBought, Integer costSatisfactionBought, Integer costFluvialDamage, Integer costPluvialDamage, Integer finalSpendableIncome, Integer startPersonalSatisfaction, Integer startHouseSatisfaction, Integer satisfacctionMovePenalty, Integer satisfactionHouseRatingDelta, Integer satisfactionHouseMeasures, Integer satisfactionBought, Integer satisfactionFluvialDamage, Integer satisfactionPluvialDamage, Integer satisfactionDebtPenalty, Integer finalPersonalSatisfaction, Integer finalHouseSatisfaction, Integer startHouseroundId, Integer startMortgage, Integer maximumMortgage, Integer preferredHouseRating, Integer mortgageLeft, Integer housePriceSold, Integer housePriceBought, Integer finalHouseroundId, String movingReason, Integer pluvialDamage, Integer newMortgage, Integer fluvialDamage, String playerState, Integer playerId, Integer grouproundId) {
         super(Playerround.PLAYERROUND);
 
         setId(id);
-        setSatisfaction(satisfaction);
-        setSavings(savings);
-        setMaximumMortgage(maximumMortgage);
-        setMortgage(mortgage);
+        setCreateTime(createTime);
+        setStartSavings(startSavings);
+        setStartDebt(startDebt);
+        setRoundIncome(roundIncome);
         setLivingCosts(livingCosts);
-        setIncomePerRound(incomePerRound);
-        setDebt(debt);
-        setSpendableIncome(spendableIncome);
+        setPaidDebt(paidDebt);
+        setSpentSavingsForBuyingHouse(spentSavingsForBuyingHouse);
+        setPaidMortgage(paidMortgage);
+        setCostTaxes(costTaxes);
+        setCostMeasuresBought(costMeasuresBought);
+        setCostSatisfactionBought(costSatisfactionBought);
+        setCostFluvialDamage(costFluvialDamage);
+        setCostPluvialDamage(costPluvialDamage);
+        setFinalSpendableIncome(finalSpendableIncome);
+        setStartPersonalSatisfaction(startPersonalSatisfaction);
+        setStartHouseSatisfaction(startHouseSatisfaction);
+        setSatisfacctionMovePenalty(satisfacctionMovePenalty);
+        setSatisfactionHouseRatingDelta(satisfactionHouseRatingDelta);
+        setSatisfactionHouseMeasures(satisfactionHouseMeasures);
+        setSatisfactionBought(satisfactionBought);
+        setSatisfactionFluvialDamage(satisfactionFluvialDamage);
+        setSatisfactionPluvialDamage(satisfactionPluvialDamage);
+        setSatisfactionDebtPenalty(satisfactionDebtPenalty);
+        setFinalPersonalSatisfaction(finalPersonalSatisfaction);
+        setFinalHouseSatisfaction(finalHouseSatisfaction);
+        setStartHouseroundId(startHouseroundId);
+        setStartMortgage(startMortgage);
+        setMaximumMortgage(maximumMortgage);
         setPreferredHouseRating(preferredHouseRating);
-        setSatisfactionCostPerPoint(satisfactionCostPerPoint);
+        setMortgageLeft(mortgageLeft);
         setHousePriceSold(housePriceSold);
         setHousePriceBought(housePriceBought);
-        setSpentSavingsForBuyingHouse(spentSavingsForBuyingHouse);
-        setPaidOffDebt(paidOffDebt);
-        setCostMeasureBought(costMeasureBought);
-        setPluvialDamage(pluvialDamage);
-        setFluvialDamage(fluvialDamage);
-        setRepairedDamage(repairedDamage);
-        setSatisfactionPointBought(satisfactionPointBought);
-        setCreateTime(createTime);
+        setFinalHouseroundId(finalHouseroundId);
         setMovingReason(movingReason);
+        setPluvialDamage(pluvialDamage);
+        setNewMortgage(newMortgage);
+        setFluvialDamage(fluvialDamage);
         setPlayerState(playerState);
-        setHouseId(houseId);
         setPlayerId(playerId);
         setGrouproundId(grouproundId);
         resetChangedOnNotNull();

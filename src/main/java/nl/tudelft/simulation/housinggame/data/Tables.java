@@ -4,13 +4,13 @@
 package nl.tudelft.simulation.housinggame.data;
 
 
-import nl.tudelft.simulation.housinggame.data.tables.Bid;
 import nl.tudelft.simulation.housinggame.data.tables.Community;
 import nl.tudelft.simulation.housinggame.data.tables.Gamesession;
 import nl.tudelft.simulation.housinggame.data.tables.Gameversion;
 import nl.tudelft.simulation.housinggame.data.tables.Group;
 import nl.tudelft.simulation.housinggame.data.tables.Groupround;
 import nl.tudelft.simulation.housinggame.data.tables.House;
+import nl.tudelft.simulation.housinggame.data.tables.Houseround;
 import nl.tudelft.simulation.housinggame.data.tables.Initialhousemeasure;
 import nl.tudelft.simulation.housinggame.data.tables.Label;
 import nl.tudelft.simulation.housinggame.data.tables.Language;
@@ -23,7 +23,6 @@ import nl.tudelft.simulation.housinggame.data.tables.Player;
 import nl.tudelft.simulation.housinggame.data.tables.Playerround;
 import nl.tudelft.simulation.housinggame.data.tables.Question;
 import nl.tudelft.simulation.housinggame.data.tables.Questionscore;
-import nl.tudelft.simulation.housinggame.data.tables.Round;
 import nl.tudelft.simulation.housinggame.data.tables.Scenario;
 import nl.tudelft.simulation.housinggame.data.tables.Scenarioparameters;
 import nl.tudelft.simulation.housinggame.data.tables.Tax;
@@ -36,11 +35,6 @@ import nl.tudelft.simulation.housinggame.data.tables.Welfaretype;
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
-
-    /**
-     * The table <code>housinggame.bid</code>.
-     */
-    public static final Bid BID = Bid.BID;
 
     /**
      * The table <code>housinggame.community</code>.
@@ -71,6 +65,11 @@ public class Tables {
      * The table <code>housinggame.house</code>.
      */
     public static final House HOUSE = House.HOUSE;
+
+    /**
+     * The table <code>housinggame.houseround</code>.
+     */
+    public static final Houseround HOUSEROUND = Houseround.HOUSEROUND;
 
     /**
      * The table <code>housinggame.initialhousemeasure</code>.
@@ -131,11 +130,6 @@ public class Tables {
      * The table <code>housinggame.questionscore</code>.
      */
     public static final Questionscore QUESTIONSCORE = Questionscore.QUESTIONSCORE;
-
-    /**
-     * The table <code>housinggame.round</code>.
-     */
-    public static final Round ROUND = Round.ROUND;
 
     /**
      * The table <code>housinggame.scenario</code>.

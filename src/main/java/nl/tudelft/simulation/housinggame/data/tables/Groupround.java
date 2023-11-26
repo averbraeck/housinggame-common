@@ -81,14 +81,14 @@ public class Groupround extends TableImpl<GrouproundRecord> {
     public final TableField<GrouproundRecord, String> ROUND_STATE = createField(DSL.name("round_state"), SQLDataType.VARCHAR(24).defaultValue(DSL.field(DSL.raw("'LOGIN'"), SQLDataType.VARCHAR)), this, "");
 
     /**
+     * The column <code>housinggame.groupround.round_number</code>.
+     */
+    public final TableField<GrouproundRecord, Integer> ROUND_NUMBER = createField(DSL.name("round_number"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
      * The column <code>housinggame.groupround.group_id</code>.
      */
     public final TableField<GrouproundRecord, Integer> GROUP_ID = createField(DSL.name("group_id"), SQLDataType.INTEGER.nullable(false), this, "");
-
-    /**
-     * The column <code>housinggame.groupround.round_id</code>.
-     */
-    public final TableField<GrouproundRecord, Integer> ROUND_ID = createField(DSL.name("round_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Groupround(Name alias, Table<GrouproundRecord> aliased) {
         this(alias, aliased, null);
@@ -130,7 +130,7 @@ public class Groupround extends TableImpl<GrouproundRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.GROUPROUND_FK_GROUPROUND_GROUP1_IDX, Indexes.GROUPROUND_FK_GROUPROUND_ROUND1_IDX);
+        return Arrays.asList(Indexes.GROUPROUND_FK_GROUPROUND_GROUP1_IDX);
     }
 
     @Override
@@ -145,16 +145,15 @@ public class Groupround extends TableImpl<GrouproundRecord> {
 
     @Override
     public List<UniqueKey<GrouproundRecord>> getUniqueKeys() {
-        return Arrays.asList(Keys.KEY_GROUPROUND_ID_UNIQUE, Keys.KEY_GROUPROUND_ID_GROUP_ROUND);
+        return Arrays.asList(Keys.KEY_GROUPROUND_ID_UNIQUE, Keys.KEY_GROUPROUND_ROUND_UNIQUE);
     }
 
     @Override
     public List<ForeignKey<GrouproundRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_GROUPROUND_GROUP1, Keys.FK_GROUPROUND_ROUND1);
+        return Arrays.asList(Keys.FK_GROUPROUND_GROUP1);
     }
 
     private transient Group _group;
-    private transient Round _round;
 
     /**
      * Get the implicit join path to the <code>housinggame.group</code> table.
@@ -164,16 +163,6 @@ public class Groupround extends TableImpl<GrouproundRecord> {
             _group = new Group(this, Keys.FK_GROUPROUND_GROUP1);
 
         return _group;
-    }
-
-    /**
-     * Get the implicit join path to the <code>housinggame.round</code> table.
-     */
-    public Round round() {
-        if (_round == null)
-            _round = new Round(this, Keys.FK_GROUPROUND_ROUND1);
-
-        return _round;
     }
 
     @Override

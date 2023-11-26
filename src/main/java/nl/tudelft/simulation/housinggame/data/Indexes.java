@@ -4,7 +4,6 @@
 package nl.tudelft.simulation.housinggame.data;
 
 
-import nl.tudelft.simulation.housinggame.data.tables.Bid;
 import nl.tudelft.simulation.housinggame.data.tables.Community;
 import nl.tudelft.simulation.housinggame.data.tables.Gamesession;
 import nl.tudelft.simulation.housinggame.data.tables.Gameversion;
@@ -22,7 +21,6 @@ import nl.tudelft.simulation.housinggame.data.tables.Player;
 import nl.tudelft.simulation.housinggame.data.tables.Playerround;
 import nl.tudelft.simulation.housinggame.data.tables.Question;
 import nl.tudelft.simulation.housinggame.data.tables.Questionscore;
-import nl.tudelft.simulation.housinggame.data.tables.Round;
 import nl.tudelft.simulation.housinggame.data.tables.Scenario;
 import nl.tudelft.simulation.housinggame.data.tables.Scenarioparameters;
 import nl.tudelft.simulation.housinggame.data.tables.Tax;
@@ -44,8 +42,6 @@ public class Indexes {
     // INDEX definitions
     // -------------------------------------------------------------------------
 
-    public static final Index BID_FK_BID_GROUPROUND1_IDX = Internal.createIndex(DSL.name("fk_bid_groupround1_idx"), Bid.BID, new OrderField[] { Bid.BID.GROUPROUND_ID }, false);
-    public static final Index BID_FK_BID_HOUSE1_IDX = Internal.createIndex(DSL.name("fk_bid_house1_idx"), Bid.BID, new OrderField[] { Bid.BID.HOUSE_ID }, false);
     public static final Index COMMUNITY_FK_COMMUNITY_GAMEVERSION1_IDX = Internal.createIndex(DSL.name("fk_community_gameversion1_idx"), Community.COMMUNITY, new OrderField[] { Community.COMMUNITY.GAMEVERSION_ID }, false);
     public static final Index GAMESESSION_FK_GAMESESSION_GAMEVERSION1_IDX = Internal.createIndex(DSL.name("fk_gamesession_gameversion1_idx"), Gamesession.GAMESESSION, new OrderField[] { Gamesession.GAMESESSION.GAMEVERSION_ID }, false);
     public static final Index GAMEVERSION_FK_GAMEVERSION_LANGUAGEGROUP1_IDX = Internal.createIndex(DSL.name("fk_gameversion_languagegroup1_idx"), Gameversion.GAMEVERSION, new OrderField[] { Gameversion.GAMEVERSION.LANGUAGEGROUP_ID }, false);
@@ -53,7 +49,6 @@ public class Indexes {
     public static final Index GROUP_FK_GROUP_SCENARIO1_IDX = Internal.createIndex(DSL.name("fk_group_scenario1_idx"), Group.GROUP, new OrderField[] { Group.GROUP.SCENARIO_ID }, false);
     public static final Index GROUP_FK_GROUP_USER1_IDX = Internal.createIndex(DSL.name("fk_group_user1_idx"), Group.GROUP, new OrderField[] { Group.GROUP.FACILITATOR_ID }, false);
     public static final Index GROUPROUND_FK_GROUPROUND_GROUP1_IDX = Internal.createIndex(DSL.name("fk_groupround_group1_idx"), Groupround.GROUPROUND, new OrderField[] { Groupround.GROUPROUND.GROUP_ID }, false);
-    public static final Index GROUPROUND_FK_GROUPROUND_ROUND1_IDX = Internal.createIndex(DSL.name("fk_groupround_round1_idx"), Groupround.GROUPROUND, new OrderField[] { Groupround.GROUPROUND.ROUND_ID }, false);
     public static final Index HOUSE_FK_HOUSE_COMMUNITY1_IDX = Internal.createIndex(DSL.name("fk_house_community1_idx"), House.HOUSE, new OrderField[] { House.HOUSE.COMMUNITY_ID }, false);
     public static final Index INITIALHOUSEMEASURE_FK_INITIALHOUSEMEASURE_HOUSE1_IDX = Internal.createIndex(DSL.name("fk_initialhousemeasure_house1_idx"), Initialhousemeasure.INITIALHOUSEMEASURE, new OrderField[] { Initialhousemeasure.INITIALHOUSEMEASURE.HOUSE_ID }, false);
     public static final Index INITIALHOUSEMEASURE_FK_INITIALHOUSEMEASURE_MEASURETYPE1_IDX = Internal.createIndex(DSL.name("fk_initialhousemeasure_measuretype1_idx"), Initialhousemeasure.INITIALHOUSEMEASURE, new OrderField[] { Initialhousemeasure.INITIALHOUSEMEASURE.MEASURETYPE_ID }, false);
@@ -62,23 +57,23 @@ public class Indexes {
     public static final Index LANGUAGEGROUP_FK_LANGUAGES_LANGUAGE2_IDX = Internal.createIndex(DSL.name("fk_languages_language2_idx"), Languagegroup.LANGUAGEGROUP, new OrderField[] { Languagegroup.LANGUAGEGROUP.LANGUAGE_ID2 }, false);
     public static final Index LANGUAGEGROUP_FK_LANGUAGES_LANGUAGE3_IDX = Internal.createIndex(DSL.name("fk_languages_language3_idx"), Languagegroup.LANGUAGEGROUP, new OrderField[] { Languagegroup.LANGUAGEGROUP.LANGUAGE_ID3 }, false);
     public static final Index LANGUAGEGROUP_FK_LANGUAGES_LANGUAGE4_IDX = Internal.createIndex(DSL.name("fk_languages_language4_idx"), Languagegroup.LANGUAGEGROUP, new OrderField[] { Languagegroup.LANGUAGEGROUP.LANGUAGE_ID4 }, false);
-    public static final Index MEASURE_FK_MEASURE_HOUSE1_IDX = Internal.createIndex(DSL.name("fk_measure_house1_idx"), Measure.MEASURE, new OrderField[] { Measure.MEASURE.HOUSE_ID }, false);
+    public static final Index MEASURE_FK_MEASURE_HOUSEROUND1_IDX = Internal.createIndex(DSL.name("fk_measure_houseround1_idx"), Measure.MEASURE, new OrderField[] { Measure.MEASURE.HOUSEROUND_ID }, false);
     public static final Index MEASURE_FK_MEASURE_MEASURETYPE1_IDX = Internal.createIndex(DSL.name("fk_measure_measuretype1_idx"), Measure.MEASURE, new OrderField[] { Measure.MEASURE.MEASURETYPE_ID }, false);
     public static final Index MEASURE_FK_MEASURE_PLAYERROUND1_IDX = Internal.createIndex(DSL.name("fk_measure_playerround1_idx"), Measure.MEASURE, new OrderField[] { Measure.MEASURE.PLAYERROUND_ID }, false);
     public static final Index MEASURETYPE_FK_MEASURETYPE_GAMEVERSION1_IDX = Internal.createIndex(DSL.name("fk_measuretype_gameversion1_idx"), Measuretype.MEASURETYPE, new OrderField[] { Measuretype.MEASURETYPE.GAMEVERSION_ID }, false);
     public static final Index NEWSEFFECTS_FK_NEWSEFFECTS_COMMUNITY1_IDX = Internal.createIndex(DSL.name("fk_newseffects_community1_idx"), Newseffects.NEWSEFFECTS, new OrderField[] { Newseffects.NEWSEFFECTS.COMMUNITY_ID }, false);
     public static final Index NEWSEFFECTS_FK_NEWSEFFECTS_NEWSITEM1_IDX = Internal.createIndex(DSL.name("fk_newseffects_newsitem1_idx"), Newseffects.NEWSEFFECTS, new OrderField[] { Newseffects.NEWSEFFECTS.NEWSITEM_ID }, false);
-    public static final Index NEWSITEM_FK_NEWSITEM_ROUND1_IDX = Internal.createIndex(DSL.name("fk_newsitem_round1_idx"), Newsitem.NEWSITEM, new OrderField[] { Newsitem.NEWSITEM.ROUND_ID }, false);
+    public static final Index NEWSITEM_FK_NEWSITEM_SCENARIO1_IDX = Internal.createIndex(DSL.name("fk_newsitem_scenario1_idx"), Newsitem.NEWSITEM, new OrderField[] { Newsitem.NEWSITEM.SCENARIO_ID }, false);
     public static final Index PLAYER_FK_PLAYER_GROUP1_IDX = Internal.createIndex(DSL.name("fk_player_group1_idx"), Player.PLAYER, new OrderField[] { Player.PLAYER.GROUP_ID }, false);
     public static final Index PLAYER_FK_PLAYER_USER1_IDX = Internal.createIndex(DSL.name("fk_player_user1_idx"), Player.PLAYER, new OrderField[] { Player.PLAYER.USER_ID }, false);
     public static final Index PLAYER_FK_PLAYER_WELFARETYPE1_IDX = Internal.createIndex(DSL.name("fk_player_welfaretype1_idx"), Player.PLAYER, new OrderField[] { Player.PLAYER.WELFARETYPE_ID }, false);
     public static final Index PLAYERROUND_FK_PLAYERROUND_GROUPROUND1_IDX = Internal.createIndex(DSL.name("fk_playerround_groupround1_idx"), Playerround.PLAYERROUND, new OrderField[] { Playerround.PLAYERROUND.GROUPROUND_ID }, false);
-    public static final Index PLAYERROUND_FK_PLAYERROUND_HOUSE1_IDX = Internal.createIndex(DSL.name("fk_playerround_house1_idx"), Playerround.PLAYERROUND, new OrderField[] { Playerround.PLAYERROUND.HOUSE_ID }, false);
+    public static final Index PLAYERROUND_FK_PLAYERROUND_HOUSEROUND1_IDX = Internal.createIndex(DSL.name("fk_playerround_houseround1_idx"), Playerround.PLAYERROUND, new OrderField[] { Playerround.PLAYERROUND.START_HOUSEROUND_ID }, false);
+    public static final Index PLAYERROUND_FK_PLAYERROUND_HOUSEROUND2_IDX = Internal.createIndex(DSL.name("fk_playerround_houseround2_idx"), Playerround.PLAYERROUND, new OrderField[] { Playerround.PLAYERROUND.FINAL_HOUSEROUND_ID }, false);
     public static final Index PLAYERROUND_FK_PLAYERROUND_PLAYER1_IDX = Internal.createIndex(DSL.name("fk_playerround_player1_idx"), Playerround.PLAYERROUND, new OrderField[] { Playerround.PLAYERROUND.PLAYER_ID }, false);
     public static final Index QUESTION_FK_QUESTION_SCENARIO1_IDX = Internal.createIndex(DSL.name("fk_question_scenario1_idx"), Question.QUESTION, new OrderField[] { Question.QUESTION.SCENARIO_ID }, false);
     public static final Index QUESTIONSCORE_FK_QUESTIONSCORE_PLAYERROUND1_IDX = Internal.createIndex(DSL.name("fk_questionscore_playerround1_idx"), Questionscore.QUESTIONSCORE, new OrderField[] { Questionscore.QUESTIONSCORE.PLAYERROUND_ID }, false);
     public static final Index QUESTIONSCORE_FK_QUESTIONSCORE_QUESTION1_IDX = Internal.createIndex(DSL.name("fk_questionscore_question1_idx"), Questionscore.QUESTIONSCORE, new OrderField[] { Questionscore.QUESTIONSCORE.QUESTION_ID }, false);
-    public static final Index ROUND_FK_ROUND_SCENARIO1_IDX = Internal.createIndex(DSL.name("fk_round_scenario1_idx"), Round.ROUND, new OrderField[] { Round.ROUND.SCENARIO_ID }, false);
     public static final Index SCENARIO_FK_SCENARIO_GAMEVERSION1_IDX = Internal.createIndex(DSL.name("fk_scenario_gameversion1_idx"), Scenario.SCENARIO, new OrderField[] { Scenario.SCENARIO.GAMEVERSION_ID }, false);
     public static final Index SCENARIO_FK_SCENARIO_SCENARIOPARAMETERS1_IDX = Internal.createIndex(DSL.name("fk_scenario_scenarioparameters1_idx"), Scenario.SCENARIO, new OrderField[] { Scenario.SCENARIO.SCENARIOPARAMETERS_ID }, false);
     public static final Index SCENARIOPARAMETERS_FK_SCENARIOPARAMETERS_LANGUAGE1_IDX = Internal.createIndex(DSL.name("fk_scenarioparameters_language1_idx"), Scenarioparameters.SCENARIOPARAMETERS, new OrderField[] { Scenarioparameters.SCENARIOPARAMETERS.DEFAULT_LANGUAGE_ID }, false);

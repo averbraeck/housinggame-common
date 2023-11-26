@@ -56,24 +56,24 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>housinggame.playerround.satisfaction</code>.
+     * The column <code>housinggame.playerround.create_time</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> SATISFACTION = createField(DSL.name("satisfaction"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, LocalDateTime> CREATE_TIME = createField(DSL.name("create_time"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.field(DSL.raw("current_timestamp()"), SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>housinggame.playerround.savings</code>.
+     * The column <code>housinggame.playerround.start_savings</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> SAVINGS = createField(DSL.name("savings"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, Integer> START_SAVINGS = createField(DSL.name("start_savings"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.playerround.maximum_mortgage</code>.
+     * The column <code>housinggame.playerround.start_debt</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> MAXIMUM_MORTGAGE = createField(DSL.name("maximum_mortgage"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, Integer> START_DEBT = createField(DSL.name("start_debt"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.playerround.mortgage</code>.
+     * The column <code>housinggame.playerround.round_income</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> MORTGAGE = createField(DSL.name("mortgage"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, Integer> ROUND_INCOME = createField(DSL.name("round_income"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.playerround.living_costs</code>.
@@ -81,19 +81,128 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> LIVING_COSTS = createField(DSL.name("living_costs"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.playerround.income_per_round</code>.
+     * The column <code>housinggame.playerround.paid_debt</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> INCOME_PER_ROUND = createField(DSL.name("income_per_round"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, Integer> PAID_DEBT = createField(DSL.name("paid_debt"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.playerround.debt</code>.
+     * The column
+     * <code>housinggame.playerround.spent_savings_for_buying_house</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> DEBT = createField(DSL.name("debt"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, Integer> SPENT_SAVINGS_FOR_BUYING_HOUSE = createField(DSL.name("spent_savings_for_buying_house"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.playerround.spendable_income</code>.
+     * The column <code>housinggame.playerround.paid_mortgage</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> SPENDABLE_INCOME = createField(DSL.name("spendable_income"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, Integer> PAID_MORTGAGE = createField(DSL.name("paid_mortgage"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.cost_taxes</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> COST_TAXES = createField(DSL.name("cost_taxes"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.cost_measures_bought</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> COST_MEASURES_BOUGHT = createField(DSL.name("cost_measures_bought"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.cost_satisfaction_bought</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> COST_SATISFACTION_BOUGHT = createField(DSL.name("cost_satisfaction_bought"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.cost_fluvial_damage</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> COST_FLUVIAL_DAMAGE = createField(DSL.name("cost_fluvial_damage"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.cost_pluvial_damage</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> COST_PLUVIAL_DAMAGE = createField(DSL.name("cost_pluvial_damage"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.final_spendable_income</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> FINAL_SPENDABLE_INCOME = createField(DSL.name("final_spendable_income"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.playerround.start_personal_satisfaction</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> START_PERSONAL_SATISFACTION = createField(DSL.name("start_personal_satisfaction"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.start_house_satisfaction</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> START_HOUSE_SATISFACTION = createField(DSL.name("start_house_satisfaction"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.playerround.satisfacction_move_penalty</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> SATISFACCTION_MOVE_PENALTY = createField(DSL.name("satisfacction_move_penalty"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.playerround.satisfaction_house_rating_delta</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> SATISFACTION_HOUSE_RATING_DELTA = createField(DSL.name("satisfaction_house_rating_delta"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.playerround.satisfaction_house_measures</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> SATISFACTION_HOUSE_MEASURES = createField(DSL.name("satisfaction_house_measures"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.satisfaction_bought</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> SATISFACTION_BOUGHT = createField(DSL.name("satisfaction_bought"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.playerround.satisfaction_fluvial_damage</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> SATISFACTION_FLUVIAL_DAMAGE = createField(DSL.name("satisfaction_fluvial_damage"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.playerround.satisfaction_pluvial_damage</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> SATISFACTION_PLUVIAL_DAMAGE = createField(DSL.name("satisfaction_pluvial_damage"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.playerround.satisfaction_debt_penalty</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> SATISFACTION_DEBT_PENALTY = createField(DSL.name("satisfaction_debt_penalty"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.playerround.final_personal_satisfaction</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> FINAL_PERSONAL_SATISFACTION = createField(DSL.name("final_personal_satisfaction"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.final_house_satisfaction</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> FINAL_HOUSE_SATISFACTION = createField(DSL.name("final_house_satisfaction"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.start_houseround_id</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> START_HOUSEROUND_ID = createField(DSL.name("start_houseround_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.start_mortgage</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> START_MORTGAGE = createField(DSL.name("start_mortgage"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.maximum_mortgage</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> MAXIMUM_MORTGAGE = createField(DSL.name("maximum_mortgage"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.playerround.preferred_house_rating</code>.
@@ -101,77 +210,49 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> PREFERRED_HOUSE_RATING = createField(DSL.name("preferred_house_rating"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column
-     * <code>housinggame.playerround.satisfaction_cost_per_point</code>.
+     * The column <code>housinggame.playerround.mortgage_left</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> SATISFACTION_COST_PER_POINT = createField(DSL.name("satisfaction_cost_per_point"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, Integer> MORTGAGE_LEFT = createField(DSL.name("mortgage_left"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.playerround.house_price_sold</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> HOUSE_PRICE_SOLD = createField(DSL.name("house_price_sold"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+    public final TableField<PlayerroundRecord, Integer> HOUSE_PRICE_SOLD = createField(DSL.name("house_price_sold"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.playerround.house_price_bought</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> HOUSE_PRICE_BOUGHT = createField(DSL.name("house_price_bought"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+    public final TableField<PlayerroundRecord, Integer> HOUSE_PRICE_BOUGHT = createField(DSL.name("house_price_bought"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column
-     * <code>housinggame.playerround.spent_savings_for_buying_house</code>.
+     * The column <code>housinggame.playerround.final_houseround_id</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> SPENT_SAVINGS_FOR_BUYING_HOUSE = createField(DSL.name("spent_savings_for_buying_house"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
-
-    /**
-     * The column <code>housinggame.playerround.paid_off_debt</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> PAID_OFF_DEBT = createField(DSL.name("paid_off_debt"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
-
-    /**
-     * The column <code>housinggame.playerround.cost_measure_bought</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> COST_MEASURE_BOUGHT = createField(DSL.name("cost_measure_bought"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
-
-    /**
-     * The column <code>housinggame.playerround.pluvial_damage</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> PLUVIAL_DAMAGE = createField(DSL.name("pluvial_damage"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
-
-    /**
-     * The column <code>housinggame.playerround.fluvial_damage</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> FLUVIAL_DAMAGE = createField(DSL.name("fluvial_damage"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
-
-    /**
-     * The column <code>housinggame.playerround.repaired_damage</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> REPAIRED_DAMAGE = createField(DSL.name("repaired_damage"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
-
-    /**
-     * The column
-     * <code>housinggame.playerround.satisfaction_point_bought</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> SATISFACTION_POINT_BOUGHT = createField(DSL.name("satisfaction_point_bought"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
-
-    /**
-     * The column <code>housinggame.playerround.create_time</code>.
-     */
-    public final TableField<PlayerroundRecord, LocalDateTime> CREATE_TIME = createField(DSL.name("create_time"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.field(DSL.raw("current_timestamp()"), SQLDataType.LOCALDATETIME)), this, "");
+    public final TableField<PlayerroundRecord, Integer> FINAL_HOUSEROUND_ID = createField(DSL.name("final_houseround_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.playerround.moving_reason</code>.
      */
-    public final TableField<PlayerroundRecord, String> MOVING_REASON = createField(DSL.name("moving_reason"), SQLDataType.CLOB.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.CLOB)), this, "");
+    public final TableField<PlayerroundRecord, String> MOVING_REASON = createField(DSL.name("moving_reason"), SQLDataType.CLOB.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.pluvial_damage</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> PLUVIAL_DAMAGE = createField(DSL.name("pluvial_damage"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.new_mortgage</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> NEW_MORTGAGE = createField(DSL.name("new_mortgage"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.fluvial_damage</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> FLUVIAL_DAMAGE = createField(DSL.name("fluvial_damage"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.playerround.player_state</code>.
      */
     public final TableField<PlayerroundRecord, String> PLAYER_STATE = createField(DSL.name("player_state"), SQLDataType.VARCHAR(24).nullable(false).defaultValue(DSL.field(DSL.raw("'LOGIN'"), SQLDataType.VARCHAR)), this, "");
-
-    /**
-     * The column <code>housinggame.playerround.house_id</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> HOUSE_ID = createField(DSL.name("house_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.playerround.player_id</code>.
@@ -223,7 +304,7 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.PLAYERROUND_FK_PLAYERROUND_GROUPROUND1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_HOUSE1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_PLAYER1_IDX);
+        return Arrays.asList(Indexes.PLAYERROUND_FK_PLAYERROUND_GROUPROUND1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_HOUSEROUND1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_HOUSEROUND2_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_PLAYER1_IDX);
     }
 
     @Override
@@ -243,21 +324,34 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
 
     @Override
     public List<ForeignKey<PlayerroundRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_PLAYERROUND_HOUSE1, Keys.FK_PLAYERROUND_PLAYER1, Keys.FK_PLAYERROUND_GROUPROUND1);
+        return Arrays.asList(Keys.FK_PLAYERROUND_HOUSEROUND1, Keys.FK_PLAYERROUND_HOUSEROUND2, Keys.FK_PLAYERROUND_PLAYER1, Keys.FK_PLAYERROUND_GROUPROUND1);
     }
 
-    private transient House _house;
+    private transient Houseround _fkPlayerroundHouseround1;
+    private transient Houseround _fkPlayerroundHouseround2;
     private transient Player _player;
     private transient Groupround _groupround;
 
     /**
-     * Get the implicit join path to the <code>housinggame.house</code> table.
+     * Get the implicit join path to the <code>housinggame.houseround</code>
+     * table, via the <code>fk_playerround_houseround1</code> key.
      */
-    public House house() {
-        if (_house == null)
-            _house = new House(this, Keys.FK_PLAYERROUND_HOUSE1);
+    public Houseround fkPlayerroundHouseround1() {
+        if (_fkPlayerroundHouseround1 == null)
+            _fkPlayerroundHouseround1 = new Houseround(this, Keys.FK_PLAYERROUND_HOUSEROUND1);
 
-        return _house;
+        return _fkPlayerroundHouseround1;
+    }
+
+    /**
+     * Get the implicit join path to the <code>housinggame.houseround</code>
+     * table, via the <code>fk_playerround_houseround2</code> key.
+     */
+    public Houseround fkPlayerroundHouseround2() {
+        if (_fkPlayerroundHouseround2 == null)
+            _fkPlayerroundHouseround2 = new Houseround(this, Keys.FK_PLAYERROUND_HOUSEROUND2);
+
+        return _fkPlayerroundHouseround2;
     }
 
     /**

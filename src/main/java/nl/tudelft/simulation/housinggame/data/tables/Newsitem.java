@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.NewsitemRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function5;
+import org.jooq.Function6;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row5;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -75,9 +75,14 @@ public class Newsitem extends TableImpl<NewsitemRecord> {
     public final TableField<NewsitemRecord, String> CONTENT = createField(DSL.name("content"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.newsitem.round_id</code>.
+     * The column <code>housinggame.newsitem.round_number</code>.
      */
-    public final TableField<NewsitemRecord, Integer> ROUND_ID = createField(DSL.name("round_id"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<NewsitemRecord, Integer> ROUND_NUMBER = createField(DSL.name("round_number"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.newsitem.scenario_id</code>.
+     */
+    public final TableField<NewsitemRecord, Integer> SCENARIO_ID = createField(DSL.name("scenario_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Newsitem(Name alias, Table<NewsitemRecord> aliased) {
         this(alias, aliased, null);
@@ -119,7 +124,7 @@ public class Newsitem extends TableImpl<NewsitemRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.NEWSITEM_FK_NEWSITEM_ROUND1_IDX);
+        return Arrays.asList(Indexes.NEWSITEM_FK_NEWSITEM_SCENARIO1_IDX);
     }
 
     @Override
@@ -139,19 +144,20 @@ public class Newsitem extends TableImpl<NewsitemRecord> {
 
     @Override
     public List<ForeignKey<NewsitemRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_NEWSITEM_ROUND1);
+        return Arrays.asList(Keys.FK_NEWSITEM_SCENARIO1);
     }
 
-    private transient Round _round;
+    private transient Scenario _scenario;
 
     /**
-     * Get the implicit join path to the <code>housinggame.round</code> table.
+     * Get the implicit join path to the <code>housinggame.scenario</code>
+     * table.
      */
-    public Round round() {
-        if (_round == null)
-            _round = new Round(this, Keys.FK_NEWSITEM_ROUND1);
+    public Scenario scenario() {
+        if (_scenario == null)
+            _scenario = new Scenario(this, Keys.FK_NEWSITEM_SCENARIO1);
 
-        return _round;
+        return _scenario;
     }
 
     @Override
@@ -194,18 +200,18 @@ public class Newsitem extends TableImpl<NewsitemRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Integer, String, String, String, Integer> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row6<Integer, String, String, String, Integer, Integer> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function5<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function6<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -213,7 +219,7 @@ public class Newsitem extends TableImpl<NewsitemRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
