@@ -144,9 +144,9 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
 
     /**
      * The column
-     * <code>housinggame.playerround.satisfacction_move_penalty</code>.
+     * <code>housinggame.playerround.satisfaction_move_penalty</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> SATISFACCTION_MOVE_PENALTY = createField(DSL.name("satisfacction_move_penalty"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, Integer> SATISFACTION_MOVE_PENALTY = createField(DSL.name("satisfaction_move_penalty"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column
