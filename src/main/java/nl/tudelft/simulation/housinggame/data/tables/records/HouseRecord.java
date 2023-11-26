@@ -50,16 +50,16 @@ public class HouseRecord extends UpdatableRecordImpl<HouseRecord> implements Rec
     }
 
     /**
-     * Setter for <code>housinggame.house.address</code>.
+     * Setter for <code>housinggame.house.code</code>.
      */
-    public void setAddress(String value) {
+    public void setCode(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>housinggame.house.address</code>.
+     * Getter for <code>housinggame.house.code</code>.
      */
-    public String getAddress() {
+    public String getCode() {
         return (String) get(2);
     }
 
@@ -78,16 +78,16 @@ public class HouseRecord extends UpdatableRecordImpl<HouseRecord> implements Rec
     }
 
     /**
-     * Setter for <code>housinggame.house.description</code>.
+     * Setter for <code>housinggame.house.address</code>.
      */
-    public void setDescription(String value) {
+    public void setAddress(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>housinggame.house.description</code>.
+     * Getter for <code>housinggame.house.address</code>.
      */
-    public String getDescription() {
+    public String getAddress() {
         return (String) get(4);
     }
 
@@ -182,7 +182,7 @@ public class HouseRecord extends UpdatableRecordImpl<HouseRecord> implements Rec
 
     @Override
     public Field<String> field3() {
-        return House.HOUSE.ADDRESS;
+        return House.HOUSE.CODE;
     }
 
     @Override
@@ -192,7 +192,7 @@ public class HouseRecord extends UpdatableRecordImpl<HouseRecord> implements Rec
 
     @Override
     public Field<String> field5() {
-        return House.HOUSE.DESCRIPTION;
+        return House.HOUSE.ADDRESS;
     }
 
     @Override
@@ -227,7 +227,7 @@ public class HouseRecord extends UpdatableRecordImpl<HouseRecord> implements Rec
 
     @Override
     public String component3() {
-        return getAddress();
+        return getCode();
     }
 
     @Override
@@ -237,7 +237,7 @@ public class HouseRecord extends UpdatableRecordImpl<HouseRecord> implements Rec
 
     @Override
     public String component5() {
-        return getDescription();
+        return getAddress();
     }
 
     @Override
@@ -272,7 +272,7 @@ public class HouseRecord extends UpdatableRecordImpl<HouseRecord> implements Rec
 
     @Override
     public String value3() {
-        return getAddress();
+        return getCode();
     }
 
     @Override
@@ -282,7 +282,7 @@ public class HouseRecord extends UpdatableRecordImpl<HouseRecord> implements Rec
 
     @Override
     public String value5() {
-        return getDescription();
+        return getAddress();
     }
 
     @Override
@@ -319,7 +319,7 @@ public class HouseRecord extends UpdatableRecordImpl<HouseRecord> implements Rec
 
     @Override
     public HouseRecord value3(String value) {
-        setAddress(value);
+        setCode(value);
         return this;
     }
 
@@ -331,7 +331,7 @@ public class HouseRecord extends UpdatableRecordImpl<HouseRecord> implements Rec
 
     @Override
     public HouseRecord value5(String value) {
-        setDescription(value);
+        setAddress(value);
         return this;
     }
 
@@ -387,14 +387,14 @@ public class HouseRecord extends UpdatableRecordImpl<HouseRecord> implements Rec
     /**
      * Create a detached, initialised HouseRecord
      */
-    public HouseRecord(Integer id, Integer price, String address, Integer availableRound, String description, Integer rating, Integer initialPluvialProtection, Integer initialFluvialProtection, Integer communityId) {
+    public HouseRecord(Integer id, Integer price, String code, Integer availableRound, String address, Integer rating, Integer initialPluvialProtection, Integer initialFluvialProtection, Integer communityId) {
         super(House.HOUSE);
 
         setId(id);
         setPrice(price);
-        setAddress(address);
+        setCode(code);
         setAvailableRound(availableRound);
-        setDescription(description);
+        setAddress(address);
         setRating(rating);
         setInitialPluvialProtection(initialPluvialProtection);
         setInitialFluvialProtection(initialFluvialProtection);

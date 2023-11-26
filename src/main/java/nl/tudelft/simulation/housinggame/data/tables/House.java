@@ -65,9 +65,9 @@ public class House extends TableImpl<HouseRecord> {
     public final TableField<HouseRecord, Integer> PRICE = createField(DSL.name("price"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.house.address</code>.
+     * The column <code>housinggame.house.code</code>.
      */
-    public final TableField<HouseRecord, String> ADDRESS = createField(DSL.name("address"), SQLDataType.VARCHAR(45).nullable(false), this, "");
+    public final TableField<HouseRecord, String> CODE = createField(DSL.name("code"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
      * The column <code>housinggame.house.available_round</code>.
@@ -75,9 +75,9 @@ public class House extends TableImpl<HouseRecord> {
     public final TableField<HouseRecord, Integer> AVAILABLE_ROUND = createField(DSL.name("available_round"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.house.description</code>.
+     * The column <code>housinggame.house.address</code>.
      */
-    public final TableField<HouseRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.CLOB.nullable(false), this, "");
+    public final TableField<HouseRecord, String> ADDRESS = createField(DSL.name("address"), SQLDataType.VARCHAR(255).nullable(false), this, "");
 
     /**
      * The column <code>housinggame.house.rating</code>.

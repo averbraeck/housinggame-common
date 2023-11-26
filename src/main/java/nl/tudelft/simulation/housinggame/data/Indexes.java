@@ -10,6 +10,7 @@ import nl.tudelft.simulation.housinggame.data.tables.Gameversion;
 import nl.tudelft.simulation.housinggame.data.tables.Group;
 import nl.tudelft.simulation.housinggame.data.tables.Groupround;
 import nl.tudelft.simulation.housinggame.data.tables.House;
+import nl.tudelft.simulation.housinggame.data.tables.Houseround;
 import nl.tudelft.simulation.housinggame.data.tables.Initialhousemeasure;
 import nl.tudelft.simulation.housinggame.data.tables.Label;
 import nl.tudelft.simulation.housinggame.data.tables.Languagegroup;
@@ -50,6 +51,8 @@ public class Indexes {
     public static final Index GROUP_FK_GROUP_USER1_IDX = Internal.createIndex(DSL.name("fk_group_user1_idx"), Group.GROUP, new OrderField[] { Group.GROUP.FACILITATOR_ID }, false);
     public static final Index GROUPROUND_FK_GROUPROUND_GROUP1_IDX = Internal.createIndex(DSL.name("fk_groupround_group1_idx"), Groupround.GROUPROUND, new OrderField[] { Groupround.GROUPROUND.GROUP_ID }, false);
     public static final Index HOUSE_FK_HOUSE_COMMUNITY1_IDX = Internal.createIndex(DSL.name("fk_house_community1_idx"), House.HOUSE, new OrderField[] { House.HOUSE.COMMUNITY_ID }, false);
+    public static final Index HOUSEROUND_FK_HOUSEROUND_GROUPROUND1_IDX = Internal.createIndex(DSL.name("fk_houseround_groupround1_idx"), Houseround.HOUSEROUND, new OrderField[] { Houseround.HOUSEROUND.GROUPROUND_ID }, false);
+    public static final Index HOUSEROUND_FK_HOUSEROUND_HOUSE1_IDX = Internal.createIndex(DSL.name("fk_houseround_house1_idx"), Houseround.HOUSEROUND, new OrderField[] { Houseround.HOUSEROUND.HOUSE_ID }, false);
     public static final Index INITIALHOUSEMEASURE_FK_INITIALHOUSEMEASURE_HOUSE1_IDX = Internal.createIndex(DSL.name("fk_initialhousemeasure_house1_idx"), Initialhousemeasure.INITIALHOUSEMEASURE, new OrderField[] { Initialhousemeasure.INITIALHOUSEMEASURE.HOUSE_ID }, false);
     public static final Index INITIALHOUSEMEASURE_FK_INITIALHOUSEMEASURE_MEASURETYPE1_IDX = Internal.createIndex(DSL.name("fk_initialhousemeasure_measuretype1_idx"), Initialhousemeasure.INITIALHOUSEMEASURE, new OrderField[] { Initialhousemeasure.INITIALHOUSEMEASURE.MEASURETYPE_ID }, false);
     public static final Index LABEL_FK_LABEL_LANGUAGEGROUP1_IDX = Internal.createIndex(DSL.name("fk_label_languagegroup1_idx"), Label.LABEL, new OrderField[] { Label.LABEL.LANGUAGEGROUP_ID }, false);
