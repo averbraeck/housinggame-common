@@ -106,16 +106,16 @@ public class WelfaretypeRecord extends UpdatableRecordImpl<WelfaretypeRecord> im
     }
 
     /**
-     * Setter for <code>housinggame.welfaretype.income_per_round</code>.
+     * Setter for <code>housinggame.welfaretype.round_income</code>.
      */
-    public void setIncomePerRound(Integer value) {
+    public void setRoundIncome(Integer value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>housinggame.welfaretype.income_per_round</code>.
+     * Getter for <code>housinggame.welfaretype.round_income</code>.
      */
-    public Integer getIncomePerRound() {
+    public Integer getRoundIncome() {
         return (Integer) get(6);
     }
 
@@ -218,7 +218,7 @@ public class WelfaretypeRecord extends UpdatableRecordImpl<WelfaretypeRecord> im
 
     @Override
     public Field<Integer> field7() {
-        return Welfaretype.WELFARETYPE.INCOME_PER_ROUND;
+        return Welfaretype.WELFARETYPE.ROUND_INCOME;
     }
 
     @Override
@@ -268,7 +268,7 @@ public class WelfaretypeRecord extends UpdatableRecordImpl<WelfaretypeRecord> im
 
     @Override
     public Integer component7() {
-        return getIncomePerRound();
+        return getRoundIncome();
     }
 
     @Override
@@ -318,7 +318,7 @@ public class WelfaretypeRecord extends UpdatableRecordImpl<WelfaretypeRecord> im
 
     @Override
     public Integer value7() {
-        return getIncomePerRound();
+        return getRoundIncome();
     }
 
     @Override
@@ -374,7 +374,7 @@ public class WelfaretypeRecord extends UpdatableRecordImpl<WelfaretypeRecord> im
 
     @Override
     public WelfaretypeRecord value7(Integer value) {
-        setIncomePerRound(value);
+        setRoundIncome(value);
         return this;
     }
 
@@ -425,7 +425,7 @@ public class WelfaretypeRecord extends UpdatableRecordImpl<WelfaretypeRecord> im
     /**
      * Create a detached, initialised WelfaretypeRecord
      */
-    public WelfaretypeRecord(Integer id, String name, Integer initialSatisfaction, Integer initialMoney, Integer maximumMortgage, Integer livingCosts, Integer incomePerRound, Integer satisfactionCostPerPoint, Integer preferredHouseRating, Integer scenarioId) {
+    public WelfaretypeRecord(Integer id, String name, Integer initialSatisfaction, Integer initialMoney, Integer maximumMortgage, Integer livingCosts, Integer roundIncome, Integer satisfactionCostPerPoint, Integer preferredHouseRating, Integer scenarioId) {
         super(Welfaretype.WELFARETYPE);
 
         setId(id);
@@ -434,7 +434,7 @@ public class WelfaretypeRecord extends UpdatableRecordImpl<WelfaretypeRecord> im
         setInitialMoney(initialMoney);
         setMaximumMortgage(maximumMortgage);
         setLivingCosts(livingCosts);
-        setIncomePerRound(incomePerRound);
+        setRoundIncome(roundIncome);
         setSatisfactionCostPerPoint(satisfactionCostPerPoint);
         setPreferredHouseRating(preferredHouseRating);
         setScenarioId(scenarioId);

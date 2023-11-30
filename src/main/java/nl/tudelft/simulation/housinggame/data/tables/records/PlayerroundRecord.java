@@ -119,16 +119,16 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
-     * Setter for <code>housinggame.playerround.paid_mortgage</code>.
+     * Setter for <code>housinggame.playerround.mortgage_payment</code>.
      */
-    public void setPaidMortgage(Integer value) {
+    public void setMortgagePayment(Integer value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.paid_mortgage</code>.
+     * Getter for <code>housinggame.playerround.mortgage_payment</code>.
      */
-    public Integer getPaidMortgage() {
+    public Integer getMortgagePayment() {
         return (Integer) get(7);
     }
 
@@ -233,16 +233,16 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
-     * Setter for <code>housinggame.playerround.final_spendable_income</code>.
+     * Setter for <code>housinggame.playerround.current_spendable_income</code>.
      */
-    public void setFinalSpendableIncome(Integer value) {
+    public void setCurrentSpendableIncome(Integer value) {
         set(15, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.final_spendable_income</code>.
+     * Getter for <code>housinggame.playerround.current_spendable_income</code>.
      */
-    public Integer getFinalSpendableIncome() {
+    public Integer getCurrentSpendableIncome() {
         return (Integer) get(15);
     }
 
@@ -340,33 +340,33 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
 
     /**
      * Setter for
-     * <code>housinggame.playerround.satisfaction_fluvial_damage</code>.
+     * <code>housinggame.playerround.satisfaction_fluvial_penalty</code>.
      */
-    public void setSatisfactionFluvialDamage(Integer value) {
+    public void setSatisfactionFluvialPenalty(Integer value) {
         set(22, value);
     }
 
     /**
      * Getter for
-     * <code>housinggame.playerround.satisfaction_fluvial_damage</code>.
+     * <code>housinggame.playerround.satisfaction_fluvial_penalty</code>.
      */
-    public Integer getSatisfactionFluvialDamage() {
+    public Integer getSatisfactionFluvialPenalty() {
         return (Integer) get(22);
     }
 
     /**
      * Setter for
-     * <code>housinggame.playerround.satisfaction_pluvial_damage</code>.
+     * <code>housinggame.playerround.satisfaction_pluvial_penalty</code>.
      */
-    public void setSatisfactionPluvialDamage(Integer value) {
+    public void setSatisfactionPluvialPenalty(Integer value) {
         set(23, value);
     }
 
     /**
      * Getter for
-     * <code>housinggame.playerround.satisfaction_pluvial_damage</code>.
+     * <code>housinggame.playerround.satisfaction_pluvial_penalty</code>.
      */
-    public Integer getSatisfactionPluvialDamage() {
+    public Integer getSatisfactionPluvialPenalty() {
         return (Integer) get(23);
     }
 
@@ -388,101 +388,103 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
 
     /**
      * Setter for
-     * <code>housinggame.playerround.final_personal_satisfaction</code>.
+     * <code>housinggame.playerround.current_personal_satisfaction</code>.
      */
-    public void setFinalPersonalSatisfaction(Integer value) {
+    public void setCurrentPersonalSatisfaction(Integer value) {
         set(25, value);
     }
 
     /**
      * Getter for
-     * <code>housinggame.playerround.final_personal_satisfaction</code>.
+     * <code>housinggame.playerround.current_personal_satisfaction</code>.
      */
-    public Integer getFinalPersonalSatisfaction() {
+    public Integer getCurrentPersonalSatisfaction() {
         return (Integer) get(25);
     }
 
     /**
-     * Setter for <code>housinggame.playerround.final_house_satisfaction</code>.
+     * Setter for
+     * <code>housinggame.playerround.current_house_satisfaction</code>.
      */
-    public void setFinalHouseSatisfaction(Integer value) {
+    public void setCurrentHouseSatisfaction(Integer value) {
         set(26, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.final_house_satisfaction</code>.
+     * Getter for
+     * <code>housinggame.playerround.current_house_satisfaction</code>.
      */
-    public Integer getFinalHouseSatisfaction() {
+    public Integer getCurrentHouseSatisfaction() {
         return (Integer) get(26);
-    }
-
-    /**
-     * Setter for <code>housinggame.playerround.start_houseround_id</code>.
-     */
-    public void setStartHouseroundId(Integer value) {
-        set(27, value);
-    }
-
-    /**
-     * Getter for <code>housinggame.playerround.start_houseround_id</code>.
-     */
-    public Integer getStartHouseroundId() {
-        return (Integer) get(27);
-    }
-
-    /**
-     * Setter for <code>housinggame.playerround.start_mortgage</code>.
-     */
-    public void setStartMortgage(Integer value) {
-        set(28, value);
-    }
-
-    /**
-     * Getter for <code>housinggame.playerround.start_mortgage</code>.
-     */
-    public Integer getStartMortgage() {
-        return (Integer) get(28);
-    }
-
-    /**
-     * Setter for <code>housinggame.playerround.maximum_mortgage</code>.
-     */
-    public void setMaximumMortgage(Integer value) {
-        set(29, value);
-    }
-
-    /**
-     * Getter for <code>housinggame.playerround.maximum_mortgage</code>.
-     */
-    public Integer getMaximumMortgage() {
-        return (Integer) get(29);
     }
 
     /**
      * Setter for <code>housinggame.playerround.preferred_house_rating</code>.
      */
     public void setPreferredHouseRating(Integer value) {
-        set(30, value);
+        set(27, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.preferred_house_rating</code>.
      */
     public Integer getPreferredHouseRating() {
+        return (Integer) get(27);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.maximum_mortgage</code>.
+     */
+    public void setMaximumMortgage(Integer value) {
+        set(28, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.maximum_mortgage</code>.
+     */
+    public Integer getMaximumMortgage() {
+        return (Integer) get(28);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.start_houseround_id</code>.
+     */
+    public void setStartHouseroundId(Integer value) {
+        set(29, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.start_houseround_id</code>.
+     */
+    public Integer getStartHouseroundId() {
+        return (Integer) get(29);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.mortgage_house_start</code>.
+     */
+    public void setMortgageHouseStart(Integer value) {
+        set(30, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.mortgage_house_start</code>.
+     */
+    public Integer getMortgageHouseStart() {
         return (Integer) get(30);
     }
 
     /**
-     * Setter for <code>housinggame.playerround.mortgage_left</code>.
+     * Setter for <code>housinggame.playerround.mortgage_left_start</code>.
      */
-    public void setMortgageLeft(Integer value) {
+    public void setMortgageLeftStart(Integer value) {
         set(31, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.mortgage_left</code>.
+     * Getter for <code>housinggame.playerround.mortgage_left_start</code>.
      */
-    public Integer getMortgageLeft() {
+    public Integer getMortgageLeftStart() {
         return (Integer) get(31);
     }
 
@@ -515,115 +517,129 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
+     * Setter for <code>housinggame.playerround.mortgage_house_end</code>.
+     */
+    public void setMortgageHouseEnd(Integer value) {
+        set(34, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.mortgage_house_end</code>.
+     */
+    public Integer getMortgageHouseEnd() {
+        return (Integer) get(34);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.mortgage_left_end</code>.
+     */
+    public void setMortgageLeftEnd(Integer value) {
+        set(35, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.mortgage_left_end</code>.
+     */
+    public Integer getMortgageLeftEnd() {
+        return (Integer) get(35);
+    }
+
+    /**
      * Setter for <code>housinggame.playerround.final_houseround_id</code>.
      */
     public void setFinalHouseroundId(Integer value) {
-        set(34, value);
+        set(36, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.final_houseround_id</code>.
      */
     public Integer getFinalHouseroundId() {
-        return (Integer) get(34);
+        return (Integer) get(36);
     }
 
     /**
      * Setter for <code>housinggame.playerround.moving_reason</code>.
      */
     public void setMovingReason(String value) {
-        set(35, value);
+        set(37, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.moving_reason</code>.
      */
     public String getMovingReason() {
-        return (String) get(35);
+        return (String) get(37);
     }
 
     /**
      * Setter for <code>housinggame.playerround.pluvial_damage</code>.
      */
     public void setPluvialDamage(Integer value) {
-        set(36, value);
+        set(38, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.pluvial_damage</code>.
      */
     public Integer getPluvialDamage() {
-        return (Integer) get(36);
-    }
-
-    /**
-     * Setter for <code>housinggame.playerround.new_mortgage</code>.
-     */
-    public void setNewMortgage(Integer value) {
-        set(37, value);
-    }
-
-    /**
-     * Getter for <code>housinggame.playerround.new_mortgage</code>.
-     */
-    public Integer getNewMortgage() {
-        return (Integer) get(37);
+        return (Integer) get(38);
     }
 
     /**
      * Setter for <code>housinggame.playerround.fluvial_damage</code>.
      */
     public void setFluvialDamage(Integer value) {
-        set(38, value);
+        set(39, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.fluvial_damage</code>.
      */
     public Integer getFluvialDamage() {
-        return (Integer) get(38);
+        return (Integer) get(39);
     }
 
     /**
      * Setter for <code>housinggame.playerround.player_state</code>.
      */
     public void setPlayerState(String value) {
-        set(39, value);
+        set(40, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.player_state</code>.
      */
     public String getPlayerState() {
-        return (String) get(39);
+        return (String) get(40);
     }
 
     /**
      * Setter for <code>housinggame.playerround.player_id</code>.
      */
     public void setPlayerId(Integer value) {
-        set(40, value);
+        set(41, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.player_id</code>.
      */
     public Integer getPlayerId() {
-        return (Integer) get(40);
+        return (Integer) get(41);
     }
 
     /**
      * Setter for <code>housinggame.playerround.groupround_id</code>.
      */
     public void setGrouproundId(Integer value) {
-        set(41, value);
+        set(42, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.groupround_id</code>.
      */
     public Integer getGrouproundId() {
-        return (Integer) get(41);
+        return (Integer) get(42);
     }
 
     // -------------------------------------------------------------------------
@@ -649,7 +665,7 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     /**
      * Create a detached, initialised PlayerroundRecord
      */
-    public PlayerroundRecord(Integer id, LocalDateTime createTime, Integer startSavings, Integer startDebt, Integer roundIncome, Integer livingCosts, Integer paidDebt, Integer paidMortgage, Integer profitSoldHouse, Integer spentSavingsForBuyingHouse, Integer costTaxes, Integer costMeasuresBought, Integer costSatisfactionBought, Integer costFluvialDamage, Integer costPluvialDamage, Integer finalSpendableIncome, Integer startPersonalSatisfaction, Integer startHouseSatisfaction, Integer satisfactionMovePenalty, Integer satisfactionHouseRatingDelta, Integer satisfactionHouseMeasures, Integer satisfactionBought, Integer satisfactionFluvialDamage, Integer satisfactionPluvialDamage, Integer satisfactionDebtPenalty, Integer finalPersonalSatisfaction, Integer finalHouseSatisfaction, Integer startHouseroundId, Integer startMortgage, Integer maximumMortgage, Integer preferredHouseRating, Integer mortgageLeft, Integer housePriceSold, Integer housePriceBought, Integer finalHouseroundId, String movingReason, Integer pluvialDamage, Integer newMortgage, Integer fluvialDamage, String playerState, Integer playerId, Integer grouproundId) {
+    public PlayerroundRecord(Integer id, LocalDateTime createTime, Integer startSavings, Integer startDebt, Integer roundIncome, Integer livingCosts, Integer paidDebt, Integer mortgagePayment, Integer profitSoldHouse, Integer spentSavingsForBuyingHouse, Integer costTaxes, Integer costMeasuresBought, Integer costSatisfactionBought, Integer costFluvialDamage, Integer costPluvialDamage, Integer currentSpendableIncome, Integer startPersonalSatisfaction, Integer startHouseSatisfaction, Integer satisfactionMovePenalty, Integer satisfactionHouseRatingDelta, Integer satisfactionHouseMeasures, Integer satisfactionBought, Integer satisfactionFluvialPenalty, Integer satisfactionPluvialPenalty, Integer satisfactionDebtPenalty, Integer currentPersonalSatisfaction, Integer currentHouseSatisfaction, Integer preferredHouseRating, Integer maximumMortgage, Integer startHouseroundId, Integer mortgageHouseStart, Integer mortgageLeftStart, Integer housePriceSold, Integer housePriceBought, Integer mortgageHouseEnd, Integer mortgageLeftEnd, Integer finalHouseroundId, String movingReason, Integer pluvialDamage, Integer fluvialDamage, String playerState, Integer playerId, Integer grouproundId) {
         super(Playerround.PLAYERROUND);
 
         setId(id);
@@ -659,7 +675,7 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
         setRoundIncome(roundIncome);
         setLivingCosts(livingCosts);
         setPaidDebt(paidDebt);
-        setPaidMortgage(paidMortgage);
+        setMortgagePayment(mortgagePayment);
         setProfitSoldHouse(profitSoldHouse);
         setSpentSavingsForBuyingHouse(spentSavingsForBuyingHouse);
         setCostTaxes(costTaxes);
@@ -667,29 +683,30 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
         setCostSatisfactionBought(costSatisfactionBought);
         setCostFluvialDamage(costFluvialDamage);
         setCostPluvialDamage(costPluvialDamage);
-        setFinalSpendableIncome(finalSpendableIncome);
+        setCurrentSpendableIncome(currentSpendableIncome);
         setStartPersonalSatisfaction(startPersonalSatisfaction);
         setStartHouseSatisfaction(startHouseSatisfaction);
         setSatisfactionMovePenalty(satisfactionMovePenalty);
         setSatisfactionHouseRatingDelta(satisfactionHouseRatingDelta);
         setSatisfactionHouseMeasures(satisfactionHouseMeasures);
         setSatisfactionBought(satisfactionBought);
-        setSatisfactionFluvialDamage(satisfactionFluvialDamage);
-        setSatisfactionPluvialDamage(satisfactionPluvialDamage);
+        setSatisfactionFluvialPenalty(satisfactionFluvialPenalty);
+        setSatisfactionPluvialPenalty(satisfactionPluvialPenalty);
         setSatisfactionDebtPenalty(satisfactionDebtPenalty);
-        setFinalPersonalSatisfaction(finalPersonalSatisfaction);
-        setFinalHouseSatisfaction(finalHouseSatisfaction);
-        setStartHouseroundId(startHouseroundId);
-        setStartMortgage(startMortgage);
-        setMaximumMortgage(maximumMortgage);
+        setCurrentPersonalSatisfaction(currentPersonalSatisfaction);
+        setCurrentHouseSatisfaction(currentHouseSatisfaction);
         setPreferredHouseRating(preferredHouseRating);
-        setMortgageLeft(mortgageLeft);
+        setMaximumMortgage(maximumMortgage);
+        setStartHouseroundId(startHouseroundId);
+        setMortgageHouseStart(mortgageHouseStart);
+        setMortgageLeftStart(mortgageLeftStart);
         setHousePriceSold(housePriceSold);
         setHousePriceBought(housePriceBought);
+        setMortgageHouseEnd(mortgageHouseEnd);
+        setMortgageLeftEnd(mortgageLeftEnd);
         setFinalHouseroundId(finalHouseroundId);
         setMovingReason(movingReason);
         setPluvialDamage(pluvialDamage);
-        setNewMortgage(newMortgage);
         setFluvialDamage(fluvialDamage);
         setPlayerState(playerState);
         setPlayerId(playerId);

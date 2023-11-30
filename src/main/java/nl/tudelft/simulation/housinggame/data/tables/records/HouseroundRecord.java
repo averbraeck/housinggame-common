@@ -64,16 +64,16 @@ public class HouseroundRecord extends UpdatableRecordImpl<HouseroundRecord> impl
     }
 
     /**
-     * Setter for <code>housinggame.houseround.undamaged_price</code>.
+     * Setter for <code>housinggame.houseround.house_price_bought</code>.
      */
-    public void setUndamagedPrice(Integer value) {
+    public void setHousePriceBought(Integer value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>housinggame.houseround.undamaged_price</code>.
+     * Getter for <code>housinggame.houseround.house_price_bought</code>.
      */
-    public Integer getUndamagedPrice() {
+    public Integer getHousePriceBought() {
         return (Integer) get(3);
     }
 
@@ -173,7 +173,7 @@ public class HouseroundRecord extends UpdatableRecordImpl<HouseroundRecord> impl
 
     @Override
     public Field<Integer> field4() {
-        return Houseround.HOUSEROUND.UNDAMAGED_PRICE;
+        return Houseround.HOUSEROUND.HOUSE_PRICE_BOUGHT;
     }
 
     @Override
@@ -213,7 +213,7 @@ public class HouseroundRecord extends UpdatableRecordImpl<HouseroundRecord> impl
 
     @Override
     public Integer component4() {
-        return getUndamagedPrice();
+        return getHousePriceBought();
     }
 
     @Override
@@ -253,7 +253,7 @@ public class HouseroundRecord extends UpdatableRecordImpl<HouseroundRecord> impl
 
     @Override
     public Integer value4() {
-        return getUndamagedPrice();
+        return getHousePriceBought();
     }
 
     @Override
@@ -296,7 +296,7 @@ public class HouseroundRecord extends UpdatableRecordImpl<HouseroundRecord> impl
 
     @Override
     public HouseroundRecord value4(Integer value) {
-        setUndamagedPrice(value);
+        setHousePriceBought(value);
         return this;
     }
 
@@ -351,13 +351,13 @@ public class HouseroundRecord extends UpdatableRecordImpl<HouseroundRecord> impl
     /**
      * Create a detached, initialised HouseroundRecord
      */
-    public HouseroundRecord(Integer id, Integer bidPrice, String bidExplanation, Integer undamagedPrice, Integer damageReduction, Integer houseSatisfaction, Integer grouproundId, Integer houseId) {
+    public HouseroundRecord(Integer id, Integer bidPrice, String bidExplanation, Integer housePriceBought, Integer damageReduction, Integer houseSatisfaction, Integer grouproundId, Integer houseId) {
         super(Houseround.HOUSEROUND);
 
         setId(id);
         setBidPrice(bidPrice);
         setBidExplanation(bidExplanation);
-        setUndamagedPrice(undamagedPrice);
+        setHousePriceBought(housePriceBought);
         setDamageReduction(damageReduction);
         setHouseSatisfaction(houseSatisfaction);
         setGrouproundId(grouproundId);

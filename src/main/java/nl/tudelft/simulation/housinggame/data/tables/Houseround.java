@@ -70,9 +70,9 @@ public class Houseround extends TableImpl<HouseroundRecord> {
     public final TableField<HouseroundRecord, String> BID_EXPLANATION = createField(DSL.name("bid_explanation"), SQLDataType.CLOB.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>housinggame.houseround.undamaged_price</code>.
+     * The column <code>housinggame.houseround.house_price_bought</code>.
      */
-    public final TableField<HouseroundRecord, Integer> UNDAMAGED_PRICE = createField(DSL.name("undamaged_price"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<HouseroundRecord, Integer> HOUSE_PRICE_BOUGHT = createField(DSL.name("house_price_bought"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.houseround.damage_reduction</code>.
