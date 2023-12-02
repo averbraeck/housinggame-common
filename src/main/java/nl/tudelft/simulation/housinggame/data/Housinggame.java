@@ -20,6 +20,7 @@ import nl.tudelft.simulation.housinggame.data.tables.Language;
 import nl.tudelft.simulation.housinggame.data.tables.Languagegroup;
 import nl.tudelft.simulation.housinggame.data.tables.Measure;
 import nl.tudelft.simulation.housinggame.data.tables.Measuretype;
+import nl.tudelft.simulation.housinggame.data.tables.Movingreason;
 import nl.tudelft.simulation.housinggame.data.tables.Newseffects;
 import nl.tudelft.simulation.housinggame.data.tables.Newsitem;
 import nl.tudelft.simulation.housinggame.data.tables.Player;
@@ -116,6 +117,11 @@ public class Housinggame extends SchemaImpl {
     public final Measuretype MEASURETYPE = Measuretype.MEASURETYPE;
 
     /**
+     * The table <code>housinggame.movingreason</code>.
+     */
+    public final Movingreason MOVINGREASON = Movingreason.MOVINGREASON;
+
+    /**
      * The table <code>housinggame.newseffects</code>.
      */
     public final Newseffects NEWSEFFECTS = Newseffects.NEWSEFFECTS;
@@ -199,6 +205,7 @@ public class Housinggame extends SchemaImpl {
             Languagegroup.LANGUAGEGROUP,
             Measure.MEASURE,
             Measuretype.MEASURETYPE,
+            Movingreason.MOVINGREASON,
             Newseffects.NEWSEFFECTS,
             Newsitem.NEWSITEM,
             Player.PLAYER,

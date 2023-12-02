@@ -246,9 +246,14 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> FINAL_HOUSEROUND_ID = createField(DSL.name("final_houseround_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.playerround.moving_reason</code>.
+     * The column <code>housinggame.playerround.movingreason_id</code>.
      */
-    public final TableField<PlayerroundRecord, String> MOVING_REASON = createField(DSL.name("moving_reason"), SQLDataType.CLOB.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, Integer> MOVINGREASON_ID = createField(DSL.name("movingreason_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.moving_reason_other</code>.
+     */
+    public final TableField<PlayerroundRecord, String> MOVING_REASON_OTHER = createField(DSL.name("moving_reason_other"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
      * The column <code>housinggame.playerround.pluvial_damage</code>.
@@ -315,7 +320,7 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.PLAYERROUND_FK_PLAYERROUND_GROUPROUND1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_HOUSEROUND1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_HOUSEROUND2_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_PLAYER1_IDX);
+        return Arrays.asList(Indexes.PLAYERROUND_FK_PLAYERROUND_GROUPROUND1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_HOUSEROUND1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_HOUSEROUND2_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_MOVINGREASON1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_PLAYER1_IDX);
     }
 
     @Override
@@ -335,11 +340,12 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
 
     @Override
     public List<ForeignKey<PlayerroundRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_PLAYERROUND_HOUSEROUND1, Keys.FK_PLAYERROUND_HOUSEROUND2, Keys.FK_PLAYERROUND_PLAYER1, Keys.FK_PLAYERROUND_GROUPROUND1);
+        return Arrays.asList(Keys.FK_PLAYERROUND_HOUSEROUND1, Keys.FK_PLAYERROUND_HOUSEROUND2, Keys.FK_PLAYERROUND_MOVINGREASON1, Keys.FK_PLAYERROUND_PLAYER1, Keys.FK_PLAYERROUND_GROUPROUND1);
     }
 
     private transient Houseround _fkPlayerroundHouseround1;
     private transient Houseround _fkPlayerroundHouseround2;
+    private transient Movingreason _movingreason;
     private transient Player _player;
     private transient Groupround _groupround;
 
@@ -363,6 +369,17 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
             _fkPlayerroundHouseround2 = new Houseround(this, Keys.FK_PLAYERROUND_HOUSEROUND2);
 
         return _fkPlayerroundHouseround2;
+    }
+
+    /**
+     * Get the implicit join path to the <code>housinggame.movingreason</code>
+     * table.
+     */
+    public Movingreason movingreason() {
+        if (_movingreason == null)
+            _movingreason = new Movingreason(this, Keys.FK_PLAYERROUND_MOVINGREASON1);
+
+        return _movingreason;
     }
 
     /**

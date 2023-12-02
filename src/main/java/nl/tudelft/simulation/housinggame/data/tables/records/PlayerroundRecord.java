@@ -559,87 +559,101 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
-     * Setter for <code>housinggame.playerround.moving_reason</code>.
+     * Setter for <code>housinggame.playerround.movingreason_id</code>.
      */
-    public void setMovingReason(String value) {
+    public void setMovingreasonId(Integer value) {
         set(37, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.moving_reason</code>.
+     * Getter for <code>housinggame.playerround.movingreason_id</code>.
      */
-    public String getMovingReason() {
-        return (String) get(37);
+    public Integer getMovingreasonId() {
+        return (Integer) get(37);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.moving_reason_other</code>.
+     */
+    public void setMovingReasonOther(String value) {
+        set(38, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.moving_reason_other</code>.
+     */
+    public String getMovingReasonOther() {
+        return (String) get(38);
     }
 
     /**
      * Setter for <code>housinggame.playerround.pluvial_damage</code>.
      */
     public void setPluvialDamage(Integer value) {
-        set(38, value);
+        set(39, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.pluvial_damage</code>.
      */
     public Integer getPluvialDamage() {
-        return (Integer) get(38);
+        return (Integer) get(39);
     }
 
     /**
      * Setter for <code>housinggame.playerround.fluvial_damage</code>.
      */
     public void setFluvialDamage(Integer value) {
-        set(39, value);
+        set(40, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.fluvial_damage</code>.
      */
     public Integer getFluvialDamage() {
-        return (Integer) get(39);
+        return (Integer) get(40);
     }
 
     /**
      * Setter for <code>housinggame.playerround.player_state</code>.
      */
     public void setPlayerState(String value) {
-        set(40, value);
+        set(41, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.player_state</code>.
      */
     public String getPlayerState() {
-        return (String) get(40);
+        return (String) get(41);
     }
 
     /**
      * Setter for <code>housinggame.playerround.player_id</code>.
      */
     public void setPlayerId(Integer value) {
-        set(41, value);
+        set(42, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.player_id</code>.
      */
     public Integer getPlayerId() {
-        return (Integer) get(41);
+        return (Integer) get(42);
     }
 
     /**
      * Setter for <code>housinggame.playerround.groupround_id</code>.
      */
     public void setGrouproundId(Integer value) {
-        set(42, value);
+        set(43, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.groupround_id</code>.
      */
     public Integer getGrouproundId() {
-        return (Integer) get(42);
+        return (Integer) get(43);
     }
 
     // -------------------------------------------------------------------------
@@ -665,7 +679,7 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     /**
      * Create a detached, initialised PlayerroundRecord
      */
-    public PlayerroundRecord(Integer id, LocalDateTime createTime, Integer startSavings, Integer startDebt, Integer roundIncome, Integer livingCosts, Integer paidDebt, Integer mortgagePayment, Integer profitSoldHouse, Integer spentSavingsForBuyingHouse, Integer costTaxes, Integer costMeasuresBought, Integer costSatisfactionBought, Integer costFluvialDamage, Integer costPluvialDamage, Integer currentSpendableIncome, Integer startPersonalSatisfaction, Integer startHouseSatisfaction, Integer satisfactionMovePenalty, Integer satisfactionHouseRatingDelta, Integer satisfactionHouseMeasures, Integer satisfactionBought, Integer satisfactionFluvialPenalty, Integer satisfactionPluvialPenalty, Integer satisfactionDebtPenalty, Integer currentPersonalSatisfaction, Integer currentHouseSatisfaction, Integer preferredHouseRating, Integer maximumMortgage, Integer startHouseroundId, Integer mortgageHouseStart, Integer mortgageLeftStart, Integer housePriceSold, Integer housePriceBought, Integer mortgageHouseEnd, Integer mortgageLeftEnd, Integer finalHouseroundId, String movingReason, Integer pluvialDamage, Integer fluvialDamage, String playerState, Integer playerId, Integer grouproundId) {
+    public PlayerroundRecord(Integer id, LocalDateTime createTime, Integer startSavings, Integer startDebt, Integer roundIncome, Integer livingCosts, Integer paidDebt, Integer mortgagePayment, Integer profitSoldHouse, Integer spentSavingsForBuyingHouse, Integer costTaxes, Integer costMeasuresBought, Integer costSatisfactionBought, Integer costFluvialDamage, Integer costPluvialDamage, Integer currentSpendableIncome, Integer startPersonalSatisfaction, Integer startHouseSatisfaction, Integer satisfactionMovePenalty, Integer satisfactionHouseRatingDelta, Integer satisfactionHouseMeasures, Integer satisfactionBought, Integer satisfactionFluvialPenalty, Integer satisfactionPluvialPenalty, Integer satisfactionDebtPenalty, Integer currentPersonalSatisfaction, Integer currentHouseSatisfaction, Integer preferredHouseRating, Integer maximumMortgage, Integer startHouseroundId, Integer mortgageHouseStart, Integer mortgageLeftStart, Integer housePriceSold, Integer housePriceBought, Integer mortgageHouseEnd, Integer mortgageLeftEnd, Integer finalHouseroundId, Integer movingreasonId, String movingReasonOther, Integer pluvialDamage, Integer fluvialDamage, String playerState, Integer playerId, Integer grouproundId) {
         super(Playerround.PLAYERROUND);
 
         setId(id);
@@ -705,7 +719,8 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
         setMortgageHouseEnd(mortgageHouseEnd);
         setMortgageLeftEnd(mortgageLeftEnd);
         setFinalHouseroundId(finalHouseroundId);
-        setMovingReason(movingReason);
+        setMovingreasonId(movingreasonId);
+        setMovingReasonOther(movingReasonOther);
         setPluvialDamage(pluvialDamage);
         setFluvialDamage(fluvialDamage);
         setPlayerState(playerState);
