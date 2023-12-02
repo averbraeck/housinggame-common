@@ -17,38 +17,38 @@ public enum PlayerState
     /** PlayerRound record for the new round has been created. Player can read their budget. */
     READ_BUDGET(20),
 
-    /** View the news screen, with additional financial information. */
+    /** View the news screen. */
     READ_NEWS(30),
 
-    /** View the houses, no decisions yet. */
-    VIEW_HOUSES(40),
-
     /** View the houses (available in round and owned by other players); decide on selling the house. */
-    SELL_HOUSE(50),
+    SELL_HOUSE(40),
 
     /** Waiting screen after selling the house -- wait till all players are done. */
-    SELL_HOUSE_WAIT(55),
+    SELL_HOUSE_WAIT(45),
 
     /** View the houses (available in round and sold by other players); decide on buying a house. */
-    BUY_HOUSE(60),
+    BUY_HOUSE(50),
 
-    /** Waiting screen after selling the house -- wait till all players are done. */
-    BUY_HOUSE_WAIT(65),
+    /** Waiting screen after buying the house -- wait till all players are done. */
+    BUY_HOUSE_WAIT(53),
 
-    /** View the rsult of tax calculation on the spendable income. */
-    VIEW_TAXES(70),
+    /** Information on the financial and satisfaction status after buying a (new) house. */
+    BOUGHT_HOUSE(56),
+
+    /** View the result of tax calculation on the spendable income. */
+    VIEW_TAXES(60),
 
     /** Allow buying and selling of improvements (after taxes have been paid). */
-    BUY_IMPROVEMENTS(80),
+    BUY_IMPROVEMENTS(70),
 
     /** Answer the questions of the survey. */
-    ANSWER_SURVEY(90),
+    ANSWER_SURVEY(80),
 
     /** View the damage and effect on spendable income after the dice rolls. */
-    VIEW_DAMAGE(100),
+    VIEW_DAMAGE(90),
 
     /** View the summary screen and wait for the facilitator to proceed to the next round (if available). */
-    VIEW_SUMMARY(110);
+    VIEW_SUMMARY(100);
 
     public final int nr;
 
