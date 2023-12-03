@@ -109,4 +109,8 @@ public enum RoundState
         return RoundState.valueOf(state1).gt(RoundState.valueOf(state2));
     }
 
+    public boolean equals(final String state)
+    {
+        return this.name().equals(state);
+    }
 }

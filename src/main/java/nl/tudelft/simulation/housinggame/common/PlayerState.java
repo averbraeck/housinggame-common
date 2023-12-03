@@ -24,7 +24,10 @@ public enum PlayerState
     SELL_HOUSE(40),
 
     /** Waiting screen after selling the house -- wait till all players are done. */
-    SELL_HOUSE_WAIT(45),
+    SELL_HOUSE_WAIT(43),
+
+    /** Waiting screen after staying in the house -- wait till all players are done. */
+    SELL_HOUSE_STAY(46),
 
     /** View the houses (available in round and sold by other players); decide on buying a house. */
     BUY_HOUSE(50),
@@ -115,6 +118,11 @@ public enum PlayerState
     public static boolean gt(final String state1, final String state2)
     {
         return PlayerState.valueOf(state1).gt(PlayerState.valueOf(state2));
+    }
+
+    public boolean equals(final String state)
+    {
+        return this.name().equals(state);
     }
 
 }
