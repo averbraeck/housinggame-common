@@ -19,26 +19,29 @@ public enum RoundState
     /** Allow players to read the news. */
     ANNOUNCE_NEWS(30),
 
+    /** Show the available houses to the players. */
+    SHOW_HOUSES(40),
+
     /** Show the available houses to the players, decide on selling house or staying (from round 2 onward). */
-    ALLOW_SELLING(40),
+    ALLOW_SELLING(50),
 
     /** Show the available houses to the player, decide on buying house. */
-    ALLOW_BUYING(50),
+    ALLOW_BUYING(60),
 
     /** When all players have sold/bought their houses, taxes can be calculated. Show the calculated taxes. */
-    CALCULATE_TAXES(60),
+    CALCULATE_TAXES(70),
 
     /** Allow the players to view and buy the improvements. */
-    ALLOW_IMPROVEMENTS(70),
+    ALLOW_IMPROVEMENTS(80),
 
     /** Open the survey questions. */
-    SHOW_SURVEY(80),
+    SHOW_SURVEY(90),
 
     /** When all players have completed the survey, the dice roll results can be entered; players can view damage. */
-    ROLL_DICE(90),
+    ROLL_DICE(100),
 
     /** Open the summary view for the players. */
-    SHOW_SUMMARY(100);
+    SHOW_SUMMARY(110);
 
     /** After this, next round (if available) can be clicked, which moves the state to SHOW_BUDGET. */
 

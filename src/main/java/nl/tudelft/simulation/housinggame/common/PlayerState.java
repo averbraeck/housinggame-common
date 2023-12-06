@@ -20,38 +20,41 @@ public enum PlayerState
     /** View the news screen. */
     READ_NEWS(30),
 
+    /** View the houses (available in round and owned by other players). */
+    VIEW_HOUSES(40),
+
     /** View the houses (available in round and owned by other players); decide on selling the house. */
-    SELL_HOUSE(40),
+    SELL_HOUSE(50),
 
     /** Waiting screen after selling the house -- wait till all players are done. */
-    SELL_HOUSE_WAIT(43),
+    SELL_HOUSE_WAIT(53),
 
     /** Waiting screen after staying in the house -- wait till all players are done. */
-    SELL_HOUSE_STAY(46),
+    SELL_HOUSE_STAY(56),
 
     /** View the houses (available in round and sold by other players); decide on buying a house. */
-    BUY_HOUSE(50),
+    BUY_HOUSE(60),
 
     /** Waiting screen after buying the house -- wait till all players are done. */
-    BUY_HOUSE_WAIT(53),
+    BUY_HOUSE_WAIT(63),
 
     /** Information on the financial and satisfaction status after buying a (new) house. */
-    BOUGHT_HOUSE(56),
+    BOUGHT_HOUSE(66),
 
     /** View the result of tax calculation on the spendable income. */
-    VIEW_TAXES(60),
+    VIEW_TAXES(70),
 
     /** Allow buying and selling of improvements (after taxes have been paid). */
-    BUY_IMPROVEMENTS(70),
+    BUY_IMPROVEMENTS(80),
 
     /** Answer the questions of the survey. */
-    ANSWER_SURVEY(80),
+    ANSWER_SURVEY(90),
 
     /** View the damage and effect on spendable income after the dice rolls. */
-    VIEW_DAMAGE(90),
+    VIEW_DAMAGE(100),
 
     /** View the summary screen and wait for the facilitator to proceed to the next round (if available). */
-    VIEW_SUMMARY(100);
+    VIEW_SUMMARY(110);
 
     public final int nr;
 
