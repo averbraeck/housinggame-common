@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.MeasuretypeRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function9;
+import org.jooq.Function10;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row9;
+import org.jooq.Row10;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -58,6 +58,11 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
      * The column <code>housinggame.measuretype.id</code>.
      */
     public final TableField<MeasuretypeRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
+
+    /**
+     * The column <code>housinggame.measuretype.short_alias</code>.
+     */
+    public final TableField<MeasuretypeRecord, String> SHORT_ALIAS = createField(DSL.name("short_alias"), SQLDataType.VARCHAR(24).nullable(false), this, "");
 
     /**
      * The column <code>housinggame.measuretype.name</code>.
@@ -215,18 +220,18 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row9 type methods
+    // Row10 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<Integer, String, String, Integer, Integer, Integer, Integer, Byte, Integer> fieldsRow() {
-        return (Row9) super.fieldsRow();
+    public Row10<Integer, String, String, String, Integer, Integer, Integer, Integer, Byte, Integer> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function9<? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function10<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -234,7 +239,7 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function10<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
