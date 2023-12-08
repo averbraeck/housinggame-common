@@ -19,7 +19,7 @@ public enum RoundState
     /** Allow players to read the news. */
     ANNOUNCE_NEWS(30),
 
-    /** Show the available houses to the players for selling/buying (rounds 2 and up) or just buying (round 1). */
+    /** Show available houses to players for selling/buying (rounds 2 and up) or just buying (round 1). */
     SHOW_HOUSES(40),
 
     /** Enabled the decision on selling house or staying (from round 2 onward). */
@@ -34,25 +34,22 @@ public enum RoundState
     /** Indicate that buying is finished, all active players own a house. */
     BUYING_FINISHED(80),
 
-    /** When all players have sold/bought their houses, taxes can be calculated. Calculated the taxes. */
-    CALCULATED_TAXES(90),
-
     /** Allow the players to view and buy the improvements. */
-    ALLOW_IMPROVEMENTS(100),
+    ALLOW_IMPROVEMENTS(90),
 
     /** Open the survey questions. */
-    SHOW_SURVEY(110),
+    SHOW_SURVEY(100),
 
     /** Sufficient number of players have completed the survey. Close the survey to allow dice rolling. */
-    SURVEY_COMPLETED(120),
+    SURVEY_COMPLETED(110),
 
-    /** When all players have completed the survey, the dice roll results can be entered; players can view damage. */
-    ROLL_DICE(130),
+    /** When all players have completed the survey, the dice rolls can be entered; players can view damage. */
+    ROLLED_DICE(120),
 
     /** Open the summary view for the players. */
-    SHOW_SUMMARY(140);
+    SHOW_SUMMARY(130);
 
-    /** After this, next round (if available) can be clicked, which moves the state to SHOW_BUDGET. */
+    /** After this, next round (if available) can be clicked, which moves the state to NEW_ROUND. */
 
     public final int nr;
 
