@@ -21,7 +21,7 @@ public enum PlayerState
     READ_NEWS(30),
 
     /** View the houses (available in round and owned by other players). */
-    VIEW_SELL_HOUSES(40),
+    VIEW_SELL_HOUSE(40),
 
     /** Waiting screen after selling the house -- wait till all players are done. */
     SELL_HOUSE_WAIT(50),
