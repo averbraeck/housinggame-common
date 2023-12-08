@@ -10,38 +10,47 @@ package nl.tudelft.simulation.housinggame.common;
  */
 public enum RoundState
 {
-    /** Logged in, GroupRecord created, waiting for sufficient players to log in. */
+    /** Logged in, GroupRecord created, waiting for sufficient number of players to log in. */
     LOGIN(10),
 
-    /** Sufficient players logged in, allow players to look at their budget. */
+    /** Sufficient number of players logged in, allow players to look at their budget. */
     NEW_ROUND(20),
 
     /** Allow players to read the news. */
     ANNOUNCE_NEWS(30),
 
-    /** Show the available houses to the players. */
+    /** Show the available houses to the players for selling/buying (rounds 2 and up) or just buying (round 1). */
     SHOW_HOUSES(40),
 
-    /** Show the available houses to the players, decide on selling house or staying (from round 2 onward). */
+    /** Enabled the decision on selling house or staying (from round 2 onward). */
     ALLOW_SELLING(50),
 
-    /** Show the available houses to the player, decide on buying house. */
-    ALLOW_BUYING(60),
+    /** Indicate that selling is finished, all players have indicated 'STAY' or 'SELL HOUSE'. */
+    SELLING_FINISHED(60),
 
-    /** When all players have sold/bought their houses, taxes can be calculated. Show the calculated taxes. */
-    CALCULATE_TAXES(70),
+    /** Enabled the decision which house to buy (only for players who do not own a house). */
+    ALLOW_BUYING(70),
+
+    /** Indicate that buying is finished, all active players own a house. */
+    BUYING_FINISHED(80),
+
+    /** When all players have sold/bought their houses, taxes can be calculated. Calculated the taxes. */
+    CALCULATED_TAXES(90),
 
     /** Allow the players to view and buy the improvements. */
-    ALLOW_IMPROVEMENTS(80),
+    ALLOW_IMPROVEMENTS(100),
 
     /** Open the survey questions. */
-    SHOW_SURVEY(90),
+    SHOW_SURVEY(110),
+
+    /** Sufficient number of players have completed the survey. Close the survey to allow dice rolling. */
+    SURVEY_COMPLETED(120),
 
     /** When all players have completed the survey, the dice roll results can be entered; players can view damage. */
-    ROLL_DICE(100),
+    ROLL_DICE(130),
 
     /** Open the summary view for the players. */
-    SHOW_SUMMARY(110);
+    SHOW_SUMMARY(140);
 
     /** After this, next round (if available) can be clicked, which moves the state to SHOW_BUDGET. */
 
