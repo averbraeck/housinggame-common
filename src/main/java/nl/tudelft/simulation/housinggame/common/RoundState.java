@@ -88,38 +88,81 @@ public enum RoundState
         return this.nr > state.nr;
     }
 
-    public static boolean lt(final String state1, final String state2)
+    public boolean lt(final String state)
     {
-        return RoundState.valueOf(state1).lt(RoundState.valueOf(state2));
+        try
+        {
+            return this.nr < valueOf(state).nr;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
-    public static boolean le(final String state1, final String state2)
+    public boolean le(final String state)
     {
-        return RoundState.valueOf(state1).le(RoundState.valueOf(state2));
+        try
+        {
+            return this.nr <= valueOf(state).nr;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
-    public static boolean eq(final String state1, final String state2)
+    public boolean eq(final String state)
     {
-        return RoundState.valueOf(state1).eq(RoundState.valueOf(state2));
+        try
+        {
+            return this.nr == valueOf(state).nr;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
-    public static boolean ne(final String state1, final String state2)
+    public boolean ne(final String state)
     {
-        return RoundState.valueOf(state1).ne(RoundState.valueOf(state2));
+        try
+        {
+            return this.nr != valueOf(state).nr;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
-    public static boolean ge(final String state1, final String state2)
+    public boolean ge(final String state)
     {
-        return RoundState.valueOf(state1).ge(RoundState.valueOf(state2));
+        try
+        {
+            return this.nr >= valueOf(state).nr;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
-    public static boolean gt(final String state1, final String state2)
+    public boolean gt(final String state)
     {
-        return RoundState.valueOf(state1).gt(RoundState.valueOf(state2));
+        try
+        {
+            return this.nr > valueOf(state).nr;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
     public boolean equals(final String state)
     {
         return this.name().equals(state);
     }
+
 }
