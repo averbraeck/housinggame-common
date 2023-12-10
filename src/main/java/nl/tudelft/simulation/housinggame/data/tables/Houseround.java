@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.HouseroundRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function8;
+import org.jooq.Function10;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row8;
+import org.jooq.Row10;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -85,6 +85,11 @@ public class Houseround extends TableImpl<HouseroundRecord> {
     public final TableField<HouseroundRecord, Integer> HOUSE_SATISFACTION = createField(DSL.name("house_satisfaction"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
+     * The column <code>housinggame.houseround.status</code>.
+     */
+    public final TableField<HouseroundRecord, String> STATUS = createField(DSL.name("status"), SQLDataType.VARCHAR(24).nullable(false), this, "");
+
+    /**
      * The column <code>housinggame.houseround.groupround_id</code>.
      */
     public final TableField<HouseroundRecord, Integer> GROUPROUND_ID = createField(DSL.name("groupround_id"), SQLDataType.INTEGER.nullable(false), this, "");
@@ -93,6 +98,11 @@ public class Houseround extends TableImpl<HouseroundRecord> {
      * The column <code>housinggame.houseround.house_id</code>.
      */
     public final TableField<HouseroundRecord, Integer> HOUSE_ID = createField(DSL.name("house_id"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.houseround.playerround_id</code>.
+     */
+    public final TableField<HouseroundRecord, Integer> PLAYERROUND_ID = createField(DSL.name("playerround_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Houseround(Name alias, Table<HouseroundRecord> aliased) {
         this(alias, aliased, null);
@@ -134,7 +144,7 @@ public class Houseround extends TableImpl<HouseroundRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.HOUSEROUND_FK_HOUSEROUND_GROUPROUND1_IDX, Indexes.HOUSEROUND_FK_HOUSEROUND_HOUSE1_IDX);
+        return Arrays.asList(Indexes.HOUSEROUND_FK_HOUSEROUND_GROUPROUND1_IDX, Indexes.HOUSEROUND_FK_HOUSEROUND_HOUSE1_IDX, Indexes.HOUSEROUND_FK_HOUSEROUND_PLAYERROUND1_IDX);
     }
 
     @Override
@@ -154,11 +164,12 @@ public class Houseround extends TableImpl<HouseroundRecord> {
 
     @Override
     public List<ForeignKey<HouseroundRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_HOUSEROUND_GROUPROUND1, Keys.FK_HOUSEROUND_HOUSE1);
+        return Arrays.asList(Keys.FK_HOUSEROUND_GROUPROUND1, Keys.FK_HOUSEROUND_HOUSE1, Keys.FK_HOUSEROUND_PLAYERROUND1);
     }
 
     private transient Groupround _groupround;
     private transient House _house;
+    private transient Playerround _playerround;
 
     /**
      * Get the implicit join path to the <code>housinggame.groupround</code>
@@ -179,6 +190,17 @@ public class Houseround extends TableImpl<HouseroundRecord> {
             _house = new House(this, Keys.FK_HOUSEROUND_HOUSE1);
 
         return _house;
+    }
+
+    /**
+     * Get the implicit join path to the <code>housinggame.playerround</code>
+     * table.
+     */
+    public Playerround playerround() {
+        if (_playerround == null)
+            _playerround = new Playerround(this, Keys.FK_HOUSEROUND_PLAYERROUND1);
+
+        return _playerround;
     }
 
     @Override
@@ -221,18 +243,18 @@ public class Houseround extends TableImpl<HouseroundRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row8 type methods
+    // Row10 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<Integer, Integer, String, Integer, Integer, Integer, Integer, Integer> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row10<Integer, Integer, String, Integer, Integer, Integer, String, Integer, Integer, Integer> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function8<? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function10<? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -240,7 +262,7 @@ public class Houseround extends TableImpl<HouseroundRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function8<? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function10<? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

@@ -61,16 +61,6 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, LocalDateTime> CREATE_TIME = createField(DSL.name("create_time"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.field(DSL.raw("current_timestamp()"), SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>housinggame.playerround.start_savings</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> START_SAVINGS = createField(DSL.name("start_savings"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
-
-    /**
-     * The column <code>housinggame.playerround.start_debt</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> START_DEBT = createField(DSL.name("start_debt"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
-
-    /**
      * The column <code>housinggame.playerround.round_income</code>.
      */
     public final TableField<PlayerroundRecord, Integer> ROUND_INCOME = createField(DSL.name("round_income"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
@@ -127,20 +117,9 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> COST_PLUVIAL_DAMAGE = createField(DSL.name("cost_pluvial_damage"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.playerround.current_spendable_income</code>.
+     * The column <code>housinggame.playerround.spendable_income</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> CURRENT_SPENDABLE_INCOME = createField(DSL.name("current_spendable_income"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
-
-    /**
-     * The column
-     * <code>housinggame.playerround.start_personal_satisfaction</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> START_PERSONAL_SATISFACTION = createField(DSL.name("start_personal_satisfaction"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
-
-    /**
-     * The column <code>housinggame.playerround.start_house_satisfaction</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> START_HOUSE_SATISFACTION = createField(DSL.name("start_house_satisfaction"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+    public final TableField<PlayerroundRecord, Integer> SPENDABLE_INCOME = createField(DSL.name("spendable_income"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column
@@ -184,16 +163,9 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> SATISFACTION_DEBT_PENALTY = createField(DSL.name("satisfaction_debt_penalty"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column
-     * <code>housinggame.playerround.current_personal_satisfaction</code>.
+     * The column <code>housinggame.playerround.personal_satisfaction</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> CURRENT_PERSONAL_SATISFACTION = createField(DSL.name("current_personal_satisfaction"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
-
-    /**
-     * The column
-     * <code>housinggame.playerround.current_house_satisfaction</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> CURRENT_HOUSE_SATISFACTION = createField(DSL.name("current_house_satisfaction"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+    public final TableField<PlayerroundRecord, Integer> PERSONAL_SATISFACTION = createField(DSL.name("personal_satisfaction"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.playerround.preferred_house_rating</code>.
