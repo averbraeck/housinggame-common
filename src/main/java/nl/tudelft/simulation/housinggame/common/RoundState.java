@@ -19,14 +19,14 @@ public enum RoundState
     /** Allow players to read the news. */
     ANNOUNCE_NEWS(30),
 
-    /** Show available houses to players for selling/buying (rounds 2 and up) or just buying (round 1). */
-    SHOW_HOUSES(40),
+    /** Show available houses to players for selling (rounds 2 and up). */
+    SHOW_HOUSES_SELL(40),
 
     /** Enabled the decision on selling house or staying (from round 2 onward). */
     ALLOW_SELLING(50),
 
-    /** Indicate that selling is finished, all players have indicated 'STAY' or 'SELL HOUSE'. */
-    SELLING_FINISHED(60),
+    /** Show available houses to players for buying. */
+    SHOW_HOUSES_BUY(60),
 
     /** Enabled the decision which house to buy (only for players who do not own a house). */
     ALLOW_BUYING(70),
