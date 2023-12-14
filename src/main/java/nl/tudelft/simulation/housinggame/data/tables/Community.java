@@ -70,14 +70,14 @@ public class Community extends TableImpl<CommunityRecord> {
     public final TableField<CommunityRecord, Integer> CAPACITY = createField(DSL.name("capacity"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.community.protection_rain_flood</code>.
+     * The column <code>housinggame.community.fluvial_protection</code>.
      */
-    public final TableField<CommunityRecord, Integer> PROTECTION_RAIN_FLOOD = createField(DSL.name("protection_rain_flood"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<CommunityRecord, Integer> FLUVIAL_PROTECTION = createField(DSL.name("fluvial_protection"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.community.protection_river_flood</code>.
+     * The column <code>housinggame.community.pluvial_protection</code>.
      */
-    public final TableField<CommunityRecord, Integer> PROTECTION_RIVER_FLOOD = createField(DSL.name("protection_river_flood"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<CommunityRecord, Integer> PLUVIAL_PROTECTION = createField(DSL.name("pluvial_protection"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.community.gameversion_id</code>.

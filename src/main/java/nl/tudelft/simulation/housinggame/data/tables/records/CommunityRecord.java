@@ -64,30 +64,30 @@ public class CommunityRecord extends UpdatableRecordImpl<CommunityRecord> implem
     }
 
     /**
-     * Setter for <code>housinggame.community.protection_rain_flood</code>.
+     * Setter for <code>housinggame.community.fluvial_protection</code>.
      */
-    public void setProtectionRainFlood(Integer value) {
+    public void setFluvialProtection(Integer value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>housinggame.community.protection_rain_flood</code>.
+     * Getter for <code>housinggame.community.fluvial_protection</code>.
      */
-    public Integer getProtectionRainFlood() {
+    public Integer getFluvialProtection() {
         return (Integer) get(3);
     }
 
     /**
-     * Setter for <code>housinggame.community.protection_river_flood</code>.
+     * Setter for <code>housinggame.community.pluvial_protection</code>.
      */
-    public void setProtectionRiverFlood(Integer value) {
+    public void setPluvialProtection(Integer value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>housinggame.community.protection_river_flood</code>.
+     * Getter for <code>housinggame.community.pluvial_protection</code>.
      */
-    public Integer getProtectionRiverFlood() {
+    public Integer getPluvialProtection() {
         return (Integer) get(4);
     }
 
@@ -145,12 +145,12 @@ public class CommunityRecord extends UpdatableRecordImpl<CommunityRecord> implem
 
     @Override
     public Field<Integer> field4() {
-        return Community.COMMUNITY.PROTECTION_RAIN_FLOOD;
+        return Community.COMMUNITY.FLUVIAL_PROTECTION;
     }
 
     @Override
     public Field<Integer> field5() {
-        return Community.COMMUNITY.PROTECTION_RIVER_FLOOD;
+        return Community.COMMUNITY.PLUVIAL_PROTECTION;
     }
 
     @Override
@@ -175,12 +175,12 @@ public class CommunityRecord extends UpdatableRecordImpl<CommunityRecord> implem
 
     @Override
     public Integer component4() {
-        return getProtectionRainFlood();
+        return getFluvialProtection();
     }
 
     @Override
     public Integer component5() {
-        return getProtectionRiverFlood();
+        return getPluvialProtection();
     }
 
     @Override
@@ -205,12 +205,12 @@ public class CommunityRecord extends UpdatableRecordImpl<CommunityRecord> implem
 
     @Override
     public Integer value4() {
-        return getProtectionRainFlood();
+        return getFluvialProtection();
     }
 
     @Override
     public Integer value5() {
-        return getProtectionRiverFlood();
+        return getPluvialProtection();
     }
 
     @Override
@@ -238,13 +238,13 @@ public class CommunityRecord extends UpdatableRecordImpl<CommunityRecord> implem
 
     @Override
     public CommunityRecord value4(Integer value) {
-        setProtectionRainFlood(value);
+        setFluvialProtection(value);
         return this;
     }
 
     @Override
     public CommunityRecord value5(Integer value) {
-        setProtectionRiverFlood(value);
+        setPluvialProtection(value);
         return this;
     }
 
@@ -279,14 +279,14 @@ public class CommunityRecord extends UpdatableRecordImpl<CommunityRecord> implem
     /**
      * Create a detached, initialised CommunityRecord
      */
-    public CommunityRecord(Integer id, String name, Integer capacity, Integer protectionRainFlood, Integer protectionRiverFlood, Integer gameversionId) {
+    public CommunityRecord(Integer id, String name, Integer capacity, Integer fluvialProtection, Integer pluvialProtection, Integer gameversionId) {
         super(Community.COMMUNITY);
 
         setId(id);
         setName(name);
         setCapacity(capacity);
-        setProtectionRainFlood(protectionRainFlood);
-        setProtectionRiverFlood(protectionRiverFlood);
+        setFluvialProtection(fluvialProtection);
+        setPluvialProtection(pluvialProtection);
         setGameversionId(gameversionId);
         resetChangedOnNotNull();
     }

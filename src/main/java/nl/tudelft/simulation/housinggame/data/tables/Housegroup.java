@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.HousegroupRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function10;
+import org.jooq.Function21;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row10;
+import org.jooq.Row21;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -60,6 +60,21 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
     public final TableField<HousegroupRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
+     * The column <code>housinggame.housegroup.code</code>.
+     */
+    public final TableField<HousegroupRecord, String> CODE = createField(DSL.name("code"), SQLDataType.VARCHAR(45).nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.housegroup.adress</code>.
+     */
+    public final TableField<HousegroupRecord, String> ADRESS = createField(DSL.name("adress"), SQLDataType.VARCHAR(255).nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.housegroup.rating</code>.
+     */
+    public final TableField<HousegroupRecord, Integer> RATING = createField(DSL.name("rating"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
      * The column <code>housinggame.housegroup.original_price</code>.
      */
     public final TableField<HousegroupRecord, Integer> ORIGINAL_PRICE = createField(DSL.name("original_price"), SQLDataType.INTEGER.nullable(false), this, "");
@@ -77,7 +92,7 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
     /**
      * The column <code>housinggame.housegroup.last_sold_price</code>.
      */
-    public final TableField<HousegroupRecord, Integer> LAST_SOLD_PRICE = createField(DSL.name("last_sold_price"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<HousegroupRecord, Integer> LAST_SOLD_PRICE = createField(DSL.name("last_sold_price"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.housegroup.house_satisfaction</code>.
@@ -88,6 +103,46 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
      * The column <code>housinggame.housegroup.status</code>.
      */
     public final TableField<HousegroupRecord, String> STATUS = createField(DSL.name("status"), SQLDataType.VARCHAR(24).nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.housegroup.fluvial_base_protection</code>.
+     */
+    public final TableField<HousegroupRecord, Integer> FLUVIAL_BASE_PROTECTION = createField(DSL.name("fluvial_base_protection"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.housegroup.pluvial_base_protection</code>.
+     */
+    public final TableField<HousegroupRecord, Integer> PLUVIAL_BASE_PROTECTION = createField(DSL.name("pluvial_base_protection"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.housegroup.fluvial_house_protection</code>.
+     */
+    public final TableField<HousegroupRecord, Integer> FLUVIAL_HOUSE_PROTECTION = createField(DSL.name("fluvial_house_protection"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.housegroup.pluvial_house_protection</code>.
+     */
+    public final TableField<HousegroupRecord, Integer> PLUVIAL_HOUSE_PROTECTION = createField(DSL.name("pluvial_house_protection"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.housegroup.last_round_comm_fluvial</code>.
+     */
+    public final TableField<HousegroupRecord, Integer> LAST_ROUND_COMM_FLUVIAL = createField(DSL.name("last_round_comm_fluvial"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.housegroup.last_round_comm_pluvial</code>.
+     */
+    public final TableField<HousegroupRecord, Integer> LAST_ROUND_COMM_PLUVIAL = createField(DSL.name("last_round_comm_pluvial"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.housegroup.last_round_house_fluvial</code>.
+     */
+    public final TableField<HousegroupRecord, Integer> LAST_ROUND_HOUSE_FLUVIAL = createField(DSL.name("last_round_house_fluvial"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.housegroup.last_round_house_pluvial</code>.
+     */
+    public final TableField<HousegroupRecord, Integer> LAST_ROUND_HOUSE_PLUVIAL = createField(DSL.name("last_round_house_pluvial"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.housegroup.house_id</code>.
@@ -241,18 +296,18 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row10 type methods
+    // Row21 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<Integer, Integer, Integer, Integer, Integer, Integer, String, Integer, Integer, Integer> fieldsRow() {
-        return (Row10) super.fieldsRow();
+    public Row21<Integer, String, String, Integer, Integer, Integer, Integer, Integer, Integer, String, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fieldsRow() {
+        return (Row21) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function10<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function21<? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -260,7 +315,7 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function10<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function21<? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
