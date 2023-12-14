@@ -80,19 +80,19 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     public final TableField<MeasuretypeRecord, Integer> PRICE = createField(DSL.name("price"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.measuretype.satisfaction</code>.
+     * The column <code>housinggame.measuretype.satisfaction_delta</code>.
      */
-    public final TableField<MeasuretypeRecord, Integer> SATISFACTION = createField(DSL.name("satisfaction"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MeasuretypeRecord, Integer> SATISFACTION_DELTA = createField(DSL.name("satisfaction_delta"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.measuretype.pluvial_protection_level</code>.
+     * The column <code>housinggame.measuretype.pluvial_protection_delta</code>.
      */
-    public final TableField<MeasuretypeRecord, Integer> PLUVIAL_PROTECTION_LEVEL = createField(DSL.name("pluvial_protection_level"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MeasuretypeRecord, Integer> PLUVIAL_PROTECTION_DELTA = createField(DSL.name("pluvial_protection_delta"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.measuretype.fluvial_protection_level</code>.
+     * The column <code>housinggame.measuretype.fluvial_protection_delta</code>.
      */
-    public final TableField<MeasuretypeRecord, Integer> FLUVIAL_PROTECTION_LEVEL = createField(DSL.name("fluvial_protection_level"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MeasuretypeRecord, Integer> FLUVIAL_PROTECTION_DELTA = createField(DSL.name("fluvial_protection_delta"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.measuretype.valid_till_usage</code>.

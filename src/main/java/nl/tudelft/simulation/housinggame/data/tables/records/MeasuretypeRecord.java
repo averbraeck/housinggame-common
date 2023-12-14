@@ -92,44 +92,44 @@ public class MeasuretypeRecord extends UpdatableRecordImpl<MeasuretypeRecord> im
     }
 
     /**
-     * Setter for <code>housinggame.measuretype.satisfaction</code>.
+     * Setter for <code>housinggame.measuretype.satisfaction_delta</code>.
      */
-    public void setSatisfaction(Integer value) {
+    public void setSatisfactionDelta(Integer value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>housinggame.measuretype.satisfaction</code>.
+     * Getter for <code>housinggame.measuretype.satisfaction_delta</code>.
      */
-    public Integer getSatisfaction() {
+    public Integer getSatisfactionDelta() {
         return (Integer) get(5);
     }
 
     /**
-     * Setter for <code>housinggame.measuretype.pluvial_protection_level</code>.
+     * Setter for <code>housinggame.measuretype.pluvial_protection_delta</code>.
      */
-    public void setPluvialProtectionLevel(Integer value) {
+    public void setPluvialProtectionDelta(Integer value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>housinggame.measuretype.pluvial_protection_level</code>.
+     * Getter for <code>housinggame.measuretype.pluvial_protection_delta</code>.
      */
-    public Integer getPluvialProtectionLevel() {
+    public Integer getPluvialProtectionDelta() {
         return (Integer) get(6);
     }
 
     /**
-     * Setter for <code>housinggame.measuretype.fluvial_protection_level</code>.
+     * Setter for <code>housinggame.measuretype.fluvial_protection_delta</code>.
      */
-    public void setFluvialProtectionLevel(Integer value) {
+    public void setFluvialProtectionDelta(Integer value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>housinggame.measuretype.fluvial_protection_level</code>.
+     * Getter for <code>housinggame.measuretype.fluvial_protection_delta</code>.
      */
-    public Integer getFluvialProtectionLevel() {
+    public Integer getFluvialProtectionDelta() {
         return (Integer) get(7);
     }
 
@@ -211,17 +211,17 @@ public class MeasuretypeRecord extends UpdatableRecordImpl<MeasuretypeRecord> im
 
     @Override
     public Field<Integer> field6() {
-        return Measuretype.MEASURETYPE.SATISFACTION;
+        return Measuretype.MEASURETYPE.SATISFACTION_DELTA;
     }
 
     @Override
     public Field<Integer> field7() {
-        return Measuretype.MEASURETYPE.PLUVIAL_PROTECTION_LEVEL;
+        return Measuretype.MEASURETYPE.PLUVIAL_PROTECTION_DELTA;
     }
 
     @Override
     public Field<Integer> field8() {
-        return Measuretype.MEASURETYPE.FLUVIAL_PROTECTION_LEVEL;
+        return Measuretype.MEASURETYPE.FLUVIAL_PROTECTION_DELTA;
     }
 
     @Override
@@ -261,17 +261,17 @@ public class MeasuretypeRecord extends UpdatableRecordImpl<MeasuretypeRecord> im
 
     @Override
     public Integer component6() {
-        return getSatisfaction();
+        return getSatisfactionDelta();
     }
 
     @Override
     public Integer component7() {
-        return getPluvialProtectionLevel();
+        return getPluvialProtectionDelta();
     }
 
     @Override
     public Integer component8() {
-        return getFluvialProtectionLevel();
+        return getFluvialProtectionDelta();
     }
 
     @Override
@@ -311,17 +311,17 @@ public class MeasuretypeRecord extends UpdatableRecordImpl<MeasuretypeRecord> im
 
     @Override
     public Integer value6() {
-        return getSatisfaction();
+        return getSatisfactionDelta();
     }
 
     @Override
     public Integer value7() {
-        return getPluvialProtectionLevel();
+        return getPluvialProtectionDelta();
     }
 
     @Override
     public Integer value8() {
-        return getFluvialProtectionLevel();
+        return getFluvialProtectionDelta();
     }
 
     @Override
@@ -366,19 +366,19 @@ public class MeasuretypeRecord extends UpdatableRecordImpl<MeasuretypeRecord> im
 
     @Override
     public MeasuretypeRecord value6(Integer value) {
-        setSatisfaction(value);
+        setSatisfactionDelta(value);
         return this;
     }
 
     @Override
     public MeasuretypeRecord value7(Integer value) {
-        setPluvialProtectionLevel(value);
+        setPluvialProtectionDelta(value);
         return this;
     }
 
     @Override
     public MeasuretypeRecord value8(Integer value) {
-        setFluvialProtectionLevel(value);
+        setFluvialProtectionDelta(value);
         return this;
     }
 
@@ -423,7 +423,7 @@ public class MeasuretypeRecord extends UpdatableRecordImpl<MeasuretypeRecord> im
     /**
      * Create a detached, initialised MeasuretypeRecord
      */
-    public MeasuretypeRecord(Integer id, String shortAlias, String name, String description, Integer price, Integer satisfaction, Integer pluvialProtectionLevel, Integer fluvialProtectionLevel, Byte validTillUsage, Integer gameversionId) {
+    public MeasuretypeRecord(Integer id, String shortAlias, String name, String description, Integer price, Integer satisfactionDelta, Integer pluvialProtectionDelta, Integer fluvialProtectionDelta, Byte validTillUsage, Integer gameversionId) {
         super(Measuretype.MEASURETYPE);
 
         setId(id);
@@ -431,9 +431,9 @@ public class MeasuretypeRecord extends UpdatableRecordImpl<MeasuretypeRecord> im
         setName(name);
         setDescription(description);
         setPrice(price);
-        setSatisfaction(satisfaction);
-        setPluvialProtectionLevel(pluvialProtectionLevel);
-        setFluvialProtectionLevel(fluvialProtectionLevel);
+        setSatisfactionDelta(satisfactionDelta);
+        setPluvialProtectionDelta(pluvialProtectionDelta);
+        setFluvialProtectionDelta(fluvialProtectionDelta);
         setValidTillUsage(validTillUsage);
         setGameversionId(gameversionId);
         resetChangedOnNotNull();
