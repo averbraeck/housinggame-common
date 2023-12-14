@@ -10,7 +10,7 @@ package nl.tudelft.simulation.housinggame.common;
  * @author <a href="https://www.tudelft.nl/pknoppers">Peter Knoppers</a>
  * @author <a href="https://www.transport.citg.tudelft.nl">Wouter Schakel</a>
  */
-public class HouseRoundStatus
+public class TransactionStatus
 {
     public static final String COPIED = "COPIED";
 
