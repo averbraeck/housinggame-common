@@ -139,7 +139,7 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.HOUSEGROUP_FK_HOUSEGROUP_GROUP1_IDX, Indexes.HOUSEGROUP_FK_HOUSEROUND_HOUSE1_IDX);
+        return Arrays.asList(Indexes.HOUSEGROUP_FK_HOUSEGROUP_GROUP1_IDX, Indexes.HOUSEGROUP_FK_HOUSEGROUP_HOUSE1_IDX);
     }
 
     @Override
@@ -159,7 +159,7 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
 
     @Override
     public List<ForeignKey<HousegroupRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_HOUSEROUND_HOUSE1, Keys.FK_HOUSEGROUP_GROUP1);
+        return Arrays.asList(Keys.FK_HOUSEGROUP_HOUSE1, Keys.FK_HOUSEGROUP_GROUP1);
     }
 
     private transient House _house;
@@ -170,7 +170,7 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
      */
     public House house() {
         if (_house == null)
-            _house = new House(this, Keys.FK_HOUSEROUND_HOUSE1);
+            _house = new House(this, Keys.FK_HOUSEGROUP_HOUSE1);
 
         return _house;
     }

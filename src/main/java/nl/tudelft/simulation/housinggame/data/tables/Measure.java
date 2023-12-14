@@ -124,7 +124,7 @@ public class Measure extends TableImpl<MeasureRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.MEASURE_FK_MEASURE_HOUSEROUND1_IDX, Indexes.MEASURE_FK_MEASURE_MEASURETYPE1_IDX);
+        return Arrays.asList(Indexes.MEASURE_FK_MEASURE_HOUSEGROUP1_IDX, Indexes.MEASURE_FK_MEASURE_MEASURETYPE1_IDX);
     }
 
     @Override
@@ -144,7 +144,7 @@ public class Measure extends TableImpl<MeasureRecord> {
 
     @Override
     public List<ForeignKey<MeasureRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_MEASURE_MEASURETYPE1, Keys.FK_MEASURE_HOUSEROUND1);
+        return Arrays.asList(Keys.FK_MEASURE_MEASURETYPE1, Keys.FK_MEASURE_HOUSEGROUP1);
     }
 
     private transient Measuretype _measuretype;
@@ -167,7 +167,7 @@ public class Measure extends TableImpl<MeasureRecord> {
      */
     public Housegroup housegroup() {
         if (_housegroup == null)
-            _housegroup = new Housegroup(this, Keys.FK_MEASURE_HOUSEROUND1);
+            _housegroup = new Housegroup(this, Keys.FK_MEASURE_HOUSEGROUP1);
 
         return _housegroup;
     }
