@@ -61,6 +61,11 @@ public class Groupround extends TableImpl<GrouproundRecord> {
     public final TableField<GrouproundRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
+     * The column <code>housinggame.groupround.timestamp</code>.
+     */
+    public final TableField<GrouproundRecord, LocalDateTime> TIMESTAMP = createField(DSL.name("timestamp"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field(DSL.raw("current_timestamp()"), SQLDataType.LOCALDATETIME)), this, "");
+
+    /**
      * The column <code>housinggame.groupround.pluvial_flood_intensity</code>.
      */
     public final TableField<GrouproundRecord, Integer> PLUVIAL_FLOOD_INTENSITY = createField(DSL.name("pluvial_flood_intensity"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
@@ -71,14 +76,9 @@ public class Groupround extends TableImpl<GrouproundRecord> {
     public final TableField<GrouproundRecord, Integer> FLUVIAL_FLOOD_INTENSITY = createField(DSL.name("fluvial_flood_intensity"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.groupround.start_time</code>.
-     */
-    public final TableField<GrouproundRecord, LocalDateTime> START_TIME = createField(DSL.name("start_time"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.field(DSL.raw("current_timestamp()"), SQLDataType.LOCALDATETIME)), this, "");
-
-    /**
      * The column <code>housinggame.groupround.round_state</code>.
      */
-    public final TableField<GrouproundRecord, String> ROUND_STATE = createField(DSL.name("round_state"), SQLDataType.VARCHAR(24).defaultValue(DSL.field(DSL.raw("'LOGIN'"), SQLDataType.VARCHAR)), this, "");
+    public final TableField<GrouproundRecord, String> ROUND_STATE = createField(DSL.name("round_state"), SQLDataType.VARCHAR(24).nullable(false).defaultValue(DSL.field(DSL.raw("'LOGIN'"), SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>housinggame.groupround.round_number</code>.
@@ -209,14 +209,14 @@ public class Groupround extends TableImpl<GrouproundRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<Integer, Integer, Integer, LocalDateTime, String, Integer, Integer> fieldsRow() {
+    public Row7<Integer, LocalDateTime, Integer, Integer, String, Integer, Integer> fieldsRow() {
         return (Row7) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function7<? super Integer, ? super Integer, ? super Integer, ? super LocalDateTime, ? super String, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function7<? super Integer, ? super LocalDateTime, ? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -224,7 +224,7 @@ public class Groupround extends TableImpl<GrouproundRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super Integer, ? super Integer, ? super Integer, ? super LocalDateTime, ? super String, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super Integer, ? super LocalDateTime, ? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

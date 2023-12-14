@@ -50,30 +50,30 @@ public class MeasureRecord extends UpdatableRecordImpl<MeasureRecord> implements
     }
 
     /**
-     * Setter for <code>housinggame.measure.used_in_round</code>.
+     * Setter for <code>housinggame.measure.round_number</code>.
      */
-    public void setUsedInRound(Integer value) {
+    public void setRoundNumber(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>housinggame.measure.used_in_round</code>.
+     * Getter for <code>housinggame.measure.round_number</code>.
      */
-    public Integer getUsedInRound() {
+    public Integer getRoundNumber() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>housinggame.measure.playerround_id</code>.
+     * Setter for <code>housinggame.measure.consumed_in_round</code>.
      */
-    public void setPlayerroundId(Integer value) {
+    public void setConsumedInRound(Integer value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>housinggame.measure.playerround_id</code>.
+     * Getter for <code>housinggame.measure.consumed_in_round</code>.
      */
-    public Integer getPlayerroundId() {
+    public Integer getConsumedInRound() {
         return (Integer) get(3);
     }
 
@@ -92,16 +92,16 @@ public class MeasureRecord extends UpdatableRecordImpl<MeasureRecord> implements
     }
 
     /**
-     * Setter for <code>housinggame.measure.houseround_id</code>.
+     * Setter for <code>housinggame.measure.housegroup_id</code>.
      */
-    public void setHouseroundId(Integer value) {
+    public void setHousegroupId(Integer value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>housinggame.measure.houseround_id</code>.
+     * Getter for <code>housinggame.measure.housegroup_id</code>.
      */
-    public Integer getHouseroundId() {
+    public Integer getHousegroupId() {
         return (Integer) get(5);
     }
 
@@ -140,12 +140,12 @@ public class MeasureRecord extends UpdatableRecordImpl<MeasureRecord> implements
 
     @Override
     public Field<Integer> field3() {
-        return Measure.MEASURE.USED_IN_ROUND;
+        return Measure.MEASURE.ROUND_NUMBER;
     }
 
     @Override
     public Field<Integer> field4() {
-        return Measure.MEASURE.PLAYERROUND_ID;
+        return Measure.MEASURE.CONSUMED_IN_ROUND;
     }
 
     @Override
@@ -155,7 +155,7 @@ public class MeasureRecord extends UpdatableRecordImpl<MeasureRecord> implements
 
     @Override
     public Field<Integer> field6() {
-        return Measure.MEASURE.HOUSEROUND_ID;
+        return Measure.MEASURE.HOUSEGROUP_ID;
     }
 
     @Override
@@ -170,12 +170,12 @@ public class MeasureRecord extends UpdatableRecordImpl<MeasureRecord> implements
 
     @Override
     public Integer component3() {
-        return getUsedInRound();
+        return getRoundNumber();
     }
 
     @Override
     public Integer component4() {
-        return getPlayerroundId();
+        return getConsumedInRound();
     }
 
     @Override
@@ -185,7 +185,7 @@ public class MeasureRecord extends UpdatableRecordImpl<MeasureRecord> implements
 
     @Override
     public Integer component6() {
-        return getHouseroundId();
+        return getHousegroupId();
     }
 
     @Override
@@ -200,12 +200,12 @@ public class MeasureRecord extends UpdatableRecordImpl<MeasureRecord> implements
 
     @Override
     public Integer value3() {
-        return getUsedInRound();
+        return getRoundNumber();
     }
 
     @Override
     public Integer value4() {
-        return getPlayerroundId();
+        return getConsumedInRound();
     }
 
     @Override
@@ -215,7 +215,7 @@ public class MeasureRecord extends UpdatableRecordImpl<MeasureRecord> implements
 
     @Override
     public Integer value6() {
-        return getHouseroundId();
+        return getHousegroupId();
     }
 
     @Override
@@ -232,13 +232,13 @@ public class MeasureRecord extends UpdatableRecordImpl<MeasureRecord> implements
 
     @Override
     public MeasureRecord value3(Integer value) {
-        setUsedInRound(value);
+        setRoundNumber(value);
         return this;
     }
 
     @Override
     public MeasureRecord value4(Integer value) {
-        setPlayerroundId(value);
+        setConsumedInRound(value);
         return this;
     }
 
@@ -250,7 +250,7 @@ public class MeasureRecord extends UpdatableRecordImpl<MeasureRecord> implements
 
     @Override
     public MeasureRecord value6(Integer value) {
-        setHouseroundId(value);
+        setHousegroupId(value);
         return this;
     }
 
@@ -279,15 +279,15 @@ public class MeasureRecord extends UpdatableRecordImpl<MeasureRecord> implements
     /**
      * Create a detached, initialised MeasureRecord
      */
-    public MeasureRecord(Integer id, Double value, Integer usedInRound, Integer playerroundId, Integer measuretypeId, Integer houseroundId) {
+    public MeasureRecord(Integer id, Double value, Integer roundNumber, Integer consumedInRound, Integer measuretypeId, Integer housegroupId) {
         super(Measure.MEASURE);
 
         setId(id);
         setValue(value);
-        setUsedInRound(usedInRound);
-        setPlayerroundId(playerroundId);
+        setRoundNumber(roundNumber);
+        setConsumedInRound(consumedInRound);
         setMeasuretypeId(measuretypeId);
-        setHouseroundId(houseroundId);
+        setHousegroupId(housegroupId);
         resetChangedOnNotNull();
     }
 }

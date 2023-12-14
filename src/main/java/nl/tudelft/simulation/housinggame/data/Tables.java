@@ -10,7 +10,8 @@ import nl.tudelft.simulation.housinggame.data.tables.Gameversion;
 import nl.tudelft.simulation.housinggame.data.tables.Group;
 import nl.tudelft.simulation.housinggame.data.tables.Groupround;
 import nl.tudelft.simulation.housinggame.data.tables.House;
-import nl.tudelft.simulation.housinggame.data.tables.Houseround;
+import nl.tudelft.simulation.housinggame.data.tables.Housegroup;
+import nl.tudelft.simulation.housinggame.data.tables.Housetransaction;
 import nl.tudelft.simulation.housinggame.data.tables.Initialhousemeasure;
 import nl.tudelft.simulation.housinggame.data.tables.Label;
 import nl.tudelft.simulation.housinggame.data.tables.Language;
@@ -68,9 +69,14 @@ public class Tables {
     public static final House HOUSE = House.HOUSE;
 
     /**
-     * The table <code>housinggame.houseround</code>.
+     * The table <code>housinggame.housegroup</code>.
      */
-    public static final Houseround HOUSEROUND = Houseround.HOUSEROUND;
+    public static final Housegroup HOUSEGROUP = Housegroup.HOUSEGROUP;
+
+    /**
+     * The table <code>housinggame.housetransaction</code>.
+     */
+    public static final Housetransaction HOUSETRANSACTION = Housetransaction.HOUSETRANSACTION;
 
     /**
      * The table <code>housinggame.initialhousemeasure</code>.

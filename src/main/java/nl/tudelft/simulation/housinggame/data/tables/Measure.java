@@ -65,14 +65,14 @@ public class Measure extends TableImpl<MeasureRecord> {
     public final TableField<MeasureRecord, Double> VALUE = createField(DSL.name("value"), SQLDataType.FLOAT.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.FLOAT)), this, "");
 
     /**
-     * The column <code>housinggame.measure.used_in_round</code>.
+     * The column <code>housinggame.measure.round_number</code>.
      */
-    public final TableField<MeasureRecord, Integer> USED_IN_ROUND = createField(DSL.name("used_in_round"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+    public final TableField<MeasureRecord, Integer> ROUND_NUMBER = createField(DSL.name("round_number"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.measure.playerround_id</code>.
+     * The column <code>housinggame.measure.consumed_in_round</code>.
      */
-    public final TableField<MeasureRecord, Integer> PLAYERROUND_ID = createField(DSL.name("playerround_id"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MeasureRecord, Integer> CONSUMED_IN_ROUND = createField(DSL.name("consumed_in_round"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.measure.measuretype_id</code>.
@@ -80,9 +80,9 @@ public class Measure extends TableImpl<MeasureRecord> {
     public final TableField<MeasureRecord, Integer> MEASURETYPE_ID = createField(DSL.name("measuretype_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.measure.houseround_id</code>.
+     * The column <code>housinggame.measure.housegroup_id</code>.
      */
-    public final TableField<MeasureRecord, Integer> HOUSEROUND_ID = createField(DSL.name("houseround_id"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MeasureRecord, Integer> HOUSEGROUP_ID = createField(DSL.name("housegroup_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     private Measure(Name alias, Table<MeasureRecord> aliased) {
         this(alias, aliased, null);
@@ -124,7 +124,7 @@ public class Measure extends TableImpl<MeasureRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.MEASURE_FK_MEASURE_HOUSEROUND1_IDX, Indexes.MEASURE_FK_MEASURE_MEASURETYPE1_IDX, Indexes.MEASURE_FK_MEASURE_PLAYERROUND1_IDX);
+        return Arrays.asList(Indexes.MEASURE_FK_MEASURE_HOUSEROUND1_IDX, Indexes.MEASURE_FK_MEASURE_MEASURETYPE1_IDX);
     }
 
     @Override
@@ -144,23 +144,11 @@ public class Measure extends TableImpl<MeasureRecord> {
 
     @Override
     public List<ForeignKey<MeasureRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_MEASURE_PLAYERROUND1, Keys.FK_MEASURE_MEASURETYPE1, Keys.FK_MEASURE_HOUSEROUND1);
+        return Arrays.asList(Keys.FK_MEASURE_MEASURETYPE1, Keys.FK_MEASURE_HOUSEROUND1);
     }
 
-    private transient Playerround _playerround;
     private transient Measuretype _measuretype;
-    private transient House _house;
-
-    /**
-     * Get the implicit join path to the <code>housinggame.playerround</code>
-     * table.
-     */
-    public Playerround playerround() {
-        if (_playerround == null)
-            _playerround = new Playerround(this, Keys.FK_MEASURE_PLAYERROUND1);
-
-        return _playerround;
-    }
+    private transient Housegroup _housegroup;
 
     /**
      * Get the implicit join path to the <code>housinggame.measuretype</code>
@@ -174,13 +162,14 @@ public class Measure extends TableImpl<MeasureRecord> {
     }
 
     /**
-     * Get the implicit join path to the <code>housinggame.house</code> table.
+     * Get the implicit join path to the <code>housinggame.housegroup</code>
+     * table.
      */
-    public House house() {
-        if (_house == null)
-            _house = new House(this, Keys.FK_MEASURE_HOUSEROUND1);
+    public Housegroup housegroup() {
+        if (_housegroup == null)
+            _housegroup = new Housegroup(this, Keys.FK_MEASURE_HOUSEROUND1);
 
-        return _house;
+        return _housegroup;
     }
 
     @Override

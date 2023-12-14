@@ -178,11 +178,6 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> MAXIMUM_MORTGAGE = createField(DSL.name("maximum_mortgage"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.playerround.start_houseround_id</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> START_HOUSEROUND_ID = createField(DSL.name("start_houseround_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
-
-    /**
      * The column <code>housinggame.playerround.mortgage_house_start</code>.
      */
     public final TableField<PlayerroundRecord, Integer> MORTGAGE_HOUSE_START = createField(DSL.name("mortgage_house_start"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
@@ -213,11 +208,6 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> MORTGAGE_LEFT_END = createField(DSL.name("mortgage_left_end"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.playerround.final_houseround_id</code>.
-     */
-    public final TableField<PlayerroundRecord, Integer> FINAL_HOUSEROUND_ID = createField(DSL.name("final_houseround_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
-
-    /**
      * The column <code>housinggame.playerround.movingreason_id</code>.
      */
     public final TableField<PlayerroundRecord, Integer> MOVINGREASON_ID = createField(DSL.name("movingreason_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
@@ -235,7 +225,7 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     /**
      * The column <code>housinggame.playerround.fluvial_damage</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> FLUVIAL_DAMAGE = createField(DSL.name("fluvial_damage"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+    public final TableField<PlayerroundRecord, Integer> FLUVIAL_DAMAGE = createField(DSL.name("fluvial_damage"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.playerround.player_state</code>.
@@ -251,6 +241,21 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
      * The column <code>housinggame.playerround.groupround_id</code>.
      */
     public final TableField<PlayerroundRecord, Integer> GROUPROUND_ID = createField(DSL.name("groupround_id"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.start_housegroup_id</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> START_HOUSEGROUP_ID = createField(DSL.name("start_housegroup_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.final_housegroup_id</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> FINAL_HOUSEGROUP_ID = createField(DSL.name("final_housegroup_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.active_transaction_id</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> ACTIVE_TRANSACTION_ID = createField(DSL.name("active_transaction_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     private Playerround(Name alias, Table<PlayerroundRecord> aliased) {
         this(alias, aliased, null);
@@ -292,7 +297,7 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.PLAYERROUND_FK_PLAYERROUND_GROUPROUND1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_HOUSEROUND1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_HOUSEROUND2_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_MOVINGREASON1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_PLAYER1_IDX);
+        return Arrays.asList(Indexes.PLAYERROUND_FK_PLAYERROUND_GROUPROUND1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_HOUSEGROUP1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_HOUSEGROUP2_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_HOUSETRANSACTION1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_MOVINGREASON1_IDX, Indexes.PLAYERROUND_FK_PLAYERROUND_PLAYER1_IDX);
     }
 
     @Override
@@ -307,41 +312,20 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
 
     @Override
     public List<UniqueKey<PlayerroundRecord>> getUniqueKeys() {
-        return Arrays.asList(Keys.KEY_PLAYERROUND_ID_UNIQUE, Keys.KEY_PLAYERROUND_ID_PLAYER_GROUPROUND);
+        return Arrays.asList(Keys.KEY_PLAYERROUND_ID_UNIQUE);
     }
 
     @Override
     public List<ForeignKey<PlayerroundRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_PLAYERROUND_HOUSEROUND1, Keys.FK_PLAYERROUND_HOUSEROUND2, Keys.FK_PLAYERROUND_MOVINGREASON1, Keys.FK_PLAYERROUND_PLAYER1, Keys.FK_PLAYERROUND_GROUPROUND1);
+        return Arrays.asList(Keys.FK_PLAYERROUND_MOVINGREASON1, Keys.FK_PLAYERROUND_PLAYER1, Keys.FK_PLAYERROUND_GROUPROUND1, Keys.FK_PLAYERROUND_HOUSEGROUP1, Keys.FK_PLAYERROUND_HOUSEGROUP2, Keys.FK_PLAYERROUND_HOUSETRANSACTION1);
     }
 
-    private transient Houseround _fkPlayerroundHouseround1;
-    private transient Houseround _fkPlayerroundHouseround2;
     private transient Movingreason _movingreason;
     private transient Player _player;
     private transient Groupround _groupround;
-
-    /**
-     * Get the implicit join path to the <code>housinggame.houseround</code>
-     * table, via the <code>fk_playerround_houseround1</code> key.
-     */
-    public Houseround fkPlayerroundHouseround1() {
-        if (_fkPlayerroundHouseround1 == null)
-            _fkPlayerroundHouseround1 = new Houseround(this, Keys.FK_PLAYERROUND_HOUSEROUND1);
-
-        return _fkPlayerroundHouseround1;
-    }
-
-    /**
-     * Get the implicit join path to the <code>housinggame.houseround</code>
-     * table, via the <code>fk_playerround_houseround2</code> key.
-     */
-    public Houseround fkPlayerroundHouseround2() {
-        if (_fkPlayerroundHouseround2 == null)
-            _fkPlayerroundHouseround2 = new Houseround(this, Keys.FK_PLAYERROUND_HOUSEROUND2);
-
-        return _fkPlayerroundHouseround2;
-    }
+    private transient Housegroup _fkPlayerroundHousegroup1;
+    private transient Housegroup _fkPlayerroundHousegroup2;
+    private transient Housetransaction _housetransaction;
 
     /**
      * Get the implicit join path to the <code>housinggame.movingreason</code>
@@ -373,6 +357,39 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
             _groupround = new Groupround(this, Keys.FK_PLAYERROUND_GROUPROUND1);
 
         return _groupround;
+    }
+
+    /**
+     * Get the implicit join path to the <code>housinggame.housegroup</code>
+     * table, via the <code>fk_playerround_housegroup1</code> key.
+     */
+    public Housegroup fkPlayerroundHousegroup1() {
+        if (_fkPlayerroundHousegroup1 == null)
+            _fkPlayerroundHousegroup1 = new Housegroup(this, Keys.FK_PLAYERROUND_HOUSEGROUP1);
+
+        return _fkPlayerroundHousegroup1;
+    }
+
+    /**
+     * Get the implicit join path to the <code>housinggame.housegroup</code>
+     * table, via the <code>fk_playerround_housegroup2</code> key.
+     */
+    public Housegroup fkPlayerroundHousegroup2() {
+        if (_fkPlayerroundHousegroup2 == null)
+            _fkPlayerroundHousegroup2 = new Housegroup(this, Keys.FK_PLAYERROUND_HOUSEGROUP2);
+
+        return _fkPlayerroundHousegroup2;
+    }
+
+    /**
+     * Get the implicit join path to the
+     * <code>housinggame.housetransaction</code> table.
+     */
+    public Housetransaction housetransaction() {
+        if (_housetransaction == null)
+            _housetransaction = new Housetransaction(this, Keys.FK_PLAYERROUND_HOUSETRANSACTION1);
+
+        return _housetransaction;
     }
 
     @Override

@@ -13,7 +13,8 @@ import nl.tudelft.simulation.housinggame.data.tables.Gameversion;
 import nl.tudelft.simulation.housinggame.data.tables.Group;
 import nl.tudelft.simulation.housinggame.data.tables.Groupround;
 import nl.tudelft.simulation.housinggame.data.tables.House;
-import nl.tudelft.simulation.housinggame.data.tables.Houseround;
+import nl.tudelft.simulation.housinggame.data.tables.Housegroup;
+import nl.tudelft.simulation.housinggame.data.tables.Housetransaction;
 import nl.tudelft.simulation.housinggame.data.tables.Initialhousemeasure;
 import nl.tudelft.simulation.housinggame.data.tables.Label;
 import nl.tudelft.simulation.housinggame.data.tables.Language;
@@ -82,9 +83,14 @@ public class Housinggame extends SchemaImpl {
     public final House HOUSE = House.HOUSE;
 
     /**
-     * The table <code>housinggame.houseround</code>.
+     * The table <code>housinggame.housegroup</code>.
      */
-    public final Houseround HOUSEROUND = Houseround.HOUSEROUND;
+    public final Housegroup HOUSEGROUP = Housegroup.HOUSEGROUP;
+
+    /**
+     * The table <code>housinggame.housetransaction</code>.
+     */
+    public final Housetransaction HOUSETRANSACTION = Housetransaction.HOUSETRANSACTION;
 
     /**
      * The table <code>housinggame.initialhousemeasure</code>.
@@ -198,7 +204,8 @@ public class Housinggame extends SchemaImpl {
             Group.GROUP,
             Groupround.GROUPROUND,
             House.HOUSE,
-            Houseround.HOUSEROUND,
+            Housegroup.HOUSEGROUP,
+            Housetransaction.HOUSETRANSACTION,
             Initialhousemeasure.INITIALHOUSEMEASURE,
             Label.LABEL,
             Language.LANGUAGE,
