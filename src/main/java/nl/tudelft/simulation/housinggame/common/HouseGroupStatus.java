@@ -11,6 +11,19 @@ package nl.tudelft.simulation.housinggame.common;
 public class HouseGroupStatus
 {
     public static final String AVAILABLE = "AVAILABLE";
+
     public static final String OCCUPIED = "OCCUPIED";
+
     public static final String NOT_AVAILABLE = "NOT_AVAILABLE";
+
+    public static boolean isAvailableOrOccupied(final String status)
+    {
+        return AVAILABLE.equals(status) || OCCUPIED.equals(status);
+    }
+
+    public static boolean isNotAvailable(final String status)
+    {
+        return NOT_AVAILABLE.equals(status);
+    }
+
 }
