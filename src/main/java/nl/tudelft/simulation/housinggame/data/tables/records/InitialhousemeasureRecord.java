@@ -50,16 +50,16 @@ public class InitialhousemeasureRecord extends UpdatableRecordImpl<Initialhousem
     }
 
     /**
-     * Setter for <code>housinggame.initialhousemeasure.round</code>.
+     * Setter for <code>housinggame.initialhousemeasure.round_number</code>.
      */
-    public void setRound(Integer value) {
+    public void setRoundNumber(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>housinggame.initialhousemeasure.round</code>.
+     * Getter for <code>housinggame.initialhousemeasure.round_number</code>.
      */
-    public Integer getRound() {
+    public Integer getRoundNumber() {
         return (Integer) get(2);
     }
 
@@ -126,7 +126,7 @@ public class InitialhousemeasureRecord extends UpdatableRecordImpl<Initialhousem
 
     @Override
     public Field<Integer> field3() {
-        return Initialhousemeasure.INITIALHOUSEMEASURE.ROUND;
+        return Initialhousemeasure.INITIALHOUSEMEASURE.ROUND_NUMBER;
     }
 
     @Override
@@ -151,7 +151,7 @@ public class InitialhousemeasureRecord extends UpdatableRecordImpl<Initialhousem
 
     @Override
     public Integer component3() {
-        return getRound();
+        return getRoundNumber();
     }
 
     @Override
@@ -176,7 +176,7 @@ public class InitialhousemeasureRecord extends UpdatableRecordImpl<Initialhousem
 
     @Override
     public Integer value3() {
-        return getRound();
+        return getRoundNumber();
     }
 
     @Override
@@ -203,7 +203,7 @@ public class InitialhousemeasureRecord extends UpdatableRecordImpl<Initialhousem
 
     @Override
     public InitialhousemeasureRecord value3(Integer value) {
-        setRound(value);
+        setRoundNumber(value);
         return this;
     }
 
@@ -243,12 +243,12 @@ public class InitialhousemeasureRecord extends UpdatableRecordImpl<Initialhousem
     /**
      * Create a detached, initialised InitialhousemeasureRecord
      */
-    public InitialhousemeasureRecord(Integer id, String name, Integer round, Integer measuretypeId, Integer houseId) {
+    public InitialhousemeasureRecord(Integer id, String name, Integer roundNumber, Integer measuretypeId, Integer houseId) {
         super(Initialhousemeasure.INITIALHOUSEMEASURE);
 
         setId(id);
         setName(name);
-        setRound(round);
+        setRoundNumber(roundNumber);
         setMeasuretypeId(measuretypeId);
         setHouseId(houseId);
         resetChangedOnNotNull();

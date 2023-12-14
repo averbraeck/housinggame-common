@@ -65,9 +65,9 @@ public class Initialhousemeasure extends TableImpl<InitialhousemeasureRecord> {
     public final TableField<InitialhousemeasureRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.initialhousemeasure.round</code>.
+     * The column <code>housinggame.initialhousemeasure.round_number</code>.
      */
-    public final TableField<InitialhousemeasureRecord, Integer> ROUND = createField(DSL.name("round"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<InitialhousemeasureRecord, Integer> ROUND_NUMBER = createField(DSL.name("round_number"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.initialhousemeasure.measuretype_id</code>.
