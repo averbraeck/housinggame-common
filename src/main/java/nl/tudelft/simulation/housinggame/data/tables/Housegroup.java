@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.HousegroupRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function9;
+import org.jooq.Function10;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row9;
+import org.jooq.Row10;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -99,6 +99,11 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
      */
     public final TableField<HousegroupRecord, Integer> GROUP_ID = createField(DSL.name("group_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
+    /**
+     * The column <code>housinggame.housegroup.owner_id</code>.
+     */
+    public final TableField<HousegroupRecord, Integer> OWNER_ID = createField(DSL.name("owner_id"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
+
     private Housegroup(Name alias, Table<HousegroupRecord> aliased) {
         this(alias, aliased, null);
     }
@@ -139,7 +144,7 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.HOUSEGROUP_FK_HOUSEGROUP_GROUP1_IDX, Indexes.HOUSEGROUP_FK_HOUSEGROUP_HOUSE1_IDX);
+        return Arrays.asList(Indexes.HOUSEGROUP_FK_HOUSEGROUP_GROUP1_IDX, Indexes.HOUSEGROUP_FK_HOUSEROUND_HOUSE1_IDX, Indexes.HOUSEGROUP_FK_HOUSEROUND_PLAYER1_IDX);
     }
 
     @Override
@@ -159,18 +164,19 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
 
     @Override
     public List<ForeignKey<HousegroupRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_HOUSEGROUP_HOUSE1, Keys.FK_HOUSEGROUP_GROUP1);
+        return Arrays.asList(Keys.FK_HOUSEROUND_HOUSE1, Keys.FK_HOUSEGROUP_GROUP1, Keys.FK_HOUSEROUND_PLAYER1);
     }
 
     private transient House _house;
     private transient Group _group;
+    private transient Player _player;
 
     /**
      * Get the implicit join path to the <code>housinggame.house</code> table.
      */
     public House house() {
         if (_house == null)
-            _house = new House(this, Keys.FK_HOUSEGROUP_HOUSE1);
+            _house = new House(this, Keys.FK_HOUSEROUND_HOUSE1);
 
         return _house;
     }
@@ -183,6 +189,16 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
             _group = new Group(this, Keys.FK_HOUSEGROUP_GROUP1);
 
         return _group;
+    }
+
+    /**
+     * Get the implicit join path to the <code>housinggame.player</code> table.
+     */
+    public Player player() {
+        if (_player == null)
+            _player = new Player(this, Keys.FK_HOUSEROUND_PLAYER1);
+
+        return _player;
     }
 
     @Override
@@ -225,18 +241,18 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row9 type methods
+    // Row10 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<Integer, Integer, Integer, Integer, Integer, Integer, String, Integer, Integer> fieldsRow() {
-        return (Row9) super.fieldsRow();
+    public Row10<Integer, Integer, Integer, Integer, Integer, Integer, String, Integer, Integer, Integer> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function9<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function10<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -244,7 +260,7 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function10<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

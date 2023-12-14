@@ -61,9 +61,9 @@ public class Housetransaction extends TableImpl<HousetransactionRecord> {
     public final TableField<HousetransactionRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>housinggame.housetransaction.rimestamp</code>.
+     * The column <code>housinggame.housetransaction.timestamp</code>.
      */
-    public final TableField<HousetransactionRecord, LocalDateTime> RIMESTAMP = createField(DSL.name("rimestamp"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.field(DSL.raw("current_timestamp()"), SQLDataType.LOCALDATETIME)), this, "");
+    public final TableField<HousetransactionRecord, LocalDateTime> TIMESTAMP = createField(DSL.name("timestamp"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.field(DSL.raw("current_timestamp()"), SQLDataType.LOCALDATETIME)), this, "");
 
     /**
      * The column <code>housinggame.housetransaction.price</code>.

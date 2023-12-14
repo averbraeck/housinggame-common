@@ -38,16 +38,16 @@ public class HousetransactionRecord extends UpdatableRecordImpl<Housetransaction
     }
 
     /**
-     * Setter for <code>housinggame.housetransaction.rimestamp</code>.
+     * Setter for <code>housinggame.housetransaction.timestamp</code>.
      */
-    public void setRimestamp(LocalDateTime value) {
+    public void setTimestamp(LocalDateTime value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>housinggame.housetransaction.rimestamp</code>.
+     * Getter for <code>housinggame.housetransaction.timestamp</code>.
      */
-    public LocalDateTime getRimestamp() {
+    public LocalDateTime getTimestamp() {
         return (LocalDateTime) get(1);
     }
 
@@ -151,7 +151,7 @@ public class HousetransactionRecord extends UpdatableRecordImpl<Housetransaction
 
     @Override
     public Field<LocalDateTime> field2() {
-        return Housetransaction.HOUSETRANSACTION.RIMESTAMP;
+        return Housetransaction.HOUSETRANSACTION.TIMESTAMP;
     }
 
     @Override
@@ -186,7 +186,7 @@ public class HousetransactionRecord extends UpdatableRecordImpl<Housetransaction
 
     @Override
     public LocalDateTime component2() {
-        return getRimestamp();
+        return getTimestamp();
     }
 
     @Override
@@ -221,7 +221,7 @@ public class HousetransactionRecord extends UpdatableRecordImpl<Housetransaction
 
     @Override
     public LocalDateTime value2() {
-        return getRimestamp();
+        return getTimestamp();
     }
 
     @Override
@@ -257,7 +257,7 @@ public class HousetransactionRecord extends UpdatableRecordImpl<Housetransaction
 
     @Override
     public HousetransactionRecord value2(LocalDateTime value) {
-        setRimestamp(value);
+        setTimestamp(value);
         return this;
     }
 
@@ -317,11 +317,11 @@ public class HousetransactionRecord extends UpdatableRecordImpl<Housetransaction
     /**
      * Create a detached, initialised HousetransactionRecord
      */
-    public HousetransactionRecord(Integer id, LocalDateTime rimestamp, Integer price, String comment, String transactionStatus, Integer housegroupId, Integer playerroundId) {
+    public HousetransactionRecord(Integer id, LocalDateTime timestamp, Integer price, String comment, String transactionStatus, Integer housegroupId, Integer playerroundId) {
         super(Housetransaction.HOUSETRANSACTION);
 
         setId(id);
-        setRimestamp(rimestamp);
+        setTimestamp(timestamp);
         setPrice(price);
         setComment(comment);
         setTransactionStatus(transactionStatus);
