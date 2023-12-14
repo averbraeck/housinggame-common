@@ -12,8 +12,6 @@ package nl.tudelft.simulation.housinggame.common;
  */
 public class TransactionStatus
 {
-    public static final String COPIED = "COPIED";
-
     public static final String UNAPPROVED_BUY = "UNAPPROVED_BUY";
     public static final String APPROVED_BUY = "APPROVED_BUY";
     public static final String REJECTED_BUY = "REJECTED_BUY";
