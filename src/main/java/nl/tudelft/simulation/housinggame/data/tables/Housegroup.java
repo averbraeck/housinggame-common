@@ -65,9 +65,9 @@ public class Housegroup extends TableImpl<HousegroupRecord> {
     public final TableField<HousegroupRecord, String> CODE = createField(DSL.name("code"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.housegroup.adress</code>.
+     * The column <code>housinggame.housegroup.address</code>.
      */
-    public final TableField<HousegroupRecord, String> ADRESS = createField(DSL.name("adress"), SQLDataType.VARCHAR(255).nullable(false), this, "");
+    public final TableField<HousegroupRecord, String> ADDRESS = createField(DSL.name("address"), SQLDataType.VARCHAR(255).nullable(false), this, "");
 
     /**
      * The column <code>housinggame.housegroup.rating</code>.

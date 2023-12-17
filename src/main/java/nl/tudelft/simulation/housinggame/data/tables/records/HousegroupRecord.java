@@ -50,16 +50,16 @@ public class HousegroupRecord extends UpdatableRecordImpl<HousegroupRecord> impl
     }
 
     /**
-     * Setter for <code>housinggame.housegroup.adress</code>.
+     * Setter for <code>housinggame.housegroup.address</code>.
      */
-    public void setAdress(String value) {
+    public void setAddress(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>housinggame.housegroup.adress</code>.
+     * Getter for <code>housinggame.housegroup.address</code>.
      */
-    public String getAdress() {
+    public String getAddress() {
         return (String) get(2);
     }
 
@@ -350,7 +350,7 @@ public class HousegroupRecord extends UpdatableRecordImpl<HousegroupRecord> impl
 
     @Override
     public Field<String> field3() {
-        return Housegroup.HOUSEGROUP.ADRESS;
+        return Housegroup.HOUSEGROUP.ADDRESS;
     }
 
     @Override
@@ -455,7 +455,7 @@ public class HousegroupRecord extends UpdatableRecordImpl<HousegroupRecord> impl
 
     @Override
     public String component3() {
-        return getAdress();
+        return getAddress();
     }
 
     @Override
@@ -560,7 +560,7 @@ public class HousegroupRecord extends UpdatableRecordImpl<HousegroupRecord> impl
 
     @Override
     public String value3() {
-        return getAdress();
+        return getAddress();
     }
 
     @Override
@@ -667,7 +667,7 @@ public class HousegroupRecord extends UpdatableRecordImpl<HousegroupRecord> impl
 
     @Override
     public HousegroupRecord value3(String value) {
-        setAdress(value);
+        setAddress(value);
         return this;
     }
 
@@ -819,12 +819,12 @@ public class HousegroupRecord extends UpdatableRecordImpl<HousegroupRecord> impl
     /**
      * Create a detached, initialised HousegroupRecord
      */
-    public HousegroupRecord(Integer id, String code, String adress, Integer rating, Integer originalPrice, Integer damageReduction, Integer marketValue, Integer lastSoldPrice, Integer houseSatisfaction, String status, Integer fluvialBaseProtection, Integer pluvialBaseProtection, Integer fluvialHouseProtection, Integer pluvialHouseProtection, Integer lastRoundCommFluvial, Integer lastRoundCommPluvial, Integer lastRoundHouseFluvial, Integer lastRoundHousePluvial, Integer houseId, Integer groupId, Integer ownerId) {
+    public HousegroupRecord(Integer id, String code, String address, Integer rating, Integer originalPrice, Integer damageReduction, Integer marketValue, Integer lastSoldPrice, Integer houseSatisfaction, String status, Integer fluvialBaseProtection, Integer pluvialBaseProtection, Integer fluvialHouseProtection, Integer pluvialHouseProtection, Integer lastRoundCommFluvial, Integer lastRoundCommPluvial, Integer lastRoundHouseFluvial, Integer lastRoundHousePluvial, Integer houseId, Integer groupId, Integer ownerId) {
         super(Housegroup.HOUSEGROUP);
 
         setId(id);
         setCode(code);
-        setAdress(adress);
+        setAddress(address);
         setRating(rating);
         setOriginalPrice(originalPrice);
         setDamageReduction(damageReduction);
