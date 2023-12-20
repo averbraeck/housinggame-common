@@ -26,4 +26,14 @@ public class HouseGroupStatus
         return NOT_AVAILABLE.equals(status);
     }
 
+    public static boolean isAvailable(final String status)
+    {
+        return AVAILABLE.equals(status);
+    }
+
+    public static boolean isOccupied(final String status)
+    {
+        return OCCUPIED.equals(status);
+    }
+
 }
