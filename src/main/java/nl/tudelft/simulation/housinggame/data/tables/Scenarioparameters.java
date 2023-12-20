@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.ScenarioparametersR
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function18;
+import org.jooq.Function21;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row18;
+import org.jooq.Row21;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -156,6 +156,24 @@ public class Scenarioparameters extends TableImpl<ScenarioparametersRecord> {
 
     /**
      * The column
+     * <code>housinggame.scenarioparameters.allow_personal_satisfaction_neg</code>.
+     */
+    public final TableField<ScenarioparametersRecord, Byte> ALLOW_PERSONAL_SATISFACTION_NEG = createField(DSL.name("allow_personal_satisfaction_neg"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINT)), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.scenarioparameters.allow_house_satisfaction_neg</code>.
+     */
+    public final TableField<ScenarioparametersRecord, Byte> ALLOW_HOUSE_SATISFACTION_NEG = createField(DSL.name("allow_house_satisfaction_neg"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINT)), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.scenarioparameters.allow_total_satisfaction_neg</code>.
+     */
+    public final TableField<ScenarioparametersRecord, Byte> ALLOW_TOTAL_SATISFACTION_NEG = createField(DSL.name("allow_total_satisfaction_neg"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINT)), this, "");
+
+    /**
+     * The column
      * <code>housinggame.scenarioparameters.default_language_id</code>.
      */
     public final TableField<ScenarioparametersRecord, Integer> DEFAULT_LANGUAGE_ID = createField(DSL.name("default_language_id"), SQLDataType.INTEGER.nullable(false), this, "");
@@ -278,18 +296,18 @@ public class Scenarioparameters extends TableImpl<ScenarioparametersRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row18 type methods
+    // Row21 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row18<Integer, String, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Double, Integer> fieldsRow() {
-        return (Row18) super.fieldsRow();
+    public Row21<Integer, String, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Double, Byte, Byte, Byte, Integer> fieldsRow() {
+        return (Row21) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function18<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function21<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Byte, ? super Byte, ? super Byte, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -297,7 +315,7 @@ public class Scenarioparameters extends TableImpl<ScenarioparametersRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function18<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function21<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Byte, ? super Byte, ? super Byte, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
