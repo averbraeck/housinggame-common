@@ -1,8 +1,6 @@
 package nl.tudelft.simulation.housinggame.image;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 
 import javax.servlet.http.HttpServletResponse;
 
