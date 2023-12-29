@@ -8,7 +8,7 @@ package nl.tudelft.simulation.housinggame.common;
  * </p>
  * @author <a href="https://www.tudelft.nl/averbraeck">Alexander Verbraeck</a>
  */
-public enum RoundState
+public enum GroupState
 {
     /** Logged in, GroupRecord created, waiting for sufficient number of players to log in. */
     LOGIN(10),
@@ -56,37 +56,37 @@ public enum RoundState
 
     public final int nr;
 
-    private RoundState(final int nr)
+    private GroupState(final int nr)
     {
         this.nr = nr;
     }
 
-    public boolean lt(final RoundState state)
+    public boolean lt(final GroupState state)
     {
         return this.nr < state.nr;
     }
 
-    public boolean le(final RoundState state)
+    public boolean le(final GroupState state)
     {
         return this.nr <= state.nr;
     }
 
-    public boolean eq(final RoundState state)
+    public boolean eq(final GroupState state)
     {
         return this.nr == state.nr;
     }
 
-    public boolean ne(final RoundState state)
+    public boolean ne(final GroupState state)
     {
         return this.nr != state.nr;
     }
 
-    public boolean ge(final RoundState state)
+    public boolean ge(final GroupState state)
     {
         return this.nr >= state.nr;
     }
 
-    public boolean gt(final RoundState state)
+    public boolean gt(final GroupState state)
     {
         return this.nr > state.nr;
     }
