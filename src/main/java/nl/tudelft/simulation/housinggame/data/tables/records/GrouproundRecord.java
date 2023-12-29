@@ -80,16 +80,16 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
     }
 
     /**
-     * Setter for <code>housinggame.groupround.round_state</code>.
+     * Setter for <code>housinggame.groupround.group_state</code>.
      */
-    public void setRoundState(String value) {
+    public void setGroupState(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>housinggame.groupround.round_state</code>.
+     * Getter for <code>housinggame.groupround.group_state</code>.
      */
-    public String getRoundState() {
+    public String getGroupState() {
         return (String) get(4);
     }
 
@@ -166,7 +166,7 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
 
     @Override
     public Field<String> field5() {
-        return Groupround.GROUPROUND.ROUND_STATE;
+        return Groupround.GROUPROUND.GROUP_STATE;
     }
 
     @Override
@@ -201,7 +201,7 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
 
     @Override
     public String component5() {
-        return getRoundState();
+        return getGroupState();
     }
 
     @Override
@@ -236,7 +236,7 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
 
     @Override
     public String value5() {
-        return getRoundState();
+        return getGroupState();
     }
 
     @Override
@@ -275,7 +275,7 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
 
     @Override
     public GrouproundRecord value5(String value) {
-        setRoundState(value);
+        setGroupState(value);
         return this;
     }
 
@@ -317,14 +317,14 @@ public class GrouproundRecord extends UpdatableRecordImpl<GrouproundRecord> impl
     /**
      * Create a detached, initialised GrouproundRecord
      */
-    public GrouproundRecord(Integer id, LocalDateTime timestamp, Integer pluvialFloodIntensity, Integer fluvialFloodIntensity, String roundState, Integer roundNumber, Integer groupId) {
+    public GrouproundRecord(Integer id, LocalDateTime timestamp, Integer pluvialFloodIntensity, Integer fluvialFloodIntensity, String groupState, Integer roundNumber, Integer groupId) {
         super(Groupround.GROUPROUND);
 
         setId(id);
         setTimestamp(timestamp);
         setPluvialFloodIntensity(pluvialFloodIntensity);
         setFluvialFloodIntensity(fluvialFloodIntensity);
-        setRoundState(roundState);
+        setGroupState(groupState);
         setRoundNumber(roundNumber);
         setGroupId(groupId);
         resetChangedOnNotNull();

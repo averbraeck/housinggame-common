@@ -76,9 +76,9 @@ public class Groupround extends TableImpl<GrouproundRecord> {
     public final TableField<GrouproundRecord, Integer> FLUVIAL_FLOOD_INTENSITY = createField(DSL.name("fluvial_flood_intensity"), SQLDataType.INTEGER.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.groupround.round_state</code>.
+     * The column <code>housinggame.groupround.group_state</code>.
      */
-    public final TableField<GrouproundRecord, String> ROUND_STATE = createField(DSL.name("round_state"), SQLDataType.VARCHAR(24).nullable(false).defaultValue(DSL.field(DSL.raw("'LOGIN'"), SQLDataType.VARCHAR)), this, "");
+    public final TableField<GrouproundRecord, String> GROUP_STATE = createField(DSL.name("group_state"), SQLDataType.VARCHAR(24).nullable(false).defaultValue(DSL.field(DSL.raw("'LOGIN'"), SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column <code>housinggame.groupround.round_number</code>.
