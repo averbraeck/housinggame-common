@@ -41,20 +41,23 @@ public enum PlayerState
     /** Information on the financial and satisfaction status after staying in the current house. */
     STAYED_HOUSE(85),
 
+    /** View the results of the tax calculations. */
+    VIEW_TAXES(90),
+
     /** Allow buying and selling of improvements (after taxes have been paid). */
-    VIEW_IMPROVEMENTS(90),
+    VIEW_IMPROVEMENTS(100),
 
     /** Answer the questions of the survey. */
-    ANSWER_SURVEY(100),
+    ANSWER_SURVEY(110),
 
     /** Survey has been completed. */
-    SURVEY_COMPLETED(110),
+    SURVEY_COMPLETED(120),
 
     /** View the damage and effect on spendable income after the dice rolls. */
-    VIEW_DAMAGE(120),
+    VIEW_DAMAGE(130),
 
     /** View the summary screen and wait for the facilitator to proceed to the next round (if available). */
-    VIEW_SUMMARY(130);
+    VIEW_SUMMARY(140);
 
     public final int nr;
 

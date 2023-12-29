@@ -34,20 +34,23 @@ public enum RoundState
     /** Indicate that buying is finished, all active players own a house. */
     BUYING_FINISHED(80),
 
+    /** show the results of the tax calculation. */
+    SHOW_TAXES(90),
+
     /** Allow the players to view and buy the improvements. */
-    ALLOW_IMPROVEMENTS(90),
+    ALLOW_IMPROVEMENTS(100),
 
     /** Open the survey questions. */
-    SHOW_SURVEY(100),
+    SHOW_SURVEY(110),
 
     /** Sufficient number of players have completed the survey. Close the survey to allow dice rolling. */
-    SURVEY_COMPLETED(110),
+    SURVEY_COMPLETED(120),
 
     /** When all players have completed the survey, the dice rolls can be entered; players can view damage. */
-    ROLLED_DICE(120),
+    ROLLED_DICE(130),
 
     /** Open the summary view for the players. */
-    SHOW_SUMMARY(130);
+    SHOW_SUMMARY(140);
 
     /** After this, next round (if available) can be clicked, which moves the state to NEW_ROUND. */
 
