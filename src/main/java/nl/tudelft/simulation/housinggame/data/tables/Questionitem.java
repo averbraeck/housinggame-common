@@ -129,7 +129,7 @@ public class Questionitem extends TableImpl<QuestionitemRecord> {
 
     @Override
     public List<UniqueKey<QuestionitemRecord>> getUniqueKeys() {
-        return Arrays.asList(Keys.KEY_QUESTIONITEM_ID_UNIQUE);
+        return Arrays.asList(Keys.KEY_QUESTIONITEM_ID_UNIQUE, Keys.KEY_QUESTIONITEM_CODE_UNIQUE);
     }
 
     @Override
