@@ -24,6 +24,7 @@ import nl.tudelft.simulation.housinggame.data.tables.Newsitem;
 import nl.tudelft.simulation.housinggame.data.tables.Player;
 import nl.tudelft.simulation.housinggame.data.tables.Playerround;
 import nl.tudelft.simulation.housinggame.data.tables.Question;
+import nl.tudelft.simulation.housinggame.data.tables.Questionitem;
 import nl.tudelft.simulation.housinggame.data.tables.Questionscore;
 import nl.tudelft.simulation.housinggame.data.tables.Scenario;
 import nl.tudelft.simulation.housinggame.data.tables.Scenarioparameters;
@@ -137,6 +138,11 @@ public class Tables {
      * The table <code>housinggame.question</code>.
      */
     public static final Question QUESTION = Question.QUESTION;
+
+    /**
+     * The table <code>housinggame.questionitem</code>.
+     */
+    public static final Questionitem QUESTIONITEM = Questionitem.QUESTIONITEM;
 
     /**
      * The table <code>housinggame.questionscore</code>.

@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.QuestionRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function7;
+import org.jooq.Function9;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row7;
+import org.jooq.Row9;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -60,14 +60,14 @@ public class Question extends TableImpl<QuestionRecord> {
     public final TableField<QuestionRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
+     * The column <code>housinggame.question.type</code>.
+     */
+    public final TableField<QuestionRecord, String> TYPE = createField(DSL.name("type"), SQLDataType.VARCHAR(12).nullable(false), this, "");
+
+    /**
      * The column <code>housinggame.question.question_number</code>.
      */
     public final TableField<QuestionRecord, Integer> QUESTION_NUMBER = createField(DSL.name("question_number"), SQLDataType.INTEGER.nullable(false), this, "");
-
-    /**
-     * The column <code>housinggame.question.description</code>.
-     */
-    public final TableField<QuestionRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.question.name</code>.
@@ -75,14 +75,24 @@ public class Question extends TableImpl<QuestionRecord> {
     public final TableField<QuestionRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.question.min_score</code>.
+     * The column <code>housinggame.question.description</code>.
      */
-    public final TableField<QuestionRecord, Integer> MIN_SCORE = createField(DSL.name("min_score"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.INTEGER)), this, "");
+    public final TableField<QuestionRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.question.max_score</code>.
+     * The column <code>housinggame.question.min_value</code>.
      */
-    public final TableField<QuestionRecord, Integer> MAX_SCORE = createField(DSL.name("max_score"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<QuestionRecord, Integer> MIN_VALUE = createField(DSL.name("min_value"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.question.max_value</code>.
+     */
+    public final TableField<QuestionRecord, Integer> MAX_VALUE = createField(DSL.name("max_value"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.question.max_length</code>.
+     */
+    public final TableField<QuestionRecord, Integer> MAX_LENGTH = createField(DSL.name("max_length"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.question.scenario_id</code>.
@@ -205,18 +215,18 @@ public class Question extends TableImpl<QuestionRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row7 type methods
+    // Row9 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<Integer, Integer, String, String, Integer, Integer, Integer> fieldsRow() {
-        return (Row7) super.fieldsRow();
+    public Row9<Integer, String, Integer, String, String, Integer, Integer, Integer, Integer> fieldsRow() {
+        return (Row9) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function7<? super Integer, ? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function9<? super Integer, ? super String, ? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -224,7 +234,7 @@ public class Question extends TableImpl<QuestionRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super Integer, ? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super Integer, ? super String, ? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

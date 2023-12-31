@@ -27,6 +27,7 @@ import nl.tudelft.simulation.housinggame.data.tables.Newsitem;
 import nl.tudelft.simulation.housinggame.data.tables.Player;
 import nl.tudelft.simulation.housinggame.data.tables.Playerround;
 import nl.tudelft.simulation.housinggame.data.tables.Question;
+import nl.tudelft.simulation.housinggame.data.tables.Questionitem;
 import nl.tudelft.simulation.housinggame.data.tables.Questionscore;
 import nl.tudelft.simulation.housinggame.data.tables.Scenario;
 import nl.tudelft.simulation.housinggame.data.tables.Scenarioparameters;
@@ -153,6 +154,11 @@ public class Housinggame extends SchemaImpl {
     public final Question QUESTION = Question.QUESTION;
 
     /**
+     * The table <code>housinggame.questionitem</code>.
+     */
+    public final Questionitem QUESTIONITEM = Questionitem.QUESTIONITEM;
+
+    /**
      * The table <code>housinggame.questionscore</code>.
      */
     public final Questionscore QUESTIONSCORE = Questionscore.QUESTIONSCORE;
@@ -218,6 +224,7 @@ public class Housinggame extends SchemaImpl {
             Player.PLAYER,
             Playerround.PLAYERROUND,
             Question.QUESTION,
+            Questionitem.QUESTIONITEM,
             Questionscore.QUESTIONSCORE,
             Scenario.SCENARIO,
             Scenarioparameters.SCENARIOPARAMETERS,

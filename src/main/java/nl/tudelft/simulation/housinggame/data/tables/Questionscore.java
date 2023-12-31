@@ -60,9 +60,9 @@ public class Questionscore extends TableImpl<QuestionscoreRecord> {
     public final TableField<QuestionscoreRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>housinggame.questionscore.score</code>.
+     * The column <code>housinggame.questionscore.answer</code>.
      */
-    public final TableField<QuestionscoreRecord, Integer> SCORE = createField(DSL.name("score"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<QuestionscoreRecord, String> ANSWER = createField(DSL.name("answer"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.questionscore.late_answer</code>.
@@ -211,14 +211,14 @@ public class Questionscore extends TableImpl<QuestionscoreRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Integer, Integer, Byte, Integer, Integer> fieldsRow() {
+    public Row5<Integer, String, Byte, Integer, Integer> fieldsRow() {
         return (Row5) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function5<? super Integer, ? super Integer, ? super Byte, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function5<? super Integer, ? super String, ? super Byte, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -226,7 +226,7 @@ public class Questionscore extends TableImpl<QuestionscoreRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super Integer, ? super Integer, ? super Byte, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super Integer, ? super String, ? super Byte, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

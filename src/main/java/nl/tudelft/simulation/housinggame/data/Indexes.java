@@ -23,6 +23,7 @@ import nl.tudelft.simulation.housinggame.data.tables.Newsitem;
 import nl.tudelft.simulation.housinggame.data.tables.Player;
 import nl.tudelft.simulation.housinggame.data.tables.Playerround;
 import nl.tudelft.simulation.housinggame.data.tables.Question;
+import nl.tudelft.simulation.housinggame.data.tables.Questionitem;
 import nl.tudelft.simulation.housinggame.data.tables.Questionscore;
 import nl.tudelft.simulation.housinggame.data.tables.Scenario;
 import nl.tudelft.simulation.housinggame.data.tables.Scenarioparameters;
@@ -83,6 +84,7 @@ public class Indexes {
     public static final Index PLAYERROUND_FK_PLAYERROUND_MOVINGREASON1_IDX = Internal.createIndex(DSL.name("fk_playerround_movingreason1_idx"), Playerround.PLAYERROUND, new OrderField[] { Playerround.PLAYERROUND.MOVINGREASON_ID }, false);
     public static final Index PLAYERROUND_FK_PLAYERROUND_PLAYER1_IDX = Internal.createIndex(DSL.name("fk_playerround_player1_idx"), Playerround.PLAYERROUND, new OrderField[] { Playerround.PLAYERROUND.PLAYER_ID }, false);
     public static final Index QUESTION_FK_QUESTION_SCENARIO1_IDX = Internal.createIndex(DSL.name("fk_question_scenario1_idx"), Question.QUESTION, new OrderField[] { Question.QUESTION.SCENARIO_ID }, false);
+    public static final Index QUESTIONITEM_FK_QUESTIONITEM_QUESTION1_IDX = Internal.createIndex(DSL.name("fk_questionitem_question1_idx"), Questionitem.QUESTIONITEM, new OrderField[] { Questionitem.QUESTIONITEM.QUESTION_ID }, false);
     public static final Index QUESTIONSCORE_FK_QUESTIONSCORE_PLAYERROUND1_IDX = Internal.createIndex(DSL.name("fk_questionscore_playerround1_idx"), Questionscore.QUESTIONSCORE, new OrderField[] { Questionscore.QUESTIONSCORE.PLAYERROUND_ID }, false);
     public static final Index QUESTIONSCORE_FK_QUESTIONSCORE_QUESTION1_IDX = Internal.createIndex(DSL.name("fk_questionscore_question1_idx"), Questionscore.QUESTIONSCORE, new OrderField[] { Questionscore.QUESTIONSCORE.QUESTION_ID }, false);
     public static final Index SCENARIO_FK_SCENARIO_GAMEVERSION1_IDX = Internal.createIndex(DSL.name("fk_scenario_gameversion1_idx"), Scenario.SCENARIO, new OrderField[] { Scenario.SCENARIO.GAMEVERSION_ID }, false);
