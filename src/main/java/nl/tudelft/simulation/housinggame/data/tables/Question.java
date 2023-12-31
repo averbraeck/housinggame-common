@@ -75,14 +75,14 @@ public class Question extends TableImpl<QuestionRecord> {
     public final TableField<QuestionRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.question.minScore</code>.
+     * The column <code>housinggame.question.min_score</code>.
      */
-    public final TableField<QuestionRecord, Integer> MINSCORE = createField(DSL.name("minScore"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.INTEGER)), this, "");
+    public final TableField<QuestionRecord, Integer> MIN_SCORE = createField(DSL.name("min_score"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.question.maxScore</code>.
+     * The column <code>housinggame.question.max_score</code>.
      */
-    public final TableField<QuestionRecord, Integer> MAXSCORE = createField(DSL.name("maxScore"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<QuestionRecord, Integer> MAX_SCORE = createField(DSL.name("max_score"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.question.scenario_id</code>.

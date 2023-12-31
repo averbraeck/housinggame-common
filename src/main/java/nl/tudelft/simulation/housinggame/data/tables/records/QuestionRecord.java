@@ -78,30 +78,30 @@ public class QuestionRecord extends UpdatableRecordImpl<QuestionRecord> implemen
     }
 
     /**
-     * Setter for <code>housinggame.question.minScore</code>.
+     * Setter for <code>housinggame.question.min_score</code>.
      */
-    public void setMinscore(Integer value) {
+    public void setMinScore(Integer value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>housinggame.question.minScore</code>.
+     * Getter for <code>housinggame.question.min_score</code>.
      */
-    public Integer getMinscore() {
+    public Integer getMinScore() {
         return (Integer) get(4);
     }
 
     /**
-     * Setter for <code>housinggame.question.maxScore</code>.
+     * Setter for <code>housinggame.question.max_score</code>.
      */
-    public void setMaxscore(Integer value) {
+    public void setMaxScore(Integer value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>housinggame.question.maxScore</code>.
+     * Getter for <code>housinggame.question.max_score</code>.
      */
-    public Integer getMaxscore() {
+    public Integer getMaxScore() {
         return (Integer) get(5);
     }
 
@@ -164,12 +164,12 @@ public class QuestionRecord extends UpdatableRecordImpl<QuestionRecord> implemen
 
     @Override
     public Field<Integer> field5() {
-        return Question.QUESTION.MINSCORE;
+        return Question.QUESTION.MIN_SCORE;
     }
 
     @Override
     public Field<Integer> field6() {
-        return Question.QUESTION.MAXSCORE;
+        return Question.QUESTION.MAX_SCORE;
     }
 
     @Override
@@ -199,12 +199,12 @@ public class QuestionRecord extends UpdatableRecordImpl<QuestionRecord> implemen
 
     @Override
     public Integer component5() {
-        return getMinscore();
+        return getMinScore();
     }
 
     @Override
     public Integer component6() {
-        return getMaxscore();
+        return getMaxScore();
     }
 
     @Override
@@ -234,12 +234,12 @@ public class QuestionRecord extends UpdatableRecordImpl<QuestionRecord> implemen
 
     @Override
     public Integer value5() {
-        return getMinscore();
+        return getMinScore();
     }
 
     @Override
     public Integer value6() {
-        return getMaxscore();
+        return getMaxScore();
     }
 
     @Override
@@ -273,13 +273,13 @@ public class QuestionRecord extends UpdatableRecordImpl<QuestionRecord> implemen
 
     @Override
     public QuestionRecord value5(Integer value) {
-        setMinscore(value);
+        setMinScore(value);
         return this;
     }
 
     @Override
     public QuestionRecord value6(Integer value) {
-        setMaxscore(value);
+        setMaxScore(value);
         return this;
     }
 
@@ -315,15 +315,15 @@ public class QuestionRecord extends UpdatableRecordImpl<QuestionRecord> implemen
     /**
      * Create a detached, initialised QuestionRecord
      */
-    public QuestionRecord(Integer id, Integer questionNumber, String description, String name, Integer minscore, Integer maxscore, Integer scenarioId) {
+    public QuestionRecord(Integer id, Integer questionNumber, String description, String name, Integer minScore, Integer maxScore, Integer scenarioId) {
         super(Question.QUESTION);
 
         setId(id);
         setQuestionNumber(questionNumber);
         setDescription(description);
         setName(name);
-        setMinscore(minscore);
-        setMaxscore(maxscore);
+        setMinScore(minScore);
+        setMaxScore(maxScore);
         setScenarioId(scenarioId);
         resetChangedOnNotNull();
     }
