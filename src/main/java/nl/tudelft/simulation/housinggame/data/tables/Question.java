@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.QuestionRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function5;
+import org.jooq.Function7;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row5;
+import org.jooq.Row7;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -73,6 +73,16 @@ public class Question extends TableImpl<QuestionRecord> {
      * The column <code>housinggame.question.name</code>.
      */
     public final TableField<QuestionRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(45).nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.question.minScore</code>.
+     */
+    public final TableField<QuestionRecord, Integer> MINSCORE = createField(DSL.name("minScore"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.question.maxScore</code>.
+     */
+    public final TableField<QuestionRecord, Integer> MAXSCORE = createField(DSL.name("maxScore"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.question.scenario_id</code>.
@@ -195,18 +205,18 @@ public class Question extends TableImpl<QuestionRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row7 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Integer, Integer, String, String, Integer> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row7<Integer, Integer, String, String, Integer, Integer, Integer> fieldsRow() {
+        return (Row7) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function5<? super Integer, ? super Integer, ? super String, ? super String, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function7<? super Integer, ? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -214,7 +224,7 @@ public class Question extends TableImpl<QuestionRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super Integer, ? super Integer, ? super String, ? super String, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function7<? super Integer, ? super Integer, ? super String, ? super String, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
