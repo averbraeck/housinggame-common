@@ -72,7 +72,7 @@ public class Question extends TableImpl<QuestionRecord> {
     /**
      * The column <code>housinggame.question.name</code>.
      */
-    public final TableField<QuestionRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(45).nullable(false), this, "");
+    public final TableField<QuestionRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(80).nullable(false), this, "");
 
     /**
      * The column <code>housinggame.question.description</code>.

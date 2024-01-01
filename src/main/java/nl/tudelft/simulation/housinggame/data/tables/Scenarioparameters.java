@@ -6,7 +6,6 @@ package nl.tudelft.simulation.housinggame.data.tables;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
 
 import nl.tudelft.simulation.housinggame.data.Housinggame;
 import nl.tudelft.simulation.housinggame.data.Indexes;
@@ -15,15 +14,11 @@ import nl.tudelft.simulation.housinggame.data.tables.records.ScenarioparametersR
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function21;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Records;
-import org.jooq.Row21;
 import org.jooq.Schema;
-import org.jooq.SelectField;
 import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.TableOptions;
@@ -174,6 +169,18 @@ public class Scenarioparameters extends TableImpl<ScenarioparametersRecord> {
 
     /**
      * The column
+     * <code>housinggame.scenarioparameters.highest_pluvial_score</code>.
+     */
+    public final TableField<ScenarioparametersRecord, Integer> HIGHEST_PLUVIAL_SCORE = createField(DSL.name("highest_pluvial_score"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("10"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.scenarioparameters.highest_fluvial_score</code>.
+     */
+    public final TableField<ScenarioparametersRecord, Integer> HIGHEST_FLUVIAL_SCORE = createField(DSL.name("highest_fluvial_score"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("12"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column
      * <code>housinggame.scenarioparameters.default_language_id</code>.
      */
     public final TableField<ScenarioparametersRecord, Integer> DEFAULT_LANGUAGE_ID = createField(DSL.name("default_language_id"), SQLDataType.INTEGER.nullable(false), this, "");
@@ -293,29 +300,5 @@ public class Scenarioparameters extends TableImpl<ScenarioparametersRecord> {
     @Override
     public Scenarioparameters rename(Table<?> name) {
         return new Scenarioparameters(name.getQualifiedName(), null);
-    }
-
-    // -------------------------------------------------------------------------
-    // Row21 type methods
-    // -------------------------------------------------------------------------
-
-    @Override
-    public Row21<Integer, String, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Double, Byte, Byte, Byte, Integer> fieldsRow() {
-        return (Row21) super.fieldsRow();
-    }
-
-    /**
-     * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
-     */
-    public <U> SelectField<U> mapping(Function21<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Byte, ? super Byte, ? super Byte, ? super Integer, ? extends U> from) {
-        return convertFrom(Records.mapping(from));
-    }
-
-    /**
-     * Convenience mapping calling {@link SelectField#convertFrom(Class,
-     * Function)}.
-     */
-    public <U> SelectField<U> mapping(Class<U> toType, Function21<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Byte, ? super Byte, ? super Byte, ? super Integer, ? extends U> from) {
-        return convertFrom(toType, Records.mapping(from));
     }
 }
