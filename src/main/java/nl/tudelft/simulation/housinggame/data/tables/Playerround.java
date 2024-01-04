@@ -218,14 +218,34 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, String> MOVING_REASON_OTHER = createField(DSL.name("moving_reason_other"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.playerround.pluvial_damage</code>.
+     * The column <code>housinggame.playerround.pluvial_base_protection</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> PLUVIAL_DAMAGE = createField(DSL.name("pluvial_damage"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+    public final TableField<PlayerroundRecord, Integer> PLUVIAL_BASE_PROTECTION = createField(DSL.name("pluvial_base_protection"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.playerround.fluvial_damage</code>.
+     * The column <code>housinggame.playerround.fluvial_base_protection</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> FLUVIAL_DAMAGE = createField(DSL.name("fluvial_damage"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<PlayerroundRecord, Integer> FLUVIAL_BASE_PROTECTION = createField(DSL.name("fluvial_base_protection"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.pluvial_community_delta</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> PLUVIAL_COMMUNITY_DELTA = createField(DSL.name("pluvial_community_delta"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.fluvial_community_delta</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> FLUVIAL_COMMUNITY_DELTA = createField(DSL.name("fluvial_community_delta"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.pluvial_house_delta</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> PLUVIAL_HOUSE_DELTA = createField(DSL.name("pluvial_house_delta"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>housinggame.playerround.fluvial_house_delta</code>.
+     */
+    public final TableField<PlayerroundRecord, Integer> FLUVIAL_HOUSE_DELTA = createField(DSL.name("fluvial_house_delta"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.playerround.player_state</code>.

@@ -483,115 +483,171 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
-     * Setter for <code>housinggame.playerround.pluvial_damage</code>.
+     * Setter for <code>housinggame.playerround.pluvial_base_protection</code>.
      */
-    public void setPluvialDamage(Integer value) {
+    public void setPluvialBaseProtection(Integer value) {
         set(32, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.pluvial_damage</code>.
+     * Getter for <code>housinggame.playerround.pluvial_base_protection</code>.
      */
-    public Integer getPluvialDamage() {
+    public Integer getPluvialBaseProtection() {
         return (Integer) get(32);
     }
 
     /**
-     * Setter for <code>housinggame.playerround.fluvial_damage</code>.
+     * Setter for <code>housinggame.playerround.fluvial_base_protection</code>.
      */
-    public void setFluvialDamage(Integer value) {
+    public void setFluvialBaseProtection(Integer value) {
         set(33, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.fluvial_damage</code>.
+     * Getter for <code>housinggame.playerround.fluvial_base_protection</code>.
      */
-    public Integer getFluvialDamage() {
+    public Integer getFluvialBaseProtection() {
         return (Integer) get(33);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.pluvial_community_delta</code>.
+     */
+    public void setPluvialCommunityDelta(Integer value) {
+        set(34, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.pluvial_community_delta</code>.
+     */
+    public Integer getPluvialCommunityDelta() {
+        return (Integer) get(34);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.fluvial_community_delta</code>.
+     */
+    public void setFluvialCommunityDelta(Integer value) {
+        set(35, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.fluvial_community_delta</code>.
+     */
+    public Integer getFluvialCommunityDelta() {
+        return (Integer) get(35);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.pluvial_house_delta</code>.
+     */
+    public void setPluvialHouseDelta(Integer value) {
+        set(36, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.pluvial_house_delta</code>.
+     */
+    public Integer getPluvialHouseDelta() {
+        return (Integer) get(36);
+    }
+
+    /**
+     * Setter for <code>housinggame.playerround.fluvial_house_delta</code>.
+     */
+    public void setFluvialHouseDelta(Integer value) {
+        set(37, value);
+    }
+
+    /**
+     * Getter for <code>housinggame.playerround.fluvial_house_delta</code>.
+     */
+    public Integer getFluvialHouseDelta() {
+        return (Integer) get(37);
     }
 
     /**
      * Setter for <code>housinggame.playerround.player_state</code>.
      */
     public void setPlayerState(String value) {
-        set(34, value);
+        set(38, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.player_state</code>.
      */
     public String getPlayerState() {
-        return (String) get(34);
+        return (String) get(38);
     }
 
     /**
      * Setter for <code>housinggame.playerround.player_id</code>.
      */
     public void setPlayerId(Integer value) {
-        set(35, value);
+        set(39, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.player_id</code>.
      */
     public Integer getPlayerId() {
-        return (Integer) get(35);
+        return (Integer) get(39);
     }
 
     /**
      * Setter for <code>housinggame.playerround.groupround_id</code>.
      */
     public void setGrouproundId(Integer value) {
-        set(36, value);
+        set(40, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.groupround_id</code>.
      */
     public Integer getGrouproundId() {
-        return (Integer) get(36);
+        return (Integer) get(40);
     }
 
     /**
      * Setter for <code>housinggame.playerround.start_housegroup_id</code>.
      */
     public void setStartHousegroupId(Integer value) {
-        set(37, value);
+        set(41, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.start_housegroup_id</code>.
      */
     public Integer getStartHousegroupId() {
-        return (Integer) get(37);
+        return (Integer) get(41);
     }
 
     /**
      * Setter for <code>housinggame.playerround.final_housegroup_id</code>.
      */
     public void setFinalHousegroupId(Integer value) {
-        set(38, value);
+        set(42, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.final_housegroup_id</code>.
      */
     public Integer getFinalHousegroupId() {
-        return (Integer) get(38);
+        return (Integer) get(42);
     }
 
     /**
      * Setter for <code>housinggame.playerround.active_transaction_id</code>.
      */
     public void setActiveTransactionId(Integer value) {
-        set(39, value);
+        set(43, value);
     }
 
     /**
      * Getter for <code>housinggame.playerround.active_transaction_id</code>.
      */
     public Integer getActiveTransactionId() {
-        return (Integer) get(39);
+        return (Integer) get(43);
     }
 
     // -------------------------------------------------------------------------
@@ -617,7 +673,7 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     /**
      * Create a detached, initialised PlayerroundRecord
      */
-    public PlayerroundRecord(Integer id, LocalDateTime createTime, Integer roundIncome, Integer livingCosts, Integer paidDebt, Integer mortgagePayment, Integer profitSoldHouse, Integer spentSavingsForBuyingHouse, Integer costTaxes, Integer costMeasuresBought, Integer costSatisfactionBought, Integer costFluvialDamage, Integer costPluvialDamage, Integer spendableIncome, Integer satisfactionMovePenalty, Integer satisfactionHouseRatingDelta, Integer satisfactionHouseMeasures, Integer satisfactionBought, Integer satisfactionFluvialPenalty, Integer satisfactionPluvialPenalty, Integer satisfactionDebtPenalty, Integer personalSatisfaction, Integer preferredHouseRating, Integer maximumMortgage, Integer mortgageHouseStart, Integer mortgageLeftStart, Integer housePriceSold, Integer housePriceBought, Integer mortgageHouseEnd, Integer mortgageLeftEnd, Integer movingreasonId, String movingReasonOther, Integer pluvialDamage, Integer fluvialDamage, String playerState, Integer playerId, Integer grouproundId, Integer startHousegroupId, Integer finalHousegroupId, Integer activeTransactionId) {
+    public PlayerroundRecord(Integer id, LocalDateTime createTime, Integer roundIncome, Integer livingCosts, Integer paidDebt, Integer mortgagePayment, Integer profitSoldHouse, Integer spentSavingsForBuyingHouse, Integer costTaxes, Integer costMeasuresBought, Integer costSatisfactionBought, Integer costFluvialDamage, Integer costPluvialDamage, Integer spendableIncome, Integer satisfactionMovePenalty, Integer satisfactionHouseRatingDelta, Integer satisfactionHouseMeasures, Integer satisfactionBought, Integer satisfactionFluvialPenalty, Integer satisfactionPluvialPenalty, Integer satisfactionDebtPenalty, Integer personalSatisfaction, Integer preferredHouseRating, Integer maximumMortgage, Integer mortgageHouseStart, Integer mortgageLeftStart, Integer housePriceSold, Integer housePriceBought, Integer mortgageHouseEnd, Integer mortgageLeftEnd, Integer movingreasonId, String movingReasonOther, Integer pluvialBaseProtection, Integer fluvialBaseProtection, Integer pluvialCommunityDelta, Integer fluvialCommunityDelta, Integer pluvialHouseDelta, Integer fluvialHouseDelta, String playerState, Integer playerId, Integer grouproundId, Integer startHousegroupId, Integer finalHousegroupId, Integer activeTransactionId) {
         super(Playerround.PLAYERROUND);
 
         setId(id);
@@ -652,8 +708,12 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
         setMortgageLeftEnd(mortgageLeftEnd);
         setMovingreasonId(movingreasonId);
         setMovingReasonOther(movingReasonOther);
-        setPluvialDamage(pluvialDamage);
-        setFluvialDamage(fluvialDamage);
+        setPluvialBaseProtection(pluvialBaseProtection);
+        setFluvialBaseProtection(fluvialBaseProtection);
+        setPluvialCommunityDelta(pluvialCommunityDelta);
+        setFluvialCommunityDelta(fluvialCommunityDelta);
+        setPluvialHouseDelta(pluvialHouseDelta);
+        setFluvialHouseDelta(fluvialHouseDelta);
         setPlayerState(playerState);
         setPlayerId(playerId);
         setGrouproundId(grouproundId);
