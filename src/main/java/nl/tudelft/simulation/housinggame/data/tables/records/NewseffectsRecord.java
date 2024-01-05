@@ -78,50 +78,50 @@ public class NewseffectsRecord extends UpdatableRecordImpl<NewseffectsRecord> im
     }
 
     /**
-     * Setter for <code>housinggame.newseffects.house_discount_year1</code>.
+     * Setter for <code>housinggame.newseffects.house_discount_round1</code>.
      * House discount year 1 after flooding, in Euros or as a percentage
      */
-    public void setHouseDiscountYear1(Integer value) {
+    public void setHouseDiscountRound1(Integer value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>housinggame.newseffects.house_discount_year1</code>.
+     * Getter for <code>housinggame.newseffects.house_discount_round1</code>.
      * House discount year 1 after flooding, in Euros or as a percentage
      */
-    public Integer getHouseDiscountYear1() {
+    public Integer getHouseDiscountRound1() {
         return (Integer) get(4);
     }
 
     /**
-     * Setter for <code>housinggame.newseffects.house_discount_year2</code>.
+     * Setter for <code>housinggame.newseffects.house_discount_round2</code>.
      * House discount year 2 after flooding, in Euros or as a percentage
      */
-    public void setHouseDiscountYear2(Integer value) {
+    public void setHouseDiscountRound2(Integer value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>housinggame.newseffects.house_discount_year2</code>.
+     * Getter for <code>housinggame.newseffects.house_discount_round2</code>.
      * House discount year 2 after flooding, in Euros or as a percentage
      */
-    public Integer getHouseDiscountYear2() {
+    public Integer getHouseDiscountRound2() {
         return (Integer) get(5);
     }
 
     /**
-     * Setter for <code>housinggame.newseffects.house_discount_year3</code>.
+     * Setter for <code>housinggame.newseffects.house_discount_round3</code>.
      * House discount year 3 after flooding, in Euros or as a percentage
      */
-    public void setHouseDiscountYear3(Integer value) {
+    public void setHouseDiscountRound3(Integer value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>housinggame.newseffects.house_discount_year3</code>.
+     * Getter for <code>housinggame.newseffects.house_discount_round3</code>.
      * House discount year 3 after flooding, in Euros or as a percentage
      */
-    public Integer getHouseDiscountYear3() {
+    public Integer getHouseDiscountRound3() {
         return (Integer) get(6);
     }
 
@@ -276,17 +276,17 @@ public class NewseffectsRecord extends UpdatableRecordImpl<NewseffectsRecord> im
 
     @Override
     public Field<Integer> field5() {
-        return Newseffects.NEWSEFFECTS.HOUSE_DISCOUNT_YEAR1;
+        return Newseffects.NEWSEFFECTS.HOUSE_DISCOUNT_ROUND1;
     }
 
     @Override
     public Field<Integer> field6() {
-        return Newseffects.NEWSEFFECTS.HOUSE_DISCOUNT_YEAR2;
+        return Newseffects.NEWSEFFECTS.HOUSE_DISCOUNT_ROUND2;
     }
 
     @Override
     public Field<Integer> field7() {
-        return Newseffects.NEWSEFFECTS.HOUSE_DISCOUNT_YEAR3;
+        return Newseffects.NEWSEFFECTS.HOUSE_DISCOUNT_ROUND3;
     }
 
     @Override
@@ -346,17 +346,17 @@ public class NewseffectsRecord extends UpdatableRecordImpl<NewseffectsRecord> im
 
     @Override
     public Integer component5() {
-        return getHouseDiscountYear1();
+        return getHouseDiscountRound1();
     }
 
     @Override
     public Integer component6() {
-        return getHouseDiscountYear2();
+        return getHouseDiscountRound2();
     }
 
     @Override
     public Integer component7() {
-        return getHouseDiscountYear3();
+        return getHouseDiscountRound3();
     }
 
     @Override
@@ -416,17 +416,17 @@ public class NewseffectsRecord extends UpdatableRecordImpl<NewseffectsRecord> im
 
     @Override
     public Integer value5() {
-        return getHouseDiscountYear1();
+        return getHouseDiscountRound1();
     }
 
     @Override
     public Integer value6() {
-        return getHouseDiscountYear2();
+        return getHouseDiscountRound2();
     }
 
     @Override
     public Integer value7() {
-        return getHouseDiscountYear3();
+        return getHouseDiscountRound3();
     }
 
     @Override
@@ -490,19 +490,19 @@ public class NewseffectsRecord extends UpdatableRecordImpl<NewseffectsRecord> im
 
     @Override
     public NewseffectsRecord value5(Integer value) {
-        setHouseDiscountYear1(value);
+        setHouseDiscountRound1(value);
         return this;
     }
 
     @Override
     public NewseffectsRecord value6(Integer value) {
-        setHouseDiscountYear2(value);
+        setHouseDiscountRound2(value);
         return this;
     }
 
     @Override
     public NewseffectsRecord value7(Integer value) {
-        setHouseDiscountYear3(value);
+        setHouseDiscountRound3(value);
         return this;
     }
 
@@ -581,16 +581,16 @@ public class NewseffectsRecord extends UpdatableRecordImpl<NewseffectsRecord> im
     /**
      * Create a detached, initialised NewseffectsRecord
      */
-    public NewseffectsRecord(Integer id, String name, Byte houseDiscountEuros, Byte houseDiscountPercent, Integer houseDiscountYear1, Integer houseDiscountYear2, Integer houseDiscountYear3, Integer pluvialProtectionChange, Integer fluvialProtectionChange, Double taxChange, Integer satisfactionLivingBonus, Integer satisfactionMoveChange, Integer newsitemId, Integer communityId) {
+    public NewseffectsRecord(Integer id, String name, Byte houseDiscountEuros, Byte houseDiscountPercent, Integer houseDiscountRound1, Integer houseDiscountRound2, Integer houseDiscountRound3, Integer pluvialProtectionChange, Integer fluvialProtectionChange, Double taxChange, Integer satisfactionLivingBonus, Integer satisfactionMoveChange, Integer newsitemId, Integer communityId) {
         super(Newseffects.NEWSEFFECTS);
 
         setId(id);
         setName(name);
         setHouseDiscountEuros(houseDiscountEuros);
         setHouseDiscountPercent(houseDiscountPercent);
-        setHouseDiscountYear1(houseDiscountYear1);
-        setHouseDiscountYear2(houseDiscountYear2);
-        setHouseDiscountYear3(houseDiscountYear3);
+        setHouseDiscountRound1(houseDiscountRound1);
+        setHouseDiscountRound2(houseDiscountRound2);
+        setHouseDiscountRound3(houseDiscountRound3);
         setPluvialProtectionChange(pluvialProtectionChange);
         setFluvialProtectionChange(fluvialProtectionChange);
         setTaxChange(taxChange);

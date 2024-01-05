@@ -75,22 +75,22 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
     public final TableField<NewseffectsRecord, Byte> HOUSE_DISCOUNT_PERCENT = createField(DSL.name("house_discount_percent"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINT)), this, "");
 
     /**
-     * The column <code>housinggame.newseffects.house_discount_year1</code>.
+     * The column <code>housinggame.newseffects.house_discount_round1</code>.
      * House discount year 1 after flooding, in Euros or as a percentage
      */
-    public final TableField<NewseffectsRecord, Integer> HOUSE_DISCOUNT_YEAR1 = createField(DSL.name("house_discount_year1"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "House discount year 1 after flooding, in Euros or as a percentage");
+    public final TableField<NewseffectsRecord, Integer> HOUSE_DISCOUNT_ROUND1 = createField(DSL.name("house_discount_round1"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "House discount year 1 after flooding, in Euros or as a percentage");
 
     /**
-     * The column <code>housinggame.newseffects.house_discount_year2</code>.
+     * The column <code>housinggame.newseffects.house_discount_round2</code>.
      * House discount year 2 after flooding, in Euros or as a percentage
      */
-    public final TableField<NewseffectsRecord, Integer> HOUSE_DISCOUNT_YEAR2 = createField(DSL.name("house_discount_year2"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "House discount year 2 after flooding, in Euros or as a percentage");
+    public final TableField<NewseffectsRecord, Integer> HOUSE_DISCOUNT_ROUND2 = createField(DSL.name("house_discount_round2"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "House discount year 2 after flooding, in Euros or as a percentage");
 
     /**
-     * The column <code>housinggame.newseffects.house_discount_year3</code>.
+     * The column <code>housinggame.newseffects.house_discount_round3</code>.
      * House discount year 3 after flooding, in Euros or as a percentage
      */
-    public final TableField<NewseffectsRecord, Integer> HOUSE_DISCOUNT_YEAR3 = createField(DSL.name("house_discount_year3"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "House discount year 3 after flooding, in Euros or as a percentage");
+    public final TableField<NewseffectsRecord, Integer> HOUSE_DISCOUNT_ROUND3 = createField(DSL.name("house_discount_round3"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "House discount year 3 after flooding, in Euros or as a percentage");
 
     /**
      * The column
