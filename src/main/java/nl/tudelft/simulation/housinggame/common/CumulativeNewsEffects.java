@@ -1,0 +1,323 @@
+package nl.tudelft.simulation.housinggame.common;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.jooq.DSLContext;
+import org.jooq.SQLDialect;
+import org.jooq.impl.DSL;
+
+import nl.tudelft.simulation.housinggame.data.Tables;
+import nl.tudelft.simulation.housinggame.data.tables.records.CommunityRecord;
+import nl.tudelft.simulation.housinggame.data.tables.records.NewseffectsRecord;
+import nl.tudelft.simulation.housinggame.data.tables.records.NewsitemRecord;
+import nl.tudelft.simulation.housinggame.data.tables.records.ScenarioRecord;
+
+/**
+ * NewsEffects.java.
+ * <p>
+ * Copyright (c) 2020-2020 Delft University of Technology, PO Box 5, 2600 AA, Delft, the Netherlands. All rights reserved. <br>
+ * BSD-style license. See <a href="https://opentrafficsim.org/docs/current/license.html">OpenTrafficSim License</a>.
+ * </p>
+ * @author <a href="https://www.tudelft.nl/averbraeck">Alexander Verbraeck</a>
+ */
+public class CumulativeNewsEffects
+{
+    private final int roundNumber;
+
+    private final int communityId;
+
+    private final String communityName;
+
+    private int pluvialBaseProtection = 0;
+
+    private int fluvialBaseProtection = 0;
+
+    private int pluvialProtectionDelta = 0;
+
+    private int fluvialProtectionDelta = 0;
+
+    private List<HouseDiscount> houseDiscountList = new ArrayList<>();;
+
+    private double taxChange = 0;
+
+    private int satisfactionLivingBonus = 0;
+
+    private int satisfactionMoveChange = 0;
+
+    /**
+     * @param roundNumber
+     * @param communityId
+     * @param communityName
+     */
+    public CumulativeNewsEffects(final int roundNumber, final int communityId, final String communityName)
+    {
+        this.roundNumber = roundNumber;
+        this.communityId = communityId;
+        this.communityName = communityName;
+    }
+
+    /**
+     * @return roundNumber
+     */
+    public int getRoundNumber()
+    {
+        return this.roundNumber;
+    }
+
+    /**
+     * @return communityId
+     */
+    public int getCommunityId()
+    {
+        return this.communityId;
+    }
+
+    /**
+     * @return communityName
+     */
+    public String getCommunityName()
+    {
+        return this.communityName;
+    }
+
+    /**
+     * @return pluvialBaseProtection
+     */
+    public int getPluvialBaseProtection()
+    {
+        return this.pluvialBaseProtection;
+    }
+
+    /**
+     * @return fluvialBaseProtection
+     */
+    public int getFluvialBaseProtection()
+    {
+        return this.fluvialBaseProtection;
+    }
+
+    /**
+     * @return pluvialProtectionDelta
+     */
+    public int getPluvialProtectionDelta()
+    {
+        return this.pluvialProtectionDelta;
+    }
+
+    /**
+     * @return fluvialProtectionDelta
+     */
+    public int getFluvialProtectionDelta()
+    {
+        return this.fluvialProtectionDelta;
+    }
+
+    /**
+     * @return houseDiscounts
+     */
+    public List<HouseDiscount> getHouseDiscountList()
+    {
+        return this.houseDiscountList;
+    }
+
+    /**
+     * @return taxChange
+     */
+    public double getTaxChange()
+    {
+        return this.taxChange;
+    }
+
+    /**
+     * @return satisfactionLivingBonus
+     */
+    public int getSatisfactionLivingBonus()
+    {
+        return this.satisfactionLivingBonus;
+    }
+
+    /**
+     * @return satisfactionMoveChange
+     */
+    public int getSatisfactionMoveChange()
+    {
+        return this.satisfactionMoveChange;
+    }
+
+    /**
+     * @param pluvialBaseProtection set pluvialBaseProtection
+     * @return CumulativeNewsEffects
+     */
+    public CumulativeNewsEffects setPluvialBaseProtection(final int pluvialBaseProtection)
+    {
+        this.pluvialBaseProtection = pluvialBaseProtection;
+        return this;
+    }
+
+    /**
+     * @param fluvialBaseProtection set fluvialBaseProtection
+     * @return CumulativeNewsEffects
+     */
+    public CumulativeNewsEffects setFluvialBaseProtection(final int fluvialBaseProtection)
+    {
+        this.fluvialBaseProtection = fluvialBaseProtection;
+        return this;
+    }
+
+    /**
+     * @param pluvialProtectionDelta set pluvialProtectionDelta
+     * @return CumulativeNewsEffects
+     */
+    public CumulativeNewsEffects addPluvialProtectionDelta(final int pluvialProtectionDelta)
+    {
+        this.pluvialProtectionDelta += pluvialProtectionDelta;
+        return this;
+    }
+
+    /**
+     * @param fluvialProtectionDelta set fluvialProtectionDelta
+     * @return CumulativeNewsEffects
+     */
+    public CumulativeNewsEffects addFluvialProtectionDelta(final int fluvialProtectionDelta)
+    {
+        this.fluvialProtectionDelta += fluvialProtectionDelta;
+        return this;
+    }
+
+    /**
+     * @param houseDiscount add a houseDiscount
+     * @return CumulativeNewsEffects
+     */
+    public CumulativeNewsEffects addHouseDiscount(final HouseDiscount houseDiscount)
+    {
+        this.houseDiscountList.add(houseDiscount);
+        return this;
+    }
+
+    /**
+     * @param taxChange set taxChange
+     * @return CumulativeNewsEffects
+     */
+    public CumulativeNewsEffects addTaxChange(final double taxChange)
+    {
+        this.taxChange += taxChange;
+        return this;
+    }
+
+    /**
+     * @param satisfactionLivingBonus set satisfactionLivingBonus
+     * @return CumulativeNewsEffects
+     */
+    public CumulativeNewsEffects addSatisfactionLivingBonus(final int satisfactionLivingBonus)
+    {
+        this.satisfactionLivingBonus += satisfactionLivingBonus;
+        return this;
+    }
+
+    /**
+     * @param satisfactionMoveChange set satisfactionMoveChange
+     * @return CumulativeNewsEffects
+     */
+    public CumulativeNewsEffects addSatisfactionMoveChange(final int satisfactionMoveChange)
+    {
+        this.satisfactionMoveChange += satisfactionMoveChange;
+        return this;
+    }
+
+    public static record HouseDiscount(
+
+            /** true = euros, false = percent. */
+            boolean discountEuros,
+
+            /** house discount to apply in first round after flooding. */
+            int discountRound1,
+
+            /** house discount to apply in second round after flooding. */
+            int discountRound2,
+
+            /** house discount to apply in third round after flooding. */
+            int discountRound3)
+    {
+    }
+
+    public static Map<Integer, CumulativeNewsEffects> readCumulativeNewsEffects(final DataSource dataSource,
+            final ScenarioRecord scenario, final int roundNumber)
+    {
+        Map<Integer, CumulativeNewsEffects> effectsMap = new HashMap<>();
+        DSLContext dslContext = DSL.using(dataSource, SQLDialect.MYSQL);
+        List<CommunityRecord> communityList = dslContext.selectFrom(Tables.COMMUNITY)
+                .where(Tables.COMMUNITY.GAMEVERSION_ID.eq(scenario.getGameversionId())).fetch();
+        Map<Integer, CommunityRecord> communityMap = new HashMap<>();
+        for (var community : communityList)
+        {
+            var effects = new CumulativeNewsEffects(roundNumber, community.getId(), community.getName());
+            effects.setFluvialBaseProtection(community.getFluvialProtection());
+            effects.setPluvialBaseProtection(community.getPluvialProtection());
+            effectsMap.put(community.getId(), effects);
+            communityMap.put(community.getId(), community);
+        }
+
+        List<NewsitemRecord> newsItemList = dslContext.selectFrom(Tables.NEWSITEM)
+                .where(Tables.NEWSITEM.SCENARIO_ID.eq(scenario.getId())).fetch().sortAsc(Tables.NEWSITEM.ROUND_NUMBER);
+        for (var newsItem : newsItemList)
+        {
+            if (newsItem.getRoundNumber().intValue() <= roundNumber)
+            {
+                List<NewseffectsRecord> newsEffectList = dslContext.selectFrom(Tables.NEWSEFFECTS)
+                        .where(Tables.NEWSEFFECTS.NEWSITEM_ID.eq(newsItem.getId())).fetch();
+                for (var newsEffect : newsEffectList)
+                {
+                    var communities = newsEffect.getCommunityId() == null ? new ArrayList<CommunityRecord>(communityList)
+                            : List.of(communityMap.get(newsEffect.getCommunityId()));
+                    for (var community : communities)
+                    {
+                        if (newsEffect.getPluvialProtectionChange() != null)
+                            effectsMap.get(community.getId())
+                                    .addPluvialProtectionDelta(newsEffect.getPluvialProtectionChange());
+                        if (newsEffect.getFluvialProtectionChange() != null)
+                            effectsMap.get(community.getId())
+                                    .addFluvialProtectionDelta(newsEffect.getFluvialProtectionChange());
+                        if (newsEffect.getTaxChange() != null)
+                            effectsMap.get(community.getId()).addTaxChange(newsEffect.getTaxChange());
+                        if (newsEffect.getSatisfactionLivingBonus() != null)
+                            effectsMap.get(community.getId())
+                                    .addSatisfactionLivingBonus(newsEffect.getSatisfactionLivingBonus());
+                        if (newsEffect.getSatisfactionMoveChange() != null)
+                            effectsMap.get(community.getId()).addSatisfactionMoveChange(newsEffect.getSatisfactionMoveChange());
+                        if (newsEffect.getHouseDiscountRound1() != null)
+                        {
+                            int hdr1 = newsEffect.getHouseDiscountRound1() == null ? 0 : newsEffect.getHouseDiscountRound1();
+                            int hdr2 = newsEffect.getHouseDiscountRound2() == null ? 0 : newsEffect.getHouseDiscountRound2();
+                            int hdr3 = newsEffect.getHouseDiscountRound3() == null ? 0 : newsEffect.getHouseDiscountRound3();
+                            boolean discountEuros = newsEffect.getHouseDiscountEuros().intValue() != 0;
+                            if (hdr1 != 0 || hdr2 != 0 || hdr3 != 0)
+                                effectsMap.get(community.getId())
+                                        .addHouseDiscount(new HouseDiscount(discountEuros, hdr1, hdr2, hdr3));
+                        }
+                    }
+                }
+            }
+        }
+
+        return effectsMap;
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public String toString()
+    {
+        return "CumulativeNewsEffects [roundNumber=" + this.roundNumber + ", communityId=" + this.communityId
+                + ", communityName=" + this.communityName + ", pluvialBaseProtection=" + this.pluvialBaseProtection
+                + ", fluvialBaseProtection=" + this.fluvialBaseProtection + ", pluvialProtectionDelta="
+                + this.pluvialProtectionDelta + ", fluvialProtectionDelta=" + this.fluvialProtectionDelta
+                + ", houseDiscountList=" + this.houseDiscountList + ", taxChange=" + this.taxChange
+                + ", satisfactionLivingBonus=" + this.satisfactionLivingBonus + ", satisfactionMoveChange="
+                + this.satisfactionMoveChange + "]";
+    }
+
+}
