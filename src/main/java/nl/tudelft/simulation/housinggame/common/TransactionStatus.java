@@ -11,15 +11,21 @@ package nl.tudelft.simulation.housinggame.common;
 public class TransactionStatus
 {
     public static final String UNAPPROVED_BUY = "UNAPPROVED_BUY";
+
     public static final String APPROVED_BUY = "APPROVED_BUY";
+
     public static final String REJECTED_BUY = "REJECTED_BUY";
 
     public static final String UNAPPROVED_SELL = "UNAPPROVED_SELL";
+
     public static final String APPROVED_SELL = "APPROVED_SELL";
+
     public static final String REJECTED_SELL = "REJECTED_SELL";
 
     public static final String UNAPPROVED_STAY = "UNAPPROVED_STAY";
+
     public static final String APPROVED_STAY = "APPROVED_STAY";
+
     public static final String REJECTED_STAY = "REJECTED_STAY";
 
     public static boolean isBuy(final String status)
@@ -52,5 +58,9 @@ public class TransactionStatus
         return status.equals(REJECTED_BUY) || status.equals(REJECTED_SELL) || status.equals(REJECTED_STAY);
     }
 
-
+    public static String[] values()
+    {
+        return new String[] {UNAPPROVED_BUY, APPROVED_BUY, REJECTED_BUY, UNAPPROVED_SELL, APPROVED_SELL, REJECTED_SELL,
+                UNAPPROVED_STAY, APPROVED_STAY, REJECTED_STAY};
+    }
 }

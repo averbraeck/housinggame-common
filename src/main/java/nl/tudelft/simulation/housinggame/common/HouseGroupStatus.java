@@ -36,4 +36,9 @@ public class HouseGroupStatus
         return OCCUPIED.equals(status);
     }
 
+    public static String[] values()
+    {
+        return new String[] {AVAILABLE, OCCUPIED, NOT_AVAILABLE};
+    }
+
 }
