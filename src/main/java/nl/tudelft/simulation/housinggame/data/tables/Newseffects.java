@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.NewseffectsRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function14;
+import org.jooq.Function12;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row14;
+import org.jooq.Row12;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -63,16 +63,6 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
      * The column <code>housinggame.newseffects.name</code>.
      */
     public final TableField<NewseffectsRecord, String> NAME = createField(DSL.name("name"), SQLDataType.VARCHAR(45).nullable(false), this, "");
-
-    /**
-     * The column <code>housinggame.newseffects.house_discount_euros</code>.
-     */
-    public final TableField<NewseffectsRecord, Byte> HOUSE_DISCOUNT_EUROS = createField(DSL.name("house_discount_euros"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINT)), this, "");
-
-    /**
-     * The column <code>housinggame.newseffects.house_discount_percent</code>.
-     */
-    public final TableField<NewseffectsRecord, Byte> HOUSE_DISCOUNT_PERCENT = createField(DSL.name("house_discount_percent"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINT)), this, "");
 
     /**
      * The column <code>housinggame.newseffects.house_discount_round1</code>.
@@ -259,18 +249,18 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row14 type methods
+    // Row12 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row14<Integer, String, Byte, Byte, Integer, Integer, Integer, Integer, Integer, Double, Integer, Integer, Integer, Integer> fieldsRow() {
-        return (Row14) super.fieldsRow();
+    public Row12<Integer, String, Integer, Integer, Integer, Integer, Integer, Double, Integer, Integer, Integer, Integer> fieldsRow() {
+        return (Row12) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function14<? super Integer, ? super String, ? super Byte, ? super Byte, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function12<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -278,7 +268,7 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function14<? super Integer, ? super String, ? super Byte, ? super Byte, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function12<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

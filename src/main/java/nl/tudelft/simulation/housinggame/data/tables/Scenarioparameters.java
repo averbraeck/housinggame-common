@@ -181,6 +181,12 @@ public class Scenarioparameters extends TableImpl<ScenarioparametersRecord> {
 
     /**
      * The column
+     * <code>housinggame.scenarioparameters.news_discount_in_euros</code>.
+     */
+    public final TableField<ScenarioparametersRecord, Byte> NEWS_DISCOUNT_IN_EUROS = createField(DSL.name("news_discount_in_euros"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.TINYINT)), this, "");
+
+    /**
+     * The column
      * <code>housinggame.scenarioparameters.default_language_id</code>.
      */
     public final TableField<ScenarioparametersRecord, Integer> DEFAULT_LANGUAGE_ID = createField(DSL.name("default_language_id"), SQLDataType.INTEGER.nullable(false), this, "");

@@ -368,10 +368,26 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
 
     /**
      * Setter for
+     * <code>housinggame.scenarioparameters.news_discount_in_euros</code>.
+     */
+    public void setNewsDiscountInEuros(Byte value) {
+        set(22, value);
+    }
+
+    /**
+     * Getter for
+     * <code>housinggame.scenarioparameters.news_discount_in_euros</code>.
+     */
+    public Byte getNewsDiscountInEuros() {
+        return (Byte) get(22);
+    }
+
+    /**
+     * Setter for
      * <code>housinggame.scenarioparameters.default_language_id</code>.
      */
     public void setDefaultLanguageId(Integer value) {
-        set(22, value);
+        set(23, value);
     }
 
     /**
@@ -379,7 +395,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.default_language_id</code>.
      */
     public Integer getDefaultLanguageId() {
-        return (Integer) get(22);
+        return (Integer) get(23);
     }
 
     // -------------------------------------------------------------------------
@@ -405,7 +421,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
     /**
      * Create a detached, initialised ScenarioparametersRecord
      */
-    public ScenarioparametersRecord(Integer id, String name, Integer pluvialRepairCostsPerDamagePoint, Integer fluvialRepairCostsPerDamagePoint, Integer pluvialSatisfactionPenaltyIfAreaFlooded, Integer pluvialRepairCostsFixed, Integer fluvialRepairCostsFixed, Integer fluvialSatisfactionPenaltyIfAreaFlooded, Integer pluvialSatisfactionPenaltyHouseFloodedFixed, Integer fluvialSatisfactionPenaltyHouseFloodedFixed, Integer pluvialSatisfactionPenaltyPerDamagePoint, Integer fluvialSatisfactionPenaltyPerDamagePoint, Integer satisfactionDebtPenalty, Integer satisfactionHouseRatingTooLowFixed, Integer satisfactionHouseRatingTooLowPerDelta, Integer satisfactionMovePenalty, Double mortgagePercentage, Byte allowPersonalSatisfactionNeg, Byte allowHouseSatisfactionNeg, Byte allowTotalSatisfactionNeg, Integer highestPluvialScore, Integer highestFluvialScore, Integer defaultLanguageId) {
+    public ScenarioparametersRecord(Integer id, String name, Integer pluvialRepairCostsPerDamagePoint, Integer fluvialRepairCostsPerDamagePoint, Integer pluvialSatisfactionPenaltyIfAreaFlooded, Integer pluvialRepairCostsFixed, Integer fluvialRepairCostsFixed, Integer fluvialSatisfactionPenaltyIfAreaFlooded, Integer pluvialSatisfactionPenaltyHouseFloodedFixed, Integer fluvialSatisfactionPenaltyHouseFloodedFixed, Integer pluvialSatisfactionPenaltyPerDamagePoint, Integer fluvialSatisfactionPenaltyPerDamagePoint, Integer satisfactionDebtPenalty, Integer satisfactionHouseRatingTooLowFixed, Integer satisfactionHouseRatingTooLowPerDelta, Integer satisfactionMovePenalty, Double mortgagePercentage, Byte allowPersonalSatisfactionNeg, Byte allowHouseSatisfactionNeg, Byte allowTotalSatisfactionNeg, Integer highestPluvialScore, Integer highestFluvialScore, Byte newsDiscountInEuros, Integer defaultLanguageId) {
         super(Scenarioparameters.SCENARIOPARAMETERS);
 
         setId(id);
@@ -430,6 +446,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
         setAllowTotalSatisfactionNeg(allowTotalSatisfactionNeg);
         setHighestPluvialScore(highestPluvialScore);
         setHighestFluvialScore(highestFluvialScore);
+        setNewsDiscountInEuros(newsDiscountInEuros);
         setDefaultLanguageId(defaultLanguageId);
         resetChangedOnNotNull();
     }
