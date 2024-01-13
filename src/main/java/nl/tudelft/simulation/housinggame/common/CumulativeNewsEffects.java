@@ -300,6 +300,8 @@ public class CumulativeNewsEffects
     {
         Map<Integer, CumulativeNewsEffects> effectsMap = new HashMap<>();
         DSLContext dslContext = DSL.using(dataSource, SQLDialect.MYSQL);
+        var scenarioParameters =
+                SqlUtils.readRecordFromId(dataSource, Tables.SCENARIOPARAMETERS, scenario.getScenarioparametersId());
         List<CommunityRecord> communityList = dslContext.selectFrom(Tables.COMMUNITY)
                 .where(Tables.COMMUNITY.GAMEVERSION_ID.eq(scenario.getGameversionId())).fetch();
         Map<Integer, CommunityRecord> communityMap = new HashMap<>();
@@ -344,7 +346,7 @@ public class CumulativeNewsEffects
                             int hdr1 = newsEffect.getHouseDiscountRound1() == null ? 0 : newsEffect.getHouseDiscountRound1();
                             int hdr2 = newsEffect.getHouseDiscountRound2() == null ? 0 : newsEffect.getHouseDiscountRound2();
                             int hdr3 = newsEffect.getHouseDiscountRound3() == null ? 0 : newsEffect.getHouseDiscountRound3();
-                            boolean discountEuros = newsEffect.getHouseDiscountEuros().intValue() != 0;
+                            boolean discountEuros = scenarioParameters.getNewsDiscountInEuros().intValue() != 0;
                             effectsMap.get(community.getId()).setDiscountEuros(discountEuros);
                             effectsMap.get(community.getId()).addDiscountRound1(hdr1);
                             effectsMap.get(community.getId()).addDiscountRound2(hdr2);
