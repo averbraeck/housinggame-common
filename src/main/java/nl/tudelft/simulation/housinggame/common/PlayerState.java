@@ -4,7 +4,7 @@ package nl.tudelft.simulation.housinggame.common;
  * PlayerState. The first time the player logs in, the state will be LOGIN (round 0). As soon as the player moves to the state
  * READ_BUDGET, the round is also advanced to 1.
  * <p>
- * Copyright (c) 2020-2020 Delft University of Technology, PO Box 5, 2600 AA, Delft, the Netherlands. All rights reserved. <br>
+ * Copyright (c) 2020-2024 Delft University of Technology, PO Box 5, 2600 AA, Delft, the Netherlands. All rights reserved. <br>
  * BSD-style license.
  * </p>
  * @author <a href="https://www.tudelft.nl/averbraeck">Alexander Verbraeck</a>
