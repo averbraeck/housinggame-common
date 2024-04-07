@@ -139,6 +139,12 @@ public class Scenarioparameters extends TableImpl<ScenarioparametersRecord> {
 
     /**
      * The column
+     * <code>housinggame.scenarioparameters.satisfaction_house_rating_per_round</code>.
+     */
+    public final TableField<ScenarioparametersRecord, Byte> SATISFACTION_HOUSE_RATING_PER_ROUND = createField(DSL.name("satisfaction_house_rating_per_round"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINT)), this, "");
+
+    /**
+     * The column
      * <code>housinggame.scenarioparameters.satisfaction_move_penalty</code>.
      */
     public final TableField<ScenarioparametersRecord, Integer> SATISFACTION_MOVE_PENALTY = createField(DSL.name("satisfaction_move_penalty"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");

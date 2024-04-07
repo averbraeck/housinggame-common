@@ -256,10 +256,26 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
 
     /**
      * Setter for
+     * <code>housinggame.scenarioparameters.satisfaction_house_rating_per_round</code>.
+     */
+    public void setSatisfactionHouseRatingPerRound(Byte value) {
+        set(15, value);
+    }
+
+    /**
+     * Getter for
+     * <code>housinggame.scenarioparameters.satisfaction_house_rating_per_round</code>.
+     */
+    public Byte getSatisfactionHouseRatingPerRound() {
+        return (Byte) get(15);
+    }
+
+    /**
+     * Setter for
      * <code>housinggame.scenarioparameters.satisfaction_move_penalty</code>.
      */
     public void setSatisfactionMovePenalty(Integer value) {
-        set(15, value);
+        set(16, value);
     }
 
     /**
@@ -267,7 +283,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.satisfaction_move_penalty</code>.
      */
     public Integer getSatisfactionMovePenalty() {
-        return (Integer) get(15);
+        return (Integer) get(16);
     }
 
     /**
@@ -275,7 +291,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.mortgage_percentage</code>.
      */
     public void setMortgagePercentage(Double value) {
-        set(16, value);
+        set(17, value);
     }
 
     /**
@@ -283,7 +299,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.mortgage_percentage</code>.
      */
     public Double getMortgagePercentage() {
-        return (Double) get(16);
+        return (Double) get(17);
     }
 
     /**
@@ -291,7 +307,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.allow_personal_satisfaction_neg</code>.
      */
     public void setAllowPersonalSatisfactionNeg(Byte value) {
-        set(17, value);
+        set(18, value);
     }
 
     /**
@@ -299,7 +315,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.allow_personal_satisfaction_neg</code>.
      */
     public Byte getAllowPersonalSatisfactionNeg() {
-        return (Byte) get(17);
+        return (Byte) get(18);
     }
 
     /**
@@ -307,7 +323,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.allow_house_satisfaction_neg</code>.
      */
     public void setAllowHouseSatisfactionNeg(Byte value) {
-        set(18, value);
+        set(19, value);
     }
 
     /**
@@ -315,7 +331,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.allow_house_satisfaction_neg</code>.
      */
     public Byte getAllowHouseSatisfactionNeg() {
-        return (Byte) get(18);
+        return (Byte) get(19);
     }
 
     /**
@@ -323,7 +339,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.allow_total_satisfaction_neg</code>.
      */
     public void setAllowTotalSatisfactionNeg(Byte value) {
-        set(19, value);
+        set(20, value);
     }
 
     /**
@@ -331,7 +347,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.allow_total_satisfaction_neg</code>.
      */
     public Byte getAllowTotalSatisfactionNeg() {
-        return (Byte) get(19);
+        return (Byte) get(20);
     }
 
     /**
@@ -339,7 +355,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.highest_pluvial_score</code>.
      */
     public void setHighestPluvialScore(Integer value) {
-        set(20, value);
+        set(21, value);
     }
 
     /**
@@ -347,7 +363,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.highest_pluvial_score</code>.
      */
     public Integer getHighestPluvialScore() {
-        return (Integer) get(20);
+        return (Integer) get(21);
     }
 
     /**
@@ -355,7 +371,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.highest_fluvial_score</code>.
      */
     public void setHighestFluvialScore(Integer value) {
-        set(21, value);
+        set(22, value);
     }
 
     /**
@@ -363,7 +379,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.highest_fluvial_score</code>.
      */
     public Integer getHighestFluvialScore() {
-        return (Integer) get(21);
+        return (Integer) get(22);
     }
 
     /**
@@ -371,7 +387,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.news_discount_in_euros</code>.
      */
     public void setNewsDiscountInEuros(Byte value) {
-        set(22, value);
+        set(23, value);
     }
 
     /**
@@ -379,7 +395,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.news_discount_in_euros</code>.
      */
     public Byte getNewsDiscountInEuros() {
-        return (Byte) get(22);
+        return (Byte) get(23);
     }
 
     /**
@@ -387,7 +403,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.default_language_id</code>.
      */
     public void setDefaultLanguageId(Integer value) {
-        set(23, value);
+        set(24, value);
     }
 
     /**
@@ -395,7 +411,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
      * <code>housinggame.scenarioparameters.default_language_id</code>.
      */
     public Integer getDefaultLanguageId() {
-        return (Integer) get(23);
+        return (Integer) get(24);
     }
 
     // -------------------------------------------------------------------------
@@ -421,7 +437,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
     /**
      * Create a detached, initialised ScenarioparametersRecord
      */
-    public ScenarioparametersRecord(Integer id, String name, Integer pluvialRepairCostsPerDamagePoint, Integer fluvialRepairCostsPerDamagePoint, Integer pluvialSatisfactionPenaltyIfAreaFlooded, Integer pluvialRepairCostsFixed, Integer fluvialRepairCostsFixed, Integer fluvialSatisfactionPenaltyIfAreaFlooded, Integer pluvialSatisfactionPenaltyHouseFloodedFixed, Integer fluvialSatisfactionPenaltyHouseFloodedFixed, Integer pluvialSatisfactionPenaltyPerDamagePoint, Integer fluvialSatisfactionPenaltyPerDamagePoint, Integer satisfactionDebtPenalty, Integer satisfactionHouseRatingTooLowFixed, Integer satisfactionHouseRatingTooLowPerDelta, Integer satisfactionMovePenalty, Double mortgagePercentage, Byte allowPersonalSatisfactionNeg, Byte allowHouseSatisfactionNeg, Byte allowTotalSatisfactionNeg, Integer highestPluvialScore, Integer highestFluvialScore, Byte newsDiscountInEuros, Integer defaultLanguageId) {
+    public ScenarioparametersRecord(Integer id, String name, Integer pluvialRepairCostsPerDamagePoint, Integer fluvialRepairCostsPerDamagePoint, Integer pluvialSatisfactionPenaltyIfAreaFlooded, Integer pluvialRepairCostsFixed, Integer fluvialRepairCostsFixed, Integer fluvialSatisfactionPenaltyIfAreaFlooded, Integer pluvialSatisfactionPenaltyHouseFloodedFixed, Integer fluvialSatisfactionPenaltyHouseFloodedFixed, Integer pluvialSatisfactionPenaltyPerDamagePoint, Integer fluvialSatisfactionPenaltyPerDamagePoint, Integer satisfactionDebtPenalty, Integer satisfactionHouseRatingTooLowFixed, Integer satisfactionHouseRatingTooLowPerDelta, Byte satisfactionHouseRatingPerRound, Integer satisfactionMovePenalty, Double mortgagePercentage, Byte allowPersonalSatisfactionNeg, Byte allowHouseSatisfactionNeg, Byte allowTotalSatisfactionNeg, Integer highestPluvialScore, Integer highestFluvialScore, Byte newsDiscountInEuros, Integer defaultLanguageId) {
         super(Scenarioparameters.SCENARIOPARAMETERS);
 
         setId(id);
@@ -439,6 +455,7 @@ public class ScenarioparametersRecord extends UpdatableRecordImpl<Scenarioparame
         setSatisfactionDebtPenalty(satisfactionDebtPenalty);
         setSatisfactionHouseRatingTooLowFixed(satisfactionHouseRatingTooLowFixed);
         setSatisfactionHouseRatingTooLowPerDelta(satisfactionHouseRatingTooLowPerDelta);
+        setSatisfactionHouseRatingPerRound(satisfactionHouseRatingPerRound);
         setSatisfactionMovePenalty(satisfactionMovePenalty);
         setMortgagePercentage(mortgagePercentage);
         setAllowPersonalSatisfactionNeg(allowPersonalSatisfactionNeg);
