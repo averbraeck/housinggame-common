@@ -12,6 +12,7 @@ import nl.tudelft.simulation.housinggame.data.tables.Gamesession;
 import nl.tudelft.simulation.housinggame.data.tables.Gameversion;
 import nl.tudelft.simulation.housinggame.data.tables.Group;
 import nl.tudelft.simulation.housinggame.data.tables.Groupround;
+import nl.tudelft.simulation.housinggame.data.tables.Groupstate;
 import nl.tudelft.simulation.housinggame.data.tables.House;
 import nl.tudelft.simulation.housinggame.data.tables.Housegroup;
 import nl.tudelft.simulation.housinggame.data.tables.Housetransaction;
@@ -26,6 +27,7 @@ import nl.tudelft.simulation.housinggame.data.tables.Newseffects;
 import nl.tudelft.simulation.housinggame.data.tables.Newsitem;
 import nl.tudelft.simulation.housinggame.data.tables.Player;
 import nl.tudelft.simulation.housinggame.data.tables.Playerround;
+import nl.tudelft.simulation.housinggame.data.tables.Playerstate;
 import nl.tudelft.simulation.housinggame.data.tables.Question;
 import nl.tudelft.simulation.housinggame.data.tables.Questionitem;
 import nl.tudelft.simulation.housinggame.data.tables.Questionscore;
@@ -77,6 +79,11 @@ public class Housinggame extends SchemaImpl {
      * The table <code>housinggame.groupround</code>.
      */
     public final Groupround GROUPROUND = Groupround.GROUPROUND;
+
+    /**
+     * The table <code>housinggame.groupstate</code>.
+     */
+    public final Groupstate GROUPSTATE = Groupstate.GROUPSTATE;
 
     /**
      * The table <code>housinggame.house</code>.
@@ -149,6 +156,11 @@ public class Housinggame extends SchemaImpl {
     public final Playerround PLAYERROUND = Playerround.PLAYERROUND;
 
     /**
+     * The table <code>housinggame.playerstate</code>.
+     */
+    public final Playerstate PLAYERSTATE = Playerstate.PLAYERSTATE;
+
+    /**
      * The table <code>housinggame.question</code>.
      */
     public final Question QUESTION = Question.QUESTION;
@@ -209,6 +221,7 @@ public class Housinggame extends SchemaImpl {
             Gameversion.GAMEVERSION,
             Group.GROUP,
             Groupround.GROUPROUND,
+            Groupstate.GROUPSTATE,
             House.HOUSE,
             Housegroup.HOUSEGROUP,
             Housetransaction.HOUSETRANSACTION,
@@ -223,6 +236,7 @@ public class Housinggame extends SchemaImpl {
             Newsitem.NEWSITEM,
             Player.PLAYER,
             Playerround.PLAYERROUND,
+            Playerstate.PLAYERSTATE,
             Question.QUESTION,
             Questionitem.QUESTIONITEM,
             Questionscore.QUESTIONSCORE,
