@@ -17,13 +17,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.GamesessionRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function9;
+import org.jooq.Function10;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row9;
+import org.jooq.Row10;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -100,6 +100,11 @@ public class Gamesession extends TableImpl<GamesessionRecord> {
      * The column <code>housinggame.gamesession.gameversion_id</code>.
      */
     public final TableField<GamesessionRecord, Integer> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.gamesession.description</code>.
+     */
+    public final TableField<GamesessionRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.CLOB.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.CLOB)), this, "");
 
     private Gamesession(Name alias, Table<GamesessionRecord> aliased) {
         this(alias, aliased, null);
@@ -217,18 +222,18 @@ public class Gamesession extends TableImpl<GamesessionRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row9 type methods
+    // Row10 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row9<Integer, String, String, String, LocalDateTime, LocalDate, LocalDateTime, LocalDateTime, Integer> fieldsRow() {
-        return (Row9) super.fieldsRow();
+    public Row10<Integer, String, String, String, LocalDateTime, LocalDate, LocalDateTime, LocalDateTime, Integer, String> fieldsRow() {
+        return (Row10) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function9<? super Integer, ? super String, ? super String, ? super String, ? super LocalDateTime, ? super LocalDate, ? super LocalDateTime, ? super LocalDateTime, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function10<? super Integer, ? super String, ? super String, ? super String, ? super LocalDateTime, ? super LocalDate, ? super LocalDateTime, ? super LocalDateTime, ? super Integer, ? super String, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -236,7 +241,7 @@ public class Gamesession extends TableImpl<GamesessionRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super Integer, ? super String, ? super String, ? super String, ? super LocalDateTime, ? super LocalDate, ? super LocalDateTime, ? super LocalDateTime, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function10<? super Integer, ? super String, ? super String, ? super String, ? super LocalDateTime, ? super LocalDate, ? super LocalDateTime, ? super LocalDateTime, ? super Integer, ? super String, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

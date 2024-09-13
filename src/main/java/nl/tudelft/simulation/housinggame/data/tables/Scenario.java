@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.ScenarioRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function8;
+import org.jooq.Function9;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row8;
+import org.jooq.Row9;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -93,6 +93,11 @@ public class Scenario extends TableImpl<ScenarioRecord> {
      * The column <code>housinggame.scenario.gameversion_id</code>.
      */
     public final TableField<ScenarioRecord, Integer> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.scenario.description</code>.
+     */
+    public final TableField<ScenarioRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.CLOB.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.CLOB)), this, "");
 
     private Scenario(Name alias, Table<ScenarioRecord> aliased) {
         this(alias, aliased, null);
@@ -222,18 +227,18 @@ public class Scenario extends TableImpl<ScenarioRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row8 type methods
+    // Row9 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row8<Integer, String, Integer, Integer, Integer, Integer, Integer, Integer> fieldsRow() {
-        return (Row8) super.fieldsRow();
+    public Row9<Integer, String, Integer, Integer, Integer, Integer, Integer, Integer, String> fieldsRow() {
+        return (Row9) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function8<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function9<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super String, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -241,7 +246,7 @@ public class Scenario extends TableImpl<ScenarioRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function8<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super String, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
