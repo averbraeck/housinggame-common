@@ -15,16 +15,18 @@ import nl.tudelft.simulation.housinggame.data.tables.Groupround;
 import nl.tudelft.simulation.housinggame.data.tables.Groupstate;
 import nl.tudelft.simulation.housinggame.data.tables.House;
 import nl.tudelft.simulation.housinggame.data.tables.Housegroup;
+import nl.tudelft.simulation.housinggame.data.tables.Housemeasure;
 import nl.tudelft.simulation.housinggame.data.tables.Housetransaction;
 import nl.tudelft.simulation.housinggame.data.tables.Initialhousemeasure;
 import nl.tudelft.simulation.housinggame.data.tables.Label;
 import nl.tudelft.simulation.housinggame.data.tables.Language;
 import nl.tudelft.simulation.housinggame.data.tables.Languagegroup;
-import nl.tudelft.simulation.housinggame.data.tables.Measure;
+import nl.tudelft.simulation.housinggame.data.tables.Measurecategory;
 import nl.tudelft.simulation.housinggame.data.tables.Measuretype;
 import nl.tudelft.simulation.housinggame.data.tables.Movingreason;
 import nl.tudelft.simulation.housinggame.data.tables.Newseffects;
 import nl.tudelft.simulation.housinggame.data.tables.Newsitem;
+import nl.tudelft.simulation.housinggame.data.tables.Personalmeasure;
 import nl.tudelft.simulation.housinggame.data.tables.Player;
 import nl.tudelft.simulation.housinggame.data.tables.Playerround;
 import nl.tudelft.simulation.housinggame.data.tables.Playerstate;
@@ -96,6 +98,11 @@ public class Housinggame extends SchemaImpl {
     public final Housegroup HOUSEGROUP = Housegroup.HOUSEGROUP;
 
     /**
+     * The table <code>housinggame.housemeasure</code>.
+     */
+    public final Housemeasure HOUSEMEASURE = Housemeasure.HOUSEMEASURE;
+
+    /**
      * The table <code>housinggame.housetransaction</code>.
      */
     public final Housetransaction HOUSETRANSACTION = Housetransaction.HOUSETRANSACTION;
@@ -121,9 +128,9 @@ public class Housinggame extends SchemaImpl {
     public final Languagegroup LANGUAGEGROUP = Languagegroup.LANGUAGEGROUP;
 
     /**
-     * The table <code>housinggame.measure</code>.
+     * The table <code>housinggame.measurecategory</code>.
      */
-    public final Measure MEASURE = Measure.MEASURE;
+    public final Measurecategory MEASURECATEGORY = Measurecategory.MEASURECATEGORY;
 
     /**
      * The table <code>housinggame.measuretype</code>.
@@ -144,6 +151,11 @@ public class Housinggame extends SchemaImpl {
      * The table <code>housinggame.newsitem</code>.
      */
     public final Newsitem NEWSITEM = Newsitem.NEWSITEM;
+
+    /**
+     * The table <code>housinggame.personalmeasure</code>.
+     */
+    public final Personalmeasure PERSONALMEASURE = Personalmeasure.PERSONALMEASURE;
 
     /**
      * The table <code>housinggame.player</code>.
@@ -224,16 +236,18 @@ public class Housinggame extends SchemaImpl {
             Groupstate.GROUPSTATE,
             House.HOUSE,
             Housegroup.HOUSEGROUP,
+            Housemeasure.HOUSEMEASURE,
             Housetransaction.HOUSETRANSACTION,
             Initialhousemeasure.INITIALHOUSEMEASURE,
             Label.LABEL,
             Language.LANGUAGE,
             Languagegroup.LANGUAGEGROUP,
-            Measure.MEASURE,
+            Measurecategory.MEASURECATEGORY,
             Measuretype.MEASURETYPE,
             Movingreason.MOVINGREASON,
             Newseffects.NEWSEFFECTS,
             Newsitem.NEWSITEM,
+            Personalmeasure.PERSONALMEASURE,
             Player.PLAYER,
             Playerround.PLAYERROUND,
             Playerstate.PLAYERSTATE,

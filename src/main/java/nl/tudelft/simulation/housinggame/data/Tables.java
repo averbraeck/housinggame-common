@@ -12,16 +12,18 @@ import nl.tudelft.simulation.housinggame.data.tables.Groupround;
 import nl.tudelft.simulation.housinggame.data.tables.Groupstate;
 import nl.tudelft.simulation.housinggame.data.tables.House;
 import nl.tudelft.simulation.housinggame.data.tables.Housegroup;
+import nl.tudelft.simulation.housinggame.data.tables.Housemeasure;
 import nl.tudelft.simulation.housinggame.data.tables.Housetransaction;
 import nl.tudelft.simulation.housinggame.data.tables.Initialhousemeasure;
 import nl.tudelft.simulation.housinggame.data.tables.Label;
 import nl.tudelft.simulation.housinggame.data.tables.Language;
 import nl.tudelft.simulation.housinggame.data.tables.Languagegroup;
-import nl.tudelft.simulation.housinggame.data.tables.Measure;
+import nl.tudelft.simulation.housinggame.data.tables.Measurecategory;
 import nl.tudelft.simulation.housinggame.data.tables.Measuretype;
 import nl.tudelft.simulation.housinggame.data.tables.Movingreason;
 import nl.tudelft.simulation.housinggame.data.tables.Newseffects;
 import nl.tudelft.simulation.housinggame.data.tables.Newsitem;
+import nl.tudelft.simulation.housinggame.data.tables.Personalmeasure;
 import nl.tudelft.simulation.housinggame.data.tables.Player;
 import nl.tudelft.simulation.housinggame.data.tables.Playerround;
 import nl.tudelft.simulation.housinggame.data.tables.Playerstate;
@@ -82,6 +84,11 @@ public class Tables {
     public static final Housegroup HOUSEGROUP = Housegroup.HOUSEGROUP;
 
     /**
+     * The table <code>housinggame.housemeasure</code>.
+     */
+    public static final Housemeasure HOUSEMEASURE = Housemeasure.HOUSEMEASURE;
+
+    /**
      * The table <code>housinggame.housetransaction</code>.
      */
     public static final Housetransaction HOUSETRANSACTION = Housetransaction.HOUSETRANSACTION;
@@ -107,9 +114,9 @@ public class Tables {
     public static final Languagegroup LANGUAGEGROUP = Languagegroup.LANGUAGEGROUP;
 
     /**
-     * The table <code>housinggame.measure</code>.
+     * The table <code>housinggame.measurecategory</code>.
      */
-    public static final Measure MEASURE = Measure.MEASURE;
+    public static final Measurecategory MEASURECATEGORY = Measurecategory.MEASURECATEGORY;
 
     /**
      * The table <code>housinggame.measuretype</code>.
@@ -130,6 +137,11 @@ public class Tables {
      * The table <code>housinggame.newsitem</code>.
      */
     public static final Newsitem NEWSITEM = Newsitem.NEWSITEM;
+
+    /**
+     * The table <code>housinggame.personalmeasure</code>.
+     */
+    public static final Personalmeasure PERSONALMEASURE = Personalmeasure.PERSONALMEASURE;
 
     /**
      * The table <code>housinggame.player</code>.
