@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.HousemeasureRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function4;
+import org.jooq.Function5;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row4;
+import org.jooq.Row5;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -60,9 +60,9 @@ public class Housemeasure extends TableImpl<HousemeasureRecord> {
     public final TableField<HousemeasureRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>housinggame.housemeasure.round_number</code>.
+     * The column <code>housinggame.housemeasure.bought_in_round</code>.
      */
-    public final TableField<HousemeasureRecord, Integer> ROUND_NUMBER = createField(DSL.name("round_number"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<HousemeasureRecord, Integer> BOUGHT_IN_ROUND = createField(DSL.name("bought_in_round"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.housemeasure.measuretype_id</code>.
@@ -73,6 +73,11 @@ public class Housemeasure extends TableImpl<HousemeasureRecord> {
      * The column <code>housinggame.housemeasure.housegroup_id</code>.
      */
     public final TableField<HousemeasureRecord, Integer> HOUSEGROUP_ID = createField(DSL.name("housegroup_id"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.housemeasure.used_in_round</code>.
+     */
+    public final TableField<HousemeasureRecord, Integer> USED_IN_ROUND = createField(DSL.name("used_in_round"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("-1"), SQLDataType.INTEGER)), this, "");
 
     private Housemeasure(Name alias, Table<HousemeasureRecord> aliased) {
         this(alias, aliased, null);
@@ -202,18 +207,18 @@ public class Housemeasure extends TableImpl<HousemeasureRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row4 type methods
+    // Row5 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row4<Integer, Integer, Integer, Integer> fieldsRow() {
-        return (Row4) super.fieldsRow();
+    public Row5<Integer, Integer, Integer, Integer, Integer> fieldsRow() {
+        return (Row5) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function4<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function5<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -221,7 +226,7 @@ public class Housemeasure extends TableImpl<HousemeasureRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function4<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function5<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

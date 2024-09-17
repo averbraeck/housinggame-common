@@ -9,17 +9,19 @@ import java.util.List;
 import java.util.function.Function;
 
 import nl.tudelft.simulation.housinggame.data.Housinggame;
+import nl.tudelft.simulation.housinggame.data.Indexes;
 import nl.tudelft.simulation.housinggame.data.Keys;
 import nl.tudelft.simulation.housinggame.data.tables.records.MeasurecategoryRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function4;
+import org.jooq.Function6;
 import org.jooq.Identity;
+import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row4;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -72,6 +74,16 @@ public class Measurecategory extends TableImpl<MeasurecategoryRecord> {
      */
     public final TableField<MeasurecategoryRecord, String> EXPLANATION = createField(DSL.name("explanation"), SQLDataType.CLOB.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.CLOB)), this, "");
 
+    /**
+     * The column <code>housinggame.measurecategory.gameversion_id</code>.
+     */
+    public final TableField<MeasurecategoryRecord, Integer> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.measurecategory.sequence_nr</code>.
+     */
+    public final TableField<MeasurecategoryRecord, Double> SEQUENCE_NR = createField(DSL.name("sequence_nr"), SQLDataType.FLOAT.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.FLOAT)), this, "");
+
     private Measurecategory(Name alias, Table<MeasurecategoryRecord> aliased) {
         this(alias, aliased, null);
     }
@@ -113,6 +125,11 @@ public class Measurecategory extends TableImpl<MeasurecategoryRecord> {
     }
 
     @Override
+    public List<Index> getIndexes() {
+        return Arrays.asList(Indexes.MEASURECATEGORY_FK_MEASURECATEGORY_GAMEVERSION1_IDX);
+    }
+
+    @Override
     public Identity<MeasurecategoryRecord, Integer> getIdentity() {
         return (Identity<MeasurecategoryRecord, Integer>) super.getIdentity();
     }
@@ -125,6 +142,24 @@ public class Measurecategory extends TableImpl<MeasurecategoryRecord> {
     @Override
     public List<UniqueKey<MeasurecategoryRecord>> getUniqueKeys() {
         return Arrays.asList(Keys.KEY_MEASURECATEGORY_ID_UNIQUE);
+    }
+
+    @Override
+    public List<ForeignKey<MeasurecategoryRecord, ?>> getReferences() {
+        return Arrays.asList(Keys.FK_MEASURECATEGORY_GAMEVERSION1);
+    }
+
+    private transient Gameversion _gameversion;
+
+    /**
+     * Get the implicit join path to the <code>housinggame.gameversion</code>
+     * table.
+     */
+    public Gameversion gameversion() {
+        if (_gameversion == null)
+            _gameversion = new Gameversion(this, Keys.FK_MEASURECATEGORY_GAMEVERSION1);
+
+        return _gameversion;
     }
 
     @Override
@@ -167,18 +202,18 @@ public class Measurecategory extends TableImpl<MeasurecategoryRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row4 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row4<Integer, String, String, String> fieldsRow() {
-        return (Row4) super.fieldsRow();
+    public Row6<Integer, String, String, String, Integer, Double> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function4<? super Integer, ? super String, ? super String, ? super String, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function6<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Double, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -186,7 +221,7 @@ public class Measurecategory extends TableImpl<MeasurecategoryRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function4<? super Integer, ? super String, ? super String, ? super String, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function6<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Double, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

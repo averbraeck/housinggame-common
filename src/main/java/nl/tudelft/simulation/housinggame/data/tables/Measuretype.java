@@ -121,14 +121,14 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     public final TableField<MeasuretypeRecord, Byte> VALID_ONE_ROUND = createField(DSL.name("valid_one_round"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINT)), this, "");
 
     /**
+     * The column <code>housinggame.measuretype.valid_until_used</code>.
+     */
+    public final TableField<MeasuretypeRecord, Byte> VALID_UNTIL_USED = createField(DSL.name("valid_until_used"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINT)), this, "");
+
+    /**
      * The column <code>housinggame.measuretype.house_measure</code>.
      */
     public final TableField<MeasuretypeRecord, Byte> HOUSE_MEASURE = createField(DSL.name("house_measure"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.TINYINT)), this, "");
-
-    /**
-     * The column <code>housinggame.measuretype.gameversion_id</code>.
-     */
-    public final TableField<MeasuretypeRecord, Integer> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.measuretype.measurecategory_id</code>.
@@ -180,7 +180,7 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.MEASURETYPE_FK_MEASURETYPE_GAMEVERSION1_IDX, Indexes.MEASURETYPE_FK_MEASURETYPE_MEASURECATEGORY1_IDX);
+        return Arrays.asList(Indexes.MEASURETYPE_FK_MEASURETYPE_MEASURECATEGORY1_IDX);
     }
 
     @Override
@@ -200,22 +200,10 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
 
     @Override
     public List<ForeignKey<MeasuretypeRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_MEASURETYPE_GAMEVERSION1, Keys.FK_MEASURETYPE_MEASURECATEGORY1);
+        return Arrays.asList(Keys.FK_MEASURETYPE_MEASURECATEGORY1);
     }
 
-    private transient Gameversion _gameversion;
     private transient Measurecategory _measurecategory;
-
-    /**
-     * Get the implicit join path to the <code>housinggame.gameversion</code>
-     * table.
-     */
-    public Gameversion gameversion() {
-        if (_gameversion == null)
-            _gameversion = new Gameversion(this, Keys.FK_MEASURETYPE_GAMEVERSION1);
-
-        return _gameversion;
-    }
 
     /**
      * Get the implicit join path to the
@@ -272,14 +260,14 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row17<Integer, String, String, String, Integer, Double, Double, Integer, Integer, Integer, Integer, Integer, Byte, Byte, Integer, Integer, Double> fieldsRow() {
+    public Row17<Integer, String, String, String, Integer, Double, Double, Integer, Integer, Integer, Integer, Integer, Byte, Byte, Byte, Integer, Double> fieldsRow() {
         return (Row17) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function17<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Double, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Byte, ? super Integer, ? super Integer, ? super Double, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function17<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Double, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Byte, ? super Byte, ? super Integer, ? super Double, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -287,7 +275,7 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function17<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Double, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Byte, ? super Integer, ? super Integer, ? super Double, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function17<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Double, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Byte, ? super Byte, ? super Integer, ? super Double, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

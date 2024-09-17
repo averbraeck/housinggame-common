@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.PersonalmeasureReco
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function4;
+import org.jooq.Function3;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row4;
+import org.jooq.Row3;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -58,11 +58,6 @@ public class Personalmeasure extends TableImpl<PersonalmeasureRecord> {
      * The column <code>housinggame.personalmeasure.id</code>.
      */
     public final TableField<PersonalmeasureRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
-
-    /**
-     * The column <code>housinggame.personalmeasure.round_number</code>.
-     */
-    public final TableField<PersonalmeasureRecord, Integer> ROUND_NUMBER = createField(DSL.name("round_number"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.personalmeasure.measuretype_id</code>.
@@ -204,18 +199,18 @@ public class Personalmeasure extends TableImpl<PersonalmeasureRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row4 type methods
+    // Row3 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row4<Integer, Integer, Integer, Integer> fieldsRow() {
-        return (Row4) super.fieldsRow();
+    public Row3<Integer, Integer, Integer> fieldsRow() {
+        return (Row3) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function4<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function3<? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -223,7 +218,7 @@ public class Personalmeasure extends TableImpl<PersonalmeasureRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function4<? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function3<? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
