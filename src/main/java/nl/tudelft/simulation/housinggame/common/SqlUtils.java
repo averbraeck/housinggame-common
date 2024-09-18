@@ -15,11 +15,6 @@ import org.jooq.impl.DSL;
 public class SqlUtils
 {
 
-    private SqlUtils()
-    {
-        // utility class
-    }
-
     public static Connection dbConnection() throws SQLException, ClassNotFoundException
     {
         String jdbcURL = "jdbc:mysql://localhost:3306/housinggame";
