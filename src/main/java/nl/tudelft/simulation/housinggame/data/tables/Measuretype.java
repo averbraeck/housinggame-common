@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.MeasuretypeRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function17;
+import org.jooq.Function18;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row17;
+import org.jooq.Row18;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -111,9 +111,14 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     public final TableField<MeasuretypeRecord, Integer> FLUVIAL_PROTECTION_DELTA = createField(DSL.name("fluvial_protection_delta"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>housinggame.measuretype.house_value_delta</code>.
+     * The column <code>housinggame.measuretype.house_value_delta_abs</code>.
      */
-    public final TableField<MeasuretypeRecord, Integer> HOUSE_VALUE_DELTA = createField(DSL.name("house_value_delta"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MeasuretypeRecord, Integer> HOUSE_VALUE_DELTA_ABS = createField(DSL.name("house_value_delta_abs"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column <code>housinggame.measuretype.house_value_delta_perc</code>.
+     */
+    public final TableField<MeasuretypeRecord, Integer> HOUSE_VALUE_DELTA_PERC = createField(DSL.name("house_value_delta_perc"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.measuretype.valid_one_round</code>.
@@ -256,18 +261,18 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row17 type methods
+    // Row18 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row17<Integer, String, String, String, Integer, Double, Double, Integer, Integer, Integer, Integer, Integer, Byte, Byte, Byte, Integer, Double> fieldsRow() {
-        return (Row17) super.fieldsRow();
+    public Row18<Integer, String, String, String, Integer, Double, Double, Integer, Integer, Integer, Integer, Integer, Integer, Byte, Byte, Byte, Integer, Double> fieldsRow() {
+        return (Row18) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function17<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Double, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Byte, ? super Byte, ? super Integer, ? super Double, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function18<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Double, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Byte, ? super Byte, ? super Integer, ? super Double, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -275,7 +280,7 @@ public class Measuretype extends TableImpl<MeasuretypeRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function17<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Double, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Byte, ? super Byte, ? super Integer, ? super Double, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function18<? super Integer, ? super String, ? super String, ? super String, ? super Integer, ? super Double, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Byte, ? super Byte, ? super Integer, ? super Double, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
