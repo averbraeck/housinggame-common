@@ -12,7 +12,7 @@ import org.jooq.Table;
 import org.jooq.TableField;
 import org.jooq.impl.DSL;
 
-public final class SqlUtils
+public class SqlUtils
 {
 
     private SqlUtils()
