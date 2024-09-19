@@ -32,12 +32,11 @@ public record MeasureTypeList(MeasurecategoryRecord measureCategory, List<Measur
         return new MeasureTypeList(mcr, measureTypeList);
     }
 
-    public static List<MeasureTypeList> getMeasureListRecords(final CommonData data, final int gameVersionId)
+    public static List<MeasureTypeList> getMeasureListRecords(final CommonData data, final int scenarioId)
     {
         DSLContext dslContext = DSL.using(data.getDataSource(), SQLDialect.MYSQL);
-        List<MeasurecategoryRecord> measureCategoryList =
-                dslContext.selectFrom(Tables.MEASURECATEGORY).where(Tables.MEASURECATEGORY.GAMEVERSION_ID.eq(gameVersionId))
-                        .fetch().sortAsc(Tables.MEASURECATEGORY.SEQUENCE_NR);
+        List<MeasurecategoryRecord> measureCategoryList = dslContext.selectFrom(Tables.MEASURECATEGORY)
+                .where(Tables.MEASURECATEGORY.SCENARIO_ID.eq(scenarioId)).fetch().sortAsc(Tables.MEASURECATEGORY.SEQUENCE_NR);
         List<MeasureTypeList> mlrList = new ArrayList<>();
         for (var mcr : measureCategoryList)
             mlrList.add(getMeasureListRecord(data, mcr));
