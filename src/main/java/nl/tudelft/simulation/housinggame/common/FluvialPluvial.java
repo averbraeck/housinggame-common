@@ -19,10 +19,10 @@ import nl.tudelft.simulation.housinggame.data.tables.records.MeasuretypeRecord;
  * </p>
  * @author <a href="https://www.tudelft.nl/averbraeck">Alexander Verbraeck</a>
  */
-public record FPRecord(int fluvial, int pluvial)
+public record FluvialPluvial(int fluvial, int pluvial)
 {
 
-    public static FPRecord measureProtectionTillRound(final CommonData data, final int round,
+    public static FluvialPluvial measureProtectionTillRound(final CommonData data, final int round,
             final HousegroupRecord houseGroup)
     {
         DSLContext dslContext = DSL.using(data.getDataSource(), SQLDialect.MYSQL);
@@ -42,7 +42,7 @@ public record FPRecord(int fluvial, int pluvial)
                 pluvial += mt.getPluvialProtectionDelta();
             }
         }
-        return new FPRecord(fluvial, pluvial);
+        return new FluvialPluvial(fluvial, pluvial);
     }
 
 }
