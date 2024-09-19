@@ -75,9 +75,9 @@ public class Measurecategory extends TableImpl<MeasurecategoryRecord> {
     public final TableField<MeasurecategoryRecord, String> EXPLANATION = createField(DSL.name("explanation"), SQLDataType.CLOB.defaultValue(DSL.field(DSL.raw("NULL"), SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>housinggame.measurecategory.gameversion_id</code>.
+     * The column <code>housinggame.measurecategory.scenario_id</code>.
      */
-    public final TableField<MeasurecategoryRecord, Integer> GAMEVERSION_ID = createField(DSL.name("gameversion_id"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<MeasurecategoryRecord, Integer> SCENARIO_ID = createField(DSL.name("scenario_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.measurecategory.sequence_nr</code>.
@@ -126,7 +126,7 @@ public class Measurecategory extends TableImpl<MeasurecategoryRecord> {
 
     @Override
     public List<Index> getIndexes() {
-        return Arrays.asList(Indexes.MEASURECATEGORY_FK_MEASURECATEGORY_GAMEVERSION1_IDX);
+        return Arrays.asList(Indexes.MEASURECATEGORY_FK_MEASURECATEGORY_SCENARIO1_IDX);
     }
 
     @Override
@@ -146,20 +146,20 @@ public class Measurecategory extends TableImpl<MeasurecategoryRecord> {
 
     @Override
     public List<ForeignKey<MeasurecategoryRecord, ?>> getReferences() {
-        return Arrays.asList(Keys.FK_MEASURECATEGORY_GAMEVERSION1);
+        return Arrays.asList(Keys.FK_MEASURECATEGORY_SCENARIO1);
     }
 
-    private transient Gameversion _gameversion;
+    private transient Scenario _scenario;
 
     /**
-     * Get the implicit join path to the <code>housinggame.gameversion</code>
+     * Get the implicit join path to the <code>housinggame.scenario</code>
      * table.
      */
-    public Gameversion gameversion() {
-        if (_gameversion == null)
-            _gameversion = new Gameversion(this, Keys.FK_MEASURECATEGORY_GAMEVERSION1);
+    public Scenario scenario() {
+        if (_scenario == null)
+            _scenario = new Scenario(this, Keys.FK_MEASURECATEGORY_SCENARIO1);
 
-        return _gameversion;
+        return _scenario;
     }
 
     @Override

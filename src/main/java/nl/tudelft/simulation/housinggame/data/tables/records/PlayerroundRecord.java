@@ -267,16 +267,18 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
-     * Setter for <code>housinggame.playerround.satisfaction_bought</code>.
+     * Setter for
+     * <code>housinggame.playerround.satisfaction_personal_measures</code>.
      */
-    public void setSatisfactionBought(Integer value) {
+    public void setSatisfactionPersonalMeasures(Integer value) {
         set(17, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.satisfaction_bought</code>.
+     * Getter for
+     * <code>housinggame.playerround.satisfaction_personal_measures</code>.
      */
-    public Integer getSatisfactionBought() {
+    public Integer getSatisfactionPersonalMeasures() {
         return (Integer) get(17);
     }
 
@@ -329,16 +331,18 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     }
 
     /**
-     * Setter for <code>housinggame.playerround.personal_satisfaction</code>.
+     * Setter for
+     * <code>housinggame.playerround.satisfaction_personal_total</code>.
      */
-    public void setPersonalSatisfaction(Integer value) {
+    public void setSatisfactionPersonalTotal(Integer value) {
         set(21, value);
     }
 
     /**
-     * Getter for <code>housinggame.playerround.personal_satisfaction</code>.
+     * Getter for
+     * <code>housinggame.playerround.satisfaction_personal_total</code>.
      */
-    public Integer getPersonalSatisfaction() {
+    public Integer getSatisfactionPersonalTotal() {
         return (Integer) get(21);
     }
 
@@ -673,7 +677,7 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
     /**
      * Create a detached, initialised PlayerroundRecord
      */
-    public PlayerroundRecord(Integer id, LocalDateTime createTime, Integer roundIncome, Integer livingCosts, Integer paidDebt, Integer mortgagePayment, Integer profitSoldHouse, Integer spentSavingsForBuyingHouse, Integer costTaxes, Integer costMeasuresBought, Integer costSatisfactionBought, Integer costFluvialDamage, Integer costPluvialDamage, Integer spendableIncome, Integer satisfactionMovePenalty, Integer satisfactionHouseRatingDelta, Integer satisfactionHouseMeasures, Integer satisfactionBought, Integer satisfactionFluvialPenalty, Integer satisfactionPluvialPenalty, Integer satisfactionDebtPenalty, Integer personalSatisfaction, Integer preferredHouseRating, Integer maximumMortgage, Integer mortgageHouseStart, Integer mortgageLeftStart, Integer housePriceSold, Integer housePriceBought, Integer mortgageHouseEnd, Integer mortgageLeftEnd, Integer movingreasonId, String movingReasonOther, Integer pluvialBaseProtection, Integer fluvialBaseProtection, Integer pluvialCommunityDelta, Integer fluvialCommunityDelta, Integer pluvialHouseDelta, Integer fluvialHouseDelta, String playerState, Integer playerId, Integer grouproundId, Integer startHousegroupId, Integer finalHousegroupId, Integer activeTransactionId) {
+    public PlayerroundRecord(Integer id, LocalDateTime createTime, Integer roundIncome, Integer livingCosts, Integer paidDebt, Integer mortgagePayment, Integer profitSoldHouse, Integer spentSavingsForBuyingHouse, Integer costTaxes, Integer costMeasuresBought, Integer costSatisfactionBought, Integer costFluvialDamage, Integer costPluvialDamage, Integer spendableIncome, Integer satisfactionMovePenalty, Integer satisfactionHouseRatingDelta, Integer satisfactionHouseMeasures, Integer satisfactionPersonalMeasures, Integer satisfactionFluvialPenalty, Integer satisfactionPluvialPenalty, Integer satisfactionDebtPenalty, Integer satisfactionPersonalTotal, Integer preferredHouseRating, Integer maximumMortgage, Integer mortgageHouseStart, Integer mortgageLeftStart, Integer housePriceSold, Integer housePriceBought, Integer mortgageHouseEnd, Integer mortgageLeftEnd, Integer movingreasonId, String movingReasonOther, Integer pluvialBaseProtection, Integer fluvialBaseProtection, Integer pluvialCommunityDelta, Integer fluvialCommunityDelta, Integer pluvialHouseDelta, Integer fluvialHouseDelta, String playerState, Integer playerId, Integer grouproundId, Integer startHousegroupId, Integer finalHousegroupId, Integer activeTransactionId) {
         super(Playerround.PLAYERROUND);
 
         setId(id);
@@ -693,11 +697,11 @@ public class PlayerroundRecord extends UpdatableRecordImpl<PlayerroundRecord> {
         setSatisfactionMovePenalty(satisfactionMovePenalty);
         setSatisfactionHouseRatingDelta(satisfactionHouseRatingDelta);
         setSatisfactionHouseMeasures(satisfactionHouseMeasures);
-        setSatisfactionBought(satisfactionBought);
+        setSatisfactionPersonalMeasures(satisfactionPersonalMeasures);
         setSatisfactionFluvialPenalty(satisfactionFluvialPenalty);
         setSatisfactionPluvialPenalty(satisfactionPluvialPenalty);
         setSatisfactionDebtPenalty(satisfactionDebtPenalty);
-        setPersonalSatisfaction(personalSatisfaction);
+        setSatisfactionPersonalTotal(satisfactionPersonalTotal);
         setPreferredHouseRating(preferredHouseRating);
         setMaximumMortgage(maximumMortgage);
         setMortgageHouseStart(mortgageHouseStart);

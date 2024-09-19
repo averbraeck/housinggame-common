@@ -140,9 +140,10 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> SATISFACTION_HOUSE_MEASURES = createField(DSL.name("satisfaction_house_measures"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.playerround.satisfaction_bought</code>.
+     * The column
+     * <code>housinggame.playerround.satisfaction_personal_measures</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> SATISFACTION_BOUGHT = createField(DSL.name("satisfaction_bought"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+    public final TableField<PlayerroundRecord, Integer> SATISFACTION_PERSONAL_MEASURES = createField(DSL.name("satisfaction_personal_measures"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column
@@ -163,9 +164,10 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> SATISFACTION_DEBT_PENALTY = createField(DSL.name("satisfaction_debt_penalty"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.playerround.personal_satisfaction</code>.
+     * The column
+     * <code>housinggame.playerround.satisfaction_personal_total</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> PERSONAL_SATISFACTION = createField(DSL.name("personal_satisfaction"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+    public final TableField<PlayerroundRecord, Integer> SATISFACTION_PERSONAL_TOTAL = createField(DSL.name("satisfaction_personal_total"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.playerround.preferred_house_rating</code>.

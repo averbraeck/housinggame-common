@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.NewseffectsRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function12;
+import org.jooq.Function15;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row12;
+import org.jooq.Row15;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -81,6 +81,23 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
      * House discount year 3 after flooding, in Euros or as a percentage
      */
     public final TableField<NewseffectsRecord, Integer> HOUSE_DISCOUNT_ROUND3 = createField(DSL.name("house_discount_round3"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "House discount year 3 after flooding, in Euros or as a percentage");
+
+    /**
+     * The column
+     * <code>housinggame.newseffects.house_discount_effect_pluvial</code>.
+     */
+    public final TableField<NewseffectsRecord, Byte> HOUSE_DISCOUNT_EFFECT_PLUVIAL = createField(DSL.name("house_discount_effect_pluvial"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.TINYINT)), this, "");
+
+    /**
+     * The column
+     * <code>housinggame.newseffects.house_discount_effect_fluvial</code>.
+     */
+    public final TableField<NewseffectsRecord, Byte> HOUSE_DISCOUNT_EFFECT_FLUVIAL = createField(DSL.name("house_discount_effect_fluvial"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.TINYINT)), this, "");
+
+    /**
+     * The column <code>housinggame.newseffects.house_discount_community</code>.
+     */
+    public final TableField<NewseffectsRecord, Byte> HOUSE_DISCOUNT_COMMUNITY = createField(DSL.name("house_discount_community"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.field(DSL.raw("1"), SQLDataType.TINYINT)), this, "");
 
     /**
      * The column
@@ -249,18 +266,18 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row12 type methods
+    // Row15 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row12<Integer, String, Integer, Integer, Integer, Integer, Integer, Double, Integer, Integer, Integer, Integer> fieldsRow() {
-        return (Row12) super.fieldsRow();
+    public Row15<Integer, String, Integer, Integer, Integer, Byte, Byte, Byte, Integer, Integer, Double, Integer, Integer, Integer, Integer> fieldsRow() {
+        return (Row15) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function12<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function15<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Byte, ? super Byte, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -268,7 +285,7 @@ public class Newseffects extends TableImpl<NewseffectsRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function12<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function15<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Byte, ? super Byte, ? super Byte, ? super Integer, ? super Integer, ? super Double, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }

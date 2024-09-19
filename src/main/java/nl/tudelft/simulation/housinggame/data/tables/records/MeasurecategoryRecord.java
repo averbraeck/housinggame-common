@@ -78,16 +78,16 @@ public class MeasurecategoryRecord extends UpdatableRecordImpl<MeasurecategoryRe
     }
 
     /**
-     * Setter for <code>housinggame.measurecategory.gameversion_id</code>.
+     * Setter for <code>housinggame.measurecategory.scenario_id</code>.
      */
-    public void setGameversionId(Integer value) {
+    public void setScenarioId(Integer value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>housinggame.measurecategory.gameversion_id</code>.
+     * Getter for <code>housinggame.measurecategory.scenario_id</code>.
      */
-    public Integer getGameversionId() {
+    public Integer getScenarioId() {
         return (Integer) get(4);
     }
 
@@ -150,7 +150,7 @@ public class MeasurecategoryRecord extends UpdatableRecordImpl<MeasurecategoryRe
 
     @Override
     public Field<Integer> field5() {
-        return Measurecategory.MEASURECATEGORY.GAMEVERSION_ID;
+        return Measurecategory.MEASURECATEGORY.SCENARIO_ID;
     }
 
     @Override
@@ -180,7 +180,7 @@ public class MeasurecategoryRecord extends UpdatableRecordImpl<MeasurecategoryRe
 
     @Override
     public Integer component5() {
-        return getGameversionId();
+        return getScenarioId();
     }
 
     @Override
@@ -210,7 +210,7 @@ public class MeasurecategoryRecord extends UpdatableRecordImpl<MeasurecategoryRe
 
     @Override
     public Integer value5() {
-        return getGameversionId();
+        return getScenarioId();
     }
 
     @Override
@@ -244,7 +244,7 @@ public class MeasurecategoryRecord extends UpdatableRecordImpl<MeasurecategoryRe
 
     @Override
     public MeasurecategoryRecord value5(Integer value) {
-        setGameversionId(value);
+        setScenarioId(value);
         return this;
     }
 
@@ -279,14 +279,14 @@ public class MeasurecategoryRecord extends UpdatableRecordImpl<MeasurecategoryRe
     /**
      * Create a detached, initialised MeasurecategoryRecord
      */
-    public MeasurecategoryRecord(Integer id, String name, String description, String explanation, Integer gameversionId, Double sequenceNr) {
+    public MeasurecategoryRecord(Integer id, String name, String description, String explanation, Integer scenarioId, Double sequenceNr) {
         super(Measurecategory.MEASURECATEGORY);
 
         setId(id);
         setName(name);
         setDescription(description);
         setExplanation(explanation);
-        setGameversionId(gameversionId);
+        setScenarioId(scenarioId);
         setSequenceNr(sequenceNr);
         resetChangedOnNotNull();
     }
