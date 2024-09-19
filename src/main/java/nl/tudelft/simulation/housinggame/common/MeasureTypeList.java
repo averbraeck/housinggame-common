@@ -8,9 +8,9 @@ import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 
 import nl.tudelft.simulation.housinggame.data.Tables;
-import nl.tudelft.simulation.housinggame.data.tables.records.GameversionRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.MeasurecategoryRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.MeasuretypeRecord;
+import nl.tudelft.simulation.housinggame.data.tables.records.ScenarioRecord;
 
 /**
  * MeasureListRecord stores a measurecategory with its measuretypes. The categories and types are sorted according to their
@@ -43,9 +43,9 @@ public record MeasureTypeList(MeasurecategoryRecord measureCategory, List<Measur
         return mlrList;
     }
 
-    public static List<MeasureTypeList> getMeasureListRecords(final CommonData data, final GameversionRecord gameVersion)
+    public static List<MeasureTypeList> getMeasureListRecords(final CommonData data, final ScenarioRecord scenario)
     {
-        return getMeasureListRecords(data, gameVersion.getId());
+        return getMeasureListRecords(data, scenario.getId());
     }
 
 }
