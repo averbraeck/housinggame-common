@@ -22,6 +22,10 @@ For each `housemeasure`, look at the corresponding `measuretype`. The `measurety
 The house can also have one or more `initialhousemeasure` records that are activated in a certain round. The `initialhousemeasure` is translated at the start of the round into regular `housemeasure` records. For calculating the `house_satisfaction`, the algorithm does not have to look at `initialhousemeasure` as a result.
 
 
+### Calculation of flood damage
+In each round, flood damage can occur to the house that influences the satisfaction for that round. 
+
+
 ### Calculation of `house_satisfaction`
 The value of `housegroup.house_satisfaction` is calculated by adding the _valid housemeasures_ for all rounds up till the current round.
 Subsequently, the damage points for fluvial and pluvial flooding are subtracted.
@@ -34,3 +38,5 @@ The current value of the resulting number is always stored in `housegroup.house_
 
 ## Table `playerround`
 The table `playerround` contains a number of fields that store various aspects for satisfaction.
+
+
