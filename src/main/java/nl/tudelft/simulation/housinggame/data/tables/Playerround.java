@@ -164,10 +164,9 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> SATISFACTION_DEBT_PENALTY = createField(DSL.name("satisfaction_debt_penalty"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column
-     * <code>housinggame.playerround.satisfaction_personal_total</code>.
+     * The column <code>housinggame.playerround.satisfaction_total</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> SATISFACTION_PERSONAL_TOTAL = createField(DSL.name("satisfaction_personal_total"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+    public final TableField<PlayerroundRecord, Integer> SATISFACTION_TOTAL = createField(DSL.name("satisfaction_total"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.playerround.preferred_house_rating</code>.
