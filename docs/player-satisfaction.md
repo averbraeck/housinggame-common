@@ -2,7 +2,7 @@
 
 There are quite a number of fields that store the player satisfaction. Here, their use is defined, and it is shown how they are calculated and maintained.
 
-## `housegroup`
+## Table `housegroup`
 The table `housegroup` has a field called `house_satisfaction`. The `house_satisfaction` is calculated for the house, and exists in a sense independent of the ownership of the house. When the house is sold, the `house_satisfaction` transfers with the sale to the new owner (another player or the bank). The `house_satisfaction` is the sum of satisfaction points from `housemeasure` instances for that house, for all rounds up to and including the current round, minus the subtracted points because of fluvial or pluvial damage in each round.
 
 
@@ -18,7 +18,7 @@ For each `housemeasure`, look at the corresponding `measuretype`. The `measurety
 **Note 2**: When both `satisfaction_delta_once` and `satisfaction_delta_permanent` have a value bigger than 0, the permanent value takes precedence.
 
 
-### `housemeasure` in relation to `initialhousemeasure`
+### Table `housemeasure` in relation to table `initialhousemeasure`
 The house can also have one or more `initialhousemeasure` records that are activated in a certain round. The `initialhousemeasure` is translated at the start of the round into regular `housemeasure` records. For calculating the `house_satisfaction`, the algorithm does not have to look at `initialhousemeasure` as a result.
 
 
@@ -32,5 +32,5 @@ The current value of the resulting number is always stored in `housegroup.house_
 **Note**: For all `measuretype` measures that lead to a `housegroup` measure, the value of `measuretype.house_measure` is TRUE.
 
 
-## `playerround`
+## Table `playerround`
 The table `playerround` contains a number of fields that store various aspects for satisfaction.
