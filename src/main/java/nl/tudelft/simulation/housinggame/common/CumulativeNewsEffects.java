@@ -357,6 +357,8 @@ public class CumulativeNewsEffects
             }
         }
 
+        System.out.println(effectsMap);
+
         return effectsMap;
     }
 
