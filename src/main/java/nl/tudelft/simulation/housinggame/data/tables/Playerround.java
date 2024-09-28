@@ -97,14 +97,16 @@ public class Playerround extends TableImpl<PlayerroundRecord> {
     public final TableField<PlayerroundRecord, Integer> COST_TAXES = createField(DSL.name("cost_taxes"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.playerround.cost_measures_bought</code>.
+     * The column
+     * <code>housinggame.playerround.cost_house_measures_bought</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> COST_MEASURES_BOUGHT = createField(DSL.name("cost_measures_bought"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+    public final TableField<PlayerroundRecord, Integer> COST_HOUSE_MEASURES_BOUGHT = createField(DSL.name("cost_house_measures_bought"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>housinggame.playerround.cost_satisfaction_bought</code>.
+     * The column
+     * <code>housinggame.playerround.cost_personal_measures_bought</code>.
      */
-    public final TableField<PlayerroundRecord, Integer> COST_SATISFACTION_BOUGHT = createField(DSL.name("cost_satisfaction_bought"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
+    public final TableField<PlayerroundRecord, Integer> COST_PERSONAL_MEASURES_BOUGHT = createField(DSL.name("cost_personal_measures_bought"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.playerround.cost_fluvial_damage</code>.

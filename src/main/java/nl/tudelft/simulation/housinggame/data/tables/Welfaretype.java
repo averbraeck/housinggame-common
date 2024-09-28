@@ -15,13 +15,13 @@ import nl.tudelft.simulation.housinggame.data.tables.records.WelfaretypeRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
-import org.jooq.Function10;
+import org.jooq.Function9;
 import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Records;
-import org.jooq.Row10;
+import org.jooq.Row9;
 import org.jooq.Schema;
 import org.jooq.SelectField;
 import org.jooq.Table;
@@ -88,12 +88,6 @@ public class Welfaretype extends TableImpl<WelfaretypeRecord> {
      * The column <code>housinggame.welfaretype.round_income</code>.
      */
     public final TableField<WelfaretypeRecord, Integer> ROUND_INCOME = createField(DSL.name("round_income"), SQLDataType.INTEGER.nullable(false), this, "");
-
-    /**
-     * The column
-     * <code>housinggame.welfaretype.satisfaction_cost_per_point</code>.
-     */
-    public final TableField<WelfaretypeRecord, Integer> SATISFACTION_COST_PER_POINT = createField(DSL.name("satisfaction_cost_per_point"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.preferred_house_rating</code>.
@@ -221,18 +215,18 @@ public class Welfaretype extends TableImpl<WelfaretypeRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row10 type methods
+    // Row9 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row10<Integer, String, Integer, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fieldsRow() {
-        return (Row10) super.fieldsRow();
+    public Row9<Integer, String, Integer, Integer, Integer, Integer, Integer, Integer, Integer> fieldsRow() {
+        return (Row9) super.fieldsRow();
     }
 
     /**
      * Convenience mapping calling {@link SelectField#convertFrom(Function)}.
      */
-    public <U> SelectField<U> mapping(Function10<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Function9<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(Records.mapping(from));
     }
 
@@ -240,7 +234,7 @@ public class Welfaretype extends TableImpl<WelfaretypeRecord> {
      * Convenience mapping calling {@link SelectField#convertFrom(Class,
      * Function)}.
      */
-    public <U> SelectField<U> mapping(Class<U> toType, Function10<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
+    public <U> SelectField<U> mapping(Class<U> toType, Function9<? super Integer, ? super String, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? super Integer, ? extends U> from) {
         return convertFrom(toType, Records.mapping(from));
     }
 }
