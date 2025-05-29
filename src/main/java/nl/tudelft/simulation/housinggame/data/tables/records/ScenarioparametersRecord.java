@@ -4,10 +4,10 @@
 package nl.tudelft.simulation.housinggame.data.tables.records;
 
 
-import nl.tudelft.simulation.housinggame.data.tables.Scenarioparameters;
-
 import org.jooq.Record1;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import nl.tudelft.simulation.housinggame.data.tables.Scenarioparameters;
 
 
 /**

@@ -8,11 +8,6 @@ import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
-import nl.tudelft.simulation.housinggame.data.Housinggame;
-import nl.tudelft.simulation.housinggame.data.Indexes;
-import nl.tudelft.simulation.housinggame.data.Keys;
-import nl.tudelft.simulation.housinggame.data.tables.records.PlayerroundRecord;
-
 import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Identity;
@@ -27,6 +22,11 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
+
+import nl.tudelft.simulation.housinggame.data.Housinggame;
+import nl.tudelft.simulation.housinggame.data.Indexes;
+import nl.tudelft.simulation.housinggame.data.Keys;
+import nl.tudelft.simulation.housinggame.data.tables.records.PlayerroundRecord;
 
 
 /**

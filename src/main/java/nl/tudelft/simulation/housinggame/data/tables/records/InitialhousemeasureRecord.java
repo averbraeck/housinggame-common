@@ -4,13 +4,13 @@
 package nl.tudelft.simulation.housinggame.data.tables.records;
 
 
-import nl.tudelft.simulation.housinggame.data.tables.Initialhousemeasure;
-
 import org.jooq.Field;
 import org.jooq.Record1;
 import org.jooq.Record5;
 import org.jooq.Row5;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import nl.tudelft.simulation.housinggame.data.tables.Initialhousemeasure;
 
 
 /**

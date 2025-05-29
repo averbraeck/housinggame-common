@@ -7,13 +7,13 @@ package nl.tudelft.simulation.housinggame.data.tables.records;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import nl.tudelft.simulation.housinggame.data.tables.Gamesession;
-
 import org.jooq.Field;
 import org.jooq.Record1;
 import org.jooq.Record10;
 import org.jooq.Row10;
 import org.jooq.impl.UpdatableRecordImpl;
+
+import nl.tudelft.simulation.housinggame.data.tables.Gamesession;
 
 
 /**

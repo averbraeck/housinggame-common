@@ -9,11 +9,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
-import nl.tudelft.simulation.housinggame.data.Housinggame;
-import nl.tudelft.simulation.housinggame.data.Indexes;
-import nl.tudelft.simulation.housinggame.data.Keys;
-import nl.tudelft.simulation.housinggame.data.tables.records.GrouproundRecord;
-
 import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Function7;
@@ -32,6 +27,11 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
+
+import nl.tudelft.simulation.housinggame.data.Housinggame;
+import nl.tudelft.simulation.housinggame.data.Indexes;
+import nl.tudelft.simulation.housinggame.data.Keys;
+import nl.tudelft.simulation.housinggame.data.tables.records.GrouproundRecord;
 
 
 /**
