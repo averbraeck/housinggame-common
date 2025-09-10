@@ -3,7 +3,7 @@
   
   <groupId>nl.tudelft.simulation</groupId>
   <artifactId>housinggame-common</artifactId>
-  <version>1.7.1</version>
+  <version>1.7.2</version>
   <packaging>jar</packaging>
   
   <name>Housinggame common library</name>
