@@ -6,13 +6,13 @@ package nl.tudelft.simulation.housinggame.data.tables.records;
 
 import java.time.LocalDateTime;
 
+import nl.tudelft.simulation.housinggame.data.tables.Groupround;
+
 import org.jooq.Field;
 import org.jooq.Record1;
 import org.jooq.Record7;
 import org.jooq.Row7;
 import org.jooq.impl.UpdatableRecordImpl;
-
-import nl.tudelft.simulation.housinggame.data.tables.Groupround;
 
 
 /**
