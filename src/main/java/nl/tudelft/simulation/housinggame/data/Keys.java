@@ -4,12 +4,6 @@
 package nl.tudelft.simulation.housinggame.data;
 
 
-import org.jooq.ForeignKey;
-import org.jooq.TableField;
-import org.jooq.UniqueKey;
-import org.jooq.impl.DSL;
-import org.jooq.impl.Internal;
-
 import nl.tudelft.simulation.housinggame.data.tables.Community;
 import nl.tudelft.simulation.housinggame.data.tables.Gamesession;
 import nl.tudelft.simulation.housinggame.data.tables.Gameversion;
@@ -72,6 +66,12 @@ import nl.tudelft.simulation.housinggame.data.tables.records.ScenarioparametersR
 import nl.tudelft.simulation.housinggame.data.tables.records.TaxRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.UserRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.WelfaretypeRecord;
+
+import org.jooq.ForeignKey;
+import org.jooq.TableField;
+import org.jooq.UniqueKey;
+import org.jooq.impl.DSL;
+import org.jooq.impl.Internal;
 
 
 /**

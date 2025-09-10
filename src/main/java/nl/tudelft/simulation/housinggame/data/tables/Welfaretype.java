@@ -67,38 +67,38 @@ public class Welfaretype extends TableImpl<WelfaretypeRecord> {
     /**
      * The column <code>housinggame.welfaretype.initial_satisfaction</code>.
      */
-    public final TableField<WelfaretypeRecord, Integer> INITIAL_SATISFACTION = createField(DSL.name("initial_satisfaction"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> INITIAL_SATISFACTION = createField(DSL.name("initial_satisfaction"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.initial_money</code>.
      */
-    public final TableField<WelfaretypeRecord, Integer> INITIAL_MONEY = createField(DSL.name("initial_money"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> INITIAL_MONEY = createField(DSL.name("initial_money"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.maximum_mortgage</code>.
      */
-    public final TableField<WelfaretypeRecord, Integer> MAXIMUM_MORTGAGE = createField(DSL.name("maximum_mortgage"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> MAXIMUM_MORTGAGE = createField(DSL.name("maximum_mortgage"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.living_costs</code>.
      */
-    public final TableField<WelfaretypeRecord, Integer> LIVING_COSTS = createField(DSL.name("living_costs"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> LIVING_COSTS = createField(DSL.name("living_costs"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.round_income</code>.
      */
-    public final TableField<WelfaretypeRecord, Integer> ROUND_INCOME = createField(DSL.name("round_income"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> ROUND_INCOME = createField(DSL.name("round_income"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column
      * <code>housinggame.welfaretype.satisfaction_cost_per_point</code>.
      */
-    public final TableField<WelfaretypeRecord, Integer> SATISFACTION_COST_PER_POINT = createField(DSL.name("satisfaction_cost_per_point"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> SATISFACTION_COST_PER_POINT = createField(DSL.name("satisfaction_cost_per_point"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.preferred_house_rating</code>.
      */
-    public final TableField<WelfaretypeRecord, Integer> PREFERRED_HOUSE_RATING = createField(DSL.name("preferred_house_rating"), SQLDataType.INTEGER.nullable(false), this, "");
+    public final TableField<WelfaretypeRecord, Integer> PREFERRED_HOUSE_RATING = createField(DSL.name("preferred_house_rating"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.field(DSL.raw("0"), SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>housinggame.welfaretype.scenario_id</code>.

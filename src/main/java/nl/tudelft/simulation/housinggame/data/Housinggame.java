@@ -7,10 +7,6 @@ package nl.tudelft.simulation.housinggame.data;
 import java.util.Arrays;
 import java.util.List;
 
-import org.jooq.Catalog;
-import org.jooq.Table;
-import org.jooq.impl.SchemaImpl;
-
 import nl.tudelft.simulation.housinggame.data.tables.Community;
 import nl.tudelft.simulation.housinggame.data.tables.Gamesession;
 import nl.tudelft.simulation.housinggame.data.tables.Gameversion;
@@ -42,6 +38,10 @@ import nl.tudelft.simulation.housinggame.data.tables.Scenarioparameters;
 import nl.tudelft.simulation.housinggame.data.tables.Tax;
 import nl.tudelft.simulation.housinggame.data.tables.User;
 import nl.tudelft.simulation.housinggame.data.tables.Welfaretype;
+
+import org.jooq.Catalog;
+import org.jooq.Table;
+import org.jooq.impl.SchemaImpl;
 
 
 /**
