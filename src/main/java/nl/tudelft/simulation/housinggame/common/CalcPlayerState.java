@@ -10,6 +10,7 @@ import org.jooq.impl.DSL;
 import nl.tudelft.simulation.housinggame.data.Tables;
 import nl.tudelft.simulation.housinggame.data.tables.records.GroupRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.GrouproundRecord;
+import nl.tudelft.simulation.housinggame.data.tables.records.HousegroupRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.PlayerRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.PlayerroundRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.ScenarioRecord;
@@ -139,4 +140,18 @@ public class CalcPlayerState
         normalizeSatisfaction(data, pr);
     }
 
+    public static PlayerroundRecord getHouseOwnerInRound(final CommonData data, final HousegroupRecord houseGroup, final int roundNr)
+    {
+        DSLContext dslContext = DSL.using(data.getDataSource(), SQLDialect.MYSQL);
+        List<PlayerroundRecord> prrList = dslContext.selectFrom(Tables.PLAYERROUND)
+                .where(Tables.PLAYERROUND.FINAL_HOUSEGROUP_ID.eq(houseGroup.getId())).fetch();
+        PlayerroundRecord ret = null;
+        for (var prr : prrList)
+        {
+            GrouproundRecord grr = SqlUtils.readRecordFromId(data, Tables.GROUPROUND, prr.getGrouproundId());
+            if (grr.getRoundNumber() == roundNr)
+                ret = prr;
+        }
+        return ret;
+    }
 }
