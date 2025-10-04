@@ -10,6 +10,7 @@ import nl.tudelft.simulation.housinggame.data.Tables;
 import nl.tudelft.simulation.housinggame.data.tables.records.HousegroupRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.HousemeasureRecord;
 import nl.tudelft.simulation.housinggame.data.tables.records.MeasuretypeRecord;
+import nl.tudelft.simulation.housinggame.data.tables.records.PlayerroundRecord;
 
 /**
  * FPRecord stores Fluvial and Pluvial protection.
@@ -26,20 +27,41 @@ public record FluvialPluvial(int fluvial, int pluvial)
             final HousegroupRecord houseGroup)
     {
         DSLContext dslContext = DSL.using(data.getDataSource(), SQLDialect.MYSQL);
-        List<HousemeasureRecord> measureList =
-                dslContext.selectFrom(Tables.HOUSEMEASURE).where(Tables.HOUSEMEASURE.HOUSEGROUP_ID.eq(houseGroup.getId()))
-                        .fetch().sortAsc(Tables.HOUSEMEASURE.BOUGHT_IN_ROUND);
         int fluvial = 0;
         int pluvial = 0;
-        for (var measure : measureList)
+        PlayerroundRecord prr = CalcPlayerState.getHouseOwnerInRound(data, houseGroup, round);
+        if (prr == null)
         {
-            MeasuretypeRecord mt = SqlUtils.readRecordFromId(data, Tables.MEASURETYPE, measure.getMeasuretypeId());
-            // only take records that are permanent, or for one round and this is the correct round.
-            if ((measure.getBoughtInRound() <= round && mt.getValidOneRound() == 0)
-                    || (measure.getBoughtInRound() == round && mt.getValidOneRound() != 0))
+            List<HousemeasureRecord> measureList =
+                    dslContext.selectFrom(Tables.HOUSEMEASURE).where(Tables.HOUSEMEASURE.HOUSEGROUP_ID.eq(houseGroup.getId()))
+                            .fetch().sortAsc(Tables.HOUSEMEASURE.BOUGHT_IN_ROUND);
+            for (var measure : measureList)
             {
-                fluvial += mt.getFluvialProtectionDelta();
-                pluvial += mt.getPluvialProtectionDelta();
+                MeasuretypeRecord mt = SqlUtils.readRecordFromId(data, Tables.MEASURETYPE, measure.getMeasuretypeId());
+                // only take records that are permanent, or for one round and this is the correct round.
+                if ((measure.getBoughtInRound() <= round && mt.getValidOneRound() == 0)
+                        || (measure.getBoughtInRound() == round && mt.getValidOneRound() != 0))
+                {
+                    fluvial += mt.getFluvialProtectionDelta();
+                    pluvial += mt.getPluvialProtectionDelta();
+                }
+            }
+        }
+        else
+        {
+            var grr = SqlUtils.readRecordFromId(data, Tables.GROUPROUND, prr.getGrouproundId());
+            var group = SqlUtils.readRecordFromId(data, Tables.GROUP, grr.getGroupId());
+            var activeMT = MeasureTypeList.getActiveMeasureListRecords(data, group.getScenarioId(), prr);
+            for (var mt : activeMT.keySet())
+            {
+                int boughtInRound = activeMT.get(mt);
+                // only take records that are permanent, or for one round and this is the correct round.
+                if ((boughtInRound <= round && mt.getValidOneRound() == 0)
+                        || (boughtInRound == round && mt.getValidOneRound() != 0))
+                {
+                    fluvial += mt.getFluvialProtectionDelta();
+                    pluvial += mt.getPluvialProtectionDelta();
+                }
             }
         }
         return new FluvialPluvial(fluvial, pluvial);
