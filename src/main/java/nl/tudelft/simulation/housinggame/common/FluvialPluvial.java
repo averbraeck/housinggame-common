@@ -35,8 +35,8 @@ public record FluvialPluvial(int fluvial, int pluvial)
         {
             MeasuretypeRecord mt = SqlUtils.readRecordFromId(data, Tables.MEASURETYPE, measure.getMeasuretypeId());
             // only take records that are permanent, or for one round and this is the correct round.
-            if ((measure.getBoughtInRound() <= round && mt.getValidOneRound() != 0)
-                    || (measure.getBoughtInRound() == round && mt.getValidOneRound() == 0))
+            if ((measure.getBoughtInRound() <= round && mt.getValidOneRound() == 0)
+                    || (measure.getBoughtInRound() == round && mt.getValidOneRound() != 0))
             {
                 fluvial += mt.getFluvialProtectionDelta();
                 pluvial += mt.getPluvialProtectionDelta();
