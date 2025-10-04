@@ -1,7 +1,9 @@
 package nl.tudelft.simulation.housinggame.common;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
@@ -52,22 +54,46 @@ public record MeasureTypeList(MeasurecategoryRecord measureCategory, List<Measur
         return getMeasureListRecords(data, scenario.getId());
     }
 
-    public static List<MeasuretypeRecord> getActiveMeasureListRecords(final CommonData data, final int scenarioId,
+    /**
+     * Return a map of active measures with the round in which they were bought
+     * @param data the data object
+     * @param playerRound the player round we are interested in (not beyond that round)
+     * @return a map of active measures with the round in which they were bought
+     */
+    public static Map<MeasuretypeRecord, Integer> getActiveMeasureListRecords(final CommonData data, final int scenarioId,
             final PlayerroundRecord playerRound)
     {
+        Map<MeasuretypeRecord, Integer> mtMap = new LinkedHashMap<>();
+
         DSLContext dslContext = DSL.using(data.getDataSource(), SQLDialect.MYSQL);
         GrouproundRecord gr = SqlUtils.readRecordFromId(data, Tables.GROUPROUND, playerRound.getGrouproundId());
-        List<HousemeasureRecord> houseMeasureList = dslContext.selectFrom(Tables.HOUSEMEASURE)
-                .where(Tables.HOUSEMEASURE.HOUSEGROUP_ID.eq(playerRound.getFinalHousegroupId())).fetch();
         List<PlayerroundRecord> prList = dslContext.selectFrom(Tables.PLAYERROUND)
                 .where(Tables.PLAYERROUND.PLAYER_ID.eq(playerRound.getPlayerId())).fetch();
-        List<PersonalmeasureRecord> personalMeasureList = new ArrayList<>();
-        for (var pr : prList)
+
+        for (var prr : prList)
         {
-            personalMeasureList.addAll(dslContext
-                    .selectFrom(Tables.PERSONALMEASURE.where(Tables.PERSONALMEASURE.PLAYERROUND_ID.eq(pr.getId()))).fetch());
+            GrouproundRecord grr = SqlUtils.readRecordFromId(data, Tables.GROUPROUND, prr.getGrouproundId());
+            int boughtInRound = grr.getRoundNumber();
+            List<PersonalmeasureRecord> pml = dslContext
+                    .selectFrom(Tables.PERSONALMEASURE.where(Tables.PERSONALMEASURE.PLAYERROUND_ID.eq(prr.getId()))).fetch();
+            for (var pm : pml)
+            {
+                MeasuretypeRecord mt = SqlUtils.readRecordFromId(data, Tables.MEASURETYPE, pm.getMeasuretypeId());
+                // only if bought before or in round we are interested in
+                if (boughtInRound <= gr.getRoundNumber())
+                {
+                    // if not one time or (one-time and current round)
+                    if (mt.getValidOneRound() == 0
+                            || (mt.getValidOneRound() != 0 && boughtInRound == gr.getRoundNumber()))
+                    {
+                        mtMap.put(mt, boughtInRound);
+                    }
+                }
+            }
         }
-        List<MeasuretypeRecord> mtList = new ArrayList<>();
+
+        List<HousemeasureRecord> houseMeasureList = dslContext.selectFrom(Tables.HOUSEMEASURE)
+                .where(Tables.HOUSEMEASURE.HOUSEGROUP_ID.eq(playerRound.getFinalHousegroupId())).fetch();
         for (HousemeasureRecord hm : houseMeasureList)
         {
             MeasuretypeRecord mt = SqlUtils.readRecordFromId(data, Tables.MEASURETYPE, hm.getMeasuretypeId());
@@ -82,12 +108,12 @@ public record MeasureTypeList(MeasurecategoryRecord measureCategory, List<Measur
                     if (mt.getValidOneRound() == 0
                             || (mt.getValidOneRound() != 0 && hm.getBoughtInRound() == gr.getRoundNumber()))
                     {
-                        mtList.add(mt);
+                        mtMap.put(mt, hm.getBoughtInRound());
                     }
                 }
             }
         }
-        return mtList;
+        return mtMap;
     }
 
 }
