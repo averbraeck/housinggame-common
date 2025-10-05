@@ -2,6 +2,7 @@ package nl.tudelft.simulation.housinggame.common;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
@@ -123,8 +124,38 @@ public class CalcPlayerState
             playerRound.setSatisfactionTotal(Math.max(-hgSatisfaction, playerRound.getSatisfactionTotal()));
     }
 
+    public static NewsSatisfactionDelta calcNewsSatisfactionEffects(final CommonData data, final PlayerroundRecord prr)
+    {
+        GrouproundRecord grr = SqlUtils.readRecordFromId(data, Tables.GROUPROUND, prr.getGrouproundId());
+        GroupRecord group = SqlUtils.readRecordFromId(data, Tables.GROUP, grr.getGroupId());
+        ScenarioRecord scenario = SqlUtils.readRecordFromId(data, Tables.SCENARIO, group.getScenarioId());
+        int roundNr = grr.getRoundNumber();
+        Map<Integer, CumulativeNewsEffects> cumulativeNewsEffects =
+                CumulativeNewsEffects.readCumulativeNewsEffects(data.getDataSource(), scenario, roundNr);
+        int satisfactionLivingBonus = 0;
+        int satisfactionMoveChange = 0;
+        if (prr.getFinalHousegroupId() != null)
+        {
+            var houseGroup = SqlUtils.readRecordFromId(data, Tables.HOUSEGROUP, prr.getFinalHousegroupId());
+            var house = SqlUtils.readRecordFromId(data, Tables.HOUSE, houseGroup.getHouseId());
+            int newCommunityId = house.getCommunityId();
+            int oldCommunityId = -1;
+            if (prr.getStartHousegroupId() != null)
+            {
+                var stHouseGroup = SqlUtils.readRecordFromId(data, Tables.HOUSEGROUP, prr.getStartHousegroupId());
+                var stHouse = SqlUtils.readRecordFromId(data, Tables.HOUSE, stHouseGroup.getHouseId());
+                oldCommunityId = stHouse.getCommunityId();
+            }
+            satisfactionLivingBonus = cumulativeNewsEffects.get(newCommunityId).getSatisfactionLivingBonus();
+            if (oldCommunityId != newCommunityId)
+                satisfactionMoveChange = cumulativeNewsEffects.get(newCommunityId).getSatisfactionMoveChange();
+        }
+        return new NewsSatisfactionDelta(satisfactionLivingBonus, satisfactionMoveChange);
+    }
+
     public static void calculatePlayerRoundTotals(final CommonData data, final PlayerroundRecord pr)
     {
+        NewsSatisfactionDelta effects = calcNewsSatisfactionEffects(data, pr);
         PlayerroundRecord prPrev = getPrevPlayerRound(data, pr.getPlayerId());
         int incPrevRound = prPrev.getSpendableIncome();
         int satPrevRound = prPrev.getSatisfactionTotal();
@@ -134,13 +165,15 @@ public class CalcPlayerState
                         - pr.getCostPersonalMeasuresBought() - pr.getCostPluvialDamage() - pr.getCostFluvialDamage();
         int newSatisfaction = satPrevRound - pr.getSatisfactionDebtPenalty() + pr.getSatisfactionHouseRatingDelta()
                 - pr.getSatisfactionMovePenalty() + pr.getSatisfactionHouseMeasures() + pr.getSatisfactionPersonalMeasures()
-                - pr.getSatisfactionPluvialPenalty() - pr.getSatisfactionFluvialPenalty();
+                - pr.getSatisfactionPluvialPenalty() - pr.getSatisfactionFluvialPenalty() + effects.satisfactionLivingBonus()
+                + effects.satisfactionMoveChange();
         pr.setSpendableIncome(newIncome);
         pr.setSatisfactionTotal(newSatisfaction);
         normalizeSatisfaction(data, pr);
     }
 
-    public static PlayerroundRecord getHouseOwnerInRound(final CommonData data, final HousegroupRecord houseGroup, final int roundNr)
+    public static PlayerroundRecord getHouseOwnerInRound(final CommonData data, final HousegroupRecord houseGroup,
+            final int roundNr)
     {
         DSLContext dslContext = DSL.using(data.getDataSource(), SQLDialect.MYSQL);
         List<PlayerroundRecord> prrList = dslContext.selectFrom(Tables.PLAYERROUND)
